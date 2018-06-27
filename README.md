@@ -52,9 +52,7 @@
 - id				角色ID
 - name				角色名称
 - createTime		创建时间
-- permissonID		角色拥有的权限
 - description		描述角色功能
-
 
 4. 权限(permission) 仅用于记录角色表和模块的连接
 - id				权限ID

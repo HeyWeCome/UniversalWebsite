@@ -12,7 +12,6 @@ public class Role {
 	private String id;
 	private String name;
 	private String createTime;
-	private String permissionID;
 	private String description;
 	
 	/**
@@ -30,12 +29,11 @@ public class Role {
 	 * @param permissionID
 	 * @param description
 	 */
-	public Role(String id, String name, String createTime, String permissionID, String description) {
+	public Role(String id, String name, String createTime, String description) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.createTime = createTime;
-		this.permissionID = permissionID;
 		this.description = description;
 	}
 
@@ -61,14 +59,6 @@ public class Role {
 
 	public void setCreateTime(String createTime) {
 		this.createTime = createTime;
-	}
-
-	public String getPermissionID() {
-		return permissionID;
-	}
-
-	public void setPermissionID(String permissionID) {
-		this.permissionID = permissionID;
 	}
 
 	public String getDescription() {
