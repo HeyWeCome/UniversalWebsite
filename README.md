@@ -32,7 +32,7 @@
 ---
 
 #### Entity层以及数据库的构思
-1. 栏目(Column)
+1. 栏目(columns)
 - id				栏目ID
 - name      		栏目名称
 - level				栏目的级别
