@@ -11,7 +11,7 @@ public class Columns {
 	private String id;
 	private String name;
 	private String level;
-	private String parent;
+	private String parentID;
 	
 	/**
 	 * 默认构造方法
@@ -27,12 +27,12 @@ public class Columns {
 	 * @param level
 	 * @param parent
 	 */
-	public Columns(String id, String name, String level, String parent) {
+	public Columns(String id, String name, String level, String parentID) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.level = level;
-		this.parent = parent;
+		this.parentID = parentID;
 	}
 
 	public String getId() {
@@ -59,12 +59,12 @@ public class Columns {
 		this.level = level;
 	}
 
-	public String getParent() {
-		return parent;
+	public String getParentID() {
+		return parentID;
 	}
 
 	public void setParent(String parent) {
-		this.parent = parent;
+		this.parentID = parent;
 	}
 	
 	

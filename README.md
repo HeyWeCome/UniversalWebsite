@@ -36,7 +36,7 @@
 - id				栏目ID
 - name      		栏目名称
 - level				栏目的级别
-- parent			上级栏目的ID
+- parentID			上级栏目的ID
 
 2. 文章(article)
 - id				文章的ID
