@@ -11,5 +11,5 @@ package service.article;
  * @Date           2018年6月28日 上午11:10:52  
  */
 public interface IArticleManage {
-
+	String findAllArticle();
 }

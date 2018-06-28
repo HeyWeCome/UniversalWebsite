@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+
+import service.article.ArticleManage;
+
 /** 
  * @ClassName:     FindAllArticle.java 
  * @Description:   TODO(用一句话描述该文件做什么)  
@@ -22,14 +27,28 @@ public class FindAllArticle extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 解决前后格式不一致的问题
+		response.setContentType("text/json");
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
+		// 新建文章Service对象
+		ArticleManage articleManage = new ArticleManage();
+		
+		String result = articleManage.findAllArticle();
 
-
+		if(!result.isEmpty()){
+			JSONArray fromObject = (JSONArray) JSON.parse(result);
+			System.out.println("找到的所有父类模板为:"+fromObject.toString());
+			response.getWriter().print(fromObject);
+		}else{
+			response.getWriter().print(""); 
+		}
 	}
 
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+		doGet(request, response);
 	}
 
 }

@@ -8,6 +8,7 @@ import com.alibaba.fastjson.JSONArray;
 
 import entity.Employee;
 import service.account.AccountManage;
+import service.article.ArticleManage;
 import service.module.ModuleManage;
 
 /** 
@@ -19,19 +20,19 @@ import service.module.ModuleManage;
  */
 public class Main {
 	public static void main(String[] args){
-//		Employee employee = new Employee();
-//		employee.setAccount("superkang");
-//		employee.setPassWord("123456");
-//		
-//		AccountManage accountManage = new AccountManage();
-//		// 找到了就返回1，找不到就返回0
-//		int result = accountManage.searchAccount(employee);
-		
-		ModuleManage moduleManage = new ModuleManage();
+		//		Employee employee = new Employee();
+		//		employee.setAccount("superkang");
+		//		employee.setPassWord("123456");
+		//		
+		//		AccountManage accountManage = new AccountManage();
+		//		// 找到了就返回1，找不到就返回0
+		//		int result = accountManage.searchAccount(employee);
 
-		String result = moduleManage.findAllSonModule();
+		ArticleManage articleManage = new ArticleManage();
+
+		String result = articleManage.findAllArticle();
 
 		JSONArray fromObject = (JSONArray) JSON.parse(result);
-		System.out.println("找到的所有子类模板为:"+fromObject.toString());
+		System.out.println("找到的所有父类模板为:"+fromObject.toString());
 	}
 }
