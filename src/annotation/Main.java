@@ -9,6 +9,7 @@ import com.alibaba.fastjson.JSONArray;
 import entity.Employee;
 import service.account.AccountManage;
 import service.article.ArticleManage;
+import service.columns.ColumnsManage;
 import service.module.ModuleManage;
 
 /** 
@@ -28,11 +29,17 @@ public class Main {
 		//		// 找到了就返回1，找不到就返回0
 		//		int result = accountManage.searchAccount(employee);
 
-		ArticleManage articleManage = new ArticleManage();
+		// 新建栏目Service对象
+		ColumnsManage columnsManage = new ColumnsManage();
 
-		String result = articleManage.findAllArticle();
+		String result = columnsManage.getAllSonColumns();
 
-		JSONArray fromObject = (JSONArray) JSON.parse(result);
-		System.out.println("找到的所有父类模板为:"+fromObject.toString());
+		if(!result.isEmpty()){
+			JSONArray fromObject = (JSONArray) JSON.parse(result);
+			System.out.println("sonClumns are:"+fromObject.toString());
+//			response.getWriter().print(fromObject);
+		}else{
+//			response.getWriter().print(""); 
+		}
 	}
 }

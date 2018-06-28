@@ -21,6 +21,16 @@
     <servlet-name>FindAllArticle</servlet-name>
     <servlet-class>control.FindAllArticle</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>FindAllColumns</servlet-name>
+    <servlet-class>control.FindAllColumns</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FindAllSonColumns</servlet-name>
+    <servlet-class>control.FindAllSonColumns</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -40,6 +50,14 @@
   <servlet-mapping>
     <servlet-name>FindAllArticle</servlet-name>
     <url-pattern>/control/FindAllArticle</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindAllColumns</servlet-name>
+    <url-pattern>control/FindAllColumns</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindAllSonColumns</servlet-name>
+    <url-pattern>/control/FindAllSonColumns</url-pattern>
   </servlet-mapping>
 
 </web-app>
