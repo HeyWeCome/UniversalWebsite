@@ -8,12 +8,12 @@ package entity;
  * @Date           2018年6月27日 下午9:50:44
  */
 public class Employee {
-	private String id;
+	private Integer id;
 	private String name;
 	private String sex;
 	private String account;
 	private String passWord;
-	private String roleID;
+	private Integer roleID;
 	
 	/**
 	 * 默认构造方法
@@ -31,7 +31,7 @@ public class Employee {
 	 * @param passWord
 	 * @param roleID
 	 */
-	public Employee(String id, String name, String sex, String account, String passWord, String roleID) {
+	public Employee(Integer id, String name, String sex, String account, String passWord, Integer roleID) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -41,11 +41,11 @@ public class Employee {
 		this.roleID = roleID;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -81,11 +81,11 @@ public class Employee {
 		this.passWord = passWord;
 	}
 
-	public String getRoleID() {
+	public Integer getRoleID() {
 		return roleID;
 	}
 
-	public void setRoleID(String roleID) {
+	public void setRoleID(Integer roleID) {
 		this.roleID = roleID;
 	}
 }

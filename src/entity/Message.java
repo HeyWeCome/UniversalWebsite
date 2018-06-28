@@ -9,14 +9,14 @@ package entity;
  * @Date           2018年6月27日 下午9:56:23
  */
 public class Message {
-	private String id;
+	private Integer id;
 	private String content;
 	private String createTime;
 	private String reply;
-	private String employeeID;
+	private Integer employeeID;
 	private String replyTime;
 	private String status;
-	private String moduleID;
+	private Integer moduleID;
 	
 	/**
 	 * 默认构造方法
@@ -36,8 +36,8 @@ public class Message {
 	 * @param status
 	 * @param moduleID
 	 */
-	public Message(String id, String content, String createTime, String reply, String employeeID, String replyTime,
-			String status, String moduleID) {
+	public Message(Integer id, String content, String createTime, String reply, Integer employeeID, String replyTime,
+			String status, Integer moduleID) {
 		super();
 		this.id = id;
 		this.content = content;
@@ -49,11 +49,11 @@ public class Message {
 		this.moduleID = moduleID;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -81,11 +81,11 @@ public class Message {
 		this.reply = reply;
 	}
 
-	public String getEmployeeID() {
+	public Integer getEmployeeID() {
 		return employeeID;
 	}
 
-	public void setEmployeeID(String employeeID) {
+	public void setEmployeeID(Integer employeeID) {
 		this.employeeID = employeeID;
 	}
 
@@ -105,11 +105,11 @@ public class Message {
 		this.status = status;
 	}
 
-	public String getModuleID() {
+	public Integer getModuleID() {
 		return moduleID;
 	}
 
-	public void setModuleID(String moduleID) {
+	public void setModuleID(Integer moduleID) {
 		this.moduleID = moduleID;
 	}
 	

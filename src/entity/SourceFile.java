@@ -9,34 +9,34 @@ package entity;
  * @Date           2018年6月27日 下午10:07:25
  */
 public class SourceFile {
-	private String id;
-	private String articleID;
+	private Integer id;
+	private Integer articleID;
 	private String path;
 	
 	public SourceFile() {
 		super();
 	}
 
-	public SourceFile(String id, String articleID, String path) {
+	public SourceFile(Integer id, Integer articleID, String path) {
 		super();
 		this.id = id;
 		this.articleID = articleID;
 		this.path = path;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getArticleID() {
+	public Integer getArticleID() {
 		return articleID;
 	}
 
-	public void setArticleID(String articleID) {
+	public void setArticleID(Integer articleID) {
 		this.articleID = articleID;
 	}
 

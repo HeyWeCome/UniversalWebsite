@@ -9,7 +9,7 @@ package entity;
  * @Date           2018年6月27日 下午10:02:26
  */
 public class SonModule {
-	private String id;
+	private Integer id;
 	private String name;
 	private String status;
 	
@@ -27,7 +27,7 @@ public class SonModule {
 	 * @param name
 	 * @param status
 	 */
-	public SonModule(String id, String name, String status) {
+	public SonModule(Integer id, String name, String status) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -35,12 +35,12 @@ public class SonModule {
 	}
 
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

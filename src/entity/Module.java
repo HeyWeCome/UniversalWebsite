@@ -9,7 +9,7 @@ package entity;
  * @Date           2018年6月27日 下午9:56:10
  */
 public class Module {
-	private String id;
+	private Integer id;
 	private String name;
 	private String status;
 	
@@ -26,18 +26,18 @@ public class Module {
 	 * @param name
 	 * @param status
 	 */
-	public Module(String id, String name, String status) {
+	public Module(Integer id, String name, String status) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.status = status;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -9,7 +9,7 @@ package entity;
  * @Date           2018年6月27日 下午10:01:03
  */
 public class Role {
-	private String id;
+	private Integer id;
 	private String name;
 	private String createTime;
 	private String description;
@@ -29,7 +29,7 @@ public class Role {
 	 * @param permissionID
 	 * @param description
 	 */
-	public Role(String id, String name, String createTime, String description) {
+	public Role(Integer id, String name, String createTime, String description) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -37,11 +37,11 @@ public class Role {
 		this.description = description;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
