@@ -8,10 +8,10 @@ package entity;
  * @Date           2018年6月27日 下午9:40:46
  */
 public class Article {
-	private String id;
+	private Integer id;
 	private String title;
-	private String employeeID;
-	private String columnID;
+	private Integer employeeID;
+	private Integer columnID;
 	private String content;
 	private String createTime;
 	private String whetherTop;
@@ -35,7 +35,7 @@ public class Article {
 	 * @param whetherTop
 	 * @param status
 	 */
-	public Article(String id, String title, String employeeID, String columnID, String content, String createTime,
+	public Article(Integer id, String title, Integer employeeID, Integer columnID, String content, String createTime,
 			String whetherTop, String status) {
 		super();
 		this.id = id;
@@ -48,11 +48,11 @@ public class Article {
 		this.status = status;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -64,19 +64,19 @@ public class Article {
 		this.title = title;
 	}
 
-	public String getEmployeeID() {
+	public Integer getEmployeeID() {
 		return employeeID;
 	}
 
-	public void setEmployeeID(String employeeID) {
+	public void setEmployeeID(Integer employeeID) {
 		this.employeeID = employeeID;
 	}
 
-	public String getColumnID() {
+	public Integer getColumnID() {
 		return columnID;
 	}
 
-	public void setColumnID(String columnID) {
+	public void setColumnID(Integer columnID) {
 		this.columnID = columnID;
 	}
 

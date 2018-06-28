@@ -9,9 +9,9 @@ package entity;
  * @Date           2018年6月27日 下午9:58:29
  */
 public class Permisson {
-	private String id;
-	private String roleID;
-	private String moduleID;
+	private Integer id;
+	private Integer roleID;
+	private Integer moduleID;
 	
 	/**
 	 * 默认构造方法
@@ -26,34 +26,34 @@ public class Permisson {
 	 * @param roleID
 	 * @param moduleID
 	 */
-	public Permisson(String id, String roleID, String moduleID) {
+	public Permisson(Integer id, Integer roleID, Integer moduleID) {
 		super();
 		this.id = id;
 		this.roleID = roleID;
 		this.moduleID = moduleID;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getRoleID() {
+	public Integer getRoleID() {
 		return roleID;
 	}
 
-	public void setRoleID(String roleID) {
+	public void setRoleID(Integer roleID) {
 		this.roleID = roleID;
 	}
 
-	public String getModuleID() {
+	public Integer getModuleID() {
 		return moduleID;
 	}
 
-	public void setModuleID(String moduleID) {
+	public void setModuleID(Integer moduleID) {
 		this.moduleID = moduleID;
 	}
 	

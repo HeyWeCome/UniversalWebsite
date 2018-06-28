@@ -9,7 +9,11 @@ package entity;
  * @Date           2018��6��27�� ����9:56:10
  */
 public class Module {
+<<<<<<< HEAD
 	private int id;
+=======
+	private Integer id;
+>>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
 	private String name;
 	private String status;
 	
@@ -26,18 +30,30 @@ public class Module {
 	 * @param name
 	 * @param status
 	 */
+<<<<<<< HEAD
 	public Module(int id, String name, String status) {
+=======
+	public Module(Integer id, String name, String status) {
+>>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
 		super();
 		this.id = id;
 		this.name = name;
 		this.status = status;
 	}
 
+<<<<<<< HEAD
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
+=======
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+>>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
 		this.id = id;
 	}
 

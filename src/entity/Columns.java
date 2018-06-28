@@ -8,10 +8,10 @@ package entity;
  * @Date           2018年6月27日 下午9:46:38
  */
 public class Columns {
-	private String id;
+	private Integer id;
 	private String name;
 	private String level;
-	private String parentID;
+	private Integer parentID;
 	
 	/**
 	 * 默认构造方法
@@ -27,7 +27,7 @@ public class Columns {
 	 * @param level
 	 * @param parent
 	 */
-	public Columns(String id, String name, String level, String parentID) {
+	public Columns(Integer id, String name, String level, Integer parentID) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -35,11 +35,11 @@ public class Columns {
 		this.parentID = parentID;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -59,11 +59,11 @@ public class Columns {
 		this.level = level;
 	}
 
-	public String getParentID() {
+	public Integer getParentID() {
 		return parentID;
 	}
 
-	public void setParent(String parent) {
+	public void setParent(Integer parent) {
 		this.parentID = parent;
 	}
 	

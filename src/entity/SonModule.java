@@ -9,7 +9,11 @@ package entity;
  * @Date           2018��6��27�� ����10:02:26
  */
 public class SonModule {
+<<<<<<< HEAD
 	private int id;
+=======
+	private Integer id;
+>>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
 	private String name;
 	private String status;
 	private int parentModuleID;
@@ -29,7 +33,11 @@ public class SonModule {
 	 * @param name
 	 * @param status
 	 */
+<<<<<<< HEAD
 	public SonModule(int id, String name, String status) {
+=======
+	public SonModule(Integer id, String name, String status) {
+>>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
 		super();
 		this.id = id;
 		this.name = name;
@@ -37,12 +45,20 @@ public class SonModule {
 	}
 
 
+<<<<<<< HEAD
 	public int getId() {
+=======
+	public Integer getId() {
+>>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
 		return id;
 	}
 
 
+<<<<<<< HEAD
 	public void setId(int id) {
+=======
+	public void setId(Integer id) {
+>>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
 		this.id = id;
 	}
 
