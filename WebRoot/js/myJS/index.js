@@ -45,13 +45,13 @@ function loadShow(){
     		});
         }
 	});
-	
-	
-	
+		
 }
 
 function connectSonModule(data,i){
-	var sonModule = '<button class="sonModule" id="sonModule'
+	var sonModule = '<button class="sonModule" onclick="clickSonModule('
+		+data.id
+		+')" id="sonModule'
 		+i
 		+'">'
 		+data.name
