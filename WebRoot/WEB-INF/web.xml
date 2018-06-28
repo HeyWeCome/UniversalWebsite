@@ -53,7 +53,7 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>FindAllColumns</servlet-name>
-    <url-pattern>control/FindAllColumns</url-pattern>
+    <url-pattern>/control/FindAllColumns</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>FindAllSonColumns</servlet-name>

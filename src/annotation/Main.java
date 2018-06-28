@@ -37,9 +37,7 @@ public class Main {
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
 			System.out.println("sonClumns are:"+fromObject.toString());
-//			response.getWriter().print(fromObject);
 		}else{
-//			response.getWriter().print(""); 
 		}
 	}
 }
