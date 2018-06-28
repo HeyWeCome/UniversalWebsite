@@ -11,5 +11,6 @@ package service.module;
  * @Date           2018年6月28日 上午11:01:56  
  */
 public interface IModuleManage {
-
+	String findAllModule();
+	String findAllSonModule();
 }

@@ -1,7 +1,7 @@
 /**
  *FileName:showLeftMenu.java
  * @author:lmy
- *Creatdate:2018年6月28日上午10:14:38
+ *Creatdate:2018骞�6鏈�28鏃ヤ笂鍗�10:14:38
  */
 package control;
 
@@ -15,89 +15,43 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONArray;
-import dao.ModuleDao;
-import entity.Module;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+
+import service.module.ModuleManage;
 
 
 /**
- * @author lmy
- *
+ * 
+ * @ClassName:     ShowLeftMenu.java 
+ * @Description:   展示左侧任务栏  
+ * @author         Vico.Ho 
+ * @version        V1.0   
+ * @Date           2018年6月28日 下午2:53:13
  */
 public class ShowLeftMenu extends HttpServlet {
 
-	/**
-	 * Constructor of the object.
-	 */
-	public ShowLeftMenu() {
-		super();
-	}
-
-	/**
-	 * Destruction of the servlet. <br>
-	 */
-	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
-	}
-
-	/**
-	 * The doGet method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to get.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
-	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		doPost(request,response);
+		// 解决前后格式不一致的问题
+		response.setContentType("text/json");
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+
+		ModuleManage moduleManage = new ModuleManage();
+
+		String result = moduleManage.findAllModule();
+
+		JSONArray fromObject = (JSONArray) JSON.parse(result);
+		System.out.println("找到的所有父类模板为:"+fromObject.toString());
+		response.getWriter().print(fromObject);
 	}
 
-	/**
-	 * The doPost method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to post.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
-	 */
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String sql = "select * from module";
-		List<Module> resultList = new ArrayList<>();
-		resultList = ModuleDao.getModuleDao().listParent();
-		JSONArray jsonArray = net.sf.json.JSONArray.fromObject(resultList);
-		
-		response.setCharacterEncoding("UTF-8");  
-	    response.setContentType("application/json; charset=utf-8");  
-	    PrintWriter out = null;
-	    try{
-	    	out = response.getWriter();
-	    	out.append(jsonArray.toString());
-	    	System.out.println(jsonArray.toString());
-	    }catch (IOException e) {  
-	        e.printStackTrace();  
-	    }finally {  
-	        if (out != null) {  
-	            out.close();  
-	        }  
-	    }  
-	}
-
-	/**
-	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
-	 */
-	public void init() throws ServletException {
-		// Put your code here
+		doGet(request,response);
 	}
 
 }
