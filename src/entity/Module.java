@@ -3,41 +3,41 @@ package entity;
 /**
  * 
  * @ClassName:     Module.java 
- * @Description:   Ä£¿éÀà  
+ * @Description:   Ä£ï¿½ï¿½ï¿½ï¿½  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ27ÈÕ ÏÂÎç9:56:10
+ * @Date           2018ï¿½ï¿½6ï¿½ï¿½27ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:56:10
  */
 public class Module {
-	private String id;
+	private int id;
 	private String name;
 	private String status;
 	
 	/**
-	 * Ä¬ÈÏ¹¹Ôì·½·¨
+	 * Ä¬ï¿½Ï¹ï¿½ï¿½ì·½ï¿½ï¿½
 	 */
 	public Module() {
 		super();
 	}
 
 	/**
-	 * º¬²Î¹¹Ôì·½·¨
+	 * ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ì·½ï¿½ï¿½
 	 * @param id
 	 * @param name
 	 * @param status
 	 */
-	public Module(String id, String name, String status) {
+	public Module(int id, String name, String status) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.status = status;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

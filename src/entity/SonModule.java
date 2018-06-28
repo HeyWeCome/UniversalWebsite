@@ -3,18 +3,20 @@ package entity;
 /**
  * 
  * @ClassName:     SonModule.java 
- * @Description:   ×ÓÄ£¿é
+ * @Description:   ï¿½ï¿½Ä£ï¿½ï¿½
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ27ÈÕ ÏÂÎç10:02:26
+ * @Date           2018ï¿½ï¿½6ï¿½ï¿½27ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:02:26
  */
 public class SonModule {
-	private String id;
+	private int id;
 	private String name;
 	private String status;
+	private int parentModuleID;
 	
+
 	/**
-	 * Ä¬ÈÏ¹¹Ôì·½·¨
+	 * Ä¬ï¿½Ï¹ï¿½ï¿½ì·½ï¿½ï¿½
 	 */
 	public SonModule() {
 		super();
@@ -22,12 +24,12 @@ public class SonModule {
 
 
 	/**
-	 * º¬²Î¹¹Ôì·½·¨
+	 * ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ì·½ï¿½ï¿½
 	 * @param id
 	 * @param name
 	 * @param status
 	 */
-	public SonModule(String id, String name, String status) {
+	public SonModule(int id, String name, String status) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -35,12 +37,12 @@ public class SonModule {
 	}
 
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -63,6 +65,16 @@ public class SonModule {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	public int getParentModuleID() {
+		return parentModuleID;
+	}
+
+
+	public void setParentModuleID(int parentModuleID) {
+		this.parentModuleID = parentModuleID;
+	}
+
 	
 	
 }

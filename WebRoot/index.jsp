@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>通用课程后台管理界面</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -19,6 +19,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	
+	<script src="js/jquery-2.1.1.min.js"></script>
   </head>
   
   <body onload="loadShow()">
@@ -36,8 +38,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	</div>
   	<!-- 左边菜单栏整体 -->
     <div class="leftPart">
-    	
+    	<div class="firstLevelMenu" id="firstLevelMenu"></div>
     </div>
     
+    
   </body>
+  <script src="js/index.js"></script>
 </html>

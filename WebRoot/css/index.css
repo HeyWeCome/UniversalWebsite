@@ -26,7 +26,7 @@ body {
 .leftPart{
 	width:15%;
 	height:100%;
-	background-color:#baa4de;
+	background-color:#b0c4de;
 }
 .welcomeWords{
 	width: 13.5%;
@@ -48,4 +48,61 @@ body {
     margin-top: 35px;
     margin-left: 2%;
     font-family: "STHupo";
+}
+.parentModule{
+	color: #fff;
+	margin-top: 3px;
+	background-color: #337ab7;
+	/* border-color: #2e6da4; */
+	border-color: #fff;
+	display: inline-block;
+	height: 40px;
+	width: 200px;
+	font-size: 15px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 10px;
+}
+/* .sonModules{
+	display:none;
+} */
+.sonModule{
+	/* color: #fff; */
+	margin-top: 3px;
+	margin-left: 8px;
+	background-color: #fff;
+	/* border-color: #2e6da4; */
+	border-color: #fff;
+	display: inline-block;
+	height: 35px;
+    width: 190px;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 10px;
+	opacity:0.5;
 }
