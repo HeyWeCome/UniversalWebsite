@@ -1,54 +1,51 @@
-*{
-    margin:0;
-    padding:0;
+@CHARSET "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
 }
 
-body,html{
-    width: 100%;
-    height: 100%;
-    font-size: 12px;
+body {
+	width: 100%;
+	/* height: 500px; */
+	display: inline;
 }
-
-.allContact{
-    width: 80%;
-    height: 100%;
-    margin: 0 auto;
+.topContent{
+	width:100%;
+	height:150px;
+	background-color:#337ab7;
+	position:relative;
 }
-.title{
-    width: 100%;
-    height: 5%;
-    padding-top: 1%;
+.topContent1{
+	width:100%;
+	height:50px;
+	background-color:#333;
+	bottom:0px;
+	position:absolute;
+	opacity:0.5;
 }
-
-.line1{
-    width: 36.5%;
-    height: 4px;
-    background-color: lightsteelblue;
-    float: left;
-    margin-top: 1.5%;
+.leftPart{
+	width:15%;
+	height:100%;
+	background-color:#baa4de;
 }
-.title p{
-    font-family: "Microsoft YaHei";
-    font-size: 18px;
-    color: #333;
-    float: left;
-    font-weight: bold;
-    margin-left: 8%;
-    margin-right: 8%;
+.welcomeWords{
+	width: 13.5%;
+    height: 70%;
+    background-color: #fff;
+    margin-top: 9px;
+    margin-left: 10px;
+    border-radius: 25px;
 }
-.buttons{
-    width: 25%;
-    height: 50px;
-    margin-top: -3%;
+.courseLogo{
+	margin-top: 20px;
+    margin-left: 4%;
+    float:left;
 }
-.buttons button{
-    margin-right: 35px;
-    float: left;
-}
-
-.col-xs-12 h4,.col-xs-12 div{
-    float: left;
-}
-.col-xs-12 h4{
-    margin-left: 25%;
+.logoText{
+	float: left;
+    color: #fff;
+    font-size: 25px;
+    margin-top: 35px;
+    margin-left: 2%;
+    font-family: "STHupo";
 }
