@@ -23,6 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    这里是roleAssignment.jsp界面，相应js,css未建立 <br>
+    这是审核文章articleReview.jsp，对应js,css未建立 <br>
   </body>
 </html>

@@ -22,7 +22,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
-    这里是roleAssignment.jsp界面，相应js,css未建立 <br>
+  <body style="width:100%">
+    这是留言管理messageManagement.jsp，对应js,css未建立 <br>
+    这是留言管理messageManagement.jsp，对应js,css未建立 <br>
+    这是留言管理messageManagement.jsp，对应js,css未建立 <br>
   </body>
 </html>
