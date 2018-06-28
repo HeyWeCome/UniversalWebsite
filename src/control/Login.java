@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entity.Employee;
+import service.AccountManage;
 
 /**
  * 
@@ -39,7 +40,11 @@ public class Login extends HttpServlet {
 		newEmployee.setAccount(account);
 		newEmployee.setPassWord(passW);
 		
+		AccountManage accountManage = new AccountManage();
+		// 找到了就返回1，找不到就返回0
+		int result = accountManage.searchAccount(newEmployee);
 		
+		response.getWriter().println(result);
 	}
 
 	/**
