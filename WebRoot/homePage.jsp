@@ -34,4 +34,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	</div>
     </div>
   </body>
+  <script src="js/myJS/index.js"></script>
 </html>
