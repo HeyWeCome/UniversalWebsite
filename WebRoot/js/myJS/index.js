@@ -49,10 +49,8 @@ function loadShow(){
 }
 
 function connectSonModule(data,i){
-	var sonModule = '<button class="sonModule" onclick="clickSonModule('
+	var sonModule = '<button class="sonModule" id="'
 		+data.id
-		+')" id="sonModule'
-		+i
 		+'">'
 		+data.name
 		+'</button>'
