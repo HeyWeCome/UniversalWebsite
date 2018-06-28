@@ -23,4 +23,18 @@ public class SpecificDao {
 	public static String whetherAccountInTable(String account, String passWord, String tableName){
 		return "select * from "+tableName+" where account = '"+account+"' and passWord = '"+passWord+"';";
 	}
+	
+	/**
+	 * @Title:        selectAllFromTable  
+	 * @Description:  找出指定表中所有的元素
+	 * @param:        @param tableName
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月28日 下午2:35:09
+	 */
+	public static String selectAllFromTable(String tableName){
+		return "select * from "+tableName+";";
+	}
 }
