@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entity.Employee;
+
 /**
  * 
  * <p>Title: Login</p>
@@ -24,12 +26,18 @@ public class Login extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		//前端输入的账号
-		String user = request.getParameter("account");	
+		String account = request.getParameter("account");	
 		//前端输入的密码
 		String passW = request.getParameter("passWord");		
 		
 		// 用来记录从数据库中
 		String passWord = null;
+		
+		// 构造职工对象
+		Employee newEmployee = new Employee();
+		// 设置职工的账号密码
+		newEmployee.setAccount(account);
+		newEmployee.setPassWord(passW);
 		
 		
 	}
