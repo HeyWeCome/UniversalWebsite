@@ -36,9 +36,14 @@
 - id				栏目ID
 - name      		栏目名称
 - level				栏目的级别
+
+2. 子栏目(sonColumns)
+- id				栏目ID
+- name      		栏目名称
+- level				栏目的级别
 - parentID			上级栏目的ID
 
-2. 文章(article)
+3. 文章(article)
 - id				文章的ID
 - title     		文章的标题
 - employeeID		文章的作者(关联到用户ID)
@@ -48,30 +53,30 @@
 - whetherTop		是否置顶(0:不置顶 1:置顶)
 - status			文章状态(0:未审核 1: 审核通过 2:审核不通过)
 
-3. 角色(role)
+4. 角色(role)
 - id				角色ID
 - name				角色名称
 - createTime		创建时间
 - description		描述角色功能
 
-4. 权限(permission) 仅用于记录角色表和模块的连接
+5. 权限(permission) 仅用于记录角色表和模块的连接
 - id				权限ID
 - roleID			角色ID
 - moduleID			模块的ID
 
-5. 父模块(module)
+6. 父模块(module)
 - id				模块ID
 - name				模块名称
 - status			模块状态(0:禁用 1:启用)
 
-6. 子模块(sonModule)
+7. 子模块(sonModule)
 - id				模块ID
 - name				模块名称
 - status			模块状态(0:禁用 1:启用)
 - parentModuleID	父类模块ID
 
 
-7. 人员(employee)
+8. 人员(employee)
 - id				员工ID
 - name				员工姓名
 - sex				员工性别
@@ -80,7 +85,7 @@
 - roleID			角色ID
 
 
-8. 留言(message)
+9. 留言(message)
 - id				留言ID
 - content			留言内容
 - createTime		留言时间
@@ -91,7 +96,7 @@
 - moduleID			留言模块的ID
 
 
-9. 教育资源(sourceFile)
+10. 教育资源(sourceFile)
 - id				教育资源ID
 - articleID			与文章管理相关联
 - path   			存放的路径
