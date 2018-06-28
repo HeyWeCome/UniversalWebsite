@@ -1,7 +1,7 @@
 /**
  * 
  */
-package service;
+package service.module;
 
 /** 
  * @ClassName:     ModuleManage.java 
