@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -18,9 +18,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
   </head>
   
-  <body>
-    This is my JSP page. <br>
+  <body onload="loadShow()">
+  	 <!-- 顶部 -->
+  	<div class="topContent">
+  		<div >
+  			<img class="courseLogo" src="images/courseLogo1.png" width="60" height="60" />
+  			<div class="logoText">通用课程后台管理系统</div>
+  		</div>
+  		<div class="topContent1">
+  			<div class="welcomeWords">
+  				<p id="welcomeWordsText" class="welcomeWordsText"></p><!-- 要填入对应管理员欢迎语 -->
+  			</div>
+  		</div>
+  	</div>
+  	<!-- 左边菜单栏整体 -->
+    <div class="leftPart">
+    	
+    </div>
+    
   </body>
 </html>
