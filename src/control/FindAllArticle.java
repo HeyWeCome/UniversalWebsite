@@ -4,7 +4,6 @@
 package control;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -39,7 +38,7 @@ public class FindAllArticle extends HttpServlet {
 
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("找到的所有父类模板为:"+fromObject.toString());
+			System.out.println("找到的文章为:"+fromObject.toString());
 			response.getWriter().print(fromObject);
 		}else{
 			response.getWriter().print(""); 
