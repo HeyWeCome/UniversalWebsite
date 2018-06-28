@@ -18,7 +18,7 @@ import service.module.ModuleManage;
 
 /** 
  * @ClassName:     ShowSonModules.java 
- * @Description:   TODO(用一句话描述该文件做什么)  
+ * @Description:   展示所有的子类模块 
  * @author         Vico.Ho 
  * @version        V1.0   
  * @Date           2018年6月28日 下午3:03:40  
