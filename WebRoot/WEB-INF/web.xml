@@ -17,6 +17,11 @@
     <description>This is the description of my J2EE component</description>
     <servlet-class>control.ShowSonModules</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>FindAllArticle</servlet-name>
+    <servlet-class>control.FindAllArticle</servlet-class>
+  </servlet>
+
 
 
 
@@ -31,6 +36,10 @@
   <servlet-mapping>
     <servlet-name>ShowSonModules</servlet-name>
     <url-pattern>/control/ShowSonModules</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindAllArticle</servlet-name>
+    <url-pattern>/control/FindAllArticle</url-pattern>
   </servlet-mapping>
 
 </web-app>
