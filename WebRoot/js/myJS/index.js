@@ -1,34 +1,34 @@
 function loadShow(){
 	parentModuleSize=0;
 	parentModule=0;
-	//alert("进入方法");
+	//alert("杩涘叆鏂规硶");
 	$.ajax({    		
-        url:"control/ShowLeftMenu",//servlet文件的名称  
+        url:"control/ShowLeftMenu",//servlet鏂囦欢鐨勫悕绉� 
         type:"POST",  
         dataType:"json",
         //data:{"questionnaireId":"<%=questionnaireId%>"},
         success:function(data1){
-        	//alert("成功返回");
+        	//alert("鎴愬姛杩斿洖");
         	parentModule=data1;
         	var content = ''
         	parentModuleSize = data1.length; 
-        	/*显示父模块*/
+        	/*鏄剧ず鐖舵ā鍧�*/
         	for(var i=0;i<data1.length;i++){     		  	
      		  	content += connectParentModule(data1[i],i,parentModuleSize);     		   	       		   
      	   }
         	//alert(content)
         	document.getElementById("firstLevelMenu").innerHTML=content
         	
-        	/*显示子模块*/
+        	/*鏄剧ず瀛愭ā鍧�*/
         	$.ajax({    		
-    	        url:"control/ShowSonModules",//servlet文件的名称  
+    	        url:"control/ShowSonModules",//servlet鏂囦欢鐨勫悕绉� 
     	        type:"POST",  
     	        dataType:"json",
     	        //data:{"questionnaireId":"<%=questionnaireId%>"},
     	        success:function(data2){
-    	        	//alert("成功返回");
-    	        	//alert("子模块："+data2); 
-    	        	//alert("父模块："+parentModule);
+    	        	//alert("鎴愬姛杩斿洖");
+    	        	//alert("瀛愭ā鍧楋細"+data2); 
+    	        	//alert("鐖舵ā鍧楋細"+parentModule);
     	        	for(var i=0;i<parentModuleSize;i++){
     	        		var sonContent=""
     	        		for(var j=0;j<data2.length;j++){
