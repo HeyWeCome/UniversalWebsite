@@ -1,59 +1,47 @@
 package entity;
 
 /**
- * 
  * @ClassName:     Module.java 
- * @Description:   Ä£ï¿½ï¿½ï¿½ï¿½  
+ * @Description:   Ä£¿éÀà
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018ï¿½ï¿½6ï¿½ï¿½27ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:56:10
+ * @Date           2018Äê6ÔÂ28ÈÕ ÏÂÎç2:27:28
  */
 public class Module {
-<<<<<<< HEAD
-	private int id;
-=======
+
 	private Integer id;
->>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
 	private String name;
 	private String status;
 	
 	/**
-	 * Ä¬ï¿½Ï¹ï¿½ï¿½ì·½ï¿½ï¿½
+	 * 
 	 */
 	public Module() {
 		super();
 	}
 
 	/**
-	 * ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ì·½ï¿½ï¿½
+	 * º¬²Î¹¹Ôì·½·¨
 	 * @param id
 	 * @param name
 	 * @param status
 	 */
-<<<<<<< HEAD
-	public Module(int id, String name, String status) {
-=======
 	public Module(Integer id, String name, String status) {
->>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
 		super();
 		this.id = id;
 		this.name = name;
 		this.status = status;
 	}
 
-<<<<<<< HEAD
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-=======
+
+
 	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
->>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
+
 		this.id = id;
 	}
 

@@ -3,24 +3,21 @@ package entity;
 /**
  * 
  * @ClassName:     SonModule.java 
- * @Description:   ï¿½ï¿½Ä£ï¿½ï¿½
+ * @Description:   ×ÓÄ£¿éÀà  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018ï¿½ï¿½6ï¿½ï¿½27ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:02:26
+ * @Date           2018Äê6ÔÂ28ÈÕ ÏÂÎç2:28:45
  */
 public class SonModule {
-<<<<<<< HEAD
-	private int id;
-=======
+
 	private Integer id;
->>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
 	private String name;
 	private String status;
 	private int parentModuleID;
 	
 
 	/**
-	 * Ä¬ï¿½Ï¹ï¿½ï¿½ì·½ï¿½ï¿½
+	 * Ä¬ÈÏ¹¹Ôì·½·¨
 	 */
 	public SonModule() {
 		super();
@@ -28,16 +25,14 @@ public class SonModule {
 
 
 	/**
-	 * ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ì·½ï¿½ï¿½
+	 * º¬²Î¹¹Ôì·½·¨
 	 * @param id
 	 * @param name
 	 * @param status
 	 */
-<<<<<<< HEAD
-	public SonModule(int id, String name, String status) {
-=======
+
 	public SonModule(Integer id, String name, String status) {
->>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
+
 		super();
 		this.id = id;
 		this.name = name;
@@ -45,20 +40,14 @@ public class SonModule {
 	}
 
 
-<<<<<<< HEAD
-	public int getId() {
-=======
+
 	public Integer getId() {
->>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
 		return id;
 	}
 
 
-<<<<<<< HEAD
-	public void setId(int id) {
-=======
+
 	public void setId(Integer id) {
->>>>>>> 8efdd84d29a146ede1c63c30b48628e054a1c099
 		this.id = id;
 	}
 
@@ -90,7 +79,4 @@ public class SonModule {
 	public void setParentModuleID(int parentModuleID) {
 		this.parentModuleID = parentModuleID;
 	}
-
-	
-	
 }
