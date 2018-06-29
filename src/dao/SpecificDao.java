@@ -91,7 +91,7 @@ public class SpecificDao {
 	 */
 	public static String findIDFromTable(String name,String tableName){
 		// 生成sql
-		String sql = "select id from "+tableName+" where name = "+name;
+		String sql = "select id from "+tableName+" where name = '"+name+"'";
 		
 		return sql;
 	}
