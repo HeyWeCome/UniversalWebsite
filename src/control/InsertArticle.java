@@ -45,6 +45,7 @@ public class InsertArticle extends HttpServlet {
 		// 获取是否置顶
 		String whetherTop = request.getParameter("whetherTop");
 
+		System.out.println(title+" "+author+" "+columnName+" "+content+" "+whetherTop);
 		//设置日期格式
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		// new Date()为获取当前系统时间，也可使用当前时间戳
@@ -52,6 +53,7 @@ public class InsertArticle extends HttpServlet {
 		
 		// 根据用户名查询用户ID
 		String sql1 = SpecificDao.findIDFromTable(author, "employee");
+		System.out.println(sql1);
 		Integer anthorID = null;
 		try {
 			anthorID = Integer.parseInt(DBUtil.findID(sql1));
@@ -63,6 +65,7 @@ public class InsertArticle extends HttpServlet {
 		
 		// 根据栏目名称查询栏目ID
 		String sql2 = SpecificDao.findIDFromTable(columnName, "soncolumns");
+		System.out.println(sql2);
 		Integer columnID = null;
 		try {
 			columnID = Integer.parseInt(DBUtil.findID(sql1));

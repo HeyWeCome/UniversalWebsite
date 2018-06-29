@@ -87,17 +87,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                   <h4 class="modal-title">新增文章</h4>
 		               </div>
-		              <!--  <form action="???" method="post"> -->
+		            	<form action="control/InsertArticle" method="post">
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>文章标题：</h4>
 		                            <input  type="text" id="add_title" name="title"class="form-control"aria-describedby="basic-addon1"/>
 		                        </div>
-		                        <!-- <div class="col-xs-12 col-md-12">
+		                         <div class="col-xs-12 col-md-12">
 		                            <h4>作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：</h4>
 		                            <input  type="text" id="add_author" name="author" class="form-control" aria-describedby="basic-addon1"/>
-		                        </div> -->
+		                        </div> 
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>栏目名称：</h4>
 		                            <!-- <input  type="text" id="add_GRADE" name="GRADE" class="form-control" aria-describedby="basic-addon1"/> -->
@@ -116,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                        
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4 class="textAreah4" style="margin-left:8%">描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述：</h4>
-		                            <textarea class="textArea" rows="6" cols="50"></textarea>
+		                            <textarea class="textArea" name="content" rows="6" cols="50"></textarea>
 		                        </div>
 		                        
 		                        
@@ -126,7 +126,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 		                    <button type="submit" class="btn btn-primary" >新增</button>
 		                </div>
-		               <!-- </form> -->
+		                </form> 
 		           </div>
 		       </div>
 		   </div>
