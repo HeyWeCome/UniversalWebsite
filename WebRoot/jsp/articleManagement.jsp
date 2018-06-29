@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                   <h4 class="modal-title">上传资源</h4>
 		               </div>
-		              <!--  <form action="???" method="post"> -->
+		              <form action="control/UploadServlet" method="post" enctype="multipart/form-data">
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
@@ -73,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 		                    <button type="submit" class="btn btn-primary" >上传</button>
 		                </div>
-		               <!-- </form> -->
+		               </form>
 		           </div>
 		       </div>
 		   </div>
