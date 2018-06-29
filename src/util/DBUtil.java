@@ -175,7 +175,7 @@ public class DBUtil {
 				String whetherTop = result.getString("whetherTop");
 				
 				if(whetherTop.equals("1")){
-					whetherTop = "置顶";
+					whetherTop = "是";
 				}else{
 					whetherTop = "否";
 				}
