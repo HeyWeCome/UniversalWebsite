@@ -1,4 +1,4 @@
-function showLoad(){
+function showAllColumns(){
 	parentColumnsSize=0;
 	parentColumns=0;
 	//alert("进入方法");
@@ -34,7 +34,7 @@ function showLoad(){
     	        				sonContent+=connectSonColumns(data2[j],j);
     	        			}
     	        		}
-    	        		document.getElementById("sonColumns"+i).innerHTML=sonContent
+    	        		document.getElementById("sonColumns1"+i).innerHTML=sonContent
     	        	}
                 }
             });
@@ -43,14 +43,14 @@ function showLoad(){
 }
 /*显示父栏目*/
 function connectParentColumns(data,i){
-	var parentColumns = '<button class="parentColumns" onclick="show('
+	var parentColumns = '<button class="parentColumns" onclick="show1('
 		+i
 		+')" id="'
 		+data.id
 		+'">'
 		+data.name
 		+'</button>'
-	var sonColumns = '<div class="sonColumn" style="display:none" id="sonColumns'
+	var sonColumns = '<div class="sonColumn" style="display:none" id="sonColumns1'
 		+i
 		+'"></div>'
 	return parentColumns+sonColumns
@@ -62,11 +62,12 @@ function connectSonColumns(data,i){
 		+'">'
 		+data.name
 		+'</button>'
+	//alert(sonColumns)
 	return sonColumns
 }
 /*控制div块的显示与隐藏*/
-function show(i){
-	var sonColumns = document.getElementById("sonColumns"+i);
+function show1(i){
+	var sonColumns = document.getElementById("sonColumns1"+i);
 	if(sonColumns.style.display=="none"){
 		sonColumns.style.display="block";
 	}
@@ -80,9 +81,9 @@ function show(i){
 
 function operationIcon(value,row,index) {
     return[
-        '<img alt="img-responsive" id="check" class="img-responsive" style="float: left" data-toggle="modal" data-target="#checkModal"  src="../images/check.png" />',
-        '<img alt="img-responsive" id="edit" class="img-responsive" style="float: left" data-toggle="modal" data-target="#editModal" src="../images/edit.png" />',
-        '<img alt="img-responsive" id="delete" class="img-responsive" style="float: left" src="../images/delete.png" />'
+        '<img alt="img-responsive" id="check" class="img-responsive" style="float: left" data-toggle="modal" data-target="#checkModal"  src="images/check.png" />',
+        '<img alt="img-responsive" id="edit" class="img-responsive" style="float: left" data-toggle="modal" data-target="#editModal" src="images/edit.png" />',
+        '<img alt="img-responsive" id="delete" class="img-responsive" style="float: left" src="images/delete.png" />'
         ].join('');
 }
 
@@ -313,7 +314,7 @@ $(function () {
             valign:'middle',//垂直居中显示
             width:'20'//宽度
         },{
-            field:'creatTime',//返回值名称
+            field:'createTime',//返回值名称
             title:'创建时间',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
@@ -336,3 +337,31 @@ $(function () {
         /*事件*/
     });
 });
+
+function getColumnsName(){
+	$.ajax({    		
+        url:"control/FindAllSonColumns",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        //data:{"questionnaireId":"<%=questionnaireId%>"},
+        success:function(data1){
+        	alert("成功返回");
+        	var content=''
+        	for(var i=0;i<data1.length;i++){
+        		content+=connectSonColumn(data1[i],i);
+        	}
+        	//alert(content);
+        	document.getElementById("add_columnName").innerHTML=content
+        }
+    });
+	
+	
+}
+
+function connectSonColumn(data,i){
+	var columnOption = '<option>'
+		+data.name
+		+'</option>' 
+	//alert(columnOption);
+	return columnOption
+}
