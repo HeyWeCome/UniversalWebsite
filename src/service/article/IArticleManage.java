@@ -16,4 +16,5 @@ import entity.Article;
 public interface IArticleManage {
 	String findAllArticle();
 	Integer InsertArticle(Article article);
+	Integer DeleteArticle(Article article);
 }

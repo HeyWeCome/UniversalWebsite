@@ -41,6 +41,11 @@
     <servlet-name>InsertArticle</servlet-name>
     <servlet-class>control.InsertArticle</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeleteArticle</servlet-name>
+    <servlet-class>control.DeleteArticle</servlet-class>
+  </servlet>
+
 
 
 
@@ -85,6 +90,10 @@
   <servlet-mapping>
     <servlet-name>InsertArticle</servlet-name>
     <url-pattern>/control/InsertArticle</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteArticle</servlet-name>
+    <url-pattern>/control/DeleteArticle</url-pattern>
   </servlet-mapping>
 
 </web-app>

@@ -42,7 +42,7 @@ public class Main {
 		
 		// 如果执行插入语句成功则返回：1    否则返回：0
 		ArticleManage newArticleManage = new ArticleManage();
-		Integer result = newArticleManage.InsertArticle(newArticle);
+		Integer result = newArticleManage.DeleteArticle(newArticle);
 		
 		System.out.println(result);
 	}
