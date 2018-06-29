@@ -11,33 +11,28 @@ import service.account.AccountManage;
 import service.article.ArticleManage;
 import service.columns.ColumnsManage;
 import service.module.ModuleManage;
+import service.role.RoleManage;
 
-/** 
+/**
+ * 
  * @ClassName:     Main.java 
- * @Description:   ÓÃÀ´²âÊÔµÄ£¬¼ÇµÃÉ¾µô 
+ * @Description:   æµ‹è¯•ç±»è®°å¾—åˆ é™¤
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÉÏÎç10:22:23  
+ * @Date           2018å¹´6æœˆ29æ—¥ ä¸‹åˆ2:56:50
  */
 public class Main {
 	public static void main(String[] args){
-		//		Employee employee = new Employee();
-		//		employee.setAccount("superkang");
-		//		employee.setPassWord("123456");
-		//		
-		//		AccountManage accountManage = new AccountManage();
-		//		// ÕÒµ½ÁË¾Í·µ»Ø1£¬ÕÒ²»µ½¾Í·µ»Ø0
-		//		int result = accountManage.searchAccount(employee);
-
-		// ĞÂ½¨À¸Ä¿Service¶ÔÏó
-		ColumnsManage columnsManage = new ColumnsManage();
-
-		String result = columnsManage.getAllSonColumns();
+		ArticleManage articleManage = new ArticleManage();
+		
+		String result = articleManage.findAllArticle();
 
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("sonClumns are:"+fromObject.toString());
+			System.out.println("articles are:"+fromObject.toString());
+//			response.getWriter().print(fromObject);
 		}else{
+//			response.getWriter().print(""); 
 		}
 	}
 }

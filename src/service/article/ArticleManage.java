@@ -6,30 +6,32 @@ package service.article;
 import dao.SpecificDao;
 import util.DBUtil;
 
-/** 
+/**
+ * 
  * @ClassName:     ArticleManage.java 
- * @Description:   ÎÄÕÂ·½·¨ÊµÏÖÀà 
+ * @Description:   æ–‡ç« èµ„æºç®¡ç†  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÉÏÎç11:11:21  
+ * @Date           2018å¹´6æœˆ29æ—¥ ä¸‹åˆ2:45:41
  */
 public class ArticleManage implements IArticleManage{
 
-	/**  
+	/**
+	 * 
 	 * @Title:        findAllArticle  
-	 * @Description:  ÕÒµ½ËùÓĞÎÄÕÂ
+	 * @Description:  æ‰¾åˆ°æ‰€æœ‰æ–‡ç«   
 	 * @author        Vico.Ho 
-	 * @Date          2018Äê6ÔÂ28ÈÕ ÏÂÎç3:38:43  
-	 */  
+	 * @Date          2018å¹´6æœˆ29æ—¥ ä¸‹åˆ2:45:58
+	 */
 	@Override
 	public String findAllArticle() {
-		// Éú³É´ÓÎÄÕÂ±íÖĞËùÓĞµÄÄÚÈİ
-		String sql = SpecificDao.selectAllFromTable("article");
-		// ÓÃÀ´´æ´¢´ÓÊı¾İ¿â±íÖĞ²éÑ¯µ½µÄ½á¹û
+		// å¾—åˆ°éœ€è¦æ‰§è¡Œçš„sql
+		String sql = SpecificDao.selectAllArticle();
+		// æ•°æ®åº“æ“ä½œåçš„ç»“æœ
 		String result = null;
 		
-		System.out.println("Ö´ĞĞµÄsqlÓï¾äÎª:"+sql);
-		// Ö´ĞĞ»ñÈ¡ÎÄÕÂµÄ²Ù×÷
+		System.out.println("Ö´è¦æ‰§è¡Œçš„sqlä¸ºï¼š"+sql);
+		
 		try {
 			result = DBUtil.findAllArticle(sql);
 			return result;

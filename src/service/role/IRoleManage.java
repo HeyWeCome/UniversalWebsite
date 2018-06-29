@@ -3,13 +3,14 @@
  */
 package service.role;
 
-/** 
+/**
+ * 
  * @ClassName:     IRoleManage.java 
- * @Description:   ½ÇÉ«¹ÜÀí½Ó¿Ú·½·¨Àà  
+ * @Description:   è§’è‰²ç®¡ç†çš„æ¥å£ 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÉÏÎç11:15:11  
+ * @Date           2018å¹´6æœˆ29æ—¥ ä¸‹åˆ2:48:10
  */
 public interface IRoleManage {
-
+	String findAllRole();
 }

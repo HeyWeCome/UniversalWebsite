@@ -3,38 +3,70 @@ package dao;
 /**
  * 
  * @ClassName:     SpecificDao.java 
- * @Description:   ¶ÔÊı¾İ¿â²Ù×÷µÄÌØÊâÀà
+ * @Description:   ç‰¹æ®Šçš„sqlè¯­å¥ç”Ÿæˆç±» 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ27ÈÕ ÏÂÎç10:31:59
+ * @Date           2018å¹´6æœˆ29æ—¥ ä¸‹åˆ2:53:23
  */
 public class SpecificDao {
 	/**
+	 * 
 	 * @Title:        whetherAccountInTable  
-	 * @Description:  ÓÃÀ´²éÕÒÖ¸¶¨±íÖĞÊÇ·ñ´æÔÚÖ¸¶¨ÕËºÅ 
-	 * @param:        @param id
+	 * @Description:  åˆ¤æ–­è´¦å·æ˜¯å¦å­˜åœ¨  
+	 * @param:        @param account
+	 * @param:        @param passWord
 	 * @param:        @param tableName
 	 * @param:        @return     
 	 * @return:       String     
 	 * @throws  
 	 * @author        Vico.Ho 
-	 * @Date          2018Äê6ÔÂ28ÈÕ ÉÏÎç9:52:32
+	 * @Date          2018å¹´6æœˆ29æ—¥ ä¸‹åˆ2:53:43
 	 */
 	public static String whetherAccountInTable(String account, String passWord, String tableName){
 		return "select * from "+tableName+" where account = '"+account+"' and passWord = '"+passWord+"';";
 	}
 	
 	/**
+	 * 
 	 * @Title:        selectAllFromTable  
-	 * @Description:  ÕÒ³öÖ¸¶¨±íÖĞËùÓĞµÄÔªËØ
+	 * @Description:  è¿”å›æŒ‡å®štableæ‰€æœ‰çš„å†…å®¹ 
 	 * @param:        @param tableName
 	 * @param:        @return     
 	 * @return:       String     
 	 * @throws  
 	 * @author        Vico.Ho 
-	 * @Date          2018Äê6ÔÂ28ÈÕ ÏÂÎç2:35:09
+	 * @Date          2018å¹´6æœˆ29æ—¥ ä¸‹åˆ2:53:59
 	 */
 	public static String selectAllFromTable(String tableName){
 		return "select * from "+tableName+";";
+	}
+	
+	/**
+	 * 
+	 * @Title:        selectAllArticle  
+	 * @Description:  é€‰æ‹©æ‰€æœ‰çš„æ–‡ç« ,æŒ‰ç…§å‰å°æŒ‡å®šæ ¼å¼è¿”å›
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018å¹´6æœˆ29æ—¥ ä¸‹åˆ3:00:43
+	 */
+	public static String selectAllArticle(){
+		String sql = "SELECT" +
+				"	article.title," +
+				"	employee.NAME AS roleName," +
+				"	sonColumns.NAME AS columnsName," +
+				"	article.createTime," +
+				"	article.whetherTop " +
+				"FROM " +
+				"	article," +
+				"	sonColumns," +
+				"	employee " +
+				"WHERE " +
+				"article.columnID = sonColumns.id " +
+				"AND article.employeeID = employee.id";
+		
+		return sql;
+		
 	}
 }

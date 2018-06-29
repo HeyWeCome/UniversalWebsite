@@ -100,7 +100,7 @@
 - id				教育资源ID
 - articleID			与文章管理相关联
 - path   			存放的路径
-
+- name				教育资源的名称
 ---
 
 #### Server层

@@ -15,7 +15,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -168,20 +168,17 @@ public class DBUtil {
 		try {
 			// 相对应的读出文章每一行的所有元素内容
 			while(result.next()){
-				String id = result.getString("id");
 				String title = result.getString("title");
-				String employeeID = result.getString("employeeID");
-				String columnID = result.getString("columnID");
-				String content = result.getString("content");
+				String author = result.getString("roleName");
+				String columnName = result.getString("columnsName");
 				String createTime = result.getString("createTime");
 				String whetherTop = result.getString("whetherTop");
-				String status = result.getString("status");
 				
-				returnResult += "{\"id\":\""+id+"\",\"title\":\""+title+"\",\"employeeID\":\""+employeeID
-						+"\",\"columnID\":\""+columnID+"\",\"content\":\""+content
+				returnResult += "{\"title\":\""+title
+						+"\",\"author\":\""+author
+						+"\",\"columnName\":\""+columnName
 						+"\",\"createTime\":\""+createTime
 						+"\",\"whetherTop\":\""+whetherTop
-						+"\",\"status\":\""+status
 						+"\"},";
 			}
 
@@ -288,4 +285,48 @@ public class DBUtil {
 	}
 	
 	
+	/**
+	 * 
+	 * @Title:        findAllRoles  
+	 * @Description:  找到所有的角色  
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月29日 下午2:54:47
+	 */
+	public static String findAllRoles(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		try {
+			// 相对应的读出文章每一行的所有元素内容
+			while(result.next()){
+				String id = result.getString("id");
+				String name = result.getString("name");
+				String createTime = result.getString("createTime");
+				String description = result.getString("description");
+				returnResult += "{\"id\":\""+id+"\",\"name\":\""+name+"\",\"createTime\":\""+createTime
+						+"\",\"description\":\""+description+"\"},";
+			}
+
+			returnResult = returnResult.substring(0,returnResult.length()-1);
+			returnResult += "]";
+			// 关闭相应的链接
+			result.close();
+			statement.close();
+			connection.close();
+
+			return returnResult;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

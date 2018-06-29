@@ -3,13 +3,40 @@
  */
 package service.role;
 
-/** 
+import dao.SpecificDao;
+import util.DBUtil;
+
+/**
+ * 
  * @ClassName:     RoleManage.java 
- * @Description:   ½ÇÉ«¹ÜÀí·½·¨Àà  
+ * @Description:   è§’è‰²ç®¡ç†
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÉÏÎç11:14:44  
+ * @Date           2018å¹´6æœˆ29æ—¥ ä¸‹åˆ2:47:55
  */
 public class RoleManage implements IRoleManage{
+
+	/**  
+	 * @Title:        findAllRole  
+	 * @Description:  æ‰¾åˆ°æ‰€æœ‰çš„è§’è‰²
+	 * @author        Vico.Ho 
+	 * @Date          2018å¹´6æœˆ29æ—¥ ä¸‹åˆ2:48:37  
+	 */  
+	@Override
+	public String findAllRole() {
+		String sql = SpecificDao.selectAllFromTable("role");
+		// è¦è¿”å›çš„æ•°æ®
+		String result = null;
+		// æ‰“å°sqlè¯­å¥
+		System.out.println("è¦æ‰§è¡Œçš„sqlè¯­å¥ä¸º:"+sql);
+		
+		try {
+			result = DBUtil.findAllRoles(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }
