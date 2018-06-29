@@ -18,10 +18,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<script src="js/jquery-2.1.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 	
-	<script src="js/jquery-2.1.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    
+
+	
   </head>
   
   <body onload="loadShow()">
@@ -95,5 +102,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
   </body>
   <script src="js/myJS/index.js"></script>
-  <script src="js/bootstrap.js"></script>
+  
 </html>

@@ -30,7 +30,7 @@ body {
 }
 .leftColumns{
 	float: left;
-    height: 500px;
+    height: 120%;
     width: 15%;
     background-color: #fff;
 }

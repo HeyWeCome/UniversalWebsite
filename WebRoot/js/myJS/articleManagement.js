@@ -81,9 +81,9 @@ function show1(i){
 
 function operationIcon(value,row,index) {
     return[
-        '<img alt="img-responsive" id="check" class="img-responsive" style="float: left" data-toggle="modal" data-target="#checkModal"  src="images/check.png" />',
-        '<img alt="img-responsive" id="edit" class="img-responsive" style="float: left" data-toggle="modal" data-target="#editModal" src="images/edit.png" />',
-        '<img alt="img-responsive" id="delete" class="img-responsive" style="float: left" src="images/delete.png" />'
+        '<img alt="img-responsive" id="check" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#checkModal"  src="images/check.png" />',
+        '<img alt="img-responsive" id="edit" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#editModal" src="images/edit.png" />',
+        '<img alt="img-responsive" id="delete" class="img-responsive" style="float: left; padding-left:10px" src="images/delete.png" />'
         ].join('');
 }
 
@@ -173,7 +173,7 @@ window.operateEvents = {
 function refresh(){
     $('#articleTable').bootstrapTable('refresh', null);
 }
-
+/*
 function add() {
     var inputRight = 1;
   
@@ -212,7 +212,7 @@ function add() {
         $('#addModal').modal('hide');
     }
 
-}
+}*/
 
 
 function deletes() {
@@ -291,7 +291,7 @@ $(function () {
             title:'序号',
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
-            width:'5',//宽度
+            //width:'5',//宽度
             formatter:function (value,row,index) {//生成序号
                 return index+1;
             }
@@ -300,37 +300,37 @@ $(function () {
             title:'文章标题',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
-            width:'10'//宽度
+            //width:'10'//宽度
         },{
             field:'author',//返回值名称
             title:'作者',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
-            width:'5'//宽度
+            //width:'5'//宽度
         },{
             field:'columnName',//返回值名称
             title:'栏目名称',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
-            width:'20'//宽度
+            //width:'20'//宽度
         },{
             field:'createTime',//返回值名称
             title:'创建时间',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
-            width:'10'//宽度
+            //width:'10'//宽度
         },{
             field:'whetherTop',//返回值名称
             title:'是否置顶',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
-            width:'10'//宽度
+            //width:'10'//宽度
         },{
             field:'oprate',//返回值名称
             title:'操作',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
-            width:'10',//宽度
+            //width:'10',//宽度
             events:operateEvents,
             formatter:operationIcon
         }]//列配置项,详情请查看 列参数 表格
@@ -345,7 +345,7 @@ function getColumnsName(){
         dataType:"json",
         //data:{"questionnaireId":"<%=questionnaireId%>"},
         success:function(data1){
-        	alert("成功返回");
+        	//alert("成功返回");
         	var content=''
         	for(var i=0;i<data1.length;i++){
         		content+=connectSonColumn(data1[i],i);
