@@ -15,7 +15,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -50,7 +50,7 @@ public class DBUtil {
 		int flag = 0;	//	用来记录是否找到找到了账号
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(sql);
-
+		
 		if(resultSet.next()){
 			flag = 1;
 		}
@@ -66,6 +66,44 @@ public class DBUtil {
 			connection.close();
 			return 0;
 		}
+
+	}
+	
+	/**
+	 * 
+	 * @Title:        findUserName  
+	 * @Description:  找到用户名  
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       int     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月29日 下午9:05:08
+	 */
+	public static String findUserName(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			String name = result.getString("name");
+
+
+			returnResult += "{\"name\":\""+name+"\"},";
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
 
 	}
 	
@@ -361,7 +399,7 @@ public class DBUtil {
 			while(result.next()){
 				String id = result.getString("id");
 
-				returnResult += "{\"id\":\""+id+"\"},";
+				return id;
 			}
 
 			returnResult = returnResult.substring(0,returnResult.length()-1);

@@ -1,4 +1,5 @@
 function loadShow(){
+	console.log("当前账号为:"+$.cookie("userName"));
 	parentModuleSize=0;
 	parentModule=0;
 	//alert("进入方法");

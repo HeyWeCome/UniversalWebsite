@@ -45,6 +45,11 @@
     <servlet-name>DeleteArticle</servlet-name>
     <servlet-class>control.DeleteArticle</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>FindUserName</servlet-name>
+    <servlet-class>control.FindUserName</servlet-class>
+  </servlet>
+
 
 
 
@@ -94,6 +99,10 @@
   <servlet-mapping>
     <servlet-name>DeleteArticle</servlet-name>
     <url-pattern>/control/DeleteArticle</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindUserName</servlet-name>
+    <url-pattern>/control/FindUserName</url-pattern>
   </servlet-mapping>
 
 </web-app>
