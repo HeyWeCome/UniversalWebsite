@@ -3,8 +3,11 @@
  */
 package service.article;
 
+import dao.GeneralDao;
 import dao.SpecificDao;
+import entity.Article;
 import util.DBUtil;
+import util.InSertDBUtil;
 
 /**
  * 
@@ -40,6 +43,32 @@ public class ArticleManage implements IArticleManage{
 		}
 		
 		return null;
+	}
+
+	/**  
+	 * @Title:        InsertArticle  
+	 * @Description:  插入文章
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月29日 下午4:33:44  
+	 */  
+	@Override
+	public Integer InsertArticle(Article article) {
+		String sql = null;
+		try {
+			sql = GeneralDao.generalInsertSQL(article);
+			System.out.println("要执行的sql为:"+sql);
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		
+		// 如果执行插入语句成功则返回：1    否则返回：0
+		try {
+			int result = InSertDBUtil.insertArticle(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 }

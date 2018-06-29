@@ -1,0 +1,76 @@
+/**
+ * 
+ */
+package util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import entity.Article;
+
+/** 
+ * @ClassName:     InSertDBUtil.java 
+ * @Description:   用来执行操作操作的工具类 
+ * @author         Vico.Ho 
+ * @version        V1.0   
+ * @Date           2018年6月29日 下午4:34:24  
+ */
+public class InSertDBUtil {
+	// 连接数据库
+	public static Connection getConnection() throws Exception{
+		String driverName = "com.mysql.jdbc.Driver";
+
+		String url = "jdbc:mysql://localhost:3306/universalwebsite";
+
+		// 换成你们各自对应的账号密码
+		String userName = "root";
+		String userPWD = "123456";
+
+		Class.forName(driverName);
+
+		Connection conn = DriverManager.getConnection(url,userName,userPWD);
+
+		return conn;
+	}
+
+	public static boolean execute(String sql) throws Exception{
+		Connection connection = getConnection();
+
+		Statement statement = connection.createStatement();
+
+		return statement.execute(sql);
+
+	}
+	
+	/**
+	 * 
+	 * @Title:        insertArticle  
+	 * @Description:  插入文章  
+	 * @param:        @param article
+	 * @param:        @return     
+	 * @return:       int     
+	 * @throws Exception 
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月29日 下午4:38:10
+	 */
+	public static int insertArticle(String sql) throws Exception{
+		Connection connection = getConnection();
+		Statement statement = connection.createStatement();
+
+		if(statement.executeUpdate(sql) == 1){
+			// 关闭相应的链接
+			statement.close();
+			connection.close();
+			return 1;
+		}else{
+			// 关闭相应的链接
+			statement.close();
+			connection.close();
+			return 0;
+		}
+	}
+}

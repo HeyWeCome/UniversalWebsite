@@ -37,6 +37,11 @@
     <servlet-name>FindAllRole</servlet-name>
     <servlet-class>control.FindAllRole</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>InsertArticle</servlet-name>
+    <servlet-class>control.InsertArticle</servlet-class>
+  </servlet>
+
 
 
 
@@ -76,6 +81,10 @@
   <servlet-mapping>
     <servlet-name>FindAllRole</servlet-name>
     <url-pattern>/control/FindAllRole</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InsertArticle</servlet-name>
+    <url-pattern>/control/InsertArticle</url-pattern>
   </servlet-mapping>
 
 </web-app>
