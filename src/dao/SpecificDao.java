@@ -54,17 +54,17 @@ public class SpecificDao {
 	public static String selectAllArticle(){
 		String sql = "SELECT" +
 				"	article.title," +
-				"	role. NAME AS roleName," +
-				"	sonColumns. NAME AS columnsName," +
+				"	employee.NAME AS roleName," +
+				"	sonColumns.NAME AS columnsName," +
 				"	article.createTime," +
 				"	article.whetherTop " +
 				"FROM " +
 				"	article," +
 				"	sonColumns," +
-				"	role " +
+				"	employee " +
 				"WHERE " +
 				"article.columnID = sonColumns.id " +
-				"AND article.employeeID = role.id";
+				"AND article.employeeID = employee.id";
 		
 		return sql;
 		
