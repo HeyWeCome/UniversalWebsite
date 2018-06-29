@@ -83,7 +83,8 @@ function operationIcon(value,row,index) {
     return[
         '<img alt="img-responsive" id="check" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#checkModal"  src="images/check.png" />',
         '<img alt="img-responsive" id="edit" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#editModal" src="images/edit.png" />',
-        '<img alt="img-responsive" id="delete" class="img-responsive" style="float: left; padding-left:10px" src="images/delete.png" />'
+        '<img alt="img-responsive" id="delete" class="img-responsive" style="float: left; padding-left:10px" src="images/delete.png" />',
+        '<img alt="img-responsive" id="upload" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#uploadModal" src="images/upload.png" />'
         ].join('');
 }
 
@@ -330,7 +331,7 @@ $(function () {
             title:'操作',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
-            //width:'10',//宽度
+            //width:'15',//宽度
             events:operateEvents,
             formatter:operationIcon
         }]//列配置项,详情请查看 列参数 表格
@@ -352,6 +353,7 @@ function getColumnsName(){
         	}
         	//alert(content);
         	document.getElementById("add_columnName").innerHTML=content
+        	document.getElementById("edit_columnName").innerHTML=content
         }
     });
 	

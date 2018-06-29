@@ -44,13 +44,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div class="rightTable">
 	    <div class="buttons">
-	        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addModal">&nbsp;新增&nbsp;</button>
+	        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addModal" onclick="getColumnsName()">&nbsp;新增&nbsp;</button>
 	        <button id="del" onclick="deletes()" type="button" class="btn btn-primary ">&nbsp;删除&nbsp;</button>
 	    </div>
 	
 	    <!--表格，样式在js中定义-->
 	    <table id="articleTable" style="font-size: 12px; background-color:#b0c4de2e;">
 	    </table>
+	    
+	    <!-- 上传资源弹框 -->
+		   <div id="uploadModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+		       <div class="modal-dialog" role="document">
+		           <div class="modal-content">
+		               <div class="modal-header" style="background-color: #999">
+		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                   <h4 class="modal-title">上传资源</h4>
+		               </div>
+		              <!--  <form action="???" method="post"> -->
+		                <div class="modal-body">
+		                    <div class="row">
+		                        <div class="col-xs-12 col-md-12">
+		                            <h4>上传地址：</h4>
+		                            <input type="file" name="file" id="add_title" class="form-control"aria-describedby="basic-addon1">
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="modal-footer">
+		                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                    <button type="submit" class="btn btn-primary" >上传</button>
+		                </div>
+		               <!-- </form> -->
+		           </div>
+		       </div>
+		   </div>
+	    
 	    
 	    <!-- 新增弹框 -->
 		   <div id="addModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
@@ -65,12 +92,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>文章标题：</h4>
-		                            <input  onclick="getColumnsName()" type="text" id="add_title" name="title"class="form-control"aria-describedby="basic-addon1"/>
+		                            <input  type="text" id="add_title" name="title"class="form-control"aria-describedby="basic-addon1"/>
 		                        </div>
-		                        <div class="col-xs-12 col-md-12">
+		                        <!-- <div class="col-xs-12 col-md-12">
 		                            <h4>作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：</h4>
 		                            <input  type="text" id="add_author" name="author" class="form-control" aria-describedby="basic-addon1"/>
-		                        </div>
+		                        </div> -->
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>栏目名称：</h4>
 		                            <!-- <input  type="text" id="add_GRADE" name="GRADE" class="form-control" aria-describedby="basic-addon1"/> -->
@@ -86,6 +113,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                        		<option>是</option>
 		                        	</select>
 		                        </div>
+		                        
+		                        <div class="col-xs-12 col-md-12">
+		                            <h4 class="textAreah4" style="margin-left:8%">描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述：</h4>
+		                            <textarea class="textArea" rows="6" cols="50"></textarea>
+		                        </div>
+		                        
 		                        
 		                    </div>
 		                </div>
@@ -114,27 +147,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                           <input readonly="true" type="text" id="check_title" name="title"class="form-control"aria-describedby="basic-addon1"/><!--设置不可编辑-->
 		                       </div>
 		                       <div class="col-xs-12 col-md-12">
-		                           <h4>作者：</h4>
+		                           <h4>作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：</h4>
 		                           <input  readonly="true" type="text" id="check_author" name="author" class="form-control" aria-describedby="basic-addon1"/>
 		                       </div>
 		                       <div class="col-xs-12 col-md-12">
 		                           <h4>栏目名称：</h4>
 		                           <!-- <input  readonly="true" type="text" id="check_SEX" name="SEX" class="form-control" aria-describedby="basic-addon1"/> -->
-		                       	<select readonly="true" class="form-control" id="check_columnName" name="columnName">
-		                       		<option>男</option>
-		                       		<option>女</option>
-		                       	</select>
+		                       		<input readonly="true" type="text" class="form-control" id="check_columnName" name="columnName" aria-describedby="basic-addon1" style="width:33%"/>		                       		
 		                       </div>
+		                    
 		                       <div class="col-xs-12 col-md-12">
 		                           <h4>创建时间：</h4>
 		                           <input  readonly="true" type="text" id="check_createTime" name="createTime" class="form-control" aria-describedby="basic-addon1"/>
 		                       </div>
 		                       <div class="col-xs-12 col-md-12">
 		                           <h4>是否置顶：</h4>
-		                           <select readonly="true" class="form-control" id="check_whetherTop" name="whetherTop">
-		                       		<option>否</option>
-		                       		<option>是</option>
-		                       	   </select>
+		                           <input readonly="true" class="form-control" id="check_whetherTop" name="whetherTop" style="width:33%"/>
+
 		                       </div>
 		                       
 		                   </div>
@@ -162,24 +191,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>文章标题：</h4>
-		                            <input  readonly="true" type="text" id="edit_title" name="title"class="form-control"aria-describedby="basic-addon1"/>
+		                            <input  onclick="getColumnsName()" type="text" id="edit_title" name="title"class="form-control"aria-describedby="basic-addon1"/>
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
-		                            <h4>作者：</h4>
+		                            <h4>作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：</h4>
 		                            <input  type="text" id="edit_author" name="author" class="form-control" aria-describedby="basic-addon1"/>
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>栏目名称：</h4>
 		                            <!-- <input  type="text" id="edit_SEX" name="SEX" class="form-control" aria-describedby="basic-addon1"/> -->
-		                        	<select class="form-control" id="check_columnName" name="columnName">
-		                        		<option>男</option>
-		                        		<option>女</option>
+		                        	<select onclick="getColumnsName()" class="form-control" id="edit_columnName" name="columnName" style="width:33%">
+		                        		
 		                        	</select>
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>是否置顶：</h4>
 		                            <!-- <input  type="text" id="edit_whetherTop" name="whetherTop" class="form-control" aria-describedby="basic-addon1"/> -->
-		                        	<select class="form-control" id="check_whetherTop" name="whetherTop">
+		                        	<select class="form-control" id="edit_whetherTop" name="whetherTop" style="width:33%">
 			                       		<option>否</option>
 			                       		<option>是</option>
 		                       	   </select>
