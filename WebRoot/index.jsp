@@ -49,47 +49,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="content">
         <div id="matter1" style="display: none">
             <!--留言管理---引入外部文件，即需要在右侧加载的内容，-->
-            <jsp:include page="messageManagement.jsp"/>
+            <jsp:include page="jsp/messageManagement.jsp"/>
         </div>
 
-        <%-- <div id="matter2" style="display: none">
+        <div id="matter2" style="display: none">
         	<!--文章管理  -->
-            <jsp:include page="articleManagement.jsp"/>
-        </div> --%>
+            <jsp:include page="jsp/articleManagement.jsp"/>
+        </div>
 
         <div id="matter3" style="display: none">
         	<!--审核文章  -->
-            <jsp:include page="articleReview.jsp"/>
+            <jsp:include page="jsp/articleReview.jsp"/>
         </div>
 
         <div id="matter4" style="display: none">
         	<!--栏目管理  -->
-            <jsp:include page="columnManagement.jsp"/>
+            <jsp:include page="jsp/columnManagement.jsp"/>
         </div>
         
          <div id="matter5"  style="display: none">
             <!--权限管理-->
-            <jsp:include page="authorityManagement.jsp"/>
+            <jsp:include page="jsp/authorityManagement.jsp"/>
         </div>
 
         <div id="matter6" style="display: none">
         	<!--模块管理  -->
-            <jsp:include page="moduleManagement.jsp"/>
+            <jsp:include page="jsp/moduleManagement.jsp"/>
         </div>
 
         <div id="matter7" style="display: none">
         	<!--角色分配  -->
-            <jsp:include page="roleAssignment.jsp"/>
+            <jsp:include page="jsp/roleAssignment.jsp"/>
         </div>
 
         <div id="matter8" style="display: none">
         	<!--人员管理-->
-            <jsp:include page="personnelManagement.jsp"/>
+            <jsp:include page="jsp/personnelManagement.jsp"/>
         </div>
         
         <div id="matter9" style="display: none">
         	<!--角色管理  -->
-            <jsp:include page="roleManagement.jsp"/>
+            <jsp:include page="jsp/roleManagement.jsp"/>
         </div>
     </div>
     
