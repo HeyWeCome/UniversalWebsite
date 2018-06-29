@@ -70,6 +70,13 @@ public class SpecificDao {
 		
 	}
 	
+	public static String findUserName(String account, String passWord){
+		// 生成sql
+		return "select name from employee where account = '"+account+"' and passWord = '"+passWord+"';";
+		
+	}
+	
+	
 	/**
 	 * 
 	 * @Title:        findIDFromTable  

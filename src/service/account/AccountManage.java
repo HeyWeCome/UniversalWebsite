@@ -7,31 +7,56 @@ import util.DBUtil;
 public class AccountManage implements IAccountManage{
 
 	/**
+	 * 
 	 * @Title:        searchAccount  
-	 * @Description:  ÓÃÀ´²éÕÒ¸ÃÕËºÅÊÇ·ñ´æÔÚÓÚÊı¾İ¿âÖĞ 
-	 * @param:        @param emloyee
+	 * @Description:  TODO(è¿™é‡Œç”¨ä¸€å¥è¯æè¿°è¿™ä¸ªæ–¹æ³•çš„ä½œç”¨)  
 	 * @author        Vico.Ho 
-	 * @Date          2018Äê6ÔÂ28ÈÕ ÉÏÎç9:43:52
+	 * @Date          2018å¹´6æœˆ29æ—¥ ä¸‹åˆ9:09:20
 	 */
 	@Override
 	public Integer searchAccount(Employee employee) {
-		// »ñÈ¡ÕËºÅ
+
 		String account = employee.getAccount();
-		// »ñÈ¡ÃÜÂë
+
 		String passWord = employee.getPassWord();
 		
 		String sql = SpecificDao.whetherAccountInTable(account, passWord, "employee");
-		System.out.println("Ö´ĞĞµÄsqlÓï¾äÎª:"+sql);
+		System.out.println("Ö´ï¿½Ğµï¿½sqlï¿½ï¿½ï¿½Îª:"+sql);
 		
 		try {
-			// ÕÒµ½ÁË¾Í·µ»Ø1£¬ÕÒ²»µ½¾Í·µ»Ø0
+
 			int result = DBUtil.findAccount(sql);
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// ·¢ÉúÎ´Öª´íÎó·µ»Ø2
+
 		return 2;
+	}
+
+	/**  
+	 * @Title:        searchUserName  
+	 * @Description:  TODO(è¿™é‡Œç”¨ä¸€å¥è¯æè¿°è¿™ä¸ªæ–¹æ³•çš„ä½œç”¨)  
+	 * @author        Vico.Ho 
+	 * @Date          2018å¹´6æœˆ29æ—¥ ä¸‹åˆ9:03:43  
+	 */  
+	@Override
+	public String searchUserName(Employee emloyee) {
+		String account = emloyee.getAccount();
+
+		String passWord = emloyee.getPassWord();
+		
+		String sql = SpecificDao.findUserName(account, passWord);
+		System.out.println("Ö´è¦æ‰§è¡Œçš„sqlä¸º:"+sql);
+		
+		try {
+			
+			String result = DBUtil.findUserName(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
