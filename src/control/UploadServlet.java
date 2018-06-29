@@ -24,6 +24,9 @@ import org.apache.commons.fileupload.ProgressListener;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import entity.SourceFile;
+import service.sourcefile.SourceFileManage;
+
 /** 
  * @ClassName:     UploadServlet.java 
  * @Description:   上传文件使用的servlet  
@@ -86,9 +89,9 @@ public class UploadServlet extends HttpServlet {
 				if(item.isFormField()){
 					//表单name值
 					String name=item.getFieldName();
-					System.out.println(name);
+//					System.out.println(name);
 					//表单value值
-					System.out.println(item.getString("UTF-8"));
+//					System.out.println(item.getString("UTF-8"));
 					
 				}else{
 					//
@@ -99,9 +102,10 @@ public class UploadServlet extends HttpServlet {
 					fileName=fileName.substring(fileName.lastIndexOf("\\")+1);
 					//获取文件的扩展名
 					String fileExt=fileName.substring(fileName.lastIndexOf(".")+1);
-					System.out.println(fileExt);
-					//生成唯一的文件名
-					String trueName=UUID.randomUUID().toString()+fileName;
+//					System.out.println(fileExt);
+					//生成唯一的文件名和ID
+					String ranID = UUID.randomUUID().toString();
+					String trueName=ranID+fileName;
 					
 					InputStream is=item.getInputStream();
 					System.out.println(path+File.separator+fileName);
@@ -111,6 +115,13 @@ public class UploadServlet extends HttpServlet {
 					while( (len=is.read())!=-1 ){
 						os.write(len);
 					}
+					
+					// 新建一个资源文件类
+					SourceFile sourceFile = new SourceFile();
+					sourceFile.setName(fileName);
+					sourceFile.setPath(path+File.separator+fileName);
+					System.out.println("文件的路径"+sourceFile.getPath());
+//					SourceFileManage newSourceFileManage = new SourceFileManage();
 					os.flush();
 					os.close();
 					is.close();
