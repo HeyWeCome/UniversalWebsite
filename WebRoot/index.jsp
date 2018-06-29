@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body onload="loadShow()">
   	 <!-- 顶部 -->
   	<div class="topContent">
-  		<div >
+  		<div>
   			<img class="courseLogo" src="images/courseLogo1.png" width="60" height="60" />
   			<div class="logoText">通用课程后台管理系统</div>
   		</div>
