@@ -40,4 +40,33 @@ public class SpecificDao {
 	public static String selectAllFromTable(String tableName){
 		return "select * from "+tableName+";";
 	}
+	
+	/**
+	 * 
+	 * @Title:        selectAllArticle  
+	 * @Description:  选择所有的文章,按照前台指定格式返回
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月29日 下午3:00:43
+	 */
+	public static String selectAllArticle(){
+		String sql = "SELECT" +
+				"	article.title," +
+				"	role. NAME AS roleName," +
+				"	sonColumns. NAME AS columnsName," +
+				"	article.createTime," +
+				"	article.whetherTop " +
+				"FROM " +
+				"	article," +
+				"	sonColumns," +
+				"	role " +
+				"WHERE " +
+				"article.columnID = sonColumns.id " +
+				"AND article.employeeID = role.id";
+		
+		return sql;
+		
+	}
 }

@@ -26,7 +26,7 @@ public class ArticleManage implements IArticleManage{
 	@Override
 	public String findAllArticle() {
 		// 得到需要执行的sql
-		String sql = SpecificDao.selectAllFromTable("article");
+		String sql = SpecificDao.selectAllArticle();
 		// 数据库操作后的结果
 		String result = null;
 		

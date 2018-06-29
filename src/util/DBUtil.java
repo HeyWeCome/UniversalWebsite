@@ -168,20 +168,17 @@ public class DBUtil {
 		try {
 			// 相对应的读出文章每一行的所有元素内容
 			while(result.next()){
-				String id = result.getString("id");
 				String title = result.getString("title");
-				String employeeID = result.getString("employeeID");
-				String columnID = result.getString("columnID");
-				String content = result.getString("content");
+				String author = result.getString("roleName");
+				String columnName = result.getString("columnsName");
 				String createTime = result.getString("createTime");
 				String whetherTop = result.getString("whetherTop");
-				String status = result.getString("status");
 				
-				returnResult += "{\"id\":\""+id+"\",\"title\":\""+title+"\",\"employeeID\":\""+employeeID
-						+"\",\"columnID\":\""+columnID+"\",\"content\":\""+content
+				returnResult += "{\"title\":\""+title
+						+"\",\"author\":\""+author
+						+"\",\"columnName\":\""+columnName
 						+"\",\"createTime\":\""+createTime
 						+"\",\"whetherTop\":\""+whetherTop
-						+"\",\"status\":\""+status
 						+"\"},";
 			}
 

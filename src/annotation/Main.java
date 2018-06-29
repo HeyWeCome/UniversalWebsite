@@ -23,22 +23,13 @@ import service.role.RoleManage;
  */
 public class Main {
 	public static void main(String[] args){
-		//		Employee employee = new Employee();
-		//		employee.setAccount("superkang");
-		//		employee.setPassWord("123456");
-		//		
-		//		AccountManage accountManage = new AccountManage();
-		//		// �ҵ��˾ͷ���1���Ҳ����ͷ���0
-		//		int result = accountManage.searchAccount(employee);
-
-		// 生成角色管理service类
-		RoleManage roleManage = new RoleManage();
-
-		String result = roleManage.findAllRole();
+		ArticleManage articleManage = new ArticleManage();
+		
+		String result = articleManage.findAllArticle();
 
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("roles are:"+fromObject.toString());
+			System.out.println("articles are:"+fromObject.toString());
 //			response.getWriter().print(fromObject);
 		}else{
 //			response.getWriter().print(""); 
