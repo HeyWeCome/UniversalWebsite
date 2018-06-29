@@ -125,6 +125,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                       	</select>
 		                       </div>
 		                       <div class="col-xs-12 col-md-12">
+		                           <h4>创建时间：</h4>
+		                           <input  readonly="true" type="text" id="check_createTime" name="createTime" class="form-control" aria-describedby="basic-addon1"/>
+		                       </div>
+		                       <div class="col-xs-12 col-md-12">
 		                           <h4>是否置顶：</h4>
 		                           <select readonly="true" class="form-control" id="check_whetherTop" name="whetherTop">
 		                       		<option>否</option>

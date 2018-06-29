@@ -91,26 +91,23 @@ function operationIcon(value,row,index) {
 window.operateEvents = {
     'click #check':function (e,value,row,index) {
         //将该行数据填入模态框中
-        $('#check_ID').val(row.id);
-        $('#check_NAME').val(row.name);
-        $('#check_COLLEGE').val(row.college);
-        $('#check_MAJOR').val(row.major);
-        $('#check_SEX').val(row.sex);
-        $('#check_BIRTHDAY').val(row.birthday);
-        $('#check_SALARY').val(row.salary);
+        $('#check_title').val(row.title);
+        $('#check_author').val(row.author);
+        $('#check_columnName').val(row.columnName);
+        $('#check_createTime').val(row.createTime);
+        $('#check_whetherTop').val(row.whetherTop);
     },
 
     'click #edit':function (e,value,row,index) {
         //将该行数据填入模态框中
         $('#edit_ID').val(row.id);
-        $('#edit_NAME').val(row.name);
-        $('#edit_COLLEGE').val(row.college);
-        $('#edit_MAJOR').val(row.major);
-        $('#edit_SEX').val(row.sex);
-        $('#edit_BIRTHDAY').val(row.birthday);
-        $('#edit_SALARY').val(row.salary);
-
-        $('#btEdit').on('click',function(){
+        $('#edit_title').val(row.title);
+        $('#edit_author').val(row.author);
+        $('#edit_columnName').val(row.columnName);
+        /*$('#edit_createTime').val(row.createTime);*/
+        $('#edit_whetherTop').val(row.whetherTop);
+        
+        /*$('#btEdit').on('click',function(){
             var inputRight = 1;
             var id = $('#edit_ID').val();
             var name = $('#edit_NAME').val();
@@ -149,7 +146,7 @@ window.operateEvents = {
                 index = null;
             }
 
-        });
+        });*/
     },
 
     'click #delete':function (e,value,row,index) {

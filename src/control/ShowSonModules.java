@@ -18,17 +18,17 @@ import service.module.ModuleManage;
 
 /** 
  * @ClassName:     ShowSonModules.java 
- * @Description:   Õ¹Ê¾ËùÓĞµÄ×ÓÀàÄ£¿é 
+ * @Description:   Õ¹Ê¾ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÏÂÎç3:03:40  
+ * @Date           2018ï¿½ï¿½6ï¿½ï¿½28ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½3:03:40  
  */
 public class ShowSonModules extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// ½â¾öÇ°ºó¸ñÊ½²»Ò»ÖÂµÄÎÊÌâ
+		// ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ê½ï¿½ï¿½Ò»ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -38,7 +38,7 @@ public class ShowSonModules extends HttpServlet {
 		String result = moduleManage.findAllSonModule();
 
 		JSONArray fromObject = (JSONArray) JSON.parse(result);
-		System.out.println("ÕÒµ½µÄËùÓĞ×ÓÀàÄ£°åÎª:"+fromObject.toString());
+		System.out.println("æ‰¾åˆ°çš„æ‰€æœ‰å­æ¨¡å—ä¸º:"+fromObject.toString());
 		response.getWriter().print(fromObject);
 	}
 

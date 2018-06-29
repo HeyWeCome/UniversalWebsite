@@ -8,23 +8,23 @@ import util.DBUtil;
 
 /** 
  * @ClassName:     ModuleManage.java 
- * @Description:   Ä£¿é¹ÜÀíÀà  
+ * @Description:   Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÉÏÎç11:02:42  
+ * @Date           2018ï¿½ï¿½6ï¿½ï¿½28ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½11:02:42  
  */
 public class ModuleManage implements IModuleManage{
 
 	/**  
 	 * @Title:        findAllModule  
-	 * @Description:  ·µ»ØËùÓÐµÄ¸¸ÀàÄ£¿é
+	 * @Description:  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ¸ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 	 * @author        Vico.Ho 
-	 * @Date          2018Äê6ÔÂ28ÈÕ ÏÂÎç2:39:17  
+	 * @Date          2018ï¿½ï¿½6ï¿½ï¿½28ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:39:17  
 	 */  
 	public String findAllModule() {
 		String result = null;
 		String sql = SpecificDao.selectAllFromTable("module");
-		System.out.println("ÒªÖ´ÐÐµÄSQLÎª:"+sql);
+		System.out.println("ÒªÖ´ï¿½Ðµï¿½SQLÎª:"+sql);
 		try {
 			result = DBUtil.findAllModule(sql);
 			
@@ -37,15 +37,15 @@ public class ModuleManage implements IModuleManage{
 
 	/**  
 	 * @Title:        findAllSonModule  
-	 * @Description:  ·µ»Ø×ÓÄ£¿é 
+	 * @Description:  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ 
 	 * @author        Vico.Ho 
-	 * @Date          2018Äê6ÔÂ28ÈÕ ÏÂÎç3:06:30  
+	 * @Date          2018ï¿½ï¿½6ï¿½ï¿½28ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½3:06:30  
 	 */  
 	@Override
 	public String findAllSonModule() {
 		String result = null;
 		String sql = SpecificDao.selectAllFromTable("sonmodule");
-		System.out.println("ÒªÖ´ÐÐµÄSQLÎª:"+sql);
+		System.out.println("sql:"+sql);
 		try {
 			result = DBUtil.findAllSonModule(sql);
 			
