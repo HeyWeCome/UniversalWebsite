@@ -13,42 +13,43 @@ import service.account.AccountManage;
 
 /**
  * 
- * <p>Title: Login</p>
- * <p>Description: ¹ÜÀíÔ±»ò¸÷ÖÖÓÃ»§µÇÂ¼ºóÌ¨</p>
- * @author Vico.Ho
- * @date ÏÂÎç9:23:42
+ * @ClassName:     Login.java 
+ * @Description:   TODO(ç”¨ä¸€å¥è¯æè¿°è¯¥æ–‡ä»¶åšä»€ä¹ˆ)  
+ * @author         Vico.Ho 
+ * @version        V1.0   
+ * @Date           2018å¹´6æœˆ29æ—¥ ä¸Šåˆ10:58:19
  */
 public class Login extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ½â¾öÇ°ºó¸ñÊ½²»Ò»ÖÂµÄÎÊÌâ
+		// ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ê½ï¿½ï¿½Ò»ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		//Ç°¶ËÊäÈëµÄÕËºÅ
+		//Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
 		String account = request.getParameter("account");	
-		//Ç°¶ËÊäÈëµÄÃÜÂë
+		//Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String passW = request.getParameter("passWord");		
 		
-		// ÓÃÀ´¼ÇÂ¼´ÓÊı¾İ¿âÖĞ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½
 		String passWord = null;
 		
-		// ¹¹ÔìÖ°¹¤¶ÔÏó
+		// ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Employee newEmployee = new Employee();
-		// ÉèÖÃÖ°¹¤µÄÕËºÅÃÜÂë
+		// ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½
 		newEmployee.setAccount(account);
 		newEmployee.setPassWord(passW);
 		
 		AccountManage accountManage = new AccountManage();
-		// ÕÒµ½ÁË¾Í·µ»Ø1£¬ÕÒ²»µ½¾Í·µ»Ø0
+		// ï¿½Òµï¿½ï¿½Ë¾Í·ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½0
 		int result = accountManage.searchAccount(newEmployee);
 		
 		response.getWriter().println(result);
 	}
 
 	/**
-	 * µ÷ÓÃget·½·¨
+	 * ï¿½ï¿½ï¿½ï¿½getï¿½ï¿½ï¿½ï¿½
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

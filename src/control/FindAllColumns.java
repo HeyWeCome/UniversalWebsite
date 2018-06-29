@@ -4,7 +4,6 @@
 package control;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,27 +13,27 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 
-import service.article.ArticleManage;
 import service.columns.ColumnsManage;
 
-/** 
+/**
+ * 
  * @ClassName:     FindAllColumns.java 
- * @Description:   TODO(ÓÃÒ»¾ä»°ÃèÊö¸ÃÎÄ¼ş×öÊ²Ã´)  
+ * @Description:   TODO(ç”¨ä¸€å¥è¯æè¿°è¯¥æ–‡ä»¶åšä»€ä¹ˆ)  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÏÂÎç4:31:02  
+ * @Date           2018å¹´6æœˆ29æ—¥ ä¸Šåˆ10:58:40
  */
 public class FindAllColumns extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// ½â¾öÇ°ºó¸ñÊ½²»Ò»ÖÂµÄÎÊÌâ
+		// è§£å†³ä¹±ç 
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		// ĞÂ½¨À¸Ä¿Service¶ÔÏó
+		
 		ColumnsManage columnsManage = new ColumnsManage();
 
 		String result = columnsManage.getAllColumns();

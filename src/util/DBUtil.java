@@ -2,9 +2,7 @@ package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBUtil {
@@ -17,7 +15,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "123456";
+		String userPWD = "";
 
 		Class.forName(driverName);
 
@@ -288,4 +286,6 @@ public class DBUtil {
 		}
 		return null;
 	}
+	
+	
 }

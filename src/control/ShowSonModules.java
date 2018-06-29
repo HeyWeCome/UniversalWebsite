@@ -16,19 +16,20 @@ import com.alibaba.fastjson.JSONArray;
 
 import service.module.ModuleManage;
 
-/** 
+/**
+ * 
  * @ClassName:     ShowSonModules.java 
- * @Description:   Õ¹Ê¾ËùÓĞµÄ×ÓÀàÄ£¿é 
+ * @Description:   TODO(ç”¨ä¸€å¥è¯æè¿°è¯¥æ–‡ä»¶åšä»€ä¹ˆ)  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÏÂÎç3:03:40  
+ * @Date           2018å¹´6æœˆ29æ—¥ ä¸Šåˆ10:58:04
  */
 public class ShowSonModules extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// ½â¾öÇ°ºó¸ñÊ½²»Ò»ÖÂµÄÎÊÌâ
+		// è§£å†³ä¹±ç é—®é¢˜
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -38,7 +39,7 @@ public class ShowSonModules extends HttpServlet {
 		String result = moduleManage.findAllSonModule();
 
 		JSONArray fromObject = (JSONArray) JSON.parse(result);
-		System.out.println("ÕÒµ½µÄËùÓĞ×ÓÀàÄ£°åÎª:"+fromObject.toString());
+		System.out.println("modules are:"+fromObject.toString());
 		response.getWriter().print(fromObject);
 	}
 

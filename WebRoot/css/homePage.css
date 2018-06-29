@@ -45,3 +45,56 @@ body {
 	/* position:absolute; */
 	border-radius: 10px 10px 0px 0px;
 }
+.sonColumns{
+	float: left;
+    width: 100px;
+    height: 28px;
+    margin-left: 5px;
+    margin-top: 2px;
+    font-size: 15px;
+    background-color: #337ab7;
+    color: #fff;
+    border: 0;
+}
+.centerContent{
+	width:70%;
+	height:78%;
+	background-color:#b0c4de2e;
+	margin-right: auto;
+	margin-left: auto;
+}
+.bottom{
+	width:100%;
+	height:100px;
+	background-color: #b0c4de;
+}
+.line{
+	
+	width:100%;
+	height:2px;
+	background-color: #fff;
+}
+.text1{
+	width: 223px;
+    color: #fff;
+    font-size: 11px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 40px;
+}
+.text2{
+	width:401px;
+	color:#fff;
+	font-size:11px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.parentColumns{
+	width: 100px;
+    height: 30px;
+    margin-left: 4px;
+    margin-top: 3px;
+    background-color: #337ab7;
+    border: 0;
+    color: #fff;
+}

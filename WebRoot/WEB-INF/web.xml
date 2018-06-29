@@ -29,6 +29,11 @@
     <servlet-name>FindAllSonColumns</servlet-name>
     <servlet-class>control.FindAllSonColumns</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>control.UploadServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -58,6 +63,10 @@
   <servlet-mapping>
     <servlet-name>FindAllSonColumns</servlet-name>
     <url-pattern>/control/FindAllSonColumns</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/control/UploadServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

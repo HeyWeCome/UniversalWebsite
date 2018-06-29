@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<link rel="stylesheet" type="text/css" href="css/homePage.css" />
-	
+	<script src="js/jquery-2.1.1.min.js"></script>
   </head>
   
   <body onload="loadShow()">
@@ -29,10 +29,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<img class="cqutLogo" src="images/cqutLogo.png" width="90" height="90"/>
     		<div class="cqutText">重庆理工大学</div>
     	</div>
-    	<div class="topMenu">
-    		
-    	</div>
+    	<div class="topMenu" id="topMenu" ></div>
     </div>
+    
+    <div class="centerContent">
+    	
+    </div>
+    
+    <div class="bottom">
+    	<div class="line"></div>
+    	<div class="text1">重庆理工大学计算机科学与工程学院版权所有</div>
+    	<div class="text2">联系地址：重庆市红光大道69号（邮编：400054）  联系电话：（023）68667334</div>
+    </div>
+    
   </body>
-  <script src="js/myJS/index.js"></script>
+  <script src="js/myJS/homePage.js"></script>
 </html>

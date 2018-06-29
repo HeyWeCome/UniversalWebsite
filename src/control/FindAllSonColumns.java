@@ -16,23 +16,24 @@ import com.alibaba.fastjson.JSONArray;
 
 import service.columns.ColumnsManage;
 
-/** 
+/**
+ * 
  * @ClassName:     FindAllSonColumns.java 
- * @Description:   ÕÒµ½ËùÓĞµÄ×ÓÀ¸Ä¿ 
+ * @Description:   TODO(ç”¨ä¸€å¥è¯æè¿°è¯¥æ–‡ä»¶åšä»€ä¹ˆ)  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÏÂÎç4:48:03  
+ * @Date           2018å¹´6æœˆ29æ—¥ ä¸Šåˆ10:58:34
  */
 public class FindAllSonColumns extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// ½â¾öÇ°ºó¸ñÊ½²»Ò»ÖÂµÄÎÊÌâ
+		// ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ê½ï¿½ï¿½Ò»ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		// ĞÂ½¨À¸Ä¿Service¶ÔÏó
+		// ï¿½Â½ï¿½ï¿½ï¿½Ä¿Serviceï¿½ï¿½ï¿½ï¿½
 		ColumnsManage columnsManage = new ColumnsManage();
 
 		String result = columnsManage.getAllSonColumns();
