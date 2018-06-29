@@ -21,7 +21,7 @@ body {
 	background-color:#333;
 	bottom:0px;
 	position:absolute;
-	opacity:0.5;
+	background: rgba(0, 0, 0, 0.5);
 }
 .leftPart{
 	width:15%;
@@ -36,7 +36,25 @@ body {
     margin-top: 9px;
     margin-left: 10px;
     border-radius: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    position:relative;
 }
+.welcomeWordsText{
+	margin-left: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #143149;
+    /* background: rgba(0, 0, 0, 0.2); */
+    bottom: -2px;
+    position: absolute;
+}
+/* .welcomeWords1{
+	width: 85%;
+    height: 70%;
+    background-color:#143149;
+	background: rgba(0, 0, 0, 0.2);
+} */
 .courseLogo{
 	margin-top: 20px;
     margin-left: 4%;

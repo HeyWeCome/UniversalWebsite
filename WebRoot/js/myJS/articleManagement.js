@@ -1,4 +1,5 @@
 function showAllColumns(){
+	//console.log("当前账号为:"+$.cookie("userName"));
 	parentColumnsSize=0;
 	parentColumns=0;
 	//alert("进入方法");
@@ -354,6 +355,9 @@ function getColumnsName(){
         	//alert(content);
         	document.getElementById("add_columnName").innerHTML=content
         	document.getElementById("edit_columnName").innerHTML=content
+        	var a=$.cookie("userName")
+        	$('#add_author').val(a);
+        	
         }
     });
 	

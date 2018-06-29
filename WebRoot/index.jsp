@@ -40,8 +40,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div class="topContent1">
 			<div class="welcomeWords">
-				<p id="welcomeWordsText" class="welcomeWordsText"></p>
-				要填入对应管理员欢迎语
+				<div class="welcomeWords1">
+					<p id="welcomeWordsText" class="welcomeWordsText"></p>				
+				</div>
 			</div>
 		</div>
 	</div>
@@ -102,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 
 </body>
-<script src="js/jquery-2.1.1.min.js"></script>
+
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script src="js/myJS/index.js"></script>
 

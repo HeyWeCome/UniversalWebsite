@@ -18,7 +18,9 @@ function loadShow(){
      		  	content += connectParentModule(data1[i],i,parentModuleSize);     		   	       		   
      	   }
         	//alert(content)
+        	var welcomeWordsText="欢迎您，"+$.cookie("userName");
         	document.getElementById("firstLevelMenu").innerHTML=content
+        	document.getElementById("welcomeWordsText").innerHTML=welcomeWordsText
         	
         	/*显示子模块*/
         	$.ajax({    		

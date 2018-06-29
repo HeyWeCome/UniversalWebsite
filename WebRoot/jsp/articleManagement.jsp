@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -21,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- <script src="js/jquery-2.1.1.min.js"></script> -->
 	<link rel="stylesheet" type="text/css" href="css/articleManagement.css">
 	
-    <script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
 
@@ -95,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                        </div>
 		                         <div class="col-xs-12 col-md-12">
 		                            <h4>作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：</h4>
-		                            <input  type="text" id="add_author" name="author" class="form-control" aria-describedby="basic-addon1"/>
+		                            <input readonly="true" type="text" id="add_author" name="author" class="form-control" aria-describedby="basic-addon1"/>
 		                        </div> 
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>栏目名称：</h4>
