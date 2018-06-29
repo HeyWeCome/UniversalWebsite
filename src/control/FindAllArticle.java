@@ -15,30 +15,31 @@ import com.alibaba.fastjson.JSONArray;
 
 import service.article.ArticleManage;
 
-/** 
+/**
+ * 
  * @ClassName:     FindAllArticle.java 
- * @Description:   TODO(ÓÃÒ»¾ä»°ÃèÊö¸ÃÎÄ¼ş×öÊ²Ã´)  
+ * @Description:   æ‰¾åˆ°æ‰€æœ‰æ–‡ç« 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÏÂÎç3:32:06  
+ * @Date           2018å¹´6æœˆ29æ—¥ ä¸Šåˆ10:55:01
  */
 public class FindAllArticle extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ½â¾öÇ°ºó¸ñÊ½²»Ò»ÖÂµÄÎÊÌâ
+		// è§£å†³å‰åä¹±ç é—®é¢˜
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		// ĞÂ½¨ÎÄÕÂService¶ÔÏó
+		// ç”Ÿæˆæ–‡ç« ç®¡ç†serviceç±»
 		ArticleManage articleManage = new ArticleManage();
 		
 		String result = articleManage.findAllArticle();
 
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("ÕÒµ½µÄÎÄÕÂÎª:"+fromObject.toString());
+			System.out.println("articles are:"+fromObject.toString());
 			response.getWriter().print(fromObject);
 		}else{
 			response.getWriter().print(""); 

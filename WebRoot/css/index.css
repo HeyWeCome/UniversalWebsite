@@ -27,6 +27,7 @@ body {
 	width:15%;
 	height:100%;
 	background-color:#b0c4de;
+	float:left;
 }
 .welcomeWords{
 	width: 13.5%;
@@ -105,4 +106,9 @@ body {
 	border: 1px solid transparent;
 	border-radius: 10px;
 	opacity:0.5;
+}
+
+.content{
+	width:85%;
+	float:left;
 }

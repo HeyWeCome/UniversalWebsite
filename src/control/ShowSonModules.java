@@ -16,19 +16,23 @@ import com.alibaba.fastjson.JSONArray;
 
 import service.module.ModuleManage;
 
-/** 
+/**
+ * 
  * @ClassName:     ShowSonModules.java 
- * @Description:   չʾ���е�����ģ�� 
+ * @Description:   TODO(用一句话描述该文件做什么)  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018��6��28�� ����3:03:40  
+ * @Date           2018年6月29日 上午10:58:04
+
  */
 public class ShowSonModules extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// ���ǰ���ʽ��һ�µ�����
+
+		// 解决乱码问题
+
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -38,7 +42,9 @@ public class ShowSonModules extends HttpServlet {
 		String result = moduleManage.findAllSonModule();
 
 		JSONArray fromObject = (JSONArray) JSON.parse(result);
-		System.out.println("找到的所有子模块为:"+fromObject.toString());
+
+		System.out.println("modules are:"+fromObject.toString());
+
 		response.getWriter().print(fromObject);
 	}
 

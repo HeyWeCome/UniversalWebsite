@@ -19,6 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 	
 	<script src="js/jquery-2.1.1.min.js"></script>
   </head>
@@ -32,16 +33,67 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		</div>
   		<div class="topContent1">
   			<div class="welcomeWords">
-  				<p id="welcomeWordsText" class="welcomeWordsText"></p><!-- 要填入对应管理员欢迎语 -->
+  				<p id="welcomeWordsText" class="welcomeWordsText"></p>要填入对应管理员欢迎语
   			</div>
   		</div>
   	</div>
+  	
+  	
   	<!-- 左边菜单栏整体 -->
     <div class="leftPart">
     	<div class="firstLevelMenu" id="firstLevelMenu"></div>
     </div>
     
     
+    <!--右侧主体内容,点击左侧菜单栏后显示相应内容, 用bootstrap的content类包含在一起-->
+    <div class="content">
+        <div id="matter1" style="display: none">
+            <!--留言管理---引入外部文件，即需要在右侧加载的内容，-->
+            <jsp:include page="jsp/messageManagement.jsp"/>
+        </div>
+
+        <div id="matter2" style="display: none">
+        	<!--文章管理  -->
+            <jsp:include page="jsp/articleManagement.jsp"/>
+        </div>
+
+        <div id="matter3" style="display: none">
+        	<!--审核文章  -->
+            <jsp:include page="jsp/articleReview.jsp"/>
+        </div>
+
+        <div id="matter4" style="display: none">
+        	<!--栏目管理  -->
+            <jsp:include page="jsp/columnManagement.jsp"/>
+        </div>
+        
+         <div id="matter5"  style="display: none">
+            <!--权限管理-->
+            <jsp:include page="jsp/authorityManagement.jsp"/>
+        </div>
+
+        <div id="matter6" style="display: none">
+        	<!--模块管理  -->
+            <jsp:include page="jsp/moduleManagement.jsp"/>
+        </div>
+
+        <div id="matter7" style="display: none">
+        	<!--角色分配  -->
+            <jsp:include page="jsp/roleAssignment.jsp"/>
+        </div>
+
+        <div id="matter8" style="display: none">
+        	<!--人员管理-->
+            <jsp:include page="jsp/personnelManagement.jsp"/>
+        </div>
+        
+        <div id="matter9" style="display: none">
+        	<!--角色管理  -->
+            <jsp:include page="jsp/roleManagement.jsp"/>
+        </div>
+    </div>
+    
   </body>
   <script src="js/myJS/index.js"></script>
+  <script src="js/bootstrap.js"></script>
 </html>
