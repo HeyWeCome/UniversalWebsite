@@ -174,6 +174,12 @@ public class DBUtil {
 				String createTime = result.getString("createTime");
 				String whetherTop = result.getString("whetherTop");
 				
+				if(whetherTop.equals("1")){
+					whetherTop = "置顶";
+				}else{
+					whetherTop = "否";
+				}
+				
 				returnResult += "{\"title\":\""+title
 						+"\",\"author\":\""+author
 						+"\",\"columnName\":\""+columnName
