@@ -15,7 +15,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -175,7 +175,7 @@ public class DBUtil {
 				String whetherTop = result.getString("whetherTop");
 				
 				if(whetherTop.equals("1")){
-					whetherTop = "置顶";
+					whetherTop = "是";
 				}else{
 					whetherTop = "否";
 				}
@@ -320,6 +320,48 @@ public class DBUtil {
 				String description = result.getString("description");
 				returnResult += "{\"id\":\""+id+"\",\"name\":\""+name+"\",\"createTime\":\""+createTime
 						+"\",\"description\":\""+description+"\"},";
+			}
+
+			returnResult = returnResult.substring(0,returnResult.length()-1);
+			returnResult += "]";
+			// 关闭相应的链接
+			result.close();
+			statement.close();
+			connection.close();
+
+			return returnResult;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
+	 * 
+	 * @Title:        findID  
+	 * @Description:  从指定表中找到ID  
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月29日 下午4:26:15
+	 */
+	public static String findID(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		try {
+			// 相对应的读出文章每一行的所有元素内容
+			while(result.next()){
+				String id = result.getString("id");
+
+				returnResult += "{\"id\":\""+id+"\"},";
 			}
 
 			returnResult = returnResult.substring(0,returnResult.length()-1);

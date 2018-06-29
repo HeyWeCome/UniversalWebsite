@@ -28,12 +28,12 @@ public class FindAllSonColumns extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// ���ǰ���ʽ��һ�µ�����
+		// 解决乱码
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		// �½���ĿService����
+		// 生成栏目管理service对象
 		ColumnsManage columnsManage = new ColumnsManage();
 
 		String result = columnsManage.getAllSonColumns();

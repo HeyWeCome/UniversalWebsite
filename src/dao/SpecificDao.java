@@ -69,4 +69,41 @@ public class SpecificDao {
 		return sql;
 		
 	}
+	
+	/**
+	 * 
+	 * @Title:        findIDFromTable  
+	 * @Description:  根据名称从指定表中返回ID
+	 * @param:        @param name
+	 * @param:        @param tableName
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月29日 下午4:23:36
+	 */
+	public static String findIDFromTable(String name,String tableName){
+		// 生成sql
+		String sql = "select id from "+tableName+" where name = "+name;
+		
+		return sql;
+	}
+	
+	/**
+	 * 
+	 * @Title:        deleteArticle  
+	 * @Description:  删除文章对象 
+	 * @param:        @param articleName
+	 * @param:        @param authorID
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月29日 下午5:16:10
+	 */
+	public static String deleteArticle(Integer authorID, String title){
+		String sql = "delete from article where employeeID = "+authorID
+				+" and title = '"+title+"';";
+		return sql;
+	}
 }

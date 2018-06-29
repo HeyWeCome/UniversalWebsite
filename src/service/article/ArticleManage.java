@@ -3,8 +3,12 @@
  */
 package service.article;
 
+import dao.GeneralDao;
 import dao.SpecificDao;
+import entity.Article;
 import util.DBUtil;
+import util.DeleteDBUtil;
+import util.InSertDBUtil;
 
 /**
  * 
@@ -40,6 +44,57 @@ public class ArticleManage implements IArticleManage{
 		}
 		
 		return null;
+	}
+
+	/**  
+	 * @Title:        InsertArticle  
+	 * @Description:  插入文章
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月29日 下午4:33:44  
+	 */  
+	@Override
+	public Integer InsertArticle(Article article) {
+		String sql = null;
+		try {
+			sql = GeneralDao.generalInsertSQL(article);
+			System.out.println("要执行的sql为:"+sql);
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		
+		// 如果执行插入语句成功则返回：1    否则返回：0
+		try {
+			int result = InSertDBUtil.insertArticle(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	/**  
+	 * @Title:        DeleteArticle  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月29日 下午5:14:57  
+	 */  
+	@Override
+	public Integer DeleteArticle(Article article) {
+		// 获取标题
+		String title = article.getTitle();
+		// 获取作者账号
+		Integer employeeID = article.getEmployeeID();
+		
+		String sql = SpecificDao.deleteArticle(employeeID,title);
+		System.out.println("需要执行的sql为:"+sql);
+		try {
+			Integer result = DeleteDBUtil.deleteArticle(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
 	}
 
 }

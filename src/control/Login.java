@@ -22,27 +22,27 @@ import service.account.AccountManage;
 public class Login extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ���ǰ���ʽ��һ�µ�����
+		// 控制格式解决乱码问题
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		//ǰ��������˺�
+		// 获取账号
 		String account = request.getParameter("account");	
-		//ǰ�����������
+		// 获取密码
 		String passW = request.getParameter("passWord");		
 		
-		// ������¼�����ݿ���
+		// 从数据库中查询到的密码
 		String passWord = null;
 		
-		// ����ְ������
+		// 新建员工对象
 		Employee newEmployee = new Employee();
-		// ����ְ�����˺�����
+		// 设置账号密码
 		newEmployee.setAccount(account);
 		newEmployee.setPassWord(passW);
 		
 		AccountManage accountManage = new AccountManage();
-		// �ҵ��˾ͷ���1���Ҳ����ͷ���0
+		// 获取返回的结果
 		int result = accountManage.searchAccount(newEmployee);
 		
 		response.getWriter().println(result);

@@ -3,13 +3,18 @@
  */
 package service.article;
 
-/** 
+import entity.Article;
+
+/**
+ * 
  * @ClassName:     IArticleManage.java 
- * @Description:   ÎÄÕÂ·½·¨½Ó¿ÚÀà
+ * @Description:   æ–‡ç« ç®¡ç†æ¥å£ 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÉÏÎç11:10:52  
+ * @Date           2018å¹´6æœˆ29æ—¥ ä¸‹åˆ4:32:49
  */
 public interface IArticleManage {
 	String findAllArticle();
+	Integer InsertArticle(Article article);
+	Integer DeleteArticle(Article article);
 }
