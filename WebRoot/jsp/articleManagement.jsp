@@ -19,9 +19,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<script src="js/jquery-2.1.1.min.js"></script>
+	<!-- <script src="js/jquery-2.1.1.min.js"></script> -->
 	<link rel="stylesheet" type="text/css" href="css/articleManagement.css">
 	
+	<script src="js/jquery-2.1.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
 
@@ -43,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div class="rightTable">
 	    <div class="buttons">
-	        <button type="button" class="btn btn-primary " onclick="getColumnsName()" data-toggle="modal" data-target="#addModal">&nbsp;新增&nbsp;</button>
+	        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addModal">&nbsp;新增&nbsp;</button>
 	        <button id="del" onclick="deletes()" type="button" class="btn btn-primary ">&nbsp;删除&nbsp;</button>
 	    </div>
 	
@@ -64,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>文章标题：</h4>
-		                            <input  type="text" id="add_title" name="title"class="form-control"aria-describedby="basic-addon1"/>
+		                            <input  onclick="getColumnsName()" type="text" id="add_title" name="title"class="form-control"aria-describedby="basic-addon1"/>
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：</h4>
