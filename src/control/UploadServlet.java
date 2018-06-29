@@ -26,7 +26,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /** 
  * @ClassName:     UploadServlet.java 
- * @Description:   TODO(用一句话描述该文件做什么)  
+ * @Description:   上传文件使用的servlet  
  * @author         Vico.Ho 
  * @version        V1.0   
  * @Date           2018年6月29日 上午10:07:47  
@@ -66,8 +66,8 @@ public class UploadServlet extends HttpServlet {
 			upload.setProgressListener(new ProgressListener (){
 				@Override
 				public void update(long arg0, long arg1, int arg2) {
-					System.out.println("当前已经上传"+arg0);
-					System.out.println("总大小"+arg1);
+//					System.out.println("当前已经上传"+arg0);
+//					System.out.println("总大小"+arg1);
 				}
 			});
 			//设置上传一个文件的最大容量

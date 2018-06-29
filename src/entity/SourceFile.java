@@ -3,15 +3,16 @@ package entity;
 /**
  * 
  * @ClassName:     SourceFile.java 
- * @Description:   ×ÊÔ´Àà
+ * @Description:   èµ„æºæ–‡ä»¶ 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ27ÈÕ ÏÂÎç10:07:25
+ * @Date           2018å¹´6æœˆ29æ—¥ ä¸‹åˆ2:15:10
  */
 public class SourceFile {
 	private Integer id;
 	private Integer articleID;
 	private String path;
+	private String name;
 	
 	public SourceFile() {
 		super();
@@ -22,6 +23,15 @@ public class SourceFile {
 		this.id = id;
 		this.articleID = articleID;
 		this.path = path;
+	}
+
+	
+	public SourceFile(Integer id, Integer articleID, String path, String name) {
+		super();
+		this.id = id;
+		this.articleID = articleID;
+		this.path = path;
+		this.name = name;
 	}
 
 	public Integer getId() {
@@ -46,6 +56,14 @@ public class SourceFile {
 
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	
