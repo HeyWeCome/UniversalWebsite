@@ -15,7 +15,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -399,7 +399,7 @@ public class DBUtil {
 			while(result.next()){
 				String id = result.getString("id");
 
-				returnResult += "{\"id\":\""+id+"\"},";
+				return id;
 			}
 
 			returnResult = returnResult.substring(0,returnResult.length()-1);

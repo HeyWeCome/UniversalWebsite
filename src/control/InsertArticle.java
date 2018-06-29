@@ -45,6 +45,11 @@ public class InsertArticle extends HttpServlet {
 		// 获取是否置顶
 		String whetherTop = request.getParameter("whetherTop");
 
+		if(whetherTop.equals("否")){
+			whetherTop = "0";
+		}else{
+			whetherTop = "1";
+		}
 		System.out.println(title+" "+author+" "+columnName+" "+content+" "+whetherTop);
 		//设置日期格式
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
