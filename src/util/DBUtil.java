@@ -288,4 +288,48 @@ public class DBUtil {
 	}
 	
 	
+	/**
+	 * 
+	 * @Title:        findAllRoles  
+	 * @Description:  找到所有的角色  
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月29日 下午2:54:47
+	 */
+	public static String findAllRoles(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		try {
+			// 相对应的读出文章每一行的所有元素内容
+			while(result.next()){
+				String id = result.getString("id");
+				String name = result.getString("name");
+				String createTime = result.getString("createTime");
+				String description = result.getString("description");
+				returnResult += "{\"id\":\""+id+"\",\"name\":\""+name+"\",\"createTime\":\""+createTime
+						+"\",\"description\":\""+description+"\"},";
+			}
+
+			returnResult = returnResult.substring(0,returnResult.length()-1);
+			returnResult += "]";
+			// 关闭相应的链接
+			result.close();
+			statement.close();
+			connection.close();
+
+			return returnResult;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
