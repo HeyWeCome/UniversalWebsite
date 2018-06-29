@@ -59,41 +59,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                   <h4 class="modal-title">新增文章</h4>
 		               </div>
-		               <form action="../servlet/addServlet" method="post">
+		               <form action="???" method="post">
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
-		                            <h4>id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</h4>
-		                            <input  type="text" id="add_ID" name="id"class="form-control"aria-describedby="basic-addon1"/>
+		                            <h4>文章标题：</h4>
+		                            <input  type="text" id="add_title" name="title"class="form-control"aria-describedby="basic-addon1"/>
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
-		                            <h4>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</h4>
-		                            <input  type="text" id="add_NAME" name="name" class="form-control" aria-describedby="basic-addon1"/>
+		                            <h4>作者：</h4>
+		                            <input  type="text" id="add_author" name="author" class="form-control" aria-describedby="basic-addon1"/>
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
-		                            <h4>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</h4>
+		                            <h4>栏目名称：</h4>
 		                            <!-- <input  type="text" id="add_GRADE" name="GRADE" class="form-control" aria-describedby="basic-addon1"/> -->
-		                        	<select class="form-control" id="add_SEX" name="sex">
+		                        	<select class="form-control" id="add_columnName" name="columnName">
 		                        		<option>男</option>
 		                        		<option>女</option>
 		                        	</select>
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
-		                            <h4>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;院：</h4>
-		                            <input  type="text" id="add_COLLEGE" name="college" class="form-control" aria-describedby="basic-addon1"/>
+		                            <h4>是否置顶：</h4>
+		                            <select class="form-control" id="add_whetherTop" name="whetherTop">
+		                        		<option>否</option>
+		                        		<option>是</option>
+		                        	</select>
 		                        </div>
-		                        <div class="col-xs-12 col-md-12">
-		                            <h4>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：</h4>
-		                            <input  type="text" id="add_MAJOR" name="major" class="form-control" aria-describedby="basic-addon1"/>
-		                        </div>
-		                        <div class="col-xs-12 col-md-12">
-		                            <h4>出生日期：</h4>
-		                            <input  type="text" id="add_BIRTHDAY" name="birthday" class="form-control" aria-describedby="basic-addon1"/>
-		                        </div>
-		                        <div class="col-xs-12 col-md-12">
-		                            <h4>基本工资：</h4>
-		                            <input  type="text" id="add_SALARY" name="salary" class="form-control" aria-describedby="basic-addon1"/>
-		                        </div>
+		                        
 		                    </div>
 		                </div>
 		                <div class="modal-footer">
@@ -112,42 +104,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		           <div class="modal-content">
 		               <div class="modal-header" style="background-color: #999">
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		                   <h4 class="modal-title">查看教师信息</h4>
+		                   <h4 class="modal-title">查看文章信息</h4>
 		               </div>
 		               <div class="modal-body">
 		                   <div class="row">
 		                       <div class="col-xs-12 col-md-12">
-		                           <h4>id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</h4>
-		                           <input readonly="true" type="text" id="check_ID" name="id"class="form-control"aria-describedby="basic-addon1"/><!--设置不可编辑-->
+		                           <h4>文章标题：</h4>
+		                           <input readonly="true" type="text" id="check_title" name="title"class="form-control"aria-describedby="basic-addon1"/><!--设置不可编辑-->
 		                       </div>
 		                       <div class="col-xs-12 col-md-12">
-		                           <h4>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</h4>
-		                           <input  readonly="true" type="text" id="check_NAME" name="name" class="form-control" aria-describedby="basic-addon1"/>
+		                           <h4>作者：</h4>
+		                           <input  readonly="true" type="text" id="check_author" name="author" class="form-control" aria-describedby="basic-addon1"/>
 		                       </div>
 		                       <div class="col-xs-12 col-md-12">
-		                           <h4>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</h4>
+		                           <h4>栏目名称：</h4>
 		                           <!-- <input  readonly="true" type="text" id="check_SEX" name="SEX" class="form-control" aria-describedby="basic-addon1"/> -->
-		                       	<select readonly="true" class="form-control" id="check_SEX" name="sex">
+		                       	<select readonly="true" class="form-control" id="check_columnName" name="columnName">
 		                       		<option>男</option>
 		                       		<option>女</option>
 		                       	</select>
 		                       </div>
 		                       <div class="col-xs-12 col-md-12">
-		                           <h4>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;院：</h4>
-		                           <input  readonly="true" type="text" id="check_COLLEGE" name="college" class="form-control" aria-describedby="basic-addon1"/>
+		                           <h4>是否置顶：</h4>
+		                           <select readonly="true" class="form-control" id="check_whetherTop" name="whetherTop">
+		                       		<option>否</option>
+		                       		<option>是</option>
+		                       	   </select>
 		                       </div>
-		                       <div class="col-xs-12 col-md-12">
-		                           <h4>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：</h4>
-		                           <input  readonly="true" type="text" id="check_MAJOR" name="major" class="form-control" aria-describedby="basic-addon1"/>
-		                       </div>
-		                       <div class="col-xs-12 col-md-12">
-		                           <h4>出生日期：</h4>
-		                           <input  readonly="true" type="text" id="check_BIRTHDAY" name="birthday" class="form-control" aria-describedby="basic-addon1"/>
-		                       </div>
-		                       <div class="col-xs-12 col-md-12">
-		                           <h4>基本工资：</h4>
-		                           <input  readonly="true" type="text" id="check_SALARY" name="salary" class="form-control" aria-describedby="basic-addon1"/>
-		                       </div>
+		                       
 		                   </div>
 		               </div>
 		               <div class="modal-footer">
@@ -165,44 +149,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		           <div class="modal-content">
 		               <div class="modal-header" style="background-color: #999">
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		                   <h4 class="modal-title">编辑学生信息</h4>
+		                   <h4 class="modal-title">编辑文章信息</h4>
 		               </div>
 		               
-		               <form action="../servlet/editServlet" method="post">
+		               <form action="???" method="post">
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
-		                            <h4>id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</h4>
-		                            <input  readonly="true" type="text" id="edit_ID" name="id"class="form-control"aria-describedby="basic-addon1"/>
+		                            <h4>文章标题：</h4>
+		                            <input  readonly="true" type="text" id="edit_title" name="title"class="form-control"aria-describedby="basic-addon1"/>
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
-		                            <h4>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</h4>
-		                            <input  type="text" id="edit_NAME" name="name" class="form-control" aria-describedby="basic-addon1"/>
+		                            <h4>作者：</h4>
+		                            <input  type="text" id="edit_author" name="author" class="form-control" aria-describedby="basic-addon1"/>
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
-		                            <h4>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</h4>
+		                            <h4>栏目名称：</h4>
 		                            <!-- <input  type="text" id="edit_SEX" name="SEX" class="form-control" aria-describedby="basic-addon1"/> -->
-		                        	<select class="form-control" id="check_SEX" name="sex">
+		                        	<select class="form-control" id="check_columnName" name="columnName">
 		                        		<option>男</option>
 		                        		<option>女</option>
 		                        	</select>
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
-		                            <h4>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;院：</h4>
-		                            <input  type="text" id="edit_COLLEGE" name="college" class="form-control" aria-describedby="basic-addon1"/>
+		                            <h4>是否置顶：</h4>
+		                            <!-- <input  type="text" id="edit_whetherTop" name="whetherTop" class="form-control" aria-describedby="basic-addon1"/> -->
+		                        	<select class="form-control" id="check_whetherTop" name="whetherTop">
+			                       		<option>否</option>
+			                       		<option>是</option>
+		                       	   </select>
 		                        </div>
-		                        <div class="col-xs-12 col-md-12">
-		                            <h4>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：</h4>
-		                            <input  type="text" id="edit_MAJOR" name="major" class="form-control" aria-describedby="basic-addon1"/>
-		                        </div>
-		                        <div class="col-xs-12 col-md-12">
-		                            <h4>出生日期：</h4>
-		                            <input  type="text" id="edit_BIRTHDAY" name="birthday" class="form-control" aria-describedby="basic-addon1"/>
-		                        </div>
-		                        <div class="col-xs-12 col-md-12">
-		                            <h4>基本工资：</h4>
-		                            <input  type="text" id="edit_SALARY" name="salary" class="form-control" aria-describedby="basic-addon1"/>
-		                        </div>
+		                        
 		                    </div>
 		                </div>
 		                <div class="modal-footer">

@@ -265,7 +265,7 @@ $(function () {
     $('#articleTable').bootstrapTable({
         //height: 400,//定义表格的高度
         //data:students,
-    	url:'../control/FindAllArticle',
+    	url:'control/FindAllArticle',
     	contentType:'application/json',//发送到服务器的数据编码类型
     	method: 'post',//请求方式
 		dataType:'json',//服务器返回的数据类型	
@@ -298,47 +298,35 @@ $(function () {
                 return index+1;
             }
         },{
-            field:'id',//返回值名称
-            title:'ID',//列名
-            align:'center',//水平居中显示
-            valign:'middle',//垂直居中显示
-            width:'5'//宽度
-        },{
-            field:'name',//返回值名称
-            title:'姓名',//列名
+            field:'title',//返回值名称
+            title:'文章标题',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             width:'10'//宽度
         },{
-            field:'college',//返回值名称
-            title:'学院',//列名
+            field:'author',//返回值名称
+            title:'作者',//列名
+            align:'center',//水平居中显示
+            valign:'middle',//垂直居中显示
+            width:'5'//宽度
+        },{
+            field:'columnName',//返回值名称
+            title:'栏目名称',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             width:'20'//宽度
         },{
-            field:'major',//返回值名称
-            title:'专业',//列名
+            field:'creatTime',//返回值名称
+            title:'创建时间',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             width:'10'//宽度
         },{
-            field:'sex',//返回值名称
-            title:'性别',//列名
+            field:'whetherTop',//返回值名称
+            title:'是否置顶',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             width:'10'//宽度
-        },{
-            field:'birthday',//返回值名称
-            title:'出生日期',//列名
-            align:'center',//水平居中显示
-            valign:'middle',//垂直居中显示
-            width:'5'//宽度
-        },{
-            field:'salary',//返回值名称
-            title:'基本工资',//列名
-            align:'center',//水平居中显示
-            valign:'middle',//垂直居中显示
-            width:'5'//宽度
         },{
             field:'oprate',//返回值名称
             title:'操作',//列名
