@@ -62,6 +62,7 @@ public class InsertArticle extends HttpServlet {
 		Integer anthorID = null;
 		try {
 			anthorID = DBUtil.findID(sql1);
+			System.out.println("作者id:"+anthorID);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -74,6 +75,7 @@ public class InsertArticle extends HttpServlet {
 		Integer columnID = null;
 		try {
 			columnID = DBUtil.findID(sql1);
+			System.out.println("栏目id:"+columnID);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (Exception e) {

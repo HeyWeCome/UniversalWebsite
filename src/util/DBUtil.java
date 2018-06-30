@@ -11,7 +11,7 @@ public class DBUtil {
 	public static Connection getConnection() throws Exception{
 		String driverName = "com.mysql.jdbc.Driver";
 
-		String url = "jdbc:mysql://localhost:3306/universalwebsite";
+		String url = "jdbc:mysql://localhost:3306/universalwebsite?useUnicode=true&characterEncoding=UTF-8";
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
@@ -392,16 +392,17 @@ public class DBUtil {
 		Statement statement = connection.createStatement();
 
 		ResultSet result = statement.executeQuery(sql);
-
 		try {
 			// 相对应的读出每一行的所有元素内容
 			while(result.next()){
-				Integer id = result.getInt("id");
-
+				/*Integer id = result.getInt("id");
+				return id;*/
+				int id = result.getInt("id");
+				System.out.println("DButil返回的id:"+id);
 				return id;
 			}
 
-			returnResult = returnResult.substring(0,returnResult.length()-1);
+			//returnResult = returnResult.substring(0,returnResult.length()-1);
 			// 关闭相应的链接
 			result.close();
 			statement.close();
@@ -410,6 +411,6 @@ public class DBUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return 0;
 	}
 }

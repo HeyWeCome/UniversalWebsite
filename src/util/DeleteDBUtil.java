@@ -19,7 +19,7 @@ public class DeleteDBUtil {
 	public static Connection getConnection() throws Exception{
 		String driverName = "com.mysql.jdbc.Driver";
 
-		String url = "jdbc:mysql://localhost:3306/universalwebsite";
+		String url = "jdbc:mysql://localhost:3306/universalwebsite?useUnicode=true&characterEncoding=UTF-8";
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
