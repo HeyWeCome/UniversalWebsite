@@ -1,15 +1,95 @@
+function showAllColumns1(){
+	//console.log("当前账号为:"+$.cookie("userName"));
+	parentColumnsSize1=0;
+	parentColumns1=0;
+	//alert("进入方法");
+	/*显示父栏目*/
+	$.ajax({    		
+        url:"control/FindAllColumns",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        //data:{"questionnaireId":"<%=questionnaireId%>"},
+        success:function(data1){
+        	parentColumns1=data1;
+        	var content1 = ''
+        	parentColumnsSize1 = data1.length; 
+        	
+        	for(var i=0;i<data1.length;i++){     		  	
+     		  	content1 += connectParentColumns(data1[i],i); 		   	       		   
+     	    }
+        	//alert(content)
+        	document.getElementById("columns1").innerHTML=content1
+        	
+        	/*显示子栏目*/
+        	$.ajax({    		
+                url:"control/FindAllSonColumns",//servlet文件的名称  
+                type:"POST",  
+                dataType:"json",
+                //data:{"questionnaireId":"<%=questionnaireId%>"},
+                success:function(data2){
+                	//alert(data2);
+                	for(var i=0;i<parentColumnsSize1;i++){
+    	        		var sonContent1=""
+    	        		for(var j=0;j<data2.length;j++){
+    	        			if(data2[j].parentID==parentColumns[i].id){
+    	        				sonContent1+=connectSonColumns1(data2[j],j);
+    	        			}
+    	        		}
+    	        		document.getElementById("sonColumns2"+i).innerHTML=sonContent1
+    	        	}
+                }
+            });
+        }
+    });
+}
+/*显示父栏目*/
+function connectParentColumns(data,i){
+	var parentColumns1 = '<button class="parentColumns" onclick="show2('
+		+i
+		+')" id="ParentColumns'
+		+data.id
+		+'">'
+		+data.name
+		+'</button>'
+	var sonColumns1 = '<div class="sonColumn" style="display:none" id="sonColumns2'
+		+i
+		+'"></div>'
+	return parentColumns1+sonColumns1
+}
+/*显示子栏目*/
+function connectSonColumns1(data,i){
+	var sonColumns1 = '<button class="sonColumns" id="'
+		+data.id
+		+'">'
+		+data.name
+		+'</button>'
+	//alert(sonColumns)
+	return sonColumns1
+}
+/*控制div块的显示与隐藏*/
+function show2(i){
+	var sonColumns = document.getElementById("sonColumns2"+i);
+	if(sonColumns.style.display=="none"){
+		sonColumns.style.display="block";
+	}
+	else{
+		sonColumns.style.display="none";
+	}
+	
+}
+
 /*操作小图标*/
 function operationIcon1(value,row,index) {
     return[
            '<button type="button" id="adopt" class="btn btn-primary btn-xs"  >通过',
-           '<button type="button" id="notAdopt" class="btn btn-primary btn-xs"  >通过'
+           '<button type="button" id="notAdopt" class="btn btn-primary btn-xs"  >不通过'
         ].join('');
 }
 /*每行表格尾部的小图标点击*/
 window.operateEvents = {
     'click #adopt':function (e,value,row,index) {
     	$.ajax({    		
-            url:"control/DeleteArticle",//servlet文件的名称  
+            url:"control/UpdateAuditArticle",//servlet文件的名称  
             type:"POST",  
             dataType:"json",
             data:{
@@ -24,7 +104,7 @@ window.operateEvents = {
     },
     'click #notAdopt':function (e,value,row,index) {
     	$.ajax({    		
-            url:"control/DeleteArticle",//servlet文件的名称  
+            url:"control/UpdateAuditArticle",//servlet文件的名称  
             type:"POST",  
             dataType:"json",
             data:{
