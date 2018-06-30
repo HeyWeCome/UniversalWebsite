@@ -135,7 +135,7 @@ window.operateEvents = {
     'click #delete':function (e,value,row,index) {
         var determine = confirm("确认删除？");
         if(determine==true){
-        	alert(row.title+" "+row.author)
+        	//alert(row.title+" "+row.author)
         	$.ajax({    		
                 url:"control/DeleteArticle",//servlet文件的名称  
                 type:"POST",  
@@ -197,10 +197,11 @@ function deletes() {
                 },
                 //data:{"questionnaireId":"<%=questionnaireId%>"},
                 success:function(data1){
-                	alert("删除成功！")
+                	
                 }
     		});
     	}
+    	alert("删除成功！")
     	/*var tmp = document.createElement("form");
     	var action =  "../servlet/deletesServlet?";
     	action = action+"size="+data.length;
