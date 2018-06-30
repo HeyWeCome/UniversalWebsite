@@ -299,9 +299,7 @@ function getColumnsName(){
         	$('#add_author').val(a);
         	
         }
-    });
-	
-	
+    });	
 }
 
 function connectSonColumn(data,i){
