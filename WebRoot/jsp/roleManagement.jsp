@@ -23,6 +23,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-     这里是roleManagement.jsp界面，相应js,css未建立 <br>
+    <div class="top">
+    	<div class="topText"> &nbsp;文章管理</div>
+    </div>
+    
+    
+    <div class="rightTable">
+	    <div class="buttons">
+	        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addModal" onclick="getColumnsName()" style="background-color:#5E6F8A;color:#fff;">&nbsp;新增&nbsp;</button>
+	        <button id="del" onclick="deletes()" type="button" class="btn btn-primary " style="background-color:#5E6F8A;color:#fff;">&nbsp;删除&nbsp;</button>
+	    </div>
+	
+	    <!--表格，样式在js中定义-->
+	    <table id="RoleTable" style="font-size: 12px; background-color:#b0c4de2e;">
+	    </table>
+	 </div>
   </body>
 </html>

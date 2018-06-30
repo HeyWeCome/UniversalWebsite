@@ -86,7 +86,7 @@ function operationIcon1(value,row,index) {
         ].join('');
 }
 /*每行表格尾部的小图标点击*/
-window.operateEvents = {
+window.operateEvents1 = {
 		
     'click #adopt':function (e,value,row,index) {
     	alert("进入通过");
@@ -200,7 +200,7 @@ $(function () {
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'15',//宽度
-            events:operateEvents,
+            events:operateEvents1,
             formatter:operationIcon1
         }]//列配置项,详情请查看 列参数 表格
         /*事件*/
