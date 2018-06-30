@@ -36,10 +36,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="topText"> &nbsp;审核文章</div>
     </div>
     
-    <div class="leftColumns" id="leftColumns">
-    	<button class="allColumns" id="allColumns" onclick="showAllColumns()">所有栏目</button>
-    	<div class="columns" id="columns" ></div>
-    </div>
+    <!-- <div class="leftColumns" id="leftColumns">
+    	<button class="allColumns" id="allColumns" onclick="showAllColumns1()">所有栏目</button>
+    	<div class="columns" id="columns1" ></div>
+    </div> -->
     
     <div class="rightTable">
 	    <div class="buttons">
@@ -52,5 +52,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    </table>
    </div>
   </body>
-  <script src="./js/myJS/articleManagement.js"></script>
+  <script src="./js/myJS/articleReview.js"></script>
 </html>
