@@ -61,7 +61,7 @@ public class FindArticleContent extends HttpServlet {
 		ArticleManage articleManage = new ArticleManage();
 		result = articleManage.findArticleContent(article);
 		
-		response.getWriter().println("[{\""+result+"\"}]");
+		response.getWriter().print("[\""+result+"\"]");
 	}
 
 
