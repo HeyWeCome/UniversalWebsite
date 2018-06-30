@@ -12,7 +12,7 @@ function getRolesName(){
         	}
         	//alert(content);
         	document.getElementById("add_managerRole").innerHTML=content
-        	//document.getElementById("edit_managerRole").innerHTML=content
+        	document.getElementById("edit_managerRole").innerHTML=content
         	/*var a=$.cookie("userName")
         	$('#add_author').val(a);*/
         	
@@ -54,7 +54,8 @@ window.operateEvents3 = {
         $('#edit_managerSex').val(row.sex);
         $('#edit_managerAccount').val(row.account);
         $('#edit_managerPassword').val(row.passWord);
-        $('#edit_managerRole').val(row.roleName);     
+        $('#edit_managerRole').val(row.roleName);
+        getRolesName();
     },
 }
 
@@ -63,7 +64,7 @@ $(function () {
     $('#managerTable').bootstrapTable({
         //height: 400,//定义表格的高度
         //data:students,
-    	url:'control/FindAllArticle',
+    	url:'control/FindAllEmployee',
     	contentType:'application/json',//发送到服务器的数据编码类型
     	method: 'post',//请求方式
 		dataType:'json',//服务器返回的数据类型	

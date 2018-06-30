@@ -168,9 +168,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                       <div class="col-xs-12 col-md-12">
 		                           <h4>是否置顶：</h4>
 		                           <input readonly="true" class="form-control" id="check_whetherTop" name="whetherTop" style="width:168px"/>
-
 		                       </div>
 		                       
+		                       <div class="col-xs-12 col-md-12">
+		                            <h4 class="textAreah4" style="margin-left:8%">描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述：</h4>
+		                            <textarea class="textArea" id="check_content" name="content" rows="8" cols="60"></textarea>
+		                        </div>
+		                        
 		                   </div>
 		               </div>
 		               <div class="modal-footer">
@@ -218,6 +222,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                       	   </select>
 		                        </div>
 		                        
+		                        <div class="col-xs-12 col-md-12">
+		                            <h4 class="textAreah4" style="margin-left:8%">描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述：</h4>
+		                            <textarea class="textArea" id="edit_content" name="content" rows="8" cols="60"></textarea>
+		                        </div>
+		                        		                        
 		                    </div>
 		                </div>
 		                <div class="modal-footer">

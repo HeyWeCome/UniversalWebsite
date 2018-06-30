@@ -100,6 +100,7 @@ window.operateEvents = {
         $('#check_columnName').val(row.columnName);
         $('#check_createTime').val(row.createTime);
         $('#check_whetherTop').val(row.whetherTop);
+        getContent(row.title,row.author);
     },
 
     'click #edit':function (e,value,row,index) {
@@ -308,4 +309,22 @@ function connectSonColumn(data,i){
 		+'</option>' 
 	//alert(columnOption);
 	return columnOption
+}
+
+function getContent(title,author){
+	alert("进入getContent");
+	$.ajax({    		
+        url:"control/FindArticleContent",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"title":title,
+        	"author":author
+        },
+        success:function(data1){
+        	alert("成功");
+        	alert(data1);
+        }
+	});
+
 }
