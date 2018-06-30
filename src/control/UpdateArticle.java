@@ -38,9 +38,10 @@ public class UpdateArticle extends HttpServlet {
 		String author = request.getParameter("author");
 		// 获取子栏目
 		String columnName = request.getParameter("columnName");
-		// 获取状态
+		// 获取是否置顶
 		String whetherTop = request.getParameter("whetherTop");
-
+		// 获取文章内容
+		String content = request.getParameter("content");
 
 		// 根据用户名查询用户ID
 		String sql1 = SpecificDao.findIDFromTable(author, "employee");
@@ -57,7 +58,7 @@ public class UpdateArticle extends HttpServlet {
 		String sql2 = SpecificDao.findIDFromTable(columnName, "soncolumns");
 		Integer sonColumnsID = 0;
 		try {
-			sonColumnsID = DBUtil.findID(sql1);
+			sonColumnsID = DBUtil.findID(sql2);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -71,13 +72,16 @@ public class UpdateArticle extends HttpServlet {
 		article.setTitle(title);
 		// 设置作者账号
 		article.setEmployeeID(anthorID);
-		// 设置文章状态
-//		article.setStatus(status);
+		// 设置子栏目ID
+		article.setColumnID(sonColumnsID);
+		// 设置文章内容
+		article.setContent(content);
+		// 设置文章是否置顶
+		article.setWhetherTop(whetherTop);
 
 		ArticleManage articleManage = new ArticleManage();
 
-		Integer result = articleManage.PassArticle(article);
-
+		Integer result = articleManage.updateArticle(article);
 		response.getWriter().println(result);
 	}
 

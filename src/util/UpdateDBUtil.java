@@ -41,11 +41,53 @@ public class UpdateDBUtil {
 
 	}
 	
+	/**
+	 * 
+	 * @Title:        updateArticleStatus  
+	 * @Description:  更新文章状态 
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       Integer     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午10:16:52
+	 */
 	public static Integer updateArticleStatus(String sql) throws Exception{
 		Connection connection = getConnection();
 		Statement statement = connection.createStatement();
 
-		// 删除成功返回1 否则返回0
+		// 更新成功返回1 否则返回0
+		if(statement.executeUpdate(sql) == 1){
+			// 关闭相应的链接
+			statement.close();
+			connection.close();
+			return 1;
+		}else{
+			// 关闭相应的链接
+			statement.close();
+			connection.close();
+			return 0;
+		}
+	}
+	
+	/**
+	 * 
+	 * @Title:        updateArticle  
+	 * @Description:  更新文章
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       Integer     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午10:17:23
+	 */
+	public static Integer updateArticle(String sql) throws Exception{
+		Connection connection = getConnection();
+		Statement statement = connection.createStatement();
+
+		// 更新成功返回1 否则返回0
 		if(statement.executeUpdate(sql) == 1){
 			// 关闭相应的链接
 			statement.close();

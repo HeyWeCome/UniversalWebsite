@@ -73,6 +73,11 @@
     <servlet-name>FindArticleContent</servlet-name>
     <servlet-class>control.FindArticleContent</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>InsertPrivilege</servlet-name>
+    <servlet-class>control.InsertPrivilege</servlet-class>
+  </servlet>
+
 
 
 
@@ -160,6 +165,10 @@
   <servlet-mapping>
     <servlet-name>FindArticleContent</servlet-name>
     <url-pattern>/control/FindArticleContent</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InsertPrivilege</servlet-name>
+    <url-pattern>/control/InsertPrivilege</url-pattern>
   </servlet-mapping>
 
 </web-app>

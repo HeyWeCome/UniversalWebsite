@@ -34,15 +34,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<script src="js/bootstrap-treeview.js"></script>
   	<script src="js/sweetalert.min.js"></script>
   <body>
-   <!--  这里是roleAssignment.jsp界面，相应js,css未建立 <br> -->
+   <div class="top">
+   		<div class="topText">&nbsp;角色分配</div>
+   </div>
     
-    <div class="sortTree">
-    	<!-- <button class="allModules" id="allModules" onclick="showAllModules()">显示模块</button> -->
-    	<ul id="showRoles" class="treeview">
-		</ul>
-		<ul id="showModules" class="treeview">
-		</ul>
-		
+    <div class="showTree">
+    	<!-- <form name="submitAllocation"> -->
+	    	<div>
+	    		<ul id="showRoles" class="treeview"></ul>
+	    	</div>
+			<div>
+				<ul id="showModules" class="treeview"></ul>
+			</div>
+			<div>
+				<button class="btn btn-primary" id="allocation" onclick="submitAllocation()">确认分配</button>
+			</div>
+		<!-- </form> -->
 	</div>
   </body>
  
