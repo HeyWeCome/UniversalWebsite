@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entity.Permisson;
+import entity.Permission;
+import service.permission.PermissionManage;
 
 /** 
  * @ClassName:     InsertPrivilege.java 
@@ -35,11 +36,15 @@ public class InsertPrivilege extends HttpServlet {
 		String moduleID = request.getParameter("moduleID");
 		
 		// 新建permission对象
-		Permisson permission = new Permisson();
-		permission.setId(Integer.parseInt(roleID));
+		Permission permission = new Permission();
+		permission.setRoleID(Integer.parseInt(roleID));
 		permission.setModuleID(Integer.parseInt(moduleID));
 		
+		PermissionManage permissionManage = new PermissionManage();
+		Integer result = permissionManage.insertPermission(permission);
 		
+		// 插入成功返回1  插入失败返回0
+		response.getWriter().println(result);
 	}
 
 
