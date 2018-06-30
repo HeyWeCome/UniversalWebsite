@@ -90,7 +90,7 @@ public class InsertArticle extends HttpServlet {
 		newArticle.setContent(content);
 		newArticle.setWhetherTop(whetherTop);
 		newArticle.setCreateTime(date);
-		newArticle.setStatus("1");
+		newArticle.setStatus("0");
 		
 		// 如果执行插入语句成功则返回：1    否则返回：0
 		ArticleManage newArticleManage = new ArticleManage();
