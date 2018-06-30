@@ -38,8 +38,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    		<div class="topText">&nbsp;角色分配</div>
    </div>
     
-    <div class="showTree">
-    	<!-- <form name="submitAllocation"> -->
+   <!--  <div class="showTree">
+    	<form name="submitAllocation">
 	    	<div>
 	    		<ul id="showRoles" class="treeview"></ul>
 	    	</div>
@@ -49,8 +49,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div>
 				<button class="btn btn-primary" id="allocation" onclick="submitAllocation()">确认分配</button>
 			</div>
-		<!-- </form> -->
-	</div>
+		</form>
+	</div> -->
   </body>
  
   <script src="js/myJS/roleAssignment.js"></script>

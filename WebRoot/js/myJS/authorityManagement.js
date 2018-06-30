@@ -1,4 +1,4 @@
-/*
+
 //初始化加载界面，获取所有角色和所有模块
 $(document).ready(function() {
 	$.ajax({
@@ -85,4 +85,3 @@ function submitAllocation(){
 	//那么现在来检测s的值就知道选中的复选框的值了 
 	//console.log(moduleId==''?'你还没有选择任何内容！': "modulesId:"+moduleId); 
 }
-*/

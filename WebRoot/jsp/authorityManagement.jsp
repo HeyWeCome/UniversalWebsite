@@ -20,9 +20,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-treeview.css" rel="stylesheet">
+	<link href="css/glyphicons.css" rel="stylesheet">
+	<link href="css/roleAssignment.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/commonSystem.css" />
+	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+	
+	
   </head>
-  
+   <!--  <script src="js/jquery-2.1.1.min.js"></script> -->
+	<script src="js/bootstrap.js"></script>
+  	<script src="js/bootstrap-treeview.js"></script>
+  	<script src="js/sweetalert.min.js"></script>
   <body>
-    这里是authorityManagement.jsp界面，相应js,css未建立 <br>
+   <div class="top">
+   		<div class="topText">&nbsp;权限管理</div>
+   </div>
+    
+    <div class="showTree">
+    	<!-- <form name="submitAllocation"> -->
+	    	<div>
+	    		<ul id="showRoles" class="treeview"></ul>
+	    	</div>
+			<div>
+				<ul id="showModules" class="treeview"></ul>
+			</div>
+			<div>
+				<button class="btn btn-primary" id="allocation" onclick="submitAllocation()">确认分配</button>
+			</div>
+		<!-- </form> -->
+	</div>
   </body>
-</html>
+ 
+  <script src="js/myJS/authorityManagement.js"></script>
+  
+
+  </html>
