@@ -12,12 +12,14 @@ import com.alibaba.fastjson.JSONArray;
 import dao.SpecificDao;
 import entity.Article;
 import entity.Employee;
+import entity.Permission;
 import entity.Role;
 import service.account.AccountManage;
 import service.article.ArticleManage;
 import service.columns.ColumnsManage;
 import service.employee.EmployeeManage;
 import service.module.ModuleManage;
+import service.permission.PermissionManage;
 import service.role.RoleManage;
 import util.DBUtil;
 
@@ -32,55 +34,24 @@ import util.DBUtil;
 public class Main {
 	public static void main(String[] args){
 
-		// 获取文章名称
-		String title = "进化论";	
-		// 获取作者
-		String author = "何玮康";
-		// 获取子栏目
-		String columnName = "课程简介";
-		// 获取是否置顶
-		String whetherTop = "1";
-		// 获取文章内容
-		String content = "前排表达达尔文";
+		// 获取角色ID
+		String name = "李建飞";	
+		// 获取角色描述
+		String description = "迎宾";
 
-		// 根据用户名查询用户ID
-		String sql1 = SpecificDao.findIDFromTable(author, "employee");
-		Integer anthorID = 0;
-		try {
-			anthorID = DBUtil.findID(sql1);
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		//设置日期格式
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		// new Date()为获取当前系统时间，也可使用当前时间戳
+		String date = df.format(new Date());
 
-		// 根据栏目名查询栏目ID
-		String sql2 = SpecificDao.findIDFromTable(columnName, "soncolumns");
-		Integer sonColumnsID = 0;
-		try {
-			sonColumnsID = DBUtil.findID(sql2);
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		// 新建Role对象
+		Role role = new Role();
+		role.setName(name);
+		role.setDescription(description);
+		role.setCreateTime(date);
 
+		RoleManage roleManage = new RoleManage();
+		Integer result = roleManage.updateRole(role);
 
-		// 新建文章对象
-		Article article = new Article();
-		// 设置标题
-		article.setTitle(title);
-		// 设置作者账号
-		article.setEmployeeID(anthorID);
-		// 设置子栏目ID
-		article.setColumnID(sonColumnsID);
-		// 设置文章内容
-		article.setContent(content);
-		// 设置文章是否置顶
-				article.setWhetherTop(whetherTop);
-
-		ArticleManage articleManage = new ArticleManage();
-
-		Integer result = articleManage.updateArticle(article);
 		System.out.println(result);
 	}}

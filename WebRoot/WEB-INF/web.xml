@@ -77,6 +77,16 @@
     <servlet-name>InsertPrivilege</servlet-name>
     <servlet-class>control.InsertPrivilege</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>InsertRole</servlet-name>
+    <servlet-class>control.InsertRole</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateRole</servlet-name>
+    <servlet-class>control.UpdateRole</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -169,6 +179,14 @@
   <servlet-mapping>
     <servlet-name>InsertPrivilege</servlet-name>
     <url-pattern>/control/InsertPrivilege</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InsertRole</servlet-name>
+    <url-pattern>/control/InsertRole</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateRole</servlet-name>
+    <url-pattern>/control/UpdateRole</url-pattern>
   </servlet-mapping>
 
 </web-app>

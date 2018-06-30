@@ -3,30 +3,30 @@ package entity;
 /**
  * 
  * @ClassName:     Permisson.java 
- * @Description:   È¨ÏÞÀà 
+ * @Description:   È¨ï¿½ï¿½ï¿½ï¿½ 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ27ÈÕ ÏÂÎç9:58:29
+ * @Date           2018ï¿½ï¿½6ï¿½ï¿½27ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:58:29
  */
-public class Permisson {
+public class Permission {
 	private Integer id;
 	private Integer roleID;
 	private Integer moduleID;
 	
 	/**
-	 * Ä¬ÈÏ¹¹Ôì·½·¨
+	 * Ä¬ï¿½Ï¹ï¿½ï¿½ì·½ï¿½ï¿½
 	 */
-	public Permisson() {
+	public Permission() {
 		super();
 	}
 
 	/**
-	 * º¬²Î¹¹Ôì·½·¨
+	 * ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ì·½ï¿½ï¿½
 	 * @param id
 	 * @param roleID
 	 * @param moduleID
 	 */
-	public Permisson(Integer id, Integer roleID, Integer moduleID) {
+	public Permission(Integer id, Integer roleID, Integer moduleID) {
 		super();
 		this.id = id;
 		this.roleID = roleID;

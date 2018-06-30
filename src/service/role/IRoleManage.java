@@ -16,4 +16,6 @@ import entity.Role;
 public interface IRoleManage {
 	String findAllRole();
 	Integer deleteRole(Role role);
+	Integer insertRole(Role role);
+	Integer updateRole(Role role);
 }

@@ -2,7 +2,7 @@
  * 
  */
 package service.permission;
-import entity.Permisson;
+import entity.Permission;
 /** 
  * @ClassName:     IPermissionManage.java 
  * @Description:   增加权限接口
@@ -11,5 +11,5 @@ import entity.Permisson;
  * @Date           2018年6月30日 下午10:41:32  
  */
 public interface IPermissionManage {
-	Integer insertPermission(Permisson permission);
+	Integer insertPermission(Permission permission);
 }

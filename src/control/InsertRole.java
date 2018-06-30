@@ -5,6 +5,8 @@ package control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +14,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entity.Permission;
+import entity.Role;
 import service.permission.PermissionManage;
+import service.role.RoleManage;
 
 /** 
- * @ClassName:     InsertPrivilege.java 
- * @Description:   插入权限  
+ * @ClassName:     InsertRole.java 
+ * @Description:   新增角色 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018年6月30日 下午10:33:38  
+ * @Date           2018年6月30日 下午11:07:19  
  */
-public class InsertPrivilege extends HttpServlet {
+public class InsertRole extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,20 +35,27 @@ public class InsertPrivilege extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		// 获取角色ID
-		String roleID = request.getParameter("roleID");	
-		// 获取模块ID
-		String moduleID = request.getParameter("moduleID");
+		String name = request.getParameter("name");	
+		// 获取角色描述
+		String description = request.getParameter("description");
+
+		//设置日期格式
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		// new Date()为获取当前系统时间，也可使用当前时间戳
+		String date = df.format(new Date());
 		
-		// 新建permission对象
-		Permission permission = new Permission();
-		permission.setRoleID(Integer.parseInt(roleID));
-		permission.setModuleID(Integer.parseInt(moduleID));
-		
-		PermissionManage permissionManage = new PermissionManage();
-		Integer result = permissionManage.insertPermission(permission);
-		
+		// 新建Role对象
+		Role role = new Role();
+		role.setName(name);
+		role.setDescription(description);
+		role.setCreateTime(date);
+
+		RoleManage roleManage = new RoleManage();
+		Integer result = roleManage.insertRole(role);
+
 		// 插入成功返回1  插入失败返回0
 		response.getWriter().println(result);
+
 	}
 
 
