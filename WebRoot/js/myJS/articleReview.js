@@ -1,5 +1,5 @@
 /*操作小图标*/
-function operationIcon(value,row,index) {
+function operationIcon1(value,row,index) {
     return[
            '<button type="button" id="adopt" class="btn btn-primary btn-xs"  >通过',
            '<button type="button" id="notAdopt" class="btn btn-primary btn-xs"  >通过'
@@ -118,7 +118,7 @@ $(function () {
             valign:'middle',//垂直居中显示
             //width:'15',//宽度
             events:operateEvents,
-            formatter:operationIcon
+            formatter:operationIcon1
         }]//列配置项,详情请查看 列参数 表格
         /*事件*/
     });

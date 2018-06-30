@@ -113,7 +113,7 @@ public class ArticleManage implements IArticleManage{
 		System.out.println("ִ要执行的sql为："+sql);
 
 		try {
-			result = DBUtil.findAllArticle(sql);
+			result = DBUtil.findAllAuditArticle(sql);
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
