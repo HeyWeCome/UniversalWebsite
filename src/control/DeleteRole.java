@@ -35,11 +35,11 @@ public class DeleteRole extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		// 获取文章名称
+		// 获取角色名称
 		String roleName = request.getParameter("roleName");	
 
-		// 根据用户名查询用户ID
-		String sql1 = SpecificDao.findIDFromTable(roleName, "employee");
+		// 根据角色名查询角色ID
+		String sql1 = SpecificDao.findIDFromTable(roleName, "role");
 		Integer roleID = 0;
 		try {
 			roleID = DBUtil.findID(sql1);

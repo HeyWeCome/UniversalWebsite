@@ -12,6 +12,7 @@ import com.alibaba.fastjson.JSONArray;
 import dao.SpecificDao;
 import entity.Article;
 import entity.Employee;
+import entity.Role;
 import service.account.AccountManage;
 import service.article.ArticleManage;
 import service.columns.ColumnsManage;
@@ -29,37 +30,33 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		// 获取文章名称
-				String title = "康哥回忆录";	
-				// 获取作者
-				String author = "何玮康";
-				// 获取状态
-				String status = "0";
+		// 获取角色名称
+		String roleName ="何玮康";
 
-				// 根据用户名查询用户ID
-				String sql1 = SpecificDao.findIDFromTable(author, "employee");
-				Integer anthorID = 0;
-				try {
-					anthorID = DBUtil.findID(sql1);
-				} catch (NumberFormatException e) {
-					e.printStackTrace();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		// 根据角色名查询角色ID
+		String sql1 = SpecificDao.findIDFromTable(roleName, "role");
+		Integer roleID = 0;
+		try {
+			roleID = DBUtil.findID(sql1);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-				// 新建文章对象
-				Article article = new Article();
-				// 设置标题
-				article.setTitle(title);
-				// 设置作者账号
-				article.setEmployeeID(anthorID);
-				// 设置文章状态
-				article.setStatus(status);
+		// 新建文章对象
+		Role role = new Role();
+		// 设置角色ID
+		role.setId(roleID);
+		// 设置角色名字
+		role.setName(roleName);
 
-				ArticleManage articleManage = new ArticleManage();
-				
-				Integer result = articleManage.PassArticle(article);
-				System.out.println(result);
-//				response.getWriter().println(result);
+		RoleManage roleManage = new RoleManage();
+
+		// 删除成功返回1  删除失败返回0
+		Integer result = roleManage.deleteRole(role);
+
+//		response.getWriter().println(result);
+		System.out.println("删除的结果为:"+result);
 	}
 }
