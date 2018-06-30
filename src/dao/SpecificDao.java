@@ -86,7 +86,7 @@ public class SpecificDao {
 				"	employee.NAME AS roleName," +
 				"	sonColumns.NAME AS columnsName," +
 				"	article.createTime," +
-				"	article.whetherTop " +
+				"	article.whetherTop, " +
 				"	article.status " +
 				"FROM " +
 				"	article," +
