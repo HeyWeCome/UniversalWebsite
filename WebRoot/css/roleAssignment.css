@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-.sortTree{
+.showTree{
  min-width: 900px;
 }
 #showRoles {
@@ -12,6 +12,8 @@
 	overflow: auto;
 	position: relative;
 	background-color:#fff;
+	border-radius:6px;
+	border:3px solid transparent;
 }
 
 #showModules {
@@ -23,6 +25,8 @@
 	height: auto;
 	overflow: auto;
 	background-color:#fff;
+	border-radius:6px;
+	border:3px solid transparent;
 }
 
 .treeview .list-group-item {
@@ -35,29 +39,15 @@ ul li {
 	font-size:16px;
 }
 
+.show{
+	background-color:#fff;
+	margin-left:20px;
+}
+
 .selectBox{
-	margin-right:10px;
+	margin: 5px;
 }
 
-.treeview span.indent {
-	margin-left: 10px;
-	margin-right: 10px
-}
-
-.treeview span.icon {
-	width: 12px;
-	margin-right: 5px
-}
-
-.treeview .node-disabled {
-	color: silver;
-	cursor: not-allowed
-}
-
-.node-treeview-checkable {
-	
-}
-
-.node-treeview-checkable:not (.node-disabled ):hover {
-	background-color: #F5F5F5;
+#allocation{
+	folat:left;
 }
