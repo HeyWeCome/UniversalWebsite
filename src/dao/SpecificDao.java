@@ -193,4 +193,20 @@ public class SpecificDao {
 				" and employeeID = "+employeeID+";";
 		
 	}
+	
+	/**
+	 * 
+	 * @Title:        findAllEmployee  
+	 * @Description:  查询所有的人员  
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午9:11:53
+	 */
+	public static String findAllEmployee(){
+		return "select employee.name,employee.sex,employee.account,employee.passWord,role.name as roleName "
+				+ "from employee,role "
+				+ "where employee.roleID = role.id";
+	}
 }
