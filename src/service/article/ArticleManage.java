@@ -33,16 +33,16 @@ public class ArticleManage implements IArticleManage{
 		String sql = SpecificDao.selectAllArticle();
 		// 数据库操作后的结果
 		String result = null;
-		
+
 		System.out.println("ִ要执行的sql为："+sql);
-		
+
 		try {
 			result = DBUtil.findAllArticle(sql);
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 
@@ -61,7 +61,7 @@ public class ArticleManage implements IArticleManage{
 		} catch (IllegalArgumentException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
-		
+
 		// 如果执行插入语句成功则返回：1    否则返回：0
 		try {
 			int result = InSertDBUtil.insertArticle(sql);
@@ -84,7 +84,7 @@ public class ArticleManage implements IArticleManage{
 		String title = article.getTitle();
 		// 获取作者账号
 		Integer employeeID = article.getEmployeeID();
-		
+
 		String sql = SpecificDao.deleteArticle(employeeID,title);
 		System.out.println("需要执行的sql为:"+sql);
 		try {
@@ -93,8 +93,33 @@ public class ArticleManage implements IArticleManage{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return 0;
+	}
+
+	/**  
+	 * @Title:        findAllAuditArticle  
+	 * @Description:  找到所有未审核通过的文章  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午1:25:16  
+	 */  
+	@Override
+	public String findAllAuditArticle() {
+		String sql = SpecificDao.selectAllAuditArticle();
+
+		// 数据库操作后的结果
+		String result = null;
+
+		System.out.println("ִ要执行的sql为："+sql);
+
+		try {
+			result = DBUtil.findAllArticle(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 
 }

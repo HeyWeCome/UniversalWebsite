@@ -70,6 +70,49 @@ public class SpecificDao {
 		
 	}
 	
+	/**
+	 * 
+	 * @Title:        selectAllArticle  
+	 * @Description:  选择所有的文章,按照前台指定格式返回
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月29日 下午3:00:43
+	 */
+	public static String selectAllAuditArticle(){
+		String sql = "SELECT" +
+				"	article.title," +
+				"	employee.NAME AS roleName," +
+				"	sonColumns.NAME AS columnsName," +
+				"	article.createTime," +
+				"	article.whetherTop " +
+				"FROM " +
+				"	article," +
+				"	sonColumns," +
+				"	employee " +
+				"WHERE " +
+				"article.columnID = sonColumns.id " +
+				"AND article.employeeID = employee.id"
+				+ " AND article.status = 0";
+		
+		return sql;
+		
+	}
+	
+	
+	/**
+	 * 
+	 * @Title:        findUserName  
+	 * @Description:  根据账号密码找到用户名
+	 * @param:        @param account
+	 * @param:        @param passWord
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午1:26:44
+	 */
 	public static String findUserName(String account, String passWord){
 		// 生成sql
 		return "select name from employee where account = '"+account+"' and passWord = '"+passWord+"';";
