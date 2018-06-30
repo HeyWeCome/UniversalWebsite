@@ -2,7 +2,7 @@
 .sortTree{
  min-width: 900px;
 }
-#treeRole {
+#showRoles {
 	width: 30%;
 	position : relative;
 	float: left;
@@ -11,9 +11,10 @@
 	height: auto;
 	overflow: auto;
 	position: relative;
+	background-color:#fff;
 }
 
-#treeModule {
+#showModules {
 	width: 43%;
 	position: relative;
 	float: left;
@@ -21,10 +22,21 @@
 	margin-top: 5%;
 	height: auto;
 	overflow: auto;
+	background-color:#fff;
 }
 
 .treeview .list-group-item {
 	cursor: pointer
+}
+
+ul li {
+	list-style: none;
+	height:30px;
+	font-size:16px;
+}
+
+.selectBox{
+	margin-right:10px;
 }
 
 .treeview span.indent {

@@ -37,10 +37,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <!--  这里是roleAssignment.jsp界面，相应js,css未建立 <br> -->
     
     <div class="sortTree">
-		<ul id="treeRole" class="treeview">
+    	<!-- <button class="allModules" id="allModules" onclick="showAllModules()">显示模块</button> -->
+    	<ul id="showRoles" class="treeview">
 		</ul>
-		<ul id="treeModule" class="treeview">
+		<ul id="showModules" class="treeview">
 		</ul>
+		
 	</div>
   </body>
  
