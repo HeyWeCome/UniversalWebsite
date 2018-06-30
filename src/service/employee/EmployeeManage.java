@@ -1,7 +1,7 @@
 /**
  * 
  */
-package employee;
+package service.employee;
 
 import dao.SpecificDao;
 import util.DBUtil;

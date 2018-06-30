@@ -1,7 +1,7 @@
 /**
  * 
  */
-package employee;
+package service.employee;
 
 /** 
  * @ClassName:     IEmployeeManage.java 
