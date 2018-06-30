@@ -1,10 +1,10 @@
-/*function showAllColumns(){
+function showAllColumns1(){
 	//console.log("当前账号为:"+$.cookie("userName"));
 	
 	parentColumnsSize=0;
 	parentColumns=0;
 	alert("进入方法");
-	显示父栏目
+	/*显示父栏目*/
 	$.ajax({    		
         url:"control/FindAllColumns",//servlet文件的名称  
         type:"POST",  
@@ -19,9 +19,9 @@
      		  	content += connectParentColumns(data1[i],i); 		   	       		   
      	    }
         	alert(content)
-        	document.getElementById("columns").innerHTML=content
+        	document.getElementById("columns1").innerHTML=content
         	
-        	显示子栏目
+        	/*显示子栏目*/
         	$.ajax({    		
                 url:"control/FindAllSonColumns",//servlet文件的名称  
                 type:"POST",  
@@ -36,14 +36,14 @@
     	        				sonContent+=connectSonColumns(data2[j],j);
     	        			}
     	        		}
-    	        		document.getElementById("sonColumns1"+i).innerHTML=sonContent
+    	        		document.getElementById("sonColumns2"+i).innerHTML=sonContent
     	        	}
                 }
             });
         }
     });
 }
-显示父栏目
+/*显示父栏目*/
 function connectParentColumns(data,i){
 	var parentColumns = '<button class="parentColumns" onclick="show1('
 		+i
@@ -52,12 +52,12 @@ function connectParentColumns(data,i){
 		+'">'
 		+data.name
 		+'</button>'
-	var sonColumns = '<div class="sonColumn" style="display:none" id="sonColumns1'
+	var sonColumns = '<div class="sonColumn" style="display:none" id="sonColumns2'
 		+i
 		+'"></div>'
 	return parentColumns+sonColumns
 }
-显示子栏目
+/*显示子栏目*/
 function connectSonColumns(data,i){
 	var sonColumns = '<button class="sonColumns" id="'
 		+data.id
@@ -67,7 +67,7 @@ function connectSonColumns(data,i){
 	//alert(sonColumns)
 	return sonColumns
 }
-控制div块的显示与隐藏
+/*控制div块的显示与隐藏*/
 function show1(i){
 	var sonColumns = document.getElementById("sonColumns1"+i);
 	if(sonColumns.style.display=="none"){
@@ -77,4 +77,4 @@ function show1(i){
 		sonColumns.style.display="none";
 	}
 	
-}*/
+}
