@@ -3,6 +3,8 @@
  */
 package service.role;
 
+import entity.Role;
+
 /**
  * 
  * @ClassName:     IRoleManage.java 
@@ -13,4 +15,5 @@ package service.role;
  */
 public interface IRoleManage {
 	String findAllRole();
+	Integer deleteRole(Role role);
 }

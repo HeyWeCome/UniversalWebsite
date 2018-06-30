@@ -157,6 +157,22 @@ public class SpecificDao {
 		return sql;
 	}
 	
+	
+	/**
+	 * 
+	 * @Title:        deletRole  
+	 * @Description:  删除角色
+	 * @param:        @param roleID
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午6:10:49
+	 */
+	public static String deletRole(Integer roleID){
+		String sql = "delete from role where id = "+roleID+";";
+		return sql;
+	}
 	/**
 	 * 
 	 * @Title:        passArticle  
