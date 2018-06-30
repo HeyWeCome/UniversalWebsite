@@ -195,7 +195,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <h4 class="modal-title">编辑文章信息</h4>
 		               </div>
 		               
-		               <form action="???" method="post">
+		               <form action="control/UpdateArticle" method="post">
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">

@@ -15,7 +15,7 @@ function showAllColumns1(){
         	parentColumnsSize1 = data1.length; 
         	
         	for(var i=0;i<data1.length;i++){     		  	
-     		  	content1 += connectParentColumns(data1[i],i); 		   	       		   
+     		  	content1 += connectParentColumns1(data1[i],i); 		   	       		   
      	    }
         	//alert(content)
         	document.getElementById("columns1").innerHTML=content1
@@ -43,7 +43,7 @@ function showAllColumns1(){
     });
 }
 /*显示父栏目*/
-function connectParentColumns(data,i){
+function connectParentColumns1(data,i){
 	var parentColumns1 = '<button class="parentColumns" onclick="show2('
 		+i
 		+')" id="ParentColumns'
@@ -51,7 +51,7 @@ function connectParentColumns(data,i){
 		+'">'
 		+data.name
 		+'</button>'
-	var sonColumns1 = '<div class="sonColumn" style="display:none" id="sonColumns2'
+	var sonColumns1 = '<div class="sonColumn" id="sonColumns2'
 		+i
 		+'"></div>'
 	return parentColumns1+sonColumns1

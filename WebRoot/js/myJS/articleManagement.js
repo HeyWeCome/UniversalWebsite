@@ -51,7 +51,7 @@ function connectParentColumns(data,i){
 		+'">'
 		+data.name
 		+'</button>'
-	var sonColumns = '<div class="sonColumn" style="display:none" id="sonColumns1'
+	var sonColumns = '<div class="sonColumn" id="sonColumns1'
 		+i
 		+'"></div>'
 	return parentColumns+sonColumns
@@ -110,7 +110,8 @@ window.operateEvents = {
         $('#edit_author').val(row.author);
         $('#edit_columnName').val(row.columnName);
         /*$('#edit_createTime').val(row.createTime);*/
-        $('#edit_whetherTop').val(row.whetherTop);      
+        $('#edit_whetherTop').val(row.whetherTop);   
+        getContent(row.title,row.author);
     },
     
     'click #upload':function (e,value,row,index) {
@@ -322,8 +323,8 @@ function getContent(title,author){
         	"author":author
         },
         success:function(data1){
-        	alert("成功");
-        	alert(data1);
+        	document.getElementById("check_content").innerHTML=data1;
+        	document.getElementById("edit_content").innerHTML=data1;
         }
 	});
 

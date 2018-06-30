@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="leftColumns" id="leftColumns">
-    	<button class="allColumns" id="allColumns" onclick="showAllColumns1()">所有栏目</button>
+    	<button class="allColumns" id="allColumns1" onclick="showAllColumns1()">所有栏目</button>
     	<div class="columns" id="columns1" ></div>
     </div>
     
