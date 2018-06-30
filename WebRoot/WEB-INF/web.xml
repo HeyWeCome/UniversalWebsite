@@ -129,7 +129,7 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>DeleteRole</servlet-name>
-    <url-pattern>control/DeleteRole</url-pattern>
+    <url-pattern>/control/DeleteRole</url-pattern>
   </servlet-mapping>
 
 </web-app>
