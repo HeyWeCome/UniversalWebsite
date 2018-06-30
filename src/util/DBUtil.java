@@ -15,7 +15,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -196,6 +196,63 @@ public class DBUtil {
 	 * @Date          2018年6月28日 下午3:53:22
 	 */
 	public static String findAllArticle(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		try {
+			// 相对应的读出文章每一行的所有元素内容
+			while(result.next()){
+				String title = result.getString("title");
+				String author = result.getString("roleName");
+				String columnName = result.getString("columnsName");
+				String createTime = result.getString("createTime");
+				String whetherTop = result.getString("whetherTop");
+				
+				if(whetherTop.equals("1")){
+					whetherTop = "是";
+				}else{
+					whetherTop = "否";
+				}
+				
+				returnResult += "{\"title\":\""+title
+						+"\",\"author\":\""+author
+						+"\",\"columnName\":\""+columnName
+						+"\",\"createTime\":\""+createTime
+						+"\",\"whetherTop\":\""+whetherTop
+						+"\"},";
+			}
+
+			returnResult = returnResult.substring(0,returnResult.length()-1);
+			returnResult += "]";
+			// 关闭相应的链接
+			result.close();
+			statement.close();
+			connection.close();
+
+			return returnResult;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
+	 * 
+	 * @Title:        findAllAuditArticle  
+	 * @Description:  找到所有未审核的文章 
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午1:29:45
+	 */
+	public static String findAllAuditArticle(String sql) throws Exception{
 		Connection connection = getConnection();
 		String returnResult = "";
 		Statement statement = connection.createStatement();
