@@ -108,65 +108,59 @@ window.operateEvents = {
         $('#edit_author').val(row.author);
         $('#edit_columnName').val(row.columnName);
         /*$('#edit_createTime').val(row.createTime);*/
-        $('#edit_whetherTop').val(row.whetherTop);
-        
-        /*$('#btEdit').on('click',function(){
-            var inputRight = 1;
-            var id = $('#edit_ID').val();
-            var name = $('#edit_NAME').val();
-            var college = $('#edit_COLLEGE').val();
-            var major = $('#edit_MAJOR').val();
-            var sex = $('#edit_SEX').val();
-            var birthday = $('#edit_BIRTHDAY').val();
-            var salary = $('#edit_SALARY').val();
-
-            var checkId = /^[0-9]+.?[0-9]*$/;   //验证学号的长度且是否为数字/^1\d{10}$/
-            if(!checkId.test(id)){
-                inputRight = 0;
-            }
-            var checkName = /^[\u4e00-\u9fa5]+$/;    //验证输入的名字是否为汉字
-            if(!checkName.test(name)){
-                inputRight = 0;
-            }
-            if(inputRight == 0){
-                alert("输入数据不合法！");
-            }
-            else{
-                $('#studentInformationTable').bootstrapTable('updateRow',{
-                    index:index,
-                    row:{
-                        ID:id,
-                        NAME:name,
-                        COLLEGE:college,
-                        MAJOR:major,
-                        SEX:sex,
-                        BIRTHDAY:birthday,
-                        SALARY:salary
-                    }
-                });
-                $('#studentInformationTable').bootstrapTable('load',students);
-                $('#editModal').modal('hide');
-                index = null;
-            }
-
-        });*/
+        $('#edit_whetherTop').val(row.whetherTop);      
     },
+    
+    'click #upload':function (e,value,row,index) {
+        //将该行数据填入模态框中
+        $('#edit_ID').val(row.id);
+        $('#edit_title').val(row.title);
+        $('#edit_author').val(row.author);
+        $('#edit_columnName').val(row.columnName);
+        /*$('#edit_createTime').val(row.createTime);*/
+        $('#edit_whetherTop').val(row.whetherTop); 
+        var uploadTitle = '<input type="hidden" name="title" value="'
+        	+row.title
+        	+'"></input>'
+    	var uploadAuthor = '<input type="hidden" name="title" value="'
+        	+row.author
+        	+'"></input>'
+        
+        var uploadImformation = uploadTitle+uploadAuthor
+        
+        document.getElementById("uploadImformation").innerHTML=uploadImformation
+    },
+    
 
     'click #delete':function (e,value,row,index) {
         var determine = confirm("确认删除？");
         if(determine==true){
-            /*$('#studentInformationTable').bootstrapTable('remove',{
-                field:'ID',
-                values:[row.ID]
-            });*/
-        	var tmp = document.createElement("form");
-        	var id = row.id;
-        	var action = "../servlet/deleteServlet?ID="+id;
-        	tmp.action = action;
-        	tmp.method = "post";
-        	document.body.appendChild(tmp);
-        	tmp.submit();
+        	alert(row.title+" "+row.author)
+        	$.ajax({    		
+                url:"control/DeleteArticle",//servlet文件的名称  
+                type:"POST",  
+                dataType:"json",
+                data:{
+                	"title":row.title,
+                	"author":row.author
+                },
+                //data:{"questionnaireId":"<%=questionnaireId%>"},
+                success:function(data1){
+                	alert("删除成功！")
+                }
+            });
         	
+        	 /*$('#studentInformationTable').bootstrapTable('remove',{
+            field:'ID',
+            values:[row.ID]
+        });*/
+    	/*var tmp = document.createElement("form");
+    	var id = row.id;
+    	var action = "../servlet/deleteServlet?ID="+id;
+    	tmp.action = action;
+    	tmp.method = "post";
+    	document.body.appendChild(tmp);
+    	tmp.submit();*/
         }
     }
 };
@@ -175,55 +169,14 @@ window.operateEvents = {
 function refresh(){
     $('#articleTable').bootstrapTable('refresh', null);
 }
-/*
-function add() {
-    var inputRight = 1;
-  
-    var id = $('#add_ID').val();
-    var name = $('#add_NAME').val();
-    var college = $('#add_COLLEGE').val();
-    var major = $('#add_MAJOR').val();
-    var sex = $('#eadd_SEX').val();
-    var birthday = $('#add_BIRTHDAY').val();
-    var salary = $('#add_SALARY').val();
-
-    
-    
-    var checkId = /^[0-9]+.?[0-9]*$/;   //验证学号的长度且是否为数字/^1\d{10}$/
-    if(!checkId.test(id)){
-        inputRight = 0;
-    }
-    var checkName = /^[\u4e00-\u9fa5]+$/;    //验证输入的名字是否为汉字
-    if(!checkName.test(name)){
-        inputRight = 0;
-    }
-    if(inputRight == 0){
-        alert("输入数据不合法！");
-    }
-    else{
-        var student = "{"+"\""+"STUDENTID"+"\""+":"+"\""+studentId+"\""+","
-            +"\""+"NAME"+"\""+":"+"\""+name+"\""+","
-            +"\""+"COLLEGE"+"\""+":"+"\""+college+"\""+","
-            +"\""+"MAJOR"+"\""+":"+"\""+major+"\""+","
-            +"\""+"GRADE"+"\""+":"+"\""+grade+"\""+","
-            +"\""+"CLASS"+"\""+":"+"\""+clAss+"\""+","
-            +"\""+"AGE"+"\""+":"+"\""+age+"\""+"}";
-        students.unshift(JSON.parse(student));
-        $('#studentInformationTable').bootstrapTable('load',students);
-
-        $('#addModal').modal('hide');
-    }
-
-}*/
 
 
 function deletes() {
-    var data = $('#studentInformationTable').bootstrapTable('getSelections');
-    
+    var data = $('#articleTable').bootstrapTable('getSelections');
+   /* 
     for(var i=0; i<data.length; i++){
-    	alert(data[i].id);
-    	
-    }
+    	alert(data[i].title);  	
+    }*/
     
     if(data.length==0){
         alert("请至少选中一条数据");
@@ -232,7 +185,23 @@ function deletes() {
     var ids = "";
     var determine = confirm("确认删除？")
     if(determine==true){
-    	var tmp = document.createElement("form");
+    	for(var i=0; i<data.length; i++){
+    		alert(data[i].title+" "+data[i].author)    	
+    		$.ajax({    		
+                url:"control/DeleteArticle",//servlet文件的名称  
+                type:"POST",  
+                dataType:"json",
+                data:{
+                	"title":data[i].title,
+                	"author":data[i].author
+                },
+                //data:{"questionnaireId":"<%=questionnaireId%>"},
+                success:function(data1){
+                	alert("删除成功！")
+                }
+    		});
+    	}
+    	/*var tmp = document.createElement("form");
     	var action =  "../servlet/deletesServlet?";
     	action = action+"size="+data.length;
         for(var i=0; i<data.length; i++){
@@ -244,19 +213,7 @@ function deletes() {
         tmp.action = action;
     	tmp.method = "post";
     	document.body.appendChild(tmp);
-    	tmp.submit();
-    	//console.log(data[i].id);
-    	
-    	/*for(var i=0; i<data.length; i++){
-    		var tmp = document.createElement("form");
-    		var id = data[i].ID;
-    		var action =  "../servlet/deleteServlet?ID="+id;
-    		tmp.action = action;
-        	tmp.method = "post";
-        	document.body.appendChild(tmp);
-        	tmp.submit();
-    	}*/
-    	
+    	tmp.submit();*/
     }
 }
 
