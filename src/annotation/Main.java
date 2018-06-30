@@ -35,19 +35,23 @@ public class Main {
 	public static void main(String[] args){
 
 		// 获取角色ID
-		String roleID = "1";	
-		// 获取模块ID
-		String moduleID = "10000";
+		String name = "李建飞";	
+		// 获取角色描述
+		String description = "迎宾";
 
-		// 新建permission对象
-		Permission permission = new Permission();
-		permission.setRoleID(Integer.parseInt(roleID));
-		permission.setModuleID(Integer.parseInt(moduleID));
+		//设置日期格式
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		// new Date()为获取当前系统时间，也可使用当前时间戳
+		String date = df.format(new Date());
 
-		PermissionManage permissionManage = new PermissionManage();
-		Integer result = permissionManage.insertPermission(permission);
+		// 新建Role对象
+		Role role = new Role();
+		role.setName(name);
+		role.setDescription(description);
+		role.setCreateTime(date);
 
-		// 插入成功返回1  插入失败返回0
-//		response.getWriter().println(result);
+		RoleManage roleManage = new RoleManage();
+		Integer result = roleManage.updateRole(role);
+
 		System.out.println(result);
 	}}

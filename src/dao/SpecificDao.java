@@ -1,6 +1,7 @@
 package dao;
 
 import entity.Article;
+import entity.Role;
 
 /**
  * 
@@ -229,6 +230,17 @@ public class SpecificDao {
 				+ "' and article.employeeID = "+employeeID;
 	}
 
+	/**
+	 * 
+	 * @Title:        updateArticle  
+	 * @Description:  更新文章 
+	 * @param:        @param article
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午11:23:25
+	 */
 	public static String updateArticle(Article article){
 		// 获取文章标题
 		String title = article.getTitle();
@@ -249,5 +261,28 @@ public class SpecificDao {
 				" content = '"+content+"' "+
 				" where title = '"+title+"'"+
 				" and employeeID = "+authorID+";";
+	}
+	
+	/**
+	 * 
+	 * @Title:        updateRole  
+	 * @Description:  更新角色
+	 * @param:        @param role
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午11:23:48
+	 */
+	public static String updateRole(Role role){
+		// 获取角色ID
+		String name = role.getName();	
+		// 获取角色描述
+		String description = role.getDescription();
+
+		return "update Role"+
+				" SET name = '"+name+"', "+
+				" description = '"+description+"' "+
+				" where name = '"+name+"';";
 	}
 }
