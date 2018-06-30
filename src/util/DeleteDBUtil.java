@@ -23,7 +23,7 @@ public class DeleteDBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -53,6 +53,35 @@ public class DeleteDBUtil {
 	 * @Date          2018年6月29日 下午5:26:31
 	 */
 	public static Integer deleteArticle(String sql) throws Exception{
+		Connection connection = getConnection();
+		Statement statement = connection.createStatement();
+
+		if(statement.executeUpdate(sql) == 1){
+			// 关闭相应的链接
+			statement.close();
+			connection.close();
+			return 1;
+		}else{
+			// 关闭相应的链接
+			statement.close();
+			connection.close();
+			return 0;
+		}
+	}
+	
+	/**
+	 * 
+	 * @Title:        deleteRole  
+	 * @Description:  执行删除角色  
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       Integer     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午6:12:58
+	 */
+	public static Integer deleteRole(String sql) throws Exception{
 		Connection connection = getConnection();
 		Statement statement = connection.createStatement();
 

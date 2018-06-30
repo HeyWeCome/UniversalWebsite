@@ -57,6 +57,11 @@
     <servlet-name>UpdateAuditArticle</servlet-name>
     <servlet-class>control.UpdateAuditArticle</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeleteRole</servlet-name>
+    <servlet-class>control.DeleteRole</servlet-class>
+  </servlet>
+
 
 
 
@@ -121,6 +126,10 @@
   <servlet-mapping>
     <servlet-name>UpdateAuditArticle</servlet-name>
     <url-pattern>/control/UpdateAuditArticle</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteRole</servlet-name>
+    <url-pattern>control/DeleteRole</url-pattern>
   </servlet-mapping>
 
 </web-app>
