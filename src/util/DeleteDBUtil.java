@@ -23,7 +23,7 @@ public class DeleteDBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "123456";
+		String userPWD = "";
 
 		Class.forName(driverName);
 

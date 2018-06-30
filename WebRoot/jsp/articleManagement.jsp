@@ -44,17 +44,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div class="rightTable">
 	    <div class="buttons">
-	        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addModal" onclick="getColumnsName()" style="background-color:#5E6F8A;color:#fff;">&nbsp;新增&nbsp;</button>
+	        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addArticleModal" onclick="getColumnsName()" style="background-color:#5E6F8A;color:#fff;">&nbsp;新增&nbsp;</button>
 	        <button id="del" onclick="deletes()" type="button" class="btn btn-primary " style="background-color:#5E6F8A;color:#fff;">&nbsp;删除&nbsp;</button>
 	    </div>
 	
 	    <!--表格，样式在js中定义-->
-	    <table id="articleTable" style="font-size: 12px; background-color:#b0c4de2e;">
-	    	<!-- <div class="pull-right search">
-	    		<input class="form-control" type="text" id="searchColumn" placeholder="搜索">
-	   		</div> -->
-	    </table>
-	    
+	    <div style="font-size: 20px;">
+		    <table id="articleTable" style="background-color:#b0c4de2e;" >
+		    	<!-- <div class="pull-right search">
+		    		<input class="form-control" type="text" id="searchColumn" placeholder="搜索">
+		   		</div> -->
+		    </table>
+	    </div>
 	    <!-- 上传资源弹框 -->
 		   <div id="uploadModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
 		       <div class="modal-dialog" role="document">
@@ -84,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    
 	    
 	    <!-- 新增弹框 -->
-		   <div id="addModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+		   <div id="addArticleModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
 		       <div class="modal-dialog" role="document">
 		           <div class="modal-content">
 		               <div class="modal-header" style="background-color: #999">
@@ -137,7 +138,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		
 		   <!-- 查看弹框 -->
-		   <div id="checkModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+		   <div id="checkArticleModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
 		       <div class="modal-dialog" role="document">
 		           <div class="modal-content">
 		               <div class="modal-header" style="background-color: #999">
@@ -182,7 +183,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		
 		   <!-- 修改弹框 -->
-		   <div id="editModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+		   <div id="editArticleModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
 		       <div class="modal-dialog" role="document">
 		           <div class="modal-content">
 		               <div class="modal-header" style="background-color: #999">

@@ -82,8 +82,8 @@ function show1(i){
 
 function operationIcon(value,row,index) {
     return[
-        '<img alt="img-responsive" id="check" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#checkModal"  src="images/check.png" />',
-        '<img alt="img-responsive" id="edit" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#editModal" src="images/edit.png" />',
+        '<img alt="img-responsive" id="check" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#checkArticleModal"  src="images/check.png" />',
+        '<img alt="img-responsive" id="edit" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#editArticleModal" src="images/edit.png" />',
         '<img alt="img-responsive" id="delete" class="img-responsive" style="float: left; padding-left:10px" src="images/delete.png" />',
         '<img alt="img-responsive" id="upload" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#uploadModal" src="images/upload.png" />'
         ].join('');
@@ -93,6 +93,7 @@ function operationIcon(value,row,index) {
 /*每行表格尾部的小图标点击*/
 window.operateEvents = {
     'click #check':function (e,value,row,index) {
+    	alert("进入查看弹框")
         //将该行数据填入模态框中
         $('#check_title').val(row.title);
         $('#check_author').val(row.author);
@@ -103,7 +104,7 @@ window.operateEvents = {
 
     'click #edit':function (e,value,row,index) {
         //将该行数据填入模态框中
-        $('#edit_ID').val(row.id);
+        //$('#edit_ID').val(row.id);
         $('#edit_title').val(row.title);
         $('#edit_author').val(row.author);
         $('#edit_columnName').val(row.columnName);
@@ -142,18 +143,6 @@ window.operateEvents = {
                 	alert("删除成功！")
                 }
             });
-        	
-        	 /*$('#studentInformationTable').bootstrapTable('remove',{
-            field:'ID',
-            values:[row.ID]
-        });*/
-    	/*var tmp = document.createElement("form");
-    	var id = row.id;
-    	var action = "../servlet/deleteServlet?ID="+id;
-    	tmp.action = action;
-    	tmp.method = "post";
-    	document.body.appendChild(tmp);
-    	tmp.submit();*/
         }
     }
 };

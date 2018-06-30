@@ -135,10 +135,13 @@
   <servlet-mapping>
     <servlet-name>DeleteRole</servlet-name>
     <url-pattern>/control/DeleteRole</url-pattern>
+
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>FindAllEmployee</servlet-name>
     <url-pattern>/control/FindAllEmployee</url-pattern>
+
+
   </servlet-mapping>
 
 </web-app>
