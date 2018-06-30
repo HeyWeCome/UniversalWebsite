@@ -53,6 +53,11 @@
     <servlet-name>FindAllAuditArticle</servlet-name>
     <servlet-class>control.FindAllAuditArticle</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UpdateAuditArticle</servlet-name>
+    <servlet-class>control.UpdateAuditArticle</servlet-class>
+  </servlet>
+
 
 
 
@@ -112,6 +117,10 @@
   <servlet-mapping>
     <servlet-name>FindAllAuditArticle</servlet-name>
     <url-pattern>/control/FindAllAuditArticle</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateAuditArticle</servlet-name>
+    <url-pattern>/control/UpdateAuditArticle</url-pattern>
   </servlet-mapping>
 
 </web-app>

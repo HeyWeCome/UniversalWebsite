@@ -87,14 +87,14 @@ public class SpecificDao {
 				"	sonColumns.NAME AS columnsName," +
 				"	article.createTime," +
 				"	article.whetherTop " +
+				"	article.status " +
 				"FROM " +
 				"	article," +
 				"	sonColumns," +
 				"	employee " +
 				"WHERE " +
 				"article.columnID = sonColumns.id " +
-				"AND article.employeeID = employee.id"
-				+ " AND article.status = 0";
+				"AND article.employeeID = employee.id;";
 		
 		return sql;
 		
