@@ -36,7 +36,7 @@ public class Main {
 		System.out.println(sql1);
 		Integer anthorID = null;
 		try {
-			anthorID = Integer.parseInt(DBUtil.findID(sql1));
+			anthorID = DBUtil.findID(sql1);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -48,7 +48,7 @@ public class Main {
 		System.out.println(sql2);
 		Integer columnID = null;
 		try {
-			columnID = Integer.parseInt(DBUtil.findID(sql1));
+			columnID = DBUtil.findID(sql1);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -60,7 +60,7 @@ public class Main {
 		newArticle.setTitle("资治通鉴");
 		newArticle.setEmployeeID(anthorID);
 		newArticle.setColumnID(columnID);
-		newArticle.setContent("司马光回忆录");
+		newArticle.setContent("关于本校");
 		newArticle.setWhetherTop("1");
 		newArticle.setCreateTime(date);
 		newArticle.setStatus("1");
