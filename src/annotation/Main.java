@@ -29,47 +29,37 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-		String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
-		// 根据用户名查询用户ID
-		String sql1 = SpecificDao.findIDFromTable("何玮康", "employee");
-		System.out.println(sql1);
-		Integer anthorID = null;
-		try {
-			anthorID = DBUtil.findID(sql1);
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		// 获取文章名称
+				String title = "康哥回忆录";	
+				// 获取作者
+				String author = "何玮康";
+				// 获取状态
+				String status = "0";
 
-		// 根据栏目名称查询栏目ID
-		String sql2 = SpecificDao.findIDFromTable("教学方法", "soncolumns");
-		System.out.println(sql2);
-		Integer columnID = null;
-		try {
-			columnID = DBUtil.findID(sql1);
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+				// 根据用户名查询用户ID
+				String sql1 = SpecificDao.findIDFromTable(author, "employee");
+				Integer anthorID = 0;
+				try {
+					anthorID = DBUtil.findID(sql1);
+				} catch (NumberFormatException e) {
+					e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 
-		Article newArticle = new Article();
-		// 根据前台获取到的数据构建对象
-		newArticle.setTitle("资治通鉴");
-		newArticle.setEmployeeID(anthorID);
-		newArticle.setColumnID(columnID);
-		newArticle.setContent("关于本校");
-		newArticle.setWhetherTop("1");
-		newArticle.setCreateTime(date);
-		newArticle.setStatus("1");
+				// 新建文章对象
+				Article article = new Article();
+				// 设置标题
+				article.setTitle(title);
+				// 设置作者账号
+				article.setEmployeeID(anthorID);
+				// 设置文章状态
+				article.setStatus(status);
 
-		// 如果执行插入语句成功则返回：1    否则返回：0
-		ArticleManage newArticleManage = new ArticleManage();
-		Integer result = newArticleManage.InsertArticle(newArticle);
-
-
-		System.out.println(result);
+				ArticleManage articleManage = new ArticleManage();
+				
+				Integer result = articleManage.PassArticle(article);
+				System.out.println(result);
+//				response.getWriter().println(result);
 	}
 }

@@ -36,16 +36,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="topText"> &nbsp;审核文章</div>
     </div>
     
-    <!-- <div class="leftColumns" id="leftColumns">
+    <div class="leftColumns" id="leftColumns">
     	<button class="allColumns" id="allColumns" onclick="showAllColumns1()">所有栏目</button>
     	<div class="columns" id="columns1" ></div>
-    </div> -->
+    </div>
     
     <div class="rightTable">
-	    <div class="buttons">
+	   <!--  <div class="buttons">
 	        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addModal" onclick="getColumnsName()" style="background-color:#5E6F8A;color:#fff;">&nbsp;新增&nbsp;</button>
 	        <button id="del" onclick="deletes()" type="button" class="btn btn-primary " style="background-color:#5E6F8A;color:#fff;">&nbsp;删除&nbsp;</button>
-	    </div>
+	    </div> -->
 	
 	    <!--表格，样式在js中定义-->
 	    <table id="articleReviewTable" style="font-size: 12px; background-color:#b0c4de2e;">

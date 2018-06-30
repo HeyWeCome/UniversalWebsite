@@ -199,7 +199,7 @@ public class DBUtil {
 		Connection connection = getConnection();
 		String returnResult = "";
 		Statement statement = connection.createStatement();
-
+		//System.out.println("sql:"+sql);
 		ResultSet result = statement.executeQuery(sql);
 		returnResult += "[";
 

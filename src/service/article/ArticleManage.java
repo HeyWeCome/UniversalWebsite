@@ -9,6 +9,7 @@ import entity.Article;
 import util.DBUtil;
 import util.DeleteDBUtil;
 import util.InSertDBUtil;
+import util.UpdateDBUtil;
 
 /**
  * 
@@ -113,7 +114,7 @@ public class ArticleManage implements IArticleManage{
 		System.out.println("ִ要执行的sql为："+sql);
 
 		try {
-			result = DBUtil.findAllArticle(sql);
+			result = DBUtil.findAllAuditArticle(sql);
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -121,5 +122,35 @@ public class ArticleManage implements IArticleManage{
 
 		return null;
 	}
+
+	/**  
+	 * @Title:        PassArticle  
+	 * @Description:  更新文章状态  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午4:01:26  
+	 */  
+	@Override
+	public Integer PassArticle(Article article) {
+		// 获取文章名
+		String title = article.getTitle();
+		// 获取作者ID
+		Integer employeeID = article.getEmployeeID();
+		// 获取状态
+		String status = article.getStatus();
+		
+		String sql = SpecificDao.passArticle(title, employeeID, status);
+		System.out.println("需要执行的sql语句为:"+sql);
+		
+		
+		try {
+			Integer result = UpdateDBUtil.updateArticleStatus(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	
 
 }
