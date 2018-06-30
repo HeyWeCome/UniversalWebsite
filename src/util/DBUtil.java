@@ -268,6 +268,7 @@ public class DBUtil {
 				String columnName = result.getString("columnsName");
 				String createTime = result.getString("createTime");
 				String whetherTop = result.getString("whetherTop");
+				String status = result.getString("status");
 				
 				if(whetherTop.equals("1")){
 					whetherTop = "是";
@@ -275,11 +276,20 @@ public class DBUtil {
 					whetherTop = "否";
 				}
 				
+				if(status.equals("0")){
+					status = "未审核";
+				}else if(status.equals("1")){
+					status = "审核通过";
+				}else{
+					status = "审核不通过";
+				}
+				
 				returnResult += "{\"title\":\""+title
 						+"\",\"author\":\""+author
 						+"\",\"columnName\":\""+columnName
 						+"\",\"createTime\":\""+createTime
 						+"\",\"whetherTop\":\""+whetherTop
+						+"\",\"status\":\""+status
 						+"\"},";
 			}
 
