@@ -137,11 +137,11 @@ public class ArticleManage implements IArticleManage{
 		Integer employeeID = article.getEmployeeID();
 		// 获取状态
 		String status = article.getStatus();
-		
+
 		String sql = SpecificDao.passArticle(title, employeeID, status);
 		System.out.println("需要执行的sql语句为:"+sql);
-		
-		
+
+
 		try {
 			Integer result = UpdateDBUtil.updateArticleStatus(sql);
 			return result;
@@ -150,7 +150,57 @@ public class ArticleManage implements IArticleManage{
 		}
 		return 0;
 	}
-	
-	
+
+	/**  
+	 * @Title:        findArticleContent  
+	 * @Description:  返回文章内容 
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午9:46:48  
+	 */  
+	@Override
+	public String findArticleContent(Article article) {
+		// 获取文章题目
+		String title = article.getTitle();
+		// 获取文章作者ID
+		Integer anthorID = article.getEmployeeID(); 
+
+		String sql = SpecificDao.findArticleContent(title, anthorID);
+		System.out.println("要执行的sql为:"+sql);
+
+		try {
+			String result = DBUtil.findArticleContent(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	/**  
+	 * @Title:        updateArticle  
+	 * @Description:  更新文章  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午10:09:09  
+	 */  
+	@Override
+	public Integer updateArticle(Article article) {
+		// 需要执行的sql
+		String sql = SpecificDao.updateArticle(article);
+		System.out.println("需要执行的sql为:"+sql);
+		Integer result = 0;
+		
+		//返回1 操作成功   返回0 操作失败
+		try {
+			result = UpdateDBUtil.updateArticle(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
+
 
 }

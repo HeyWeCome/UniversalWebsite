@@ -1,47 +1,47 @@
 /**
  * 
  */
-package annotation;
+package control;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import dao.SpecificDao;
 import entity.Article;
-import entity.Employee;
-import entity.Role;
-import service.account.AccountManage;
 import service.article.ArticleManage;
-import service.columns.ColumnsManage;
-import service.employee.EmployeeManage;
-import service.module.ModuleManage;
-import service.role.RoleManage;
 import util.DBUtil;
 
-/**
- * 
- * @ClassName:     Main.java 
- * @Description:   测试类记得删除
+/** 
+ * @ClassName:     UpdateArticle.java 
+ * @Description:   更新文章 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018年6月29日 下午2:56:50
+ * @Date           2018年6月30日 下午9:32:04  
  */
-public class Main {
-	public static void main(String[] args){
+public class UpdateArticle extends HttpServlet {
+
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 控制格式,解决乱码问题
+		response.setContentType("text/json");
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 
 		// 获取文章名称
-		String title = "进化论";	
+		String title = request.getParameter("title");	
 		// 获取作者
-		String author = "何玮康";
+		String author = request.getParameter("author");
 		// 获取子栏目
-		String columnName = "课程简介";
+		String columnName = request.getParameter("columnName");
 		// 获取是否置顶
-		String whetherTop = "1";
+		String whetherTop = request.getParameter("whetherTop");
 		// 获取文章内容
-		String content = "前排表达达尔文";
+		String content = request.getParameter("content");
 
 		// 根据用户名查询用户ID
 		String sql1 = SpecificDao.findIDFromTable(author, "employee");
@@ -77,10 +77,17 @@ public class Main {
 		// 设置文章内容
 		article.setContent(content);
 		// 设置文章是否置顶
-				article.setWhetherTop(whetherTop);
+		article.setWhetherTop(whetherTop);
 
 		ArticleManage articleManage = new ArticleManage();
 
 		Integer result = articleManage.updateArticle(article);
-		System.out.println(result);
-	}}
+		response.getWriter().println(result);
+	}
+
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request,response);
+	}
+
+}

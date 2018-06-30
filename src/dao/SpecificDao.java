@@ -1,5 +1,7 @@
 package dao;
 
+import entity.Article;
+
 /**
  * 
  * @ClassName:     SpecificDao.java 
@@ -25,7 +27,7 @@ public class SpecificDao {
 	public static String whetherAccountInTable(String account, String passWord, String tableName){
 		return "select * from "+tableName+" where account = '"+account+"' and passWord = '"+passWord+"';";
 	}
-	
+
 	/**
 	 * 
 	 * @Title:        selectAllFromTable  
@@ -40,7 +42,7 @@ public class SpecificDao {
 	public static String selectAllFromTable(String tableName){
 		return "select * from "+tableName+";";
 	}
-	
+
 	/**
 	 * 
 	 * @Title:        selectAllArticle  
@@ -65,11 +67,11 @@ public class SpecificDao {
 				"WHERE " +
 				"article.columnID = sonColumns.id " +
 				"AND article.employeeID = employee.id";
-		
+
 		return sql;
-		
+
 	}
-	
+
 	/**
 	 * 
 	 * @Title:        selectAllArticle  
@@ -95,12 +97,12 @@ public class SpecificDao {
 				"WHERE " +
 				"article.columnID = sonColumns.id " +
 				"AND article.employeeID = employee.id;";
-		
+
 		return sql;
-		
+
 	}
-	
-	
+
+
 	/**
 	 * 
 	 * @Title:        findUserName  
@@ -116,10 +118,10 @@ public class SpecificDao {
 	public static String findUserName(String account, String passWord){
 		// 生成sql
 		return "select name from employee where account = '"+account+"' and passWord = '"+passWord+"';";
-		
+
 	}
-	
-	
+
+
 	/**
 	 * 
 	 * @Title:        findIDFromTable  
@@ -135,10 +137,10 @@ public class SpecificDao {
 	public static String findIDFromTable(String name,String tableName){
 		// 生成sql
 		String sql = "select id from "+tableName+" where name = '"+name+"'";
-		
+
 		return sql;
 	}
-	
+
 	/**
 	 * 
 	 * @Title:        deleteArticle  
@@ -156,8 +158,8 @@ public class SpecificDao {
 				+" and title = '"+title+"';";
 		return sql;
 	}
-	
-	
+
+
 	/**
 	 * 
 	 * @Title:        deletRole  
@@ -191,6 +193,61 @@ public class SpecificDao {
 				" SET status = '"+status+"' "+
 				" where title = '"+article+"'"+
 				" and employeeID = "+employeeID+";";
-		
+
+	}
+
+	/**
+	 * 
+	 * @Title:        findAllEmployee  
+	 * @Description:  查询所有的人员  
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午9:11:53
+	 */
+	public static String findAllEmployee(){
+		return "select employee.name,employee.sex,employee.account,employee.passWord,role.name as roleName "
+				+ "from employee,role "
+				+ "where employee.roleID = role.id";
+	}
+
+	/**
+	 * 
+	 * @Title:        findArticleContent  
+	 * @Description:  找寻指定文章内容
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午9:49:08
+	 */
+	public static String findArticleContent(String title, Integer employeeID){
+		return "select article.content "
+				+" from article "
+				+ " where article.title = '"+title
+				+ "' and article.employeeID = "+employeeID;
+	}
+
+	public static String updateArticle(Article article){
+		// 获取文章标题
+		String title = article.getTitle();
+		// 获取作者ID
+		Integer authorID = article.getEmployeeID();
+		// 获取子栏目
+		Integer columnID = article.getColumnID();
+		// 获取是否置顶
+		String whetherTop = article.getWhetherTop();
+		// 获取文章内容
+		String content = article.getContent();
+
+		return "update Article"+
+				" SET title = '"+title+"', "+
+				" employeeID = "+authorID+", "+
+				" columnID = "+columnID+", "+
+				" whetherTop = '"+whetherTop+"', "+
+				" content = '"+content+"' "+
+				" where title = '"+title+"'"+
+				" and employeeID = "+authorID+";";
 	}
 }
