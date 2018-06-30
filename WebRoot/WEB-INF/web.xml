@@ -65,6 +65,16 @@
     <servlet-name>FindAllEmployee</servlet-name>
     <servlet-class>control.FindAllEmployee</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UpdateArticle</servlet-name>
+    <servlet-class>control.UpdateArticle</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FindArticleContent</servlet-name>
+    <servlet-class>control.FindArticleContent</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -142,6 +152,14 @@
     <url-pattern>/control/FindAllEmployee</url-pattern>
 
 
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateArticle</servlet-name>
+    <url-pattern>/control/UpdateArticle</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindArticleContent</servlet-name>
+    <url-pattern>/control/FindArticleContent</url-pattern>
   </servlet-mapping>
 
 </web-app>

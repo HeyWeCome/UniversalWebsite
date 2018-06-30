@@ -150,6 +150,32 @@ public class ArticleManage implements IArticleManage{
 		}
 		return 0;
 	}
+
+	/**  
+	 * @Title:        findArticleContent  
+	 * @Description:  返回文章内容 
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午9:46:48  
+	 */  
+	@Override
+	public String findArticleContent(Article article) {
+		// 获取文章题目
+		String title = article.getTitle();
+		// 获取文章作者ID
+		Integer anthorID = article.getEmployeeID(); 
+		
+		String sql = SpecificDao.findArticleContent(title, anthorID);
+		System.out.println("要执行的sql为:"+sql);
+		
+		try {
+			String result = DBUtil.findArticleContent(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 	
 	
 

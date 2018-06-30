@@ -209,4 +209,21 @@ public class SpecificDao {
 				+ "from employee,role "
 				+ "where employee.roleID = role.id";
 	}
+	
+	/**
+	 * 
+	 * @Title:        findArticleContent  
+	 * @Description:  找寻指定文章内容
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午9:49:08
+	 */
+	public static String findArticleContent(String title, Integer employeeID){
+		return "select article.content "
+				+" from article "
+				+ " where article.title = '"+title
+				+ "' and article.employeeID = "+employeeID;
+	}
 }

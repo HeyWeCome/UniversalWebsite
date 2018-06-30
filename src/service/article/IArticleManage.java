@@ -19,4 +19,5 @@ public interface IArticleManage {
 	Integer DeleteArticle(Article article);
 	String findAllAuditArticle();
 	Integer PassArticle(Article article);
+	String findArticleContent(Article article);
 }

@@ -32,16 +32,34 @@ import util.DBUtil;
 public class Main {
 	public static void main(String[] args){
 
-		// 生成文章管理service类
-		EmployeeManage employeeManager = new EmployeeManage();
+		// 获取文章名称
+		String title = "进化论";	
+		// 获取作者
+		String author = "何玮康";
+		// 返回到前台的文章内容
+		String result = null;
 
-		String result = employeeManager.findAllEmployee();
-
-		if(!result.isEmpty()){
-			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("employees are:"+fromObject.toString());
-//			response.getWriter().print(fromObject);
-		}else{
-//			response.getWriter().print(""); 
+		// 根据用户名查询用户ID
+		String sql1 = SpecificDao.findIDFromTable(author, "employee");
+		Integer anthorID = 0;
+		try {
+			anthorID = DBUtil.findID(sql1);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
+		// 新建文章对象
+		Article article = new Article();
+		// 设置标题
+		article.setTitle(title);
+		// 设置作者账号
+		article.setEmployeeID(anthorID);
+
+		// 新建文章service对象
+		ArticleManage articleManage = new ArticleManage();
+		result = articleManage.findArticleContent(article);
+		
+		System.out.println(result);
 	}}

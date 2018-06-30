@@ -531,4 +531,41 @@ public class DBUtil {
 		}
 		return null;
 	}
+	
+	/**
+	 * 
+	 * @Title:        findArticleContent  
+	 * @Description:  找到指定文章内容
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午9:52:51
+	 */
+	public static String findArticleContent(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+
+
+		try {
+			// 相对应的读出文章每一行的所有元素内容
+			while(result.next()){
+				String content = result.getString("content");
+				return content;
+			}
+			// 关闭相应的链接
+			result.close();
+			statement.close();
+			connection.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
