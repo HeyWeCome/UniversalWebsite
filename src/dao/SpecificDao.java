@@ -156,4 +156,25 @@ public class SpecificDao {
 				+" and title = '"+title+"';";
 		return sql;
 	}
+	
+	/**
+	 * 
+	 * @Title:        passArticle  
+	 * @Description:  修改文章状态的sql 
+	 * @param:        @param article
+	 * @param:        @param employeeID
+	 * @param:        @param status
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年6月30日 下午4:04:04
+	 */
+	public static String passArticle(String article, Integer employeeID, String status){
+		return "update Article "+
+				" SET status = '"+status+"' "+
+				" where title = '"+article+"'"+
+				" and employeeID = "+employeeID+";";
+		
+	}
 }

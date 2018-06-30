@@ -29,16 +29,37 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		// 生成文章管理service类
-				ArticleManage articleManage = new ArticleManage();
-				String result = articleManage.findAllAuditArticle();
-				
-				if(!result.isEmpty()){
-					JSONArray fromObject = (JSONArray) JSON.parse(result);
-					System.out.println("待审核的文章为:"+fromObject.toString());
-//					response.getWriter().print(fromObject);
-				}else{
-//					response.getWriter().print(""); 
+		// 获取文章名称
+				String title = "康哥回忆录";	
+				// 获取作者
+				String author = "何玮康";
+				// 获取状态
+				String status = "0";
+
+				// 根据用户名查询用户ID
+				String sql1 = SpecificDao.findIDFromTable(author, "employee");
+				Integer anthorID = 0;
+				try {
+					anthorID = DBUtil.findID(sql1);
+				} catch (NumberFormatException e) {
+					e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
+
+				// 新建文章对象
+				Article article = new Article();
+				// 设置标题
+				article.setTitle(title);
+				// 设置作者账号
+				article.setEmployeeID(anthorID);
+				// 设置文章状态
+				article.setStatus(status);
+
+				ArticleManage articleManage = new ArticleManage();
+				
+				Integer result = articleManage.PassArticle(article);
+				System.out.println(result);
+//				response.getWriter().println(result);
 	}
 }

@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.SpecificDao;
+import entity.Article;
+import service.article.ArticleManage;
+import util.DBUtil;
+
 /** 
  * @ClassName:     UpdateAuditArticle.java 
  * @Description:   审核文章状态
@@ -31,10 +36,34 @@ public class UpdateAuditArticle extends HttpServlet {
 		String title = request.getParameter("title");	
 		// 获取作者
 		String author = request.getParameter("author");
-		// 获取栏目名称
-		String columnName = request.getParameter("columnName");
 		// 获取状态
 		String status = request.getParameter("status");
+
+		// 根据用户名查询用户ID
+		String sql1 = SpecificDao.findIDFromTable(author, "employee");
+		Integer anthorID = 0;
+		try {
+			anthorID = DBUtil.findID(sql1);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// 新建文章对象
+		Article article = new Article();
+		// 设置标题
+		article.setTitle(title);
+		// 设置作者账号
+		article.setEmployeeID(anthorID);
+		// 设置文章状态
+		article.setStatus(status);
+
+		ArticleManage articleManage = new ArticleManage();
+		
+		Integer result = articleManage.PassArticle(article);
+		
+		response.getWriter().println(result);
 	}
 
 
