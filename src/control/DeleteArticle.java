@@ -41,7 +41,7 @@ public class DeleteArticle extends HttpServlet {
 		String sql1 = SpecificDao.findIDFromTable(author, "employee");
 		Integer anthorID = null;
 		try {
-			anthorID = Integer.parseInt(DBUtil.findID(sql1));
+			anthorID = DBUtil.findID(sql1);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (Exception e) {

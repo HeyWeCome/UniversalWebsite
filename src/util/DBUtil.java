@@ -386,7 +386,7 @@ public class DBUtil {
 	 * @author        Vico.Ho 
 	 * @Date          2018年6月29日 下午4:26:15
 	 */
-	public static String findID(String sql) throws Exception{
+	public static Integer findID(String sql) throws Exception{
 		Connection connection = getConnection();
 		String returnResult = "";
 		Statement statement = connection.createStatement();
@@ -396,7 +396,7 @@ public class DBUtil {
 		try {
 			// 相对应的读出每一行的所有元素内容
 			while(result.next()){
-				String id = result.getString("id");
+				Integer id = result.getInt("id");
 
 				return id;
 			}
