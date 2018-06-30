@@ -51,24 +51,37 @@ function submitAllocation(){
 	}
 	
 	var modules=document.getElementsByName('module');
-	var moduleId=''; 
+	var result=0;
+	var count=0;
+	var dateCount=0;
 	for(var i=0; i<modules.length; i++){ 
 		if(modules[i].checked) {
-			moduleId+=modules[i].value+"   ";
+			count++;
+			console.log("modules[i].value:"+modules[i].value);
+			var moduleId = modules[i].value;
 			$.ajax({    		
-            //    url:"control/DeleteArticle",//servlet文件的名称  
+                url:"control/InsertPrivilege",//servlet文件的名称  
                 type:"POST",  
                 dataType:"json",
                 data:{
                 	"roleID": roleId,
-                	"moduleID": moduleId[i]
+                	"moduleID": moduleId
                 },
-                success:function(data){
+                success:function(date){
+                	console.log("date:"+date);
+                	result=date;
+                	console.log("result:"+result);
+                	if(result==1){
+                		dateCount++;
+                	}
+                	if(result==1 && count==dateCount){
+                		alert("角色权限分配成功!");
+                	}
                 }
     		});
 		}
-			
 	} 
+	
 	//那么现在来检测s的值就知道选中的复选框的值了 
-	console.log(moduleId==''?'你还没有选择任何内容！': "modulesId:"+moduleId); 
+	//console.log(moduleId==''?'你还没有选择任何内容！': "modulesId:"+moduleId); 
 }
