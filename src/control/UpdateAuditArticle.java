@@ -31,14 +31,15 @@ public class UpdateAuditArticle extends HttpServlet {
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-
+		System.out.println("进入UpdateAuditArticle");
 		// 获取文章名称
 		String title = request.getParameter("title");	
 		// 获取作者
 		String author = request.getParameter("author");
 		// 获取状态
 		String status = request.getParameter("status");
-
+		System.out.println("传回的数据："+title+" "+author+" "+status);
+		
 		// 根据用户名查询用户ID
 		String sql1 = SpecificDao.findIDFromTable(author, "employee");
 		Integer anthorID = 0;

@@ -31,7 +31,7 @@ function showAllColumns1(){
                 	for(var i=0;i<parentColumnsSize1;i++){
     	        		var sonContent1=""
     	        		for(var j=0;j<data2.length;j++){
-    	        			if(data2[j].parentID==parentColumns[i].id){
+    	        			if(data2[j].parentID==parentColumns1[i].id){
     	        				sonContent1+=connectSonColumns1(data2[j],j);
     	        			}
     	        		}
@@ -87,7 +87,9 @@ function operationIcon1(value,row,index) {
 }
 /*每行表格尾部的小图标点击*/
 window.operateEvents = {
+		
     'click #adopt':function (e,value,row,index) {
+    	alert("进入通过")
     	$.ajax({    		
             url:"control/UpdateAuditArticle",//servlet文件的名称  
             type:"POST",  
@@ -103,6 +105,7 @@ window.operateEvents = {
         });
     },
     'click #notAdopt':function (e,value,row,index) {
+    	alert("进入不通过")
     	$.ajax({    		
             url:"control/UpdateAuditArticle",//servlet文件的名称  
             type:"POST",  
