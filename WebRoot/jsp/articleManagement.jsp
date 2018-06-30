@@ -44,12 +44,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div class="rightTable">
 	    <div class="buttons">
-	        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addModal" onclick="getColumnsName()">&nbsp;新增&nbsp;</button>
-	        <button id="del" onclick="deletes()" type="button" class="btn btn-primary ">&nbsp;删除&nbsp;</button>
+	        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addModal" onclick="getColumnsName()" style="background-color:#5E6F8A;color:#fff;">&nbsp;新增&nbsp;</button>
+	        <button id="del" onclick="deletes()" type="button" class="btn btn-primary " style="background-color:#5E6F8A;color:#fff;">&nbsp;删除&nbsp;</button>
 	    </div>
 	
 	    <!--表格，样式在js中定义-->
 	    <table id="articleTable" style="font-size: 12px; background-color:#b0c4de2e;">
+	    	<!-- <div class="pull-right search">
+	    		<input class="form-control" type="text" id="searchColumn" placeholder="搜索">
+	   		</div> -->
 	    </table>
 	    
 	    <!-- 上传资源弹框 -->
