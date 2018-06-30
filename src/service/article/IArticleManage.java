@@ -20,4 +20,5 @@ public interface IArticleManage {
 	String findAllAuditArticle();
 	Integer PassArticle(Article article);
 	String findArticleContent(Article article);
+	Integer updateArticle(Article article);
 }

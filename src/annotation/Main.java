@@ -36,8 +36,12 @@ public class Main {
 		String title = "进化论";	
 		// 获取作者
 		String author = "何玮康";
-		// 返回到前台的文章内容
-		String result = null;
+		// 获取子栏目
+		String columnName = "课程简介";
+		// 获取是否置顶
+		String whetherTop = "1";
+		// 获取文章内容
+		String content = "前排表达达尔文";
 
 		// 根据用户名查询用户ID
 		String sql1 = SpecificDao.findIDFromTable(author, "employee");
@@ -50,16 +54,33 @@ public class Main {
 			e.printStackTrace();
 		}
 
+		// 根据栏目名查询栏目ID
+		String sql2 = SpecificDao.findIDFromTable(columnName, "soncolumns");
+		Integer sonColumnsID = 0;
+		try {
+			sonColumnsID = DBUtil.findID(sql2);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
 		// 新建文章对象
 		Article article = new Article();
 		// 设置标题
 		article.setTitle(title);
 		// 设置作者账号
 		article.setEmployeeID(anthorID);
+		// 设置子栏目ID
+		article.setColumnID(sonColumnsID);
+		// 设置文章内容
+		article.setContent(content);
+		// 设置文章是否置顶
+				article.setWhetherTop(whetherTop);
 
-		// 新建文章service对象
 		ArticleManage articleManage = new ArticleManage();
-		result = articleManage.findArticleContent(article);
-		
+
+		Integer result = articleManage.updateArticle(article);
 		System.out.println(result);
 	}}
