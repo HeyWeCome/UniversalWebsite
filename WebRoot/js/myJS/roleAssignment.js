@@ -2,34 +2,26 @@
  * 
  */
 
-function getRoleTree(){
+/*function getRoleTree(){
 	var trees = "";
 	var tree ="";
+	var text="text";
 	$.ajax({
 		type : 'POST',
 		dataType : 'json',
 		url : 'control/FindAllRole',
 		async:false,	//同步
 		success : function(role) {
-		//	role =  $.parseJSON(data);
 			console.log(role);
-			console.log(role[0].name+"   "+role[1].name);
-			/*trees = [{
-	              text: value[0].name
-            },{
-            	  text: value[1].name
-            }];*/
-			
-			
-			
+
 			for (var i=0; i<role.length; i++){
 				if(i==role.length-1){
-					tree += "{text:'"+ role[i].name + "'}"
+					tree += '{"'+text+'":"'+ role[i].name + '"}';
 					console.log(role[i].name);
 					
 				}
 				else{
-					tree += "{text:'"+ role[i].name + "'}"
+					tree += '{"'+text+'":"'+ role[i].name + '"}';
 					console.log(role[i].name);
 					tree +=",";
 				}
@@ -38,11 +30,54 @@ function getRoleTree(){
 			console.log("tree:"+tree);
 			trees = "["+tree+"]";
 			console.log("trees:"+trees);
-			//trees = JSON.parse(role);
 		}
 	});
 	return trees;
+}*/
+
+$(document).ready(function() {
+/*function showAllModules(){*/
+
+	$.ajax({
+		type : 'POST',
+		url : 'control/FindAllRole',
+		async:false,
+		dataType : 'json',
+		success : function(roles) {
+			var role = "";
+			for(var i=0;i<roles.length;i++){
+				role += getRole(roles[i], i);
+			}
+			document.getElementById("showRoles").innerHTML=role
+		}
+	});
+	
+	$.ajax({
+		type : 'POST',
+		url : 'control/ShowSonModules',
+		async:false,
+		dataType : 'json',
+		success : function(sonModules) {
+			var modules = "";
+			for(var i=0;i<sonModules.length;i++){
+				modules += getModule(sonModules[i], i);
+			}
+			document.getElementById("showModules").innerHTML=modules
+		}
+	});
+});
+
+function getRole(date,i){
+	var sonModule = '<li>'+'<input class="selectBox" type="radio" id="role'+date.id+'" name="role">'+date.name+'</li>';
+	return sonModule;
 }
+
+function getModule(date,i){
+	var sonModule = '<li>'+'<input class="selectBox" type="checkbox" id="module'+date.id+'" name="module'+date.id+'">'+date.name+'</li>';
+	return sonModule;
+}
+
+/*
 function getTree() {
 	var tree = [{
 				text:"Parent 1",
@@ -69,13 +104,13 @@ function getTree() {
     return tree;
 }
  
-$('#treeRole').treeview({data: getRoleTree()}); 
+$('#treeRole').treeview({data: getTree()}); 
 $('#treeModule').treeview({
 	showIcon : true,
 	levels:2,
 	showCheckbox :true,
-	data: getTree()
-	}); 
+	data: getModuleTree()
+	}); */
 
 
 /*var permission_global ={
