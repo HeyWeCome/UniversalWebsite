@@ -20,9 +20,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-treeview.css" rel="stylesheet">
+	<link href="css/glyphicons.css" rel="stylesheet">
+	<link href="css/roleAssignment.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/commonSystem.css" />
+	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+	
+	
   </head>
-  
+   <!--  <script src="js/jquery-2.1.1.min.js"></script> -->
+	<script src="js/bootstrap.js"></script>
+  	<script src="js/bootstrap-treeview.js"></script>
+  	<script src="js/sweetalert.min.js"></script>
   <body>
-    这里是roleAssignment.jsp界面，相应js,css未建立 <br>
+   <!--  这里是roleAssignment.jsp界面，相应js,css未建立 <br> -->
+    
+    <div class="sortTree">
+		<ul id="treeRole" class="treeview">
+		</ul>
+		<ul id="treeModule" class="treeview">
+		</ul>
+	</div>
   </body>
-</html>
+ 
+  <script src="js/myJS/roleAssignment.js"></script>
+  
+
+  </html>

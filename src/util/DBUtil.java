@@ -15,7 +15,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -392,10 +392,9 @@ public class DBUtil {
 		Statement statement = connection.createStatement();
 
 		ResultSet result = statement.executeQuery(sql);
-		returnResult += "[";
 
 		try {
-			// 相对应的读出文章每一行的所有元素内容
+			// 相对应的读出每一行的所有元素内容
 			while(result.next()){
 				String id = result.getString("id");
 
@@ -403,13 +402,11 @@ public class DBUtil {
 			}
 
 			returnResult = returnResult.substring(0,returnResult.length()-1);
-			returnResult += "]";
 			// 关闭相应的链接
 			result.close();
 			statement.close();
 			connection.close();
 
-			return returnResult;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
