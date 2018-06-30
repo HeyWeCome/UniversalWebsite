@@ -112,13 +112,6 @@ window.operateEvents = {
     },
     
     'click #upload':function (e,value,row,index) {
-        //将该行数据填入模态框中
-        $('#edit_ID').val(row.id);
-        $('#edit_title').val(row.title);
-        $('#edit_author').val(row.author);
-        $('#edit_columnName').val(row.columnName);
-        /*$('#edit_createTime').val(row.createTime);*/
-        $('#edit_whetherTop').val(row.whetherTop); 
         var uploadTitle = '<input type="hidden" name="title" value="'
         	+row.title
         	+'"></input>'

@@ -89,7 +89,7 @@ function operationIcon1(value,row,index) {
 window.operateEvents = {
 		
     'click #adopt':function (e,value,row,index) {
-    	alert("进入通过")
+    	alert("进入通过");
     	$.ajax({    		
             url:"control/UpdateAuditArticle",//servlet文件的名称  
             type:"POST",  
@@ -105,7 +105,7 @@ window.operateEvents = {
         });
     },
     'click #notAdopt':function (e,value,row,index) {
-    	alert("进入不通过")
+    	alert("进入不通过");
     	$.ajax({    		
             url:"control/UpdateAuditArticle",//servlet文件的名称  
             type:"POST",  
