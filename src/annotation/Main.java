@@ -34,24 +34,35 @@ import util.DBUtil;
 public class Main {
 	public static void main(String[] args){
 
-		// 获取角色ID
-		String name = "李建飞";	
-		// 获取角色描述
-		String description = "迎宾";
+		// 获取员工的账号
+				String account = "superkang1";
+				// 获取人员名
+				String name ="何玮康";	
+				
+				// 根据用户名查询用户ID
+				String sql1 = SpecificDao.findIDFromTable(name, "employee");
+				Integer employeeID = null;
 
-		//设置日期格式
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		// new Date()为获取当前系统时间，也可使用当前时间戳
-		String date = df.format(new Date());
+				try {
+					employeeID = DBUtil.findID(sql1);
+				} catch (NumberFormatException e) {
+					e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 
-		// 新建Role对象
-		Role role = new Role();
-		role.setName(name);
-		role.setDescription(description);
-		role.setCreateTime(date);
+				// 新建文章对象
+				Employee employee = new Employee();
+				// 设置员工名
+				employee.setName(name);
+				// 设置员工账号
+				employee.setAccount(account);
+				
+				EmployeeManage employeeManage = new EmployeeManage();
 
-		RoleManage roleManage = new RoleManage();
-		Integer result = roleManage.updateRole(role);
+				// 删除成功返回1 删除失败返回0
+				Integer result = employeeManage.deleteEmployee(employee);
 
-		System.out.println(result);
+//				response.getWriter().println(result);
+				System.out.println("删除的结果为:"+result);
 	}}

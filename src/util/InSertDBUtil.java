@@ -27,7 +27,7 @@ public class InSertDBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -116,6 +116,36 @@ public class InSertDBUtil {
 	 * @Date          2018年6月30日 下午11:12:17
 	 */
 	public static int insertRole(String sql) throws Exception{
+		Connection connection = getConnection();
+		Statement statement = connection.createStatement();
+		
+		
+		if(statement.executeUpdate(sql) == 1){
+			// 关闭相应的链接
+			statement.close();
+			connection.close();
+			return 1;
+		}else{
+			// 关闭相应的链接
+			statement.close();
+			connection.close();
+			return 0;
+		}
+	}
+	
+	/**
+	 * 
+	 * @Title:        insertEmployee  
+	 * @Description:  插入人员 
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       int     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午12:39:09
+	 */
+	public static int insertEmployee(String sql) throws Exception{
 		Connection connection = getConnection();
 		Statement statement = connection.createStatement();
 
