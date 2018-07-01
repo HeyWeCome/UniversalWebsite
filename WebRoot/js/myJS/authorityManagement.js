@@ -50,6 +50,18 @@ function submitAllocation(){
 		console.log("roleId:"+roleId);
 	}
 	
+	//重新分配角色权限时，先删除该角色已有权限
+	$.ajax({    		
+      //  url:"control/InsertPrivilege",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"roleID": roleId,
+        },
+        success:function(date){
+        }
+	});
+	
 	var modules=document.getElementsByName('module');
 	var result=0;
 	var count=0;
@@ -59,6 +71,7 @@ function submitAllocation(){
 			count++;
 			console.log("modules[i].value:"+modules[i].value);
 			var moduleId = modules[i].value;
+			//给角色分配权限
 			$.ajax({    		
                 url:"control/InsertPrivilege",//servlet文件的名称  
                 type:"POST",  
@@ -81,7 +94,27 @@ function submitAllocation(){
     		});
 		}
 	} 
-	
-	//那么现在来检测s的值就知道选中的复选框的值了 
-	//console.log(moduleId==''?'你还没有选择任何内容！': "modulesId:"+moduleId); 
 }
+
+/*
+$(function(){
+	  $(":radio").click(function(){
+		  var roleId = $(this).val();
+		  console.log("roleId:"+roleId);
+		  
+		  //返回角色id,获取当前角色已有权限模块
+		  $.ajax({
+				type : 'POST',
+		//		url : 'control/FindAllRole',
+				async:false,
+				dataType : 'json',
+				success : function(modulesId) {
+					var str = "A,B,C";
+					$(str.split(",")).each(function (i,e){
+					    $("input[name='module'][value='"+e+"']").prop("checked",true);
+					});
+				}
+			});
+		  
+	  });
+});*/
