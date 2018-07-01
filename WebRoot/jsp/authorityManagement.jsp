@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- <link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/bootstrap-treeview.css" rel="stylesheet"> -->
 	<link href="css/glyphicons.css" rel="stylesheet">
-	<link href="css/roleAssignment.css" rel="stylesheet">
+	<link href="css/authorityManagement.css" rel="stylesheet">
 	<!-- <link rel="stylesheet" type="text/css" href="css/commonSystem.css" />
 	<link rel="stylesheet" type="text/css" href="css/sweetalert.css"> -->
 	
@@ -41,10 +41,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="showTree">
     	<!-- <form name="submitAllocation"> -->
 	    	<div>
-	    		<ul id="showRoles" class="treeview"></ul>
+	    		<ul id="showRoles"></ul>
 	    	</div>
 			<div>
-				<ul id="showModules" class="treeview"></ul>
+				<ul id="showModules"></ul>
 			</div>
 			<div>
 				<button class="btn btn-primary" id="allocation" onclick="submitAllocation()">确认分配</button>
