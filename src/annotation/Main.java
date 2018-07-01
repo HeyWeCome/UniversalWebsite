@@ -18,6 +18,7 @@ import service.account.AccountManage;
 import service.article.ArticleManage;
 import service.columns.ColumnsManage;
 import service.employee.EmployeeManage;
+import service.message.MessageManage;
 import service.module.ModuleManage;
 import service.permission.PermissionManage;
 import service.role.RoleManage;
@@ -33,20 +34,14 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
+		// 生成文章管理service类
+		MessageManage messageManage = new MessageManage();
 
-		// 获取员工的ID
-		String roleID = "1";	
+		String result = messageManage.findAllMessage();
 
-		// 新增角色对象
-		Permission permission = new Permission();
-		permission.setRoleID(Integer.parseInt(roleID));
-
-		PermissionManage permissionManage = new PermissionManage();
-		String result = permissionManage.findAllOwnPermission(permission);
-		
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("已有权限为:"+fromObject.toString());
+			System.out.println("留言为 :"+fromObject.toString());
 //			response.getWriter().print(fromObject);
 		}else{
 //			response.getWriter().print(""); 

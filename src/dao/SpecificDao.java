@@ -333,4 +333,41 @@ public class SpecificDao {
 	public static String findExistingPermission(Permission permission){
 		return "select moduleID from permission where roleID = "+permission.getRoleID()+";";
 	}
+	
+	/**
+	 * 
+	 * @Title:        updateEmployee  
+	 * @Description:  更新员工
+	 * @param:        @param employee
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午4:13:06
+	 */
+	public static String updateEmployee(Employee employee){
+		return "update employee "
+				+ "set name = '"+employee.getName()+"', "
+				+ " sex = '"+employee.getSex()+"', "
+				+ " passWord = '"+employee.getPassWord()+"', "
+						+ "roleID = "+employee.getRoleID()+" "
+								+ "where account = '"+employee.getAccount()+"';";
+	}
+	
+	/**
+	 * 
+	 * @Title:        findAllMessage  
+	 * @Description:  找到所有的留言 
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午4:37:15
+	 */
+	public static String findAllMessage(){
+
+		return "select content,createTime,reply,replyTime,employee.name as replyEmployee,status "
+				+ "from message,employee "
+				+ "where message.employeeID = employee.id";
+	}
 }

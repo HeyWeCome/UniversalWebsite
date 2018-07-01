@@ -101,6 +101,16 @@
     <servlet-name>FindAccountPermission</servlet-name>
     <servlet-class>control.FindAccountPermission</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UpdateEmployee</servlet-name>
+    <servlet-class>control.UpdateEmployee</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FindAllMessage</servlet-name>
+    <servlet-class>control.FindAllMessage</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -223,6 +233,14 @@
   <servlet-mapping>
     <servlet-name>FindAccountPermission</servlet-name>
     <url-pattern>/control/FindAccountPermission</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateEmployee</servlet-name>
+    <url-pattern>/control/UpdateEmployee</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindAllMessage</servlet-name>
+    <url-pattern>/control/FindAllMessage</url-pattern>
   </servlet-mapping>
 
 </web-app>

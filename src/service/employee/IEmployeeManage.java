@@ -16,4 +16,5 @@ public interface IEmployeeManage {
 	String findAllEmployee();
 	Integer insertEmployee(Employee employee);
 	Integer deleteEmployee(Employee employee);
+	Integer updateEmployee(Employee employee);
 }

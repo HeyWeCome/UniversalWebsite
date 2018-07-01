@@ -17,7 +17,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -628,6 +628,61 @@ public class DBUtil {
 		while(result.next()){
 			int moduleID = result.getInt("moduleID");
 			returnResult += "{\"moduleID\":\""+moduleID+"\"},";
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
+	}
+	
+	/**
+	 * 
+	 * @Title:        findAllMessage  
+	 * @Description:  找到所有的留言
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午4:31:22
+	 */
+	public static String findAllMessage(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			String content = result.getString("content");
+			String createTime = result.getString("createTime");
+			String reply = result.getString("reply");
+			String replyTime = result.getString("replyTime");
+			String replyEmployee = result.getString("replyEmployee");
+			String status = result.getString("status");
+
+			if(status.equals("0")){
+				status = "未回复";
+				replyEmployee = "待回复";
+				replyTime = "待回复";
+			}else if(status.equals("1")){
+				status = "已回复";
+			}
+
+			returnResult += "{\"content\":\""+content
+					+"\",\"createTime\":\""+createTime
+					+"\",\"reply\":\""+reply
+					+"\",\"replyTime\":\""+replyTime
+					+"\",\"replyEmployee\":\""+replyEmployee
+					+"\",\"status\":\""+status
+					+"\"},";
 		}
 
 		returnResult = returnResult.substring(0,returnResult.length()-1);
