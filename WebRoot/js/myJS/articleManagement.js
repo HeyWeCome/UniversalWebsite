@@ -150,7 +150,7 @@ window.operateEvents = {
 };
 
 /* 刷新方法 */
-function refresh(){
+function refresh1(){
     $('#articleTable').bootstrapTable('refresh', null);
 }
 
@@ -211,7 +211,7 @@ $(function () {
     	contentType:'application/json',//发送到服务器的数据编码类型
     	method: 'post',//请求方式
 		dataType:'json',//服务器返回的数据类型	
-		showRefresh: true,  //显示刷新按钮 
+		//showRefresh: true,  //显示刷新按钮 
         search:true,
         striped: true,// 隔行变色效果
         pagination: true,//在表格底部显示分页条

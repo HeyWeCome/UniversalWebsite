@@ -46,10 +46,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <div class="buttons">
 	        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addArticleModal" onclick="getColumnsName()" style="background-color:#5E6F8A;color:#fff;">&nbsp;新增&nbsp;</button>
 	        <button id="del" onclick="deletes()" type="button" class="btn btn-primary " style="background-color:#5E6F8A;color:#fff;">&nbsp;删除&nbsp;</button>
+	    	<button onclick="refresh1()" type="button" class="btn btn-primary " style="color:#5E6F8A;background-color:#fff;">&nbsp;刷新&nbsp;</button>
 	    </div>
 	
 	    <!--表格，样式在js中定义-->
-	    <div style="font-size: 20px;">
+	    <div ><!-- style="font-size: 20px;" -->
 		    <table id="articleTable" style="background-color:#b0c4de2e;" >
 		    	<!-- <div class="pull-right search">
 		    		<input class="form-control" type="text" id="searchColumn" placeholder="搜索">
