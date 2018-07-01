@@ -72,9 +72,9 @@ public class InsertArticle extends HttpServlet {
 		// 根据栏目名称查询栏目ID
 		String sql2 = SpecificDao.findIDFromTable(columnName, "soncolumns");
 		System.out.println(sql2);
-		Integer columnID = null;
+		int columnID = 0;
 		try {
-			columnID = DBUtil.findID(sql1);
+			columnID = DBUtil.findID(sql2);
 			System.out.println("栏目id:"+columnID);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();

@@ -604,4 +604,39 @@ public class DBUtil {
 		return 0;
 		
 	}
+	
+	/**
+	 * 
+	 * @Title:        findExistingPermission  
+	 * @Description:  找到已有的权限  
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午2:17:18
+	 */
+	public static String findExistingPermission(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			int moduleID = result.getInt("moduleID");
+			returnResult += "{\"moduleID\":\""+moduleID+"\"},";
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
+	}
 }
