@@ -48,6 +48,27 @@ window.operateEvents3 = {
         $('#check_managerRole').val(row.roleName);
     },
 
+    'click #deleteManager':function (e,value,row,index) {
+        //将该行数据填入模态框中
+    	var determine = confirm("确认删除？");
+        if(determine==true){
+        	//alert(row.title+" "+row.author)
+        	$.ajax({    		
+                url:"control/DeleteEmployee",//servlet文件的名称  
+                type:"POST",  
+                dataType:"json",
+                data:{
+                	"name":row.name,
+                	"account":row.account
+                },
+                //data:{"questionnaireId":"<%=questionnaireId%>"},
+                success:function(data1){
+                	alert("删除成功！")
+                }
+            });
+        }
+    },
+    
     'click #editManager':function (e,value,row,index) {
         //将该行数据填入模态框中
     	$('#edit_managerName').val(row.name);
@@ -57,6 +78,36 @@ window.operateEvents3 = {
         $('#edit_managerRole').val(row.roleName);
         getRolesName();
     },
+}
+
+function deletesManager(){
+	 var data = $('#managerTable').bootstrapTable('getSelections');
+	    
+	    if(data.length==0){
+	        alert("请至少选中一条数据");
+	        return;
+	    }
+	    var ids = "";
+	    var determine = confirm("确认删除？")
+	    if(determine==true){
+	    	for(var i=0; i<data.length; i++){
+	    		//alert(data[i].title+" "+data[i].author)    	
+	    		$.ajax({    		
+	                url:"control/DeleteEmployee",//servlet文件的名称  
+	                type:"POST",  
+	                dataType:"json",
+	                data:{
+	                	"name":data[i].name,
+	                	"account":data[i].account
+	                },
+	                success:function(data1){
+	                	
+	                }
+	    		});
+	    	}
+	    	alert("删除成功！")
+	    	
+	    }
 }
 
 /* 刷新方法 */
