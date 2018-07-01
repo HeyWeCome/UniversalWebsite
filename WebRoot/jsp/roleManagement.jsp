@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                   <h4 class="modal-title">新增角色</h4>
 		               </div>
-		            	<form action="control/InsertArticle" method="post">
+		            	<form action="control/InsertRole" method="post">
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
@@ -110,11 +110,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                   <h4 class="modal-title">修改角色信息</h4>
 		               </div>
+		               <form action="control/UpdateRole" method="post">
 		               <div class="modal-body">
 		                   <div class="row">
 		                       <div class="col-xs-12 col-md-12">
 		                           <h4>角色名称：</h4>
-		                           <input type="text" id="edit_roleName" name="name" class="form-control" aria-describedby="basic-addon1"/><!--设置不可编辑-->
+		                           <input readonly="true" type="text" id="edit_roleName" name="name" class="form-control" aria-describedby="basic-addon1"/><!--设置不可编辑-->
 		                       </div>
 		                       
 		                       <div class="col-xs-12 col-md-12">
@@ -124,10 +125,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                       
 		                   </div>
 		               </div>
+		               
 		               <div class="modal-footer">
 		                   <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#fff;color:#5E6F8A;">关闭</button>
 		                    <button id="btEdit" type="submit" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">编辑</button>
 		               </div>
+		               </form>
 		           </div>
 		       </div>
 		   </div>
