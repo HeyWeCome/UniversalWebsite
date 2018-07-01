@@ -2,6 +2,7 @@ package dao;
 
 import entity.Article;
 import entity.Employee;
+import entity.Permission;
 import entity.Role;
 
 /**
@@ -301,5 +302,20 @@ public class SpecificDao {
 	public static String deleteEmployee(Employee employee){
 		return "delete from employee where name = '"+employee.getName()+"'"
 				+ " and account = '"+employee.getAccount()+"';";
+	}
+	
+	/**
+	 * 
+	 * @Title:        deleteExistingPermission  
+	 * @Description:  删除一个账号已有的权限 
+	 * @param:        @param permission
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午1:39:46
+	 */
+	public static String deleteExistingPermission(Permission permission){
+		return "delete from permission where roleID = "+permission.getRoleID()+";";
 	}
 }

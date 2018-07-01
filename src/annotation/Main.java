@@ -34,35 +34,15 @@ import util.DBUtil;
 public class Main {
 	public static void main(String[] args){
 
-		// 获取员工的账号
-				String account = "superkang1";
-				// 获取人员名
-				String name ="何玮康";	
-				
-				// 根据用户名查询用户ID
-				String sql1 = SpecificDao.findIDFromTable(name, "employee");
-				Integer employeeID = null;
+		String roleID ="1";	
 
-				try {
-					employeeID = DBUtil.findID(sql1);
-				} catch (NumberFormatException e) {
-					e.printStackTrace();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		// 新增角色对象
+		Permission permission = new Permission();
+		permission.setRoleID(Integer.parseInt(roleID));
 
-				// 新建文章对象
-				Employee employee = new Employee();
-				// 设置员工名
-				employee.setName(name);
-				// 设置员工账号
-				employee.setAccount(account);
-				
-				EmployeeManage employeeManage = new EmployeeManage();
+		PermissionManage permissionManage = new PermissionManage();
+		Integer result = permissionManage.deleteExistingPermission(permission);
 
-				// 删除成功返回1 删除失败返回0
-				Integer result = employeeManage.deleteEmployee(employee);
-
-//				response.getWriter().println(result);
-				System.out.println("删除的结果为:"+result);
+//		response.getWriter().println(result);
+		System.out.println("删除的结果为:"+result);
 	}}
