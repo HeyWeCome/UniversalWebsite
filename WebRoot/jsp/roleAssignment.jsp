@@ -20,19 +20,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 
-	<link href="css/bootstrap.css" rel="stylesheet">
+	<!-- <link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/bootstrap-treeview.css" rel="stylesheet">
 	<link href="css/glyphicons.css" rel="stylesheet">
 	<link href="css/roleAssignment.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/commonSystem.css" />
 	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
-	
+	 -->
 	
   </head>
    <!--  <script src="js/jquery-2.1.1.min.js"></script> -->
-	<script src="js/bootstrap.js"></script>
+	<!-- <script src="js/bootstrap.js"></script>
   	<script src="js/bootstrap-treeview.js"></script>
-  	<script src="js/sweetalert.min.js"></script>
+  	<script src="js/sweetalert.min.js"></script> -->
   <body>
    <div class="top">
    		<div class="topText">&nbsp;角色分配</div>

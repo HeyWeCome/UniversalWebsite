@@ -22,14 +22,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- <script src="js/jquery-2.1.1.min.js"></script> -->
 	<link rel="stylesheet" type="text/css" href="css/articleManagement.css">
 	
-	<script src="js/jquery-2.1.1.min.js"></script>
+	<!-- <script src="js/jquery-2.1.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
 
-    <!-- <script src="js/bootstrap.js"></script> -->
+    <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap-table.js"></script>
     <script src="js/bootstrap-table-zh-CN.js"></script>
-	
+	 -->
   </head>
   
   <body >
