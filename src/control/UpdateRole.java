@@ -31,12 +31,12 @@ public class UpdateRole extends HttpServlet {
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-
+		System.out.println("进入后台");
 		// 获取角色ID
 		String name = request.getParameter("name");	
 		// 获取角色描述
 		String description = request.getParameter("description");
-
+		System.out.println("传回的数据为："+name+" "+description);
 		//设置日期格式
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		// new Date()为获取当前系统时间，也可使用当前时间戳
