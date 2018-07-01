@@ -4,7 +4,9 @@
 package service.message;
 
 import dao.SpecificDao;
+import entity.Message;
 import util.DBUtil;
+import util.UpdateDBUtil;
 
 /**
  * 留言类
@@ -37,6 +39,25 @@ public class MessageManage implements IMessageManage{
 		}
 		
 		return null;
+	}
+
+	/**  
+	 * @Title:        updateMessage  
+	 * @Description:  更新留言表  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午8:23:34  
+	 */  
+	@Override
+	public Integer updateMessage(Message message) {
+		String sql = SpecificDao.updateMessage(message);
+		
+		try {
+			Integer result = UpdateDBUtil.update(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 }

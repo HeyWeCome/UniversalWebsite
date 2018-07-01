@@ -68,6 +68,8 @@ public class UpdateEmployee extends HttpServlet {
 
 		EmployeeManage employeeManage = new EmployeeManage();
 		Integer result = employeeManage.updateEmployee(employee);
+		// 成功返回1  插入失败返回0
+		response.getWriter().println(result);
 		System.out.println(result);
 	}
 

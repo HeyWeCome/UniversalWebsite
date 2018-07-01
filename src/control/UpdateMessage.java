@@ -1,48 +1,48 @@
 /**
  * 
  */
-package annotation;
+package control;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import dao.SpecificDao;
-import entity.Article;
-import entity.Employee;
 import entity.Message;
-import entity.Permission;
-import entity.Role;
-import service.account.AccountManage;
-import service.article.ArticleManage;
-import service.columns.ColumnsManage;
-import service.employee.EmployeeManage;
 import service.message.MessageManage;
-import service.module.ModuleManage;
-import service.permission.PermissionManage;
-import service.role.RoleManage;
 import util.DBUtil;
 
-/**
- * 
- * @ClassName:     Main.java 
- * @Description:   测试类记得删除
+/** 
+ * @ClassName:     UpdateMessage.java 
+ * @Description:   TODO(用一句话描述该文件做什么)  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018年6月29日 下午2:56:50
+ * @Date           2018年7月1日 下午8:04:56  
  */
-public class Main {
-	public static void main(String[] args){
+public class UpdateMessage extends HttpServlet {
+
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 控制格式,解决乱码问题
+		response.setContentType("text/json");
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+
+
 		// 获取留言内容
-		String content ="如何下载sql？";	
+		String content = request.getParameter("content");	
 		// 获取留言的时间
-		String createTime = "2018-07-27 16:45:43";
+		String createTime = request.getParameter("createTime");
 		// 获取回复的员工名
-		String replyEmployee = "何玮康";
+		String replyEmployee = request.getParameter("replyEmployee");
 		// 获取回复的内容
-		String replyContent = "哈哈哈哈哈哈";
+		String replyContent = request.getParameter("replyContent");
 		//设置日期格式
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		// new Date()为获取当前系统时间，也可使用当前时间戳
@@ -68,9 +68,20 @@ public class Main {
 		message.setReply(replyContent);
 		message.setReplyTime(date);
 		message.setStatus("1");
-
+		
 		// 新建message管理类
 		MessageManage messageManage = new MessageManage();
 		Integer result = messageManage.updateMessage(message);
-		System.out.println(result);
-	}}
+		
+		// 成功返回1  插入失败返回0
+		response.getWriter().println(result);
+				
+
+	}
+
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request,response);
+	}
+
+}

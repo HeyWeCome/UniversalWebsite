@@ -3,13 +3,17 @@
  */
 package service.message;
 
-/** 
+import entity.Message;
+
+/**
+ * 
  * @ClassName:     IMessageManage.java 
- * @Description:   ÁôÑÔ¹ÜÀí½Ó¿ÚÀà  
+ * @Description:   æ›´æ–°ä¿¡æ¯æ¥å£ç±» 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÉÏÎç11:18:02  
+ * @Date           2018å¹´7æœˆ1æ—¥ ä¸‹åˆ8:22:52
  */
 public interface IMessageManage {
-
+	String findAllMessage();
+	Integer updateMessage(Message message);
 }

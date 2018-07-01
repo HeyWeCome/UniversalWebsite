@@ -109,6 +109,11 @@
     <servlet-name>FindAllMessage</servlet-name>
     <servlet-class>control.FindAllMessage</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UpdateMessage</servlet-name>
+    <servlet-class>control.UpdateMessage</servlet-class>
+  </servlet>
+
 
 
 
@@ -241,6 +246,10 @@
   <servlet-mapping>
     <servlet-name>FindAllMessage</servlet-name>
     <url-pattern>/control/FindAllMessage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateMessage</servlet-name>
+    <url-pattern>/control/UpdateMessage</url-pattern>
   </servlet-mapping>
 
 </web-app>

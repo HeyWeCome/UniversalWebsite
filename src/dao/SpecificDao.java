@@ -2,6 +2,7 @@ package dao;
 
 import entity.Article;
 import entity.Employee;
+import entity.Message;
 import entity.Permission;
 import entity.Role;
 
@@ -368,6 +369,26 @@ public class SpecificDao {
 
 		return "select content,createTime,reply,replyTime,employee.name as replyEmployee,status "
 				+ "from message,employee "
-				+ "where message.employeeID = employee.id";
+				+ "where message.employeeID = employee.id and status = '0'";
+	}
+	
+	/**
+	 * 
+	 * @Title:        updateMessage  
+	 * @Description:  更新留言 
+	 * @param:        @param message
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午8:30:46
+	 */
+	public static String updateMessage(Message message){
+		return "update message "
+				+ "set  reply = '"+message.getReply()+"', "
+				+ "  employeeID = "+message.getEmployeeID()+", "
+				+ " replyTime = '"+message.getReplyTime()+"', "
+						+ "status = '"+message.getStatus()+"' "
+								+ "where content = '"+message.getContent()+"';";
 	}
 }
