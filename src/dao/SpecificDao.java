@@ -318,4 +318,19 @@ public class SpecificDao {
 	public static String deleteExistingPermission(Permission permission){
 		return "delete from permission where roleID = "+permission.getRoleID()+";";
 	}
+
+	/**
+	 * 
+	 * @Title:        findExistingPermission  
+	 * @Description:  找到用户对应的所有权限
+	 * @param:        @param permission
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午2:02:39
+	 */
+	public static String findExistingPermission(Permission permission){
+		return "select moduleID from permission where roleID = "+permission.getRoleID()+";";
+	}
 }

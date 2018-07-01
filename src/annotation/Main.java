@@ -34,15 +34,21 @@ import util.DBUtil;
 public class Main {
 	public static void main(String[] args){
 
-		String roleID ="1";	
+		// 获取员工的ID
+		String roleID = "1";	
 
 		// 新增角色对象
 		Permission permission = new Permission();
 		permission.setRoleID(Integer.parseInt(roleID));
 
 		PermissionManage permissionManage = new PermissionManage();
-		Integer result = permissionManage.deleteExistingPermission(permission);
-
-//		response.getWriter().println(result);
-		System.out.println("删除的结果为:"+result);
+		String result = permissionManage.findAllOwnPermission(permission);
+		
+		if(!result.isEmpty()){
+			JSONArray fromObject = (JSONArray) JSON.parse(result);
+			System.out.println("已有权限为:"+fromObject.toString());
+//			response.getWriter().print(fromObject);
+		}else{
+//			response.getWriter().print(""); 
+		}
 	}}

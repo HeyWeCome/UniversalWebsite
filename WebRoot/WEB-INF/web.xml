@@ -97,6 +97,11 @@
     <servlet-name>DeleteExistingPrivilege</servlet-name>
     <servlet-class>control.DeleteExistingPrivilege</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>FindAccountPermission</servlet-name>
+    <servlet-class>control.FindAccountPermission</servlet-class>
+  </servlet>
+
 
 
 
@@ -214,6 +219,10 @@
   <servlet-mapping>
     <servlet-name>DeleteExistingPrivilege</servlet-name>
     <url-pattern>/control/DeleteExistingPrivilege</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindAccountPermission</servlet-name>
+    <url-pattern>/control/FindAccountPermission</url-pattern>
   </servlet-mapping>
 
 </web-app>

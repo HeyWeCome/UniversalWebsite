@@ -13,4 +13,5 @@ import entity.Permission;
 public interface IPermissionManage {
 	Integer insertPermission(Permission permission);
 	Integer deleteExistingPermission(Permission permission);
+	String findAllOwnPermission(Permission permission);
 }
