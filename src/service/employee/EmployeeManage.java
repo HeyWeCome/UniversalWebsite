@@ -9,6 +9,7 @@ import entity.Employee;
 import util.DBUtil;
 import util.DeleteDBUtil;
 import util.InSertDBUtil;
+import util.UpdateDBUtil;
 
 /** 
  * @ClassName:     EmployeeManage.java 
@@ -89,6 +90,27 @@ public class EmployeeManage implements IEmployeeManage{
 		// 删除成功返回1   否则返回0
 		try {
 			Integer result = DeleteDBUtil.deleteEmployee(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	/**  
+	 * @Title:        updateEmployee  
+	 * @Description:  更新员工 
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午4:08:38  
+	 */  
+	@Override
+	public Integer updateEmployee(Employee employee) {
+		String sql = SpecificDao.updateEmployee(employee);
+		System.out.println("sql为:"+sql);
+		
+		try {
+			// 操作成 返回 1   否则 返回0
+			Integer result = UpdateDBUtil.update(sql);
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();

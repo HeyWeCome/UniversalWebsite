@@ -333,4 +333,24 @@ public class SpecificDao {
 	public static String findExistingPermission(Permission permission){
 		return "select moduleID from permission where roleID = "+permission.getRoleID()+";";
 	}
+	
+	/**
+	 * 
+	 * @Title:        updateEmployee  
+	 * @Description:  更新员工
+	 * @param:        @param employee
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午4:13:06
+	 */
+	public static String updateEmployee(Employee employee){
+		return "update employee "
+				+ "set name = '"+employee.getName()+"', "
+				+ " sex = '"+employee.getSex()+"', "
+				+ " passWord = '"+employee.getPassWord()+"', "
+						+ "roleID = "+employee.getRoleID()+" "
+								+ "where account = '"+employee.getAccount()+"';";
+	}
 }
