@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                   <h4 class="modal-title">回复留言</h4>
 		               </div>
-		            	<form action="control/InsertArticle" method="post">
+		            	<form action="control/UpdateMessage" method="post">
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
@@ -63,10 +63,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4 style="margin-left:5%">回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;复：</h4>
-		                            <textarea class="textArea" name="content" rows="8" cols="60"></textarea>
+		                            <textarea class="textArea" name="replyContent" rows="8" cols="60"></textarea>
 		                        </div>
-		                        
-		                        <input style="display:none" type="text" id="message_replyEmployee" name="replyEmployee" class="form-control" aria-describedby="basic-addon1"/>
 		                    
 		                    </div>
 		                </div>

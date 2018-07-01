@@ -369,7 +369,7 @@ public class SpecificDao {
 
 		return "select content,createTime,reply,replyTime,employee.name as replyEmployee,status "
 				+ "from message,employee "
-				+ "where message.employeeID = employee.id and status = '0'";
+				+ "where message.employeeID = employee.id ";
 	}
 	
 	/**
