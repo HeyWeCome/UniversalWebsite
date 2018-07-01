@@ -164,7 +164,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                        </div> 
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</h4>
-		                            	<input  type="text" id="edit_managerAccount" name="account" class="form-control" aria-describedby="basic-addon1"/>
+		                            	<input readonly="true" type="text" id="edit_managerAccount" name="account" class="form-control" aria-describedby="basic-addon1"/>
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</h4>

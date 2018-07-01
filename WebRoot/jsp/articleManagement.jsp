@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="leftColumns" id="leftColumns">
-    	<button class="allColumns" id="allColumns" onclick="showAllColumns()">所有栏目</button>
+    	<button class="allColumns" id="allColumns" onclick="showColumnsOrNot()">所有栏目</button>
     	<div class="columns" id="columns" ></div>
     </div>
     
@@ -173,7 +173,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                       
 		                       <div class="col-xs-12 col-md-12">
 		                            <h4 class="textAreah4" style="margin-left:8%">描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述：</h4>
-		                            <textarea class="textArea" id="check_content" name="content" rows="8" cols="60"></textarea>
+		                            <textarea readonly="true" class="textArea" id="check_content" name="content" rows="8" cols="60"></textarea>
 		                        </div>
 		                        
 		                   </div>
