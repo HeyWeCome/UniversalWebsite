@@ -3,6 +3,8 @@
  */
 package service.employee;
 
+import entity.Employee;
+
 /** 
  * @ClassName:     IEmployeeManage.java 
  * @Description:   TODO(用一句话描述该文件做什么)  
@@ -12,4 +14,5 @@ package service.employee;
  */
 public interface IEmployeeManage {
 	String findAllEmployee();
+	Integer insertEmployee(Employee employee);
 }

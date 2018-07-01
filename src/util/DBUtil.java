@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import entity.Employee;
+
 public class DBUtil {
 
 	// 连接数据库
@@ -15,7 +17,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -567,5 +569,39 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	/**
+	 * 
+	 * @Title:        findEmployee  
+	 * @Description:  查看员工是否存在 
+	 * @param:        @param employee
+	 * @param:        @return     
+	 * @return:       Integer     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午12:41:58
+	 */
+	public static Integer findEmployee(Employee employee) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery("select * from employee where account = '"+employee.getAccount()+"';");
+		try {
+			// 相对应的读出每一行的所有元素内容
+			while(result.next()){
+				return 1;
+			}
+			// 关闭相应的链接
+			result.close();
+			statement.close();
+			connection.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+		
 	}
 }

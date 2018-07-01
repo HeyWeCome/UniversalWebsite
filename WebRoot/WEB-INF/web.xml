@@ -85,6 +85,11 @@
     <servlet-name>UpdateRole</servlet-name>
     <servlet-class>control.UpdateRole</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>InsertEmployee</servlet-name>
+    <servlet-class>control.InsertEmployee</servlet-class>
+  </servlet>
+
 
 
 
@@ -187,6 +192,10 @@
   <servlet-mapping>
     <servlet-name>UpdateRole</servlet-name>
     <url-pattern>/control/UpdateRole</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InsertEmployee</servlet-name>
+    <url-pattern>/control/InsertEmployee</url-pattern>
   </servlet-mapping>
 
 </web-app>

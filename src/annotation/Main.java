@@ -34,24 +34,15 @@ import util.DBUtil;
 public class Main {
 	public static void main(String[] args){
 
-		// 获取角色ID
-		String name = "李建飞";	
-		// 获取角色描述
-		String description = "迎宾";
+		// 新建人员对象
+		Employee employee = new Employee();
+		employee.setName("何玮康");
+		employee.setAccount("superkang1");
+		employee.setPassWord("123456");
+		employee.setSex("男");
+		employee.setRoleID(1);
 
-		//设置日期格式
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		// new Date()为获取当前系统时间，也可使用当前时间戳
-		String date = df.format(new Date());
-
-		// 新建Role对象
-		Role role = new Role();
-		role.setName(name);
-		role.setDescription(description);
-		role.setCreateTime(date);
-
-		RoleManage roleManage = new RoleManage();
-		Integer result = roleManage.updateRole(role);
-
+		EmployeeManage employeeManage = new EmployeeManage();
+		Integer result = employeeManage.insertEmployee(employee);
 		System.out.println(result);
 	}}
