@@ -4,7 +4,10 @@
 package service.permission;
 
 import dao.GeneralDao;
+import dao.SpecificDao;
 import entity.Permission;
+import util.DBUtil;
+import util.DeleteDBUtil;
 import util.InSertDBUtil;
 
 /** 
@@ -41,6 +44,51 @@ public class PermissionManage implements IPermissionManage{
 		}
 		
 		return 0;
+	}
+
+	/**  
+	 * @Title:        deleteExistingPermission  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午1:38:10  
+	 */  
+	@Override
+	public Integer deleteExistingPermission(Permission permission) {
+		// 生成sql
+		String sql = SpecificDao.deleteExistingPermission(permission);
+		System.out.println("执行的sql为:"+sql);
+		
+		// 删除成功返回 1 失败返回0
+		try {
+			Integer result = DeleteDBUtil.deleteExistingPermission(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	/**  
+	 * @Title:        findAllOwnPermission  
+	 * @Description:  找到已有的权限  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午2:01:08  
+	 */  
+	@Override
+	public String findAllOwnPermission(Permission permission) {
+		String sql = SpecificDao.findExistingPermission(permission);
+		System.out.println("要执行的sql为:"+sql);
+		// 控制从数据库返回的结果
+		String result = null;
+		
+		// 返回指定账号已有权限
+		try {
+			result = DBUtil.findExistingPermission(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }
