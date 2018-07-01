@@ -42,6 +42,19 @@ function getModule(date,i){
 	return sonModule;
 }
 
+//参数n为休眠时间，单位为毫秒:
+function sleep(n) {
+    var start = new Date().getTime();
+      console.log('休眠前：' + start);
+    while (true) {
+        if (new Date().getTime() - start > n) {
+            break;
+        }
+    }
+     console.log('休眠后：' + new Date().getTime());
+}
+
+//确认给角色分配权限
 function submitAllocation(){
 	var roleId = $('input:radio[name="role"]:checked').val();
 	if (roleId == null) {
@@ -50,22 +63,30 @@ function submitAllocation(){
 		console.log("roleId:"+roleId);
 	}
 	
+	var returnDate=-1;
+	
 	//重新分配角色权限时，先删除该角色已有权限
 	$.ajax({    		
-      //  url:"control/InsertPrivilege",//servlet文件的名称  
+        url:"control/DeleteExistingPrivilege",//servlet文件的名称  
         type:"POST",  
         dataType:"json",
         data:{
         	"roleID": roleId,
         },
-        success:function(date){
+        success:function(date1){
+        	var returnDate=date1;
+        	console.log("date1:"+returnDate);
         }
 	});
+	
+	//睡眠300毫秒，以确保删除模块的操作在新增模块之前
+    sleep(300);
 	
 	var modules=document.getElementsByName('module');
 	var result=0;
 	var count=0;
 	var dateCount=0;
+	
 	for(var i=0; i<modules.length; i++){ 
 		if(modules[i].checked) {
 			count++;
@@ -80,9 +101,9 @@ function submitAllocation(){
                 	"roleID": roleId,
                 	"moduleID": moduleId
                 },
-                success:function(date){
-                	console.log("date:"+date);
-                	result=date;
+                success:function(date2){
+                	console.log("date2:"+date2);
+                	result=date2;
                 	console.log("result:"+result);
                 	if(result==1){
                 		dateCount++;
@@ -94,27 +115,70 @@ function submitAllocation(){
     		});
 		}
 	} 
+	
+	
 }
 
-/*
+//选中角色显示出该角色已有权限模块id
 $(function(){
 	  $(":radio").click(function(){
 		  var roleId = $(this).val();
 		  console.log("roleId:"+roleId);
 		  
+		  var allModules =$("input[name='module']");//获取名字为module的所有多选框对象
+		  console.log("allModules:"+allModules);
+		  
+		  //将之前选中的模块设为不选中
+	       $("input[name='module']").each(function(){
+                if(this.checked){
+                	this.checked=false;
+				}
+            })
+		  
 		  //返回角色id,获取当前角色已有权限模块
 		  $.ajax({
 				type : 'POST',
-		//		url : 'control/FindAllRole',
+				url : 'control/FindAccountPermission',
 				async:false,
 				dataType : 'json',
+				data:{
+		        	"roleID": roleId,
+		        },
 				success : function(modulesId) {
-					var str = "A,B,C";
+					console.log("modulesId:"+modulesId);
+					/*var str = "A,B,C";
 					$(str.split(",")).each(function (i,e){
 					    $("input[name='module'][value='"+e+"']").prop("checked",true);
-					});
+					});*/
+					
+					for(var i=0;i<modulesId.length;i++){//
+				       //获取所有复选框对象的value属性，然后，用checkArray[i]和他们匹配，如果有，则说明他应被选中
+				        $.each(allModules,function(j,checkbox){
+				            //获取复选框的value属性
+				           var checkValue=$(checkbox).val();
+				            if(modulesId[i].moduleID==checkValue){//判断该模块是否应被选中
+			                 	this.checked=true;		//选中该模块
+				            }
+				       })
+				   }
 				}
 			});
 		  
 	  });
-});*/
+});
+/*
+$(function(){
+	    var checkBoxAll =$("input[name='module']");//获取名字为module的所有多选框对象
+	    var checkArray=${list};//获取多选框需要回显得对应的值集合
+	    console.info("checkArray=",checkArray);
+	    for(var i=0;i<checkArray.length;i++){//
+	       //获取所有复选框对象的value属性，然后，用checkArray[i]和他们匹配，如果有，则说明他应被选中
+	        $.each(checkBoxAll,function(j,checkbox){
+	            //获取复选框的value属性
+	           var checkValue=$(checkbox).val();
+	            if(checkArray[i]==checkValue){
+	                $(checkbox).attr("checked",true);
+	          }
+	       })
+	   }
+	});*/
