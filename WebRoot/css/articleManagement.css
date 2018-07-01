@@ -171,9 +171,6 @@ body {
     margin-left: 25%;
 }
 
-.textArea{
-	/* width: 33%;
-    height: 25px; */
-    margin-left:20;
-    
+.textArea {
+    margin-left: 0px;
 }
