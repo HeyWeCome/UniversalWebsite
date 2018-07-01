@@ -353,4 +353,21 @@ public class SpecificDao {
 						+ "roleID = "+employee.getRoleID()+" "
 								+ "where account = '"+employee.getAccount()+"';";
 	}
+	
+	/**
+	 * 
+	 * @Title:        findAllMessage  
+	 * @Description:  找到所有的留言 
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午4:37:15
+	 */
+	public static String findAllMessage(){
+
+		return "select content,createTime,reply,replyTime,employee.name as replyEmployee,status "
+				+ "from message,employee "
+				+ "where message.employeeID = employee.id";
+	}
 }

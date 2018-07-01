@@ -18,6 +18,7 @@ import service.account.AccountManage;
 import service.article.ArticleManage;
 import service.columns.ColumnsManage;
 import service.employee.EmployeeManage;
+import service.message.MessageManage;
 import service.module.ModuleManage;
 import service.permission.PermissionManage;
 import service.role.RoleManage;
@@ -33,38 +34,16 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		// 获取人员名
-		String name = "何玮康";	
-		// 获取性别
-		String sex = "男";
-		// 获取账号
-		String account = "superkang";
-		// 获取密码
-		String passWord = "123456";
-		// 获取角色名
-		String roleName = "超级管理员";
+		// 生成文章管理service类
+		MessageManage messageManage = new MessageManage();
 
-		// 根据用户名查询用户ID
-		String sql1 = SpecificDao.findIDFromTable(roleName, "role");
-		System.out.println(sql1);
-		Integer roleID = 0;
-		try {
-			roleID = DBUtil.findID(sql1);
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
+		String result = messageManage.findAllMessage();
+
+		if(!result.isEmpty()){
+			JSONArray fromObject = (JSONArray) JSON.parse(result);
+			System.out.println("留言为 :"+fromObject.toString());
+//			response.getWriter().print(fromObject);
+		}else{
+//			response.getWriter().print(""); 
 		}
-
-		// 新建人员对象
-		Employee employee = new Employee();
-		employee.setName(name);
-		employee.setAccount(account);
-		employee.setPassWord(passWord);
-		employee.setSex(sex);
-		employee.setRoleID(roleID);
-
-		EmployeeManage employeeManage = new EmployeeManage();
-		Integer result = employeeManage.updateEmployee(employee);
-		System.out.println(result);
 	}}
