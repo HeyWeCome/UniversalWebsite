@@ -50,8 +50,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
-		                            <h4>留&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言：</h4>
-		                            <textarea readonly="true" class="textArea" name="content" id="messageContent" rows="3" cols="60"></textarea>
+		                            <h4 style="margin-left:15%">留&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言：</h4>
+		                            <textarea readonly="true" style="margin-bottom: 10px;" class="textArea" name="content" id="messageContent" rows="3" cols="40"></textarea>
 		                        </div>
 		                         <div class="col-xs-12 col-md-12">
 		                            <h4>留言时间：</h4>
@@ -62,11 +62,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                            <input readonly="true" type="text" id="message_replyEmployee" name="replyEmployee" class="form-control" aria-describedby="basic-addon1"/>
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
-		                            <h4>回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;复：</h4>
+		                            <h4 style="margin-left:5%">回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;复：</h4>
 		                            <textarea class="textArea" name="content" rows="8" cols="60"></textarea>
 		                        </div>
 		                        
-		                        <input style="displar:none" type="text" id="message_replyEmployee" name="replyEmployee" class="form-control" aria-describedby="basic-addon1"/>
+		                        <input style="display:none" type="text" id="message_replyEmployee" name="replyEmployee" class="form-control" aria-describedby="basic-addon1"/>
 		                    
 		                    </div>
 		                </div>

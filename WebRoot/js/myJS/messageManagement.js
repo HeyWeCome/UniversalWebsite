@@ -17,8 +17,9 @@ window.operateEvents5 = {
     	//alert("进入查看弹框")
         //将该行数据填入模态框中
         $('#messageContent').val(row.content);
-        $('#createTime').val(row.createTime);
-        $('#replyEmployee').val(row.replyEmployee);
+        $('#message_createTime').val(row.createTime);
+        var a=$.cookie("userName");
+        $('#message_replyEmployee').val(a);
     },
 	'click #deleteMessage':function (e,value,row,index) {
         var determine = confirm("确认删除？");
