@@ -89,6 +89,11 @@
     <servlet-name>InsertEmployee</servlet-name>
     <servlet-class>control.InsertEmployee</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeleteEmployee</servlet-name>
+    <servlet-class>control.DeleteEmployee</servlet-class>
+  </servlet>
+
 
 
 
@@ -196,6 +201,10 @@
   <servlet-mapping>
     <servlet-name>InsertEmployee</servlet-name>
     <url-pattern>/control/InsertEmployee</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteEmployee</servlet-name>
+    <url-pattern>/control/DeleteEmployee</url-pattern>
   </servlet-mapping>
 
 </web-app>

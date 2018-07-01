@@ -1,6 +1,7 @@
 package dao;
 
 import entity.Article;
+import entity.Employee;
 import entity.Role;
 
 /**
@@ -284,5 +285,21 @@ public class SpecificDao {
 				" SET name = '"+name+"', "+
 				" description = '"+description+"' "+
 				" where name = '"+name+"';";
+	}
+	
+	/**
+	 * 
+	 * @Title:        deleteEmployee  
+	 * @Description:  删除员工
+	 * @param:        @param employee
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午1:03:00
+	 */
+	public static String deleteEmployee(Employee employee){
+		return "delete from employee where name = '"+employee.getName()+"'"
+				+ " and account = '"+employee.getAccount()+"';";
 	}
 }
