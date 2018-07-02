@@ -2,7 +2,7 @@
 $(function () {
     $('#moduleManagementTable').bootstrapTable({
         //data:students,
-  //  	url:'control/FindAllRole',
+    	url:'control/FindAllPASModules',
     	contentType:'application/json',//发送到服务器的数据编码类型
     	method: 'post',//请求方式
 		dataType:'json',//服务器返回的数据类型	
@@ -36,6 +36,18 @@ $(function () {
                 return index+1;
             }
         },{
+            field:'sonName',//返回值名称
+            title:'模块名',//列名
+            align:'center',//水平居中显示
+            valign:'middle',//垂直居中显示
+            //width:'10'//宽度
+        },{
+            field:'sonStatus',//返回值名称
+            title:'模块状态',//列名
+            align:'center',//水平居中显示
+            valign:'middle',//垂直居中显示
+            //width:'5'//宽度
+        },{
             field:'parentName',//返回值名称
             title:'父模块名',//列名
             align:'center',//水平居中显示
@@ -48,29 +60,38 @@ $(function () {
             valign:'middle',//垂直居中显示
             //width:'5'//宽度
         },{
-            field:'sonName',//返回值名称
-            title:'子模块名',//列名
-            align:'center',//水平居中显示
-            valign:'middle',//垂直居中显示
-            //width:'10'//宽度
-        },{
-            field:'sonStatus',//返回值名称
-            title:'子模块状态',//列名
-            align:'center',//水平居中显示
-            valign:'middle',//垂直居中显示
-            //width:'5'//宽度
-        }/*,{
             field:'oprate',//返回值名称
             title:'操作',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'15',//宽度
-            events:operateEvents2,
-            formatter:operationIcon2
-        }*/]//列配置项,详情请查看 列参数 表格
+            events:operateEventsModule,
+            formatter:operationIconModule
+        }]//列配置项,详情请查看 列参数 表格
         /*事件*/
     });
 });
+
+function operationIconModule(value,row,index) {
+    return[
+        '<img alt="img-responsive" id="editModule" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#editModuleModal" src="images/edit.png" />',
+        ].join('');
+}
+
+/* 刷新方法 */
+function refreshModule(){
+    $('#moduleManagementTable').bootstrapTable('refresh', null);
+}
+
+/*每行表格尾部的小图标点击*/
+window.operateEventsModule = {
+    'click #editModule':function (e,value,row,index) {
+        //将该行数据填入模态框中
+        $('#editModuleName').val(row.sonName);
+        $('#editModuleStatus').val(row.sonStatus);
+        $('#editModuleParentName').val(row.parentName);
+    }
+};
 
 function getModuleName(){
 	$.ajax({    		
@@ -105,13 +126,13 @@ function connectModules(data,i){
 
 function addModule(){
 	$.ajax({    		
-     //   url:"control/InsertModule",//servlet文件的名称  
+        url:"control/InsertModule",//servlet文件的名称  
         type:"POST",  
         dataType:"json",
         data:{
         	//"id":document.getElementById("addModuleId").value,
         	"name":document.getElementById("addModuleName").value,
-        	"status":document.getElementById("addModuleStutus").value,
+        	//"status":document.getElementById("addModuleStutus").value,
         	"parentModuleName":document.getElementById("selectModuleName").value,
         },
         success:function(data){
@@ -124,5 +145,30 @@ function addModule(){
 	    	 	alert("请求失败");
 	    	 	console.log(msg)
 	     	}
+	});
+}
+
+//修改栏目
+function editModule(){
+	$.ajax({    		
+        url:"control/UpdateModule",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"name":document.getElementById("editModuleName").value,
+        	"status":document.getElementById("editModuleStatus").value,
+        	"parentModuleName":document.getElementById("editModuleParentName").value,
+        },
+        success:function(data){
+        	$('#editModuleModal').modal('hide');
+        	
+        	console.log("data"+data);
+        	if(data==1){alert("修改成功!");$('#moduleManagementTable').bootstrapTable('refresh', null);}
+        	else if(data==0){alert("修改失败!");$('#moduleManagementTable').bootstrapTable('refresh', null);}
+        },
+        error: function (msg) {//ajax请求失败后触发的方法
+    	 	alert("请求失败");
+    	 	console.log(msg)
+     	}
 	});
 }

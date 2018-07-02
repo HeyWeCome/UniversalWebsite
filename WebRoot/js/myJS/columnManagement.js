@@ -2,7 +2,7 @@
 $(function () {
     $('#columnManagementTable').bootstrapTable({
         //data:students,
-  //  	url:'control/FindAllRole',
+    	url:'control/FindAllPASColumns',
     	contentType:'application/json',//发送到服务器的数据编码类型
     	method: 'post',//请求方式
 		dataType:'json',//服务器返回的数据类型	
@@ -35,13 +35,13 @@ $(function () {
             formatter:function (value,row,index) {//生成序号
                 return index+1;
             }
-        },{
+        }/*,{
             field:'id',//返回值名称
             title:'栏目ID',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'10'//宽度
-        },{
+        }*/,{
             field:'name',//返回值名称
             title:'栏目名称',//列名
             align:'center',//水平居中显示
@@ -59,19 +59,43 @@ $(function () {
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'20'//宽度
-        }/*,{
+        },{
             field:'oprate',//返回值名称
             title:'操作',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'15',//宽度
-            events:operateEvents2,
-            formatter:operationIcon2
-        }*/]//列配置项,详情请查看 列参数 表格
+            events:operateEventColumn,
+            formatter:operationIconColumn
+        }]//列配置项,详情请查看 列参数 表格
         /*事件*/
     });
 });
 
+function operationIconColumn(value,row,index) {
+    return[
+           '<img alt="img-responsive" id="editColumn" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#editColumnModal" src="images/edit.png" />',
+        ].join('');
+}
+
+/* 刷新方法 */
+function refreshColumn(){
+    $('#columnManagementTable').bootstrapTable('refresh', null);
+}
+
+/*每行表格尾部的小图标点击*/
+window.operateEventColumn = {
+    'click #editColumn':function (e,value,row,index) {
+        //将该行数据填入模态框中
+        //$('#edit_ID').val(row.id);
+        $('#editColumnName').val(row.name);
+        $('#editColumnLever').val(row.lever);
+        /*getContent(row.title,row.author);
+        getColumnsName();*/
+    }
+};
+
+//获取所有上级栏目
 function getColumnName(){
 	$.ajax({    		
         url:"control/FindAllSonColumns",//servlet文件的名称  
@@ -103,6 +127,7 @@ function connectColumns(data,i){
 	return columnOption
 }
 
+//新增栏目
 function addColumn(){
 	$.ajax({    		
      //   url:"control/InsertColumn",//servlet文件的名称  
@@ -111,7 +136,7 @@ function addColumn(){
         data:{
         	//"id":document.getElementById("addColumnId").value,
         	"name":document.getElementById("addColumnName").value,
-        	"status":document.getElementById("addColumnLever").value,
+        	//"lever":document.getElementById("addColumnLever").value,
         	"parentColumnName":document.getElementById("selectColumnName").value,
         },
         success:function(data){
@@ -124,5 +149,28 @@ function addColumn(){
 	    	 	alert("请求失败");
 	    	 	console.log(msg)
 	     	}
+	});
+}
+
+//修改栏目
+function editColumn(){
+	$.ajax({    		
+    //    url:"control/UpdateColumn",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"name":document.getElementById("editColumnName").value,
+        	"level":document.getElementById("editColumnLevel").value,
+        },
+        success:function(data){
+        	$('#editColumnModal').modal('hide');
+        	
+        	if(data==1){alert("修改成功!");$('#columnManagementTable').bootstrapTable('refresh', null);}
+        	else if(data==0){alert("修改失败!");$('#columnManagementTable').bootstrapTable('refresh', null);}
+        },
+        error: function (msg) {//ajax请求失败后触发的方法
+    	 	alert("请求失败");
+    	 	console.log(msg)
+     	}
 	});
 }
