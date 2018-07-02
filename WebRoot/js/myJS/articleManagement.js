@@ -148,7 +148,7 @@ window.operateEvents = {
                 //data:{"questionnaireId":"<%=questionnaireId%>"},
                 success:function(data1){
                 	if(data1==1){
-                		alert("插入成功!");
+                		alert("删除成功!");
                 		$('#articleTable').bootstrapTable('refresh', null);
                 	}
                 },

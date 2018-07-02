@@ -36,29 +36,29 @@ $(function () {
                 return index+1;
             }
         },{
-            field:'id',//返回值名称
-            title:'模块ID',//列名
+            field:'parentName',//返回值名称
+            title:'父模块名',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'10'//宽度
         },{
-            field:'name',//返回值名称
-            title:'模块名称',//列名
+            field:'parentStatus',//返回值名称
+            title:'父模块状态',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'5'//宽度
         },{
-            field:'status',//返回值名称
-            title:'模块状态',//列名
+            field:'sonName',//返回值名称
+            title:'子模块名',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
-            //width:'20'//宽度
+            //width:'10'//宽度
         },{
-            field:'parentModuleName',//返回值名称
-            title:'父模块',//列名
+            field:'sonStatus',//返回值名称
+            title:'子模块状态',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
-            //width:'20'//宽度
+            //width:'5'//宽度
         }/*,{
             field:'oprate',//返回值名称
             title:'操作',//列名

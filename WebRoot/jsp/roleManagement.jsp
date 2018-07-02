@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                   <h4 class="modal-title">新增角色</h4>
 		               </div>
-		            	<form action="control/InsertRole" method="post">
+		            	<!-- <form action="control/InsertRole" method="post"> -->
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
@@ -62,9 +62,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                </div>
 		                <div class="modal-footer">
 		                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#fff;color:#5E6F8A;">关闭</button>
-		                    <button type="submit" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">新增</button>
+		                    <button type="button" onclick="addRole()" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">新增</button>
 		                </div>
-		                </form> 
+		               <!--  </form>  -->
 		           </div>
 		       </div>
 		   </div>
@@ -110,7 +110,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                   <h4 class="modal-title">修改角色信息</h4>
 		               </div>
-		               <form action="control/UpdateRole" method="post">
+		               <!-- <form action="control/UpdateRole" method="post"> -->
 		               <div class="modal-body">
 		                   <div class="row">
 		                       <div class="col-xs-12 col-md-12">
@@ -128,9 +128,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		               
 		               <div class="modal-footer">
 		                   <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#fff;color:#5E6F8A;">关闭</button>
-		                    <button id="btEdit" type="submit" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">编辑</button>
+		                    <button id="btEdit" type="button" onclick="editRole()" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">编辑</button>
 		               </div>
-		               </form>
+		              <!--  </form> -->
 		           </div>
 		       </div>
 		   </div>
