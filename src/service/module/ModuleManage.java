@@ -9,6 +9,7 @@ import entity.Module;
 import entity.SonModule;
 import util.DBUtil;
 import util.InSertDBUtil;
+import util.UpdateDBUtil;
 
 /** 
  * @ClassName:     ModuleManage.java 
@@ -129,6 +130,24 @@ public class ModuleManage implements IModuleManage{
 		}
 
 		return null;
+	}
+	/**  
+	 * @Title:        updateModule  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午11:29:23  
+	 */  
+	@Override
+	public Integer updateModule(Module module) {
+		String sql = SpecificDao.updateModule(module);
+		
+		try {
+			Integer result = UpdateDBUtil.update(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 }

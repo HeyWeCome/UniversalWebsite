@@ -118,8 +118,8 @@
     <servlet-class>control.DeleteMessage</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>FindAllPASColumns</servlet-name>
-    <servlet-class>control.FindAllPASColumns</servlet-class>
+    <servlet-name>FindAllPASModules</servlet-name>
+    <servlet-class>control.FindAllPASModules</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>UpdateModule</servlet-name>
@@ -281,8 +281,8 @@
     <url-pattern>/control/DeleteMessage</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>FindAllPASColumns</servlet-name>
-    <url-pattern>/control/FindAllPASColumns</url-pattern>
+    <servlet-name>FindAllPASModules</servlet-name>
+    <url-pattern>/control/FindAllPASModules</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>UpdateModule</servlet-name>

@@ -3,6 +3,7 @@ package dao;
 import entity.Article;
 import entity.Employee;
 import entity.Message;
+import entity.Module;
 import entity.Permission;
 import entity.Role;
 
@@ -462,5 +463,22 @@ public class SpecificDao {
 				+ "from module,sonmodule "
 				+ "where sonModule.parentModuleID = module.id;";
 		
+	}
+	
+	/**
+	 * 
+	 * @Title:        updateModule  
+	 * @Description:  更新模块表  
+	 * @param:        @param module
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午11:34:04
+	 */
+	public static String updateModule(Module module){
+		return "update module "
+				+ "set name = '"+module.getName()+"', "
+				+ " status = '"+module.getStatus()+"';";
 	}
 }

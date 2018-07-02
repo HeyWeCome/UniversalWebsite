@@ -20,4 +20,5 @@ public interface IModuleManage {
 	Integer insertMoudle(Module Module);
 	Integer insertSonMoudle(SonModule sonModule);
 	String getAllPASModule();
+	Integer updateModule(Module module);
 }
