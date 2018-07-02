@@ -130,7 +130,7 @@ window.operateEvents = {
         var uploadTitle = '<input type="hidden" name="title" value="'
         	+row.title
         	+'"></input>'
-    	var uploadAuthor = '<input type="hidden" name="title" value="'
+    	var uploadAuthor = '<input type="hidden" name="author" value="'
         	+row.author
         	+'"></input>'
         
