@@ -42,10 +42,9 @@ public class UploadServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// 控制格式,解决乱码问题
-		resp.setContentType("text/json");
-		request.setCharacterEncoding("UTF-8");
-		resp.setCharacterEncoding("UTF-8");
+		
+		String title = null;
+		String author = null;
 		
 		//文件存储路径
 		String path="C:/upload";
@@ -94,44 +93,23 @@ public class UploadServlet extends HttpServlet {
 			for(FileItem item:list){
 				//检查当前项目是普通表单项目还是上传文件。
 				if(item.isFormField()){
+					
 					//表单name值
 					String name=item.getFieldName();
-					//					System.out.println(name);
-					//表单value值
-					//					System.out.println(item.getString("UTF-8"));
+					if(name.equals("title")){
+						//表单value值
+						title = item.getString("UTF-8");
+					}else if(name.equals("author")){
+						author = item.getString("UTF-8");
+					}			
 
 				}else{
-					// 获取文章标题内容
-					String title = request.getParameter("title");	
-					// 获取留言的时间
-					String author = request.getParameter("author");
+					System.out.println("title:"+title);
+					System.out.println("author:"+author);
 					
-					// 根据用户名查询用户ID
-					String sql1 = SpecificDao.findIDFromTable(author, "employee");
-					System.out.println(sql1);
-					Integer anthorID = 0;
-					try {
-						anthorID = DBUtil.findID(sql1);
-					} catch (NumberFormatException e) {
-						e.printStackTrace();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-					
-					Integer articleID = 0;
-					String sql = SpecificDao.findArticleID(title, anthorID);
-					try {
-						articleID = DBUtil.findID(sql);
-					} catch (NumberFormatException e) {
-						e.printStackTrace();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-					
-					System.out.println("上传的文章的ID为"+articleID);
 					//上传文件的文件名称
 					String fileName=item.getName();
-					//System.out.println(fileName);
+					System.out.println(fileName);
 					//去掉文件路径，取得文件名
 					fileName=fileName.substring(fileName.lastIndexOf("\\")+1);
 					//获取文件的扩展名
@@ -153,7 +131,6 @@ public class UploadServlet extends HttpServlet {
 
 					// 新建一个资源文件类
 					SourceFile sourceFile = new SourceFile();
-					sourceFile.setArticleID(articleID);
 					sourceFile.setName(fileName);
 					sourceFile.setPath(path+File.separator+trueName);
 					System.out.println("文件的路径"+sourceFile.getPath());
