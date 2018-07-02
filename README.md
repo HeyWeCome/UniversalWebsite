@@ -105,10 +105,11 @@
 
 11. 课程(course)
 - id				课程ID
+- name				课程名
 - introduction		课程的简略描述
 - principal			课程负责人
 
-12. 课程栏目(courseContent)
+12. 课程栏目(courseColumns)
 - id				课程栏目ID
 - courseID			课程ID
 - columnsID			栏目ID
