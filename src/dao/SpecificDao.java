@@ -3,8 +3,10 @@ package dao;
 import entity.Article;
 import entity.Employee;
 import entity.Message;
+import entity.Module;
 import entity.Permission;
 import entity.Role;
+import entity.SonModule;
 
 /**
  * 
@@ -457,10 +459,53 @@ public class SpecificDao {
 	 * @author        Vico.Ho 
 	 * @Date          2018年7月2日 下午3:44:58
 	 */
-	public static String findAllPASColumns(){
+	public static String findAllPASModule(){
 		return "select module.name as parentName,module.status as parentStatus,sonmodule.status as sonStatus,sonmodule.name as sonName "
 				+ "from module,sonmodule "
 				+ "where sonModule.parentModuleID = module.id;";
 		
+	}
+	
+	/**
+	 * 
+	 * @Title:        findAllPASColumns  
+	 * @Description:  找到所有父栏目和子栏目 
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午11:50:34
+	 */
+	public static String findAllPASColumns(){
+		return "select soncolumns.name as name, soncolumns.level as level, "
+				+ "columns.name as parentName "
+				+ "from soncolumns,columns "
+				+ "where soncolumns.parentID = columns.id;";
+		
+	}
+	
+	
+	/**
+	 * 
+	 * @Title:        updateModule  
+	 * @Description:  更新模块表  
+	 * @param:        @param module
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午11:34:04
+	 */
+	public static String updateModule(Module module){
+		return "update module "
+				+ "set name = '"+module.getName()+"', "
+				+ " status = '"+module.getStatus()+"';";
+	}
+	
+	public static String updateSonModule(SonModule sonmodule){
+		return "update Sonmodule "
+				+ "set name = '"+sonmodule.getName()+"', "
+				+ " status = '"+sonmodule.getStatus()+"'"
+						+ " parentModuleID = "+sonmodule.getParentModuleID()+";";
 	}
 }

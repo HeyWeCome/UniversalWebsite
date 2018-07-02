@@ -15,4 +15,5 @@ public interface IColumnsManage {
 	String getAllColumns();
 	String getAllSonColumns();
 	String getAllPASColumns();
+	
 }

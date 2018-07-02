@@ -19,28 +19,29 @@ import service.module.ModuleManage;
 
 /** 
  * @ClassName:     FindAllPASColumns.java 
- * @Description:   TODO(用一句话描述该文件做什么)  
+ * @Description:   找到所有父模块和子模块一同返回
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018年7月2日 下午11:59:51  
+ * @Date           2018年7月2日 下午3:39:36  
  */
-public class FindAllPASColumns extends HttpServlet {
+public class FindAllPASModules extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		// 解决乱码
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
 
-		ColumnsManage columnsManage = new ColumnsManage();
+		ModuleManage moduleManage = new ModuleManage();
 
-		String result = columnsManage.getAllPASColumns();
+		String result = moduleManage.getAllPASModule();
 
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("父栏目和子栏目are:"+fromObject.toString());
+			System.out.println("父模块和子模块 are:"+fromObject.toString());
 			response.getWriter().print(fromObject);
 		}else{
 			response.getWriter().print(""); 

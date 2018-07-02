@@ -3,6 +3,9 @@
  */
 package service.module;
 
+import entity.Module;
+import entity.SonModule;
+
 /**
  * 
  * @ClassName:     IModuleManage.java 
@@ -14,4 +17,10 @@ package service.module;
 public interface IModuleManage {
 	String findAllModule();
 	String findAllSonModule(String userName);
+	Integer insertModule(Module Module);
+	Integer insertSonModule(SonModule sonModule);
+	String getAllPASModule();
+	Integer updateModule(Module module);
+
+
 }

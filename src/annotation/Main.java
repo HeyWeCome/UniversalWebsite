@@ -13,8 +13,10 @@ import dao.SpecificDao;
 import entity.Article;
 import entity.Employee;
 import entity.Message;
+import entity.Module;
 import entity.Permission;
 import entity.Role;
+import entity.SonModule;
 import service.account.AccountManage;
 import service.article.ArticleManage;
 import service.columns.ColumnsManage;
@@ -36,15 +38,15 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		// 生成文章管理service类
-		CourseManage courseManage = new CourseManage();
-		String result = courseManage.findAllCourse();
+		ColumnsManage columnsManage = new ColumnsManage();
+
+		String result = columnsManage.getAllPASColumns();
 
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("所有的课程为:"+fromObject.toString());
+			System.out.println("父栏目和子栏目are:"+fromObject.toString());
 //			response.getWriter().print(fromObject);
 		}else{
 //			response.getWriter().print(""); 
 		}
-	}}
+		}}

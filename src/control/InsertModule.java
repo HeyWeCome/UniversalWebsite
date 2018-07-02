@@ -18,36 +18,33 @@ import service.module.ModuleManage;
 import util.DBUtil;
 
 /** 
- * @ClassName:     UpdateModule.java 
- * @Description:   更新模块  
+ * @ClassName:     InsertModule.java 
+ * @Description:   TODO(用一句话描述该文件做什么)  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018年7月2日 下午4:10:40  
+ * @Date           2018年7月2日 下午10:50:49  
  */
-public class UpdateModule extends HttpServlet {
+public class InsertModule extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 解决乱码
+		// 控制格式,解决乱码问题
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
 		// 获取模块名
 		String name = request.getParameter("name");	
-		// 获取状态
-		String status = request.getParameter("status");
-
 		// 获取父模块名
 		String parentModuleName = request.getParameter("parentModuleName");
 		if(parentModuleName.equals("已是父模块")){
 			// 新建子模块对象
 			Module Module = new Module();
 			Module.setName(name);
-			Module.setStatus(status);
+			Module.setStatus("1");
 
 			ModuleManage moduleManage = new ModuleManage();
-			Integer result = moduleManage.updateModule(Module);
+			Integer result = moduleManage.insertModule(Module);
 			response.getWriter().println(result);
 
 		}else{
@@ -67,13 +64,12 @@ public class UpdateModule extends HttpServlet {
 			SonModule sonModule = new SonModule();
 			sonModule.setName(name);
 			sonModule.setParentModuleID(parentModuleID);
-			sonModule.setStatus(status);
+			sonModule.setStatus("1");
 
 			ModuleManage moduleManage = new ModuleManage();
-			Integer result = moduleManage.updateSonMoudle(sonModule);
+			Integer result = moduleManage.insertSonModule(sonModule);
 			response.getWriter().println(result);
 		}
-
 	}
 
 
