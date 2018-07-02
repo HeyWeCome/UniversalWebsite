@@ -409,4 +409,10 @@ public class SpecificDao {
 				+ " where content = '"
 				+ message.getContent()+"';";
 	}
+	
+	public static String findArticleID(String title, Integer authorID){
+		return "select id from article "
+				+ "where title = '"+title+"' "
+						+ "and employeeID = "+authorID+";";
+	}
 }
