@@ -26,7 +26,7 @@ window.operateEvents5 = {
         if(determine==true){
         	//alert(row.title+" "+row.author)
         	$.ajax({    		
-                url:"control/DeleteArticle",//servlet文件的名称  
+                url:"control/DeleteMessage",//servlet文件的名称  
                 type:"POST",  
                 dataType:"json",
                 data:{
@@ -54,7 +54,7 @@ function deletesMessage(){
 	    	for(var i=0; i<data.length; i++){
 	    		//alert(data[i].title+" "+data[i].author)    	
 	    		$.ajax({    		
-	                url:"control/DeleteRole",//servlet文件的名称  
+	                url:"control/DeleteMessage",//servlet文件的名称  
 	                type:"POST",  
 	                dataType:"json",
 	                data:{
