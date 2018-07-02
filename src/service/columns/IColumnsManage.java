@@ -3,14 +3,16 @@
  */
 package service.columns;
 
-/** 
+/**
+ * 
  * @ClassName:     IColumnsManage.java 
- * @Description:   TODO(ÓÃÒ»¾ä»°ÃèÊö¸ÃÎÄ¼ş×öÊ²Ã´)  
+ * @Description:   æ ç›®ç®¡ç†æ¥å£ç±» 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÏÂÎç4:32:58  
+ * @Date           2018å¹´7æœˆ2æ—¥ ä¸‹åˆ3:40:54
  */
 public interface IColumnsManage {
 	String getAllColumns();
 	String getAllSonColumns();
+	String getAllPASColumns();
 }

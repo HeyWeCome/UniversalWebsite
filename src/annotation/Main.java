@@ -35,15 +35,15 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		// 获取留言内容
-		String content = "何玮康最帅";	
+		ColumnsManage columnsManage = new ColumnsManage();
 
-		// 新建message对象
-		Message message = new Message();
-		message.setContent(content);
+		String result = columnsManage.getAllPASColumns();
 
-		// 新建message service类
-		MessageManage messageManage = new MessageManage();
-		Integer result = messageManage.deleteMessage(message);
-		System.out.println(result);
+		if(!result.isEmpty()){
+			JSONArray fromObject = (JSONArray) JSON.parse(result);
+			System.out.println("columns are:"+fromObject.toString());
+//			response.getWriter().print(fromObject);
+		}else{
+//			response.getWriter().print(""); 
+		}
 	}}

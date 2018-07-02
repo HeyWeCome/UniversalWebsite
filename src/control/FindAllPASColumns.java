@@ -4,6 +4,7 @@
 package control;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,15 +16,14 @@ import com.alibaba.fastjson.JSONArray;
 
 import service.columns.ColumnsManage;
 
-/**
- * 
- * @ClassName:     FindAllColumns.java 
- * @Description:   找到所有的栏目  
+/** 
+ * @ClassName:     FindAllPASColumns.java 
+ * @Description:   找到所有父模块和子模块一同返回
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018年6月29日 上午10:58:40
+ * @Date           2018年7月2日 下午3:39:36  
  */
-public class FindAllColumns extends HttpServlet {
+public class FindAllPASColumns extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,7 +33,7 @@ public class FindAllColumns extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		
+
 		ColumnsManage columnsManage = new ColumnsManage();
 
 		String result = columnsManage.getAllPASColumns();
@@ -49,7 +49,7 @@ public class FindAllColumns extends HttpServlet {
 
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		doGet(request,response);
 	}
 
 }

@@ -6,29 +6,31 @@ package service.columns;
 import dao.SpecificDao;
 import util.DBUtil;
 
-/** 
+/**
+ * 
  * @ClassName:     ColumnsManage.java 
- * @Description:   TODO(ÓÃÒ»¾ä»°ÃèÊö¸ÃÎÄ¼ş×öÊ²Ã´)  
+ * @Description:   æ ç›®ç®¡ç† 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÏÂÎç4:33:11  
+ * @Date           2018å¹´7æœˆ2æ—¥ ä¸‹åˆ3:43:35
  */
 public class ColumnsManage implements IColumnsManage{
 
-	/**  
+	/**
+	 * 
 	 * @Title:        getAllColumns  
-	 * @Description:  »ñÈ¡ËùÓĞµÄÀ¸Ä¿  
+	 * @Description:  TODO(è¿™é‡Œç”¨ä¸€å¥è¯æè¿°è¿™ä¸ªæ–¹æ³•çš„ä½œç”¨)  
 	 * @author        Vico.Ho 
-	 * @Date          2018Äê6ÔÂ28ÈÕ ÏÂÎç4:33:59  
-	 */  
+	 * @Date          2018å¹´7æœˆ2æ—¥ ä¸‹åˆ3:41:09
+	 */
 	@Override
 	public String getAllColumns() {
-		// »ñÈ¡µ½´Ócolumns±íÖĞ¶ÁÈ¡ËùÓĞÄÚÈİµÄsql
+		// ç”Ÿæˆsql
 		String sql = SpecificDao.selectAllFromTable("columns");
 		String result = "";
 
-		System.out.println("Ö´ĞĞµÄsqlÓï¾äÎª:"+sql);
-		// Ö´ĞĞ»ñÈ¡ÎÄÕÂµÄ²Ù×÷
+		System.out.println("è¦æ‰§è¡Œçš„sqlä¸º:"+sql);
+		
 		try {
 			result = DBUtil.findAllColumns(sql);
 			return result;
@@ -39,22 +41,46 @@ public class ColumnsManage implements IColumnsManage{
 		return null;
 	}
 
-	/**  
+	/**
+	 * 
 	 * @Title:        getAllSonColumns  
-	 * @Description:  ÕÒµ½ËùÓĞµÄ×ÓÀ¸Ä¿
+	 * @Description:  å¾—åˆ°æ‰€æœ‰çš„å­æ ç›® 
 	 * @author        Vico.Ho 
-	 * @Date          2018Äê6ÔÂ28ÈÕ ÏÂÎç4:51:53  
-	 */  
+	 * @Date          2018å¹´7æœˆ2æ—¥ ä¸‹åˆ3:41:33
+	 */
 	@Override
 	public String getAllSonColumns() {
-		// »ñÈ¡µ½´Ócolumns±íÖĞ¶ÁÈ¡ËùÓĞÄÚÈİµÄsql
+		
 		String sql = SpecificDao.selectAllFromTable("soncolumns");
 		String result = "";
 
 		System.out.println("sql:"+sql);
-		// Ö´ĞĞ»ñÈ¡ÎÄÕÂµÄ²Ù×÷
 		try {
 			result = DBUtil.findAllSonColumns(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	/**  
+	 * @Title:        getAllPASColumns  
+	 * @Description:  å¾—åˆ°æ‰€æœ‰çš„çˆ¶æ¨¡å—å’Œå­æ¨¡å— 
+	 * @author        Vico.Ho 
+	 * @Date          2018å¹´7æœˆ2æ—¥ ä¸‹åˆ3:43:46  
+	 */  
+	@Override
+	public String getAllPASColumns() {
+		String sql = SpecificDao.findAllPASColumns();
+		System.out.println("æŸ¥è¯¢åˆ°çš„ç»“æœä¸º:"+sql);
+		
+		String result = "";
+
+		System.out.println("sql:"+sql);
+		try {
+			result = DBUtil.findAllPASColumns(sql);
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
