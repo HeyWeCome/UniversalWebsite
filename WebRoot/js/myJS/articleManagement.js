@@ -127,7 +127,9 @@ window.operateEvents = {
     },
     
     'click #upload':function (e,value,row,index) {
-        var uploadTitle = '<input type="hidden" name="title" value="'
+    	$('#upload_title').val(row.title);
+        $('#upload_author').val(row.author);
+        /*var uploadTitle = '<input type="hidden" name="title" value="'
         	+row.title
         	+'"></input>'
     	var uploadAuthor = '<input type="hidden" name="author" value="'
@@ -135,8 +137,8 @@ window.operateEvents = {
         	+'"></input>'
         
         var uploadImformation = uploadTitle+uploadAuthor
-        
-        document.getElementById("uploadImformation").innerHTML=uploadImformation
+        alert(uploadImformation);
+        document.getElementById("uploadImformation").innerHTML=uploadImformation*/
     },
     
 
