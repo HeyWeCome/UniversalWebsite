@@ -109,6 +109,7 @@ public class UploadServlet extends HttpServlet {
 					
 					InputStream is=item.getInputStream();
 					System.out.println(path+File.separator+fileName);
+					System.out.println("真实路径:"+path+File.separator+trueName);
 					OutputStream os=new FileOutputStream(path+File.separator+trueName);
 					byte[] flush=new byte[1024];
 					int len=0;
@@ -119,7 +120,7 @@ public class UploadServlet extends HttpServlet {
 					// 新建一个资源文件类
 					SourceFile sourceFile = new SourceFile();
 					sourceFile.setName(fileName);
-					sourceFile.setPath(path+File.separator+fileName);
+					sourceFile.setPath(path+File.separator+trueName);
 					System.out.println("文件的路径"+sourceFile.getPath());
 //					SourceFileManage newSourceFileManage = new SourceFileManage();
 					os.flush();
