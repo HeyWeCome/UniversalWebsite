@@ -37,7 +37,8 @@ public class ShowSonModules extends HttpServlet {
 
 		// 获取用户名
 		String userName = request.getParameter("userName");
-		System.out.println("ShowSonModules:用户名为:"+userName);
+
+		System.out.println("用户名为:"+userName);
 		
 		ModuleManage moduleManage = new ModuleManage();
 

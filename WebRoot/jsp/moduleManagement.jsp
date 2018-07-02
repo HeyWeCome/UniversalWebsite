@@ -43,13 +43,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                    <h4 class="modal-title">新增模块</h4>
                </div>
-            	<form action="control/InsertModule" method="post">
+            	<!-- <form action="control/InsertModule" method="post"> -->
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-xs-12 col-md-12">
+                        <!-- <div class="col-xs-12 col-md-12">
                             <h4>模&nbsp;&nbsp;块&nbsp;&nbsp;ID：</h4>
                             <input  type="text" id="addModuleId" name="id"class="form-control"aria-describedby="basic-addon1"/>
-                        </div>
+                        </div> -->
                          <div class="col-xs-12 col-md-12">
                             <h4>模块名称：</h4>
                             <input  type="text" id="addModuleName" name="name" class="form-control" aria-describedby="basic-addon1"/>
@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </div> 	
                         <div class="col-xs-12 col-md-12">
                             <h4>父类模块：</h4>
-                            <select class="form-control" id="selectModuleName" name="columnName" style="width:196px">
+                            <select class="form-control" id="selectModuleName" name="parentModuleName" style="width:196px">
 		                        		<!-- <option>男</option>
 		                        		<option>女</option> -->
 		                    </select>
@@ -69,9 +69,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#fff;color:#5E6F8A;">关闭</button>
-                    <button type="submit" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">新增</button>
+                    <button type="button" onclick="addModule()" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">新增</button>
                 </div>
-                </form> 
+                <!-- </form>  -->
            </div>
        </div>
    </div>
