@@ -36,41 +36,14 @@ import util.DBUtil;
 public class Main {
 	public static void main(String[] args){
 		// 获取留言内容
-		String content ="如何下载sql？";	
-		// 获取留言的时间
-		String createTime = "2018-07-27 16:45:43";
-		// 获取回复的员工名
-		String replyEmployee = "何玮康";
-		// 获取回复的内容
-		String replyContent = "哈哈哈哈哈哈";
-		//设置日期格式
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		// new Date()为获取当前系统时间，也可使用当前时间戳
-		String date = df.format(new Date());
-
-		// 根据员工名查询用户ID
-		String sql1 = SpecificDao.findIDFromTable(replyEmployee, "employee");
-		System.out.println(sql1);
-		Integer replyEmployeeID = null;
-		try {
-			replyEmployeeID = DBUtil.findID(sql1);
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		String content = "何玮康最帅";	
 
 		// 新建message对象
 		Message message = new Message();
 		message.setContent(content);
-		message.setCreateTime(createTime);
-		message.setEmployeeID(replyEmployeeID);
-		message.setReply(replyContent);
-		message.setReplyTime(date);
-		message.setStatus("1");
 
-		// 新建message管理类
+		// 新建message service类
 		MessageManage messageManage = new MessageManage();
-		Integer result = messageManage.updateMessage(message);
+		Integer result = messageManage.deleteMessage(message);
 		System.out.println(result);
 	}}

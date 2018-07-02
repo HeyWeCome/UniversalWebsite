@@ -113,6 +113,11 @@
     <servlet-name>UpdateMessage</servlet-name>
     <servlet-class>control.UpdateMessage</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeleteMessage</servlet-name>
+    <servlet-class>control.DeleteMessage</servlet-class>
+  </servlet>
+
 
 
 
@@ -250,6 +255,10 @@
   <servlet-mapping>
     <servlet-name>UpdateMessage</servlet-name>
     <url-pattern>/control/UpdateMessage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteMessage</servlet-name>
+    <url-pattern>/control/DeleteMessage</url-pattern>
   </servlet-mapping>
 
 </web-app>

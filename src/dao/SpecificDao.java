@@ -391,4 +391,22 @@ public class SpecificDao {
 						+ "status = '"+message.getStatus()+"' "
 								+ "where content = '"+message.getContent()+"';";
 	}
+	
+	
+	/**
+	 * 
+	 * @Title:        deleteMessage  
+	 * @Description:  生成删除留言的sql语句  
+	 * @param:        @param message
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 上午9:38:46
+	 */
+	public static String deleteMessage(Message message){
+		return "delete from message"
+				+ " where content = '"
+				+ message.getContent()+"';";
+	}
 }

@@ -6,6 +6,7 @@ package service.message;
 import dao.SpecificDao;
 import entity.Message;
 import util.DBUtil;
+import util.DeleteDBUtil;
 import util.UpdateDBUtil;
 
 /**
@@ -53,6 +54,27 @@ public class MessageManage implements IMessageManage{
 		
 		try {
 			Integer result = UpdateDBUtil.update(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	/**  
+	 * @Title:        deleteMessage  
+	 * @Description:  删除留言
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 上午9:37:49  
+	 */  
+	@Override
+	public Integer deleteMessage(Message message) {
+		String sql = SpecificDao.deleteMessage(message);
+		System.out.println("需要执行的sql为："+sql);
+		
+		// 删除成功返回1  否则返回0
+		try {
+			Integer result = DeleteDBUtil.delete(sql);
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
