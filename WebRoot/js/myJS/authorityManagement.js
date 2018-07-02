@@ -15,11 +15,13 @@ $(document).ready(function() {
 		}
 	});
 	
+	//alert($.cookie("userName"));
 	$.ajax({
 		type : 'POST',
 		url : 'control/ShowSonModules',
 		async:false,
 		dataType : 'json',
+		data:{"userName":$.cookie("userName")},
 		success : function(sonModules) {
 			var modules = "<h4 class='show'>模块</h4>";
 			for(var i=0;i<sonModules.length;i++){	//循环获取所有模块

@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                   <h4 class="modal-title">新增人员</h4>
 		               </div>
-		            	<form action="control/InsertEmployee" method="post">
+		            	<!-- <form action="control/InsertEmployee" method="post"> -->
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
@@ -57,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                        </div>
 		                         <div class="col-xs-12 col-md-12">
 		                            <h4>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</h4>
-		                            <select class="form-control" id="add_managerSex" name="sex" style="width:168px">
+		                            <select class="form-control" id="add_managerSex" name="sex" style="width:190px">
 		                        		<option>男</option>
 		                        		<option>女</option>
 		                        	</select>
@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>人员角色：</h4>
-		                            <select class="form-control" id="add_managerRole" name="roleName" style="width:168px">
+		                            <select class="form-control" id="add_managerRole" name="roleName" style="width:190px">
 		                        		
 		                        	</select>
 		                        </div>
