@@ -2,6 +2,7 @@ package dao;
 
 import entity.Article;
 import entity.Employee;
+import entity.Message;
 import entity.Permission;
 import entity.Role;
 
@@ -352,5 +353,66 @@ public class SpecificDao {
 				+ " passWord = '"+employee.getPassWord()+"', "
 						+ "roleID = "+employee.getRoleID()+" "
 								+ "where account = '"+employee.getAccount()+"';";
+	}
+	
+	/**
+	 * 
+	 * @Title:        findAllMessage  
+	 * @Description:  找到所有的留言 
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午4:37:15
+	 */
+	public static String findAllMessage(){
+
+		return "select content,createTime,reply,replyTime,employee.name as replyEmployee,status "
+				+ "from message,employee "
+				+ "where message.employeeID = employee.id ";
+	}
+	
+	/**
+	 * 
+	 * @Title:        updateMessage  
+	 * @Description:  更新留言 
+	 * @param:        @param message
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月1日 下午8:30:46
+	 */
+	public static String updateMessage(Message message){
+		return "update message "
+				+ "set  reply = '"+message.getReply()+"', "
+				+ "  employeeID = "+message.getEmployeeID()+", "
+				+ " replyTime = '"+message.getReplyTime()+"', "
+						+ "status = '"+message.getStatus()+"' "
+								+ "where content = '"+message.getContent()+"';";
+	}
+	
+	
+	/**
+	 * 
+	 * @Title:        deleteMessage  
+	 * @Description:  生成删除留言的sql语句  
+	 * @param:        @param message
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 上午9:38:46
+	 */
+	public static String deleteMessage(Message message){
+		return "delete from message"
+				+ " where content = '"
+				+ message.getContent()+"';";
+	}
+	
+	public static String findArticleID(String title, Integer authorID){
+		return "select id from article "
+				+ "where title = '"+title+"' "
+						+ "and employeeID = "+authorID+";";
 	}
 }

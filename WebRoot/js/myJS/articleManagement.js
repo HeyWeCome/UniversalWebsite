@@ -1,3 +1,4 @@
+$(document).ready(
 function showAllColumns(){
 	//console.log("当前账号为:"+$.cookie("userName"));
 	parentColumnsSize=0;
@@ -41,7 +42,18 @@ function showAllColumns(){
             });
         }
     });
+})
+
+function showColumnsOrNot(){
+	var Columns = document.getElementById("columns");
+	if(Columns.style.display=="none"){
+		Columns.style.display="block";
+	}
+	else{
+		Columns.style.display="none";
+	}
 }
+
 /*显示父栏目*/
 function connectParentColumns(data,i){
 	var parentColumns = '<button class="parentColumns" onclick="show1('
@@ -93,7 +105,7 @@ function operationIcon(value,row,index) {
 /*每行表格尾部的小图标点击*/
 window.operateEvents = {
     'click #check':function (e,value,row,index) {
-    	alert("进入查看弹框")
+    	//alert("进入查看弹框")
         //将该行数据填入模态框中
         $('#check_title').val(row.title);
         $('#check_author').val(row.author);
@@ -115,16 +127,18 @@ window.operateEvents = {
     },
     
     'click #upload':function (e,value,row,index) {
-        var uploadTitle = '<input type="hidden" name="title" value="'
+    	$('#upload_title').val(row.title);
+        $('#upload_author').val(row.author);
+        /*var uploadTitle = '<input type="hidden" name="title" value="'
         	+row.title
         	+'"></input>'
-    	var uploadAuthor = '<input type="hidden" name="title" value="'
+    	var uploadAuthor = '<input type="hidden" name="author" value="'
         	+row.author
         	+'"></input>'
         
         var uploadImformation = uploadTitle+uploadAuthor
-        
-        document.getElementById("uploadImformation").innerHTML=uploadImformation
+        alert(uploadImformation);
+        document.getElementById("uploadImformation").innerHTML=uploadImformation*/
     },
     
 
@@ -215,11 +229,11 @@ $(function () {
         search:true,
         striped: true,// 隔行变色效果
         pagination: true,//在表格底部显示分页条
-        pageSize: 8,//页面数据条数
+        pageSize: 10,//页面数据条数
         // sidePagination: "server",
         //pageNumber:1,//首页页码
         //showRefresh:true,
-        pageList: [5, 8, 10,20],//设置可供选择的页面数据条数
+        pageList: [8,10,15,20,30],//设置可供选择的页面数据条数
         clickToSelect:false,//设置true 将在点击行时，自动选择rediobox 和 checkbox
         cache: false,//禁用 AJAX 数据缓存
         toolbar : '#toolbar',//工具按钮容器
@@ -314,7 +328,7 @@ function connectSonColumn(data,i){
 }
 
 function getContent(title,author){
-	alert("进入getContent");
+	//alert("进入getContent");
 	$.ajax({    		
         url:"control/FindArticleContent",//servlet文件的名称  
         type:"POST",  

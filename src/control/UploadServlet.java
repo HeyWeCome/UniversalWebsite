@@ -24,8 +24,10 @@ import org.apache.commons.fileupload.ProgressListener;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import dao.SpecificDao;
 import entity.SourceFile;
 import service.sourcefile.SourceFileManage;
+import util.DBUtil;
 
 /** 
  * @ClassName:     UploadServlet.java 
@@ -40,6 +42,10 @@ public class UploadServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
+		String title = null;
+		String author = null;
+		
 		//文件存储路径
 		String path="C:/upload";
 		//临时文件存储路径
@@ -54,7 +60,7 @@ public class UploadServlet extends HttpServlet {
 		if(!temp.exists() && !temp.isDirectory()){
 			file.mkdirs();
 		}
-		
+
 		//检查输入是否是Multipart表单数据
 		if(ServletFileUpload.isMultipartContent(request)){
 			DiskFileItemFactory factory=new DiskFileItemFactory();
@@ -63,14 +69,14 @@ public class UploadServlet extends HttpServlet {
 			//设置临时文件保存目录
 			factory.setRepository(temp);
 			ServletFileUpload upload=new ServletFileUpload(factory);
-			 //如果上传文件是中文，解决上传文件名的中文乱码
+			//如果上传文件是中文，解决上传文件名的中文乱码
 			upload.setHeaderEncoding("UTF-8");
 			//监听上传文件进度
 			upload.setProgressListener(new ProgressListener (){
 				@Override
 				public void update(long arg0, long arg1, int arg2) {
-//					System.out.println("当前已经上传"+arg0);
-//					System.out.println("总大小"+arg1);
+					//					System.out.println("当前已经上传"+arg0);
+					//					System.out.println("总大小"+arg1);
 				}
 			});
 			//设置上传一个文件的最大容量
@@ -87,56 +93,63 @@ public class UploadServlet extends HttpServlet {
 			for(FileItem item:list){
 				//检查当前项目是普通表单项目还是上传文件。
 				if(item.isFormField()){
+					
 					//表单name值
 					String name=item.getFieldName();
-//					System.out.println(name);
-					//表单value值
-//					System.out.println(item.getString("UTF-8"));
-					
+					if(name.equals("title")){
+						//表单value值
+						title = item.getString("UTF-8");
+					}else if(name.equals("author")){
+						author = item.getString("UTF-8");
+					}			
+
 				}else{
-					//
+					System.out.println("title:"+title);
+					System.out.println("author:"+author);
+					
 					//上传文件的文件名称
 					String fileName=item.getName();
-					//System.out.println(fileName);
+					System.out.println(fileName);
 					//去掉文件路径，取得文件名
 					fileName=fileName.substring(fileName.lastIndexOf("\\")+1);
 					//获取文件的扩展名
 					String fileExt=fileName.substring(fileName.lastIndexOf(".")+1);
-//					System.out.println(fileExt);
+					//					System.out.println(fileExt);
 					//生成唯一的文件名和ID
 					String ranID = UUID.randomUUID().toString();
 					String trueName=ranID+fileName;
-					
+
 					InputStream is=item.getInputStream();
 					System.out.println(path+File.separator+fileName);
+					System.out.println("真实路径:"+path+File.separator+trueName);
 					OutputStream os=new FileOutputStream(path+File.separator+trueName);
 					byte[] flush=new byte[1024];
 					int len=0;
 					while( (len=is.read())!=-1 ){
 						os.write(len);
 					}
-					
+
 					// 新建一个资源文件类
 					SourceFile sourceFile = new SourceFile();
 					sourceFile.setName(fileName);
-					sourceFile.setPath(path+File.separator+fileName);
+					sourceFile.setPath(path+File.separator+trueName);
 					System.out.println("文件的路径"+sourceFile.getPath());
-//					SourceFileManage newSourceFileManage = new SourceFileManage();
+					//					SourceFileManage newSourceFileManage = new SourceFileManage();
 					os.flush();
 					os.close();
 					is.close();
 					item.delete();
-					
+
 				}
 			}
-			
+
 		}else{
 			System.out.println("没有设置multipart/form-data");
 		}
 	}
-	
-	
-	
+
+
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {

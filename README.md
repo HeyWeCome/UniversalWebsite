@@ -93,7 +93,6 @@
 - employeeID		回复人员ID
 - replyTime			回复时间			
 - status			回复状态(0:未回复 1:已回复)
-- moduleID			留言模块的ID
 
 
 10. 教育资源(sourceFile)

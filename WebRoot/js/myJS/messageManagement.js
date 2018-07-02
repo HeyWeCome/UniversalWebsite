@@ -1,36 +1,36 @@
-function operationIcon2(value,row,index) {
+
+function operationIcon5(value,row,index) {
     return[
-        '<img alt="img-responsive" id="checkRole" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#checkRoleModal"  src="images/check.png" />',
-        '<img alt="img-responsive" id="editRole" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#editRoleModal" src="images/edit.png" />',
-        '<img alt="img-responsive" id="deleteRole" class="img-responsive" style="float: left; padding-left:10px" src="images/delete.png" />'
+			'<button type="button" id="reply" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#replyMessageModal" >回复',
+			'<button type="button" id="deleteMessage" class="btn btn-primary btn-xs" style="background-color:#fff;color:#337AB7;" >删除'
         ].join('');
 }
+
+/* 刷新方法 */
+function refresh5(){
+    $('#messageTable').bootstrapTable('refresh', null);
+}
+
 /*每行表格尾部的小图标点击*/
-window.operateEvents2 = {
-    'click #checkRole':function (e,value,row,index) {
+window.operateEvents5 = {
+	'click #reply':function (e,value,row,index) {
     	//alert("进入查看弹框")
         //将该行数据填入模态框中
-        $('#check_roleName').val(row.name);
-        $('#check_rolecreateTime').val(row.createTime);
-        $('#check_description').val(row.description);
+        $('#messageContent').val(row.content);
+        $('#message_createTime').val(row.createTime);
+        var a=$.cookie("userName");
+        $('#message_replyEmployee').val(a);
     },
-
-    'click #editRole':function (e,value,row,index) {
-        //将该行数据填入模态框中
-    	$('#edit_roleName').val(row.name);       
-        $('#edit_description').val(row.description);   
-    },
-    
-    'click #deleteRole':function (e,value,row,index) {
+	'click #deleteMessage':function (e,value,row,index) {
         var determine = confirm("确认删除？");
         if(determine==true){
         	//alert(row.title+" "+row.author)
         	$.ajax({    		
-                url:"control/DeleteRole",//servlet文件的名称  
+                url:"control/DeleteMessage",//servlet文件的名称  
                 type:"POST",  
                 dataType:"json",
                 data:{
-                	"roleName":row.name
+                	"content":row.content
                 },
                 //data:{"questionnaireId":"<%=questionnaireId%>"},
                 success:function(data1){
@@ -41,54 +41,45 @@ window.operateEvents2 = {
     }
 }
 
-function deletesRole() {
-    var data = $('#roleTable').bootstrapTable('getSelections');
-   /* 
-    for(var i=0; i<data.length; i++){
-    	alert(data[i].title);  	
-    }*/
-    
-    if(data.length==0){
-        alert("请至少选中一条数据");
-        return;
-    }
-    var ids = "";
-    var determine = confirm("确认删除？")
-    if(determine==true){
-    	for(var i=0; i<data.length; i++){
-    		//alert(data[i].title+" "+data[i].author)    	
-    		$.ajax({    		
-                url:"control/DeleteRole",//servlet文件的名称  
-                type:"POST",  
-                dataType:"json",
-                data:{
-                	"roleName":data[i].name
-                },
-                success:function(data1){
-                	
-                }
-    		});
-    	}
-    	alert("删除成功！")
-    	
-    }
-}
-
-/* 刷新方法 */
-function refresh3(){
-    $('#roleTable').bootstrapTable('refresh', null);
+function deletesMessage(){
+	var data = $('#messageTable').bootstrapTable('getSelections');
+	    
+	    if(data.length==0){
+	        alert("请至少选中一条数据");
+	        return;
+	    }
+	    var ids = "";
+	    var determine = confirm("确认删除？")
+	    if(determine==true){
+	    	for(var i=0; i<data.length; i++){
+	    		//alert(data[i].title+" "+data[i].author)    	
+	    		$.ajax({    		
+	                url:"control/DeleteMessage",//servlet文件的名称  
+	                type:"POST",  
+	                dataType:"json",
+	                data:{
+	                	"content":data[i].content
+	                },
+	                success:function(data1){
+	                	
+	                }
+	    		});
+	    	}
+	    	alert("删除成功！")
+	    	
+	    }
 }
 
 /*定义表格*/
 $(function () {
-    $('#roleTable').bootstrapTable({
+    $('#messageTable').bootstrapTable({
         //height: 400,//定义表格的高度
         //data:students,
-    	url:'control/FindAllRole',
+    	url:'control/FindAllMessage',
     	contentType:'application/json',//发送到服务器的数据编码类型
     	method: 'post',//请求方式
 		dataType:'json',//服务器返回的数据类型	
-		//showRefresh: true,  //显示刷新按钮
+		//showRefresh: true,  //显示刷新按钮 
         search:true,
         striped: true,// 隔行变色效果
         pagination: true,//在表格底部显示分页条
@@ -118,31 +109,49 @@ $(function () {
                 return index+1;
             }
         },{
-            field:'name',//返回值名称
-            title:'角色名称',//列名
+            field:'content',//返回值名称
+            title:'留言',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'10'//宽度
         },{
             field:'createTime',//返回值名称
-            title:'创建时间',//列名
+            title:'留言时间',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'5'//宽度
         },{
-            field:'description',//返回值名称
-            title:'角色描述',//列名
+            field:'reply',//返回值名称
+            title:'回复',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'20'//宽度
+        },{
+            field:'replyTime',//返回值名称
+            title:'回复时间',//列名
+            align:'center',//水平居中显示
+            valign:'middle',//垂直居中显示
+            //width:'10'//宽度
+        },{
+            field:'replyEmployee',//返回值名称
+            title:'回复人',//列名
+            align:'center',//水平居中显示
+            valign:'middle',//垂直居中显示
+            //width:'10'//宽度
+        },{
+            field:'status',//返回值名称
+            title:'回复状态',//列名
+            align:'center',//水平居中显示
+            valign:'middle',//垂直居中显示
+            //width:'10'//宽度
         },{
             field:'oprate',//返回值名称
             title:'操作',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'15',//宽度
-            events:operateEvents2,
-            formatter:operationIcon2
+            events:operateEvents5,
+            formatter:operationIcon5
         }]//列配置项,详情请查看 列参数 表格
         /*事件*/
     });
