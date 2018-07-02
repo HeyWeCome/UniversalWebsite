@@ -97,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                   <h4 class="modal-title">新增文章</h4>
 		               </div>
-		            	<form action="control/InsertArticle" method="post">
+		            	<!-- <form action="control/InsertArticle" method="post" target="nm_iframe"> -->
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
@@ -126,7 +126,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                        
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4 class="textAreah4" style="margin-left:8%">描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述：</h4>
-		                            <textarea class="textArea" name="content" rows="8" cols="60"></textarea>
+		                            <textarea class="textArea" name="content" id="add_articleContent" rows="8" cols="60"></textarea>
 		                        </div>
 		                        
 		                        
@@ -134,9 +134,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                </div>
 		                <div class="modal-footer">
 		                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#fff;color:#5E6F8A;">关闭</button>
-		                    <button type="submit" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">新增</button>
+		                    <button type="button" onclick="addArticle()" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">新增</button>
 		                </div>
-		                </form> 
+		                <!-- </form>
+		                <iframe id="id_iframe" name="nm_iframe" style="display:none"></iframe> -->
 		           </div>
 		       </div>
 		   </div>
@@ -200,7 +201,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <h4 class="modal-title">编辑文章信息</h4>
 		               </div>
 		               
-		               <form action="control/UpdateArticle" method="post">
+		               <!-- <form action="control/UpdateArticle" method="post"> -->
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
@@ -214,7 +215,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>栏目名称：</h4>
 		                            <!-- <input  type="text" id="edit_SEX" name="SEX" class="form-control" aria-describedby="basic-addon1"/> -->
-		                        	<select onclick="getColumnsName()" class="form-control" id="edit_columnName" name="columnName" style="width:188px">
+		                        	<select class="form-control" id="edit_columnName" name="columnName" style="width:188px">
 		                        		
 		                        	</select>
 		                        </div>
@@ -229,16 +230,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                        
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4 class="textAreah4" style="margin-left:8%">描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述：</h4>
-		                            <textarea class="textArea" id="edit_content" name="content" rows="8" cols="60"></textarea>
+		                            <textarea class="textArea" id="edit_articleContent" name="content" rows="8" cols="60"></textarea>
 		                        </div>
 		                        		                        
 		                    </div>
 		                </div>
 		                <div class="modal-footer">
 		                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#fff;color:#5E6F8A;">关闭</button>
-		                    <button id="btEdit" type="submit" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">编辑</button>
+		                    <button id="btEdit" onclick="editArticle()" type="button" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">编辑</button>
 		                </div>
-		            </form>
+		            <!-- </form> -->
 		            
 		           </div>
 		       </div>

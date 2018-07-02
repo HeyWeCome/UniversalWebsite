@@ -124,21 +124,12 @@ window.operateEvents = {
         /*$('#edit_createTime').val(row.createTime);*/
         $('#edit_whetherTop').val(row.whetherTop);   
         getContent(row.title,row.author);
+        getColumnsName();
     },
     
     'click #upload':function (e,value,row,index) {
     	$('#upload_title').val(row.title);
         $('#upload_author').val(row.author);
-        /*var uploadTitle = '<input type="hidden" name="title" value="'
-        	+row.title
-        	+'"></input>'
-    	var uploadAuthor = '<input type="hidden" name="author" value="'
-        	+row.author
-        	+'"></input>'
-        
-        var uploadImformation = uploadTitle+uploadAuthor
-        alert(uploadImformation);
-        document.getElementById("uploadImformation").innerHTML=uploadImformation*/
     },
     
 
@@ -156,8 +147,16 @@ window.operateEvents = {
                 },
                 //data:{"questionnaireId":"<%=questionnaireId%>"},
                 success:function(data1){
-                	alert("删除成功！")
-                }
+                	if(data1==1){
+                		alert("插入成功!");
+                		$('#articleTable').bootstrapTable('refresh', null);
+                	}
+                },
+                error: function (msg) {//ajax请求失败后触发的方法
+       	    	 	alert("请求失败");
+       	    	 	console.log(msg)
+       	     	}
+
             });
         }
     }
@@ -184,7 +183,7 @@ function deletes() {
     var determine = confirm("确认删除？")
     if(determine==true){
     	for(var i=0; i<data.length; i++){
-    		alert(data[i].title+" "+data[i].author)    	
+    		//alert(data[i].title+" "+data[i].author)    	
     		$.ajax({    		
                 url:"control/DeleteArticle",//servlet文件的名称  
                 type:"POST",  
@@ -195,24 +194,16 @@ function deletes() {
                 },
                 //data:{"questionnaireId":"<%=questionnaireId%>"},
                 success:function(data1){
-                	
-                }
+                	//alert("删除成功！");
+                	$('#articleTable').bootstrapTable('refresh', null);
+                },
+                error: function (msg) {//ajax请求失败后触发的方法
+       	    	 	alert("请求失败");
+       	    	 	console.log(msg);
+       	     	}
     		});
     	}
-    	alert("删除成功！")
-    	/*var tmp = document.createElement("form");
-    	var action =  "../servlet/deletesServlet?";
-    	action = action+"size="+data.length;
-        for(var i=0; i<data.length; i++){
-        	var tmp = document.createElement("form");
-        	var id = data[i].id;
-        	action =action+"&ID["+i+"]="+id;
-        	
-        }
-        tmp.action = action;
-    	tmp.method = "post";
-    	document.body.appendChild(tmp);
-    	tmp.submit();*/
+    	alert("删除成功！");
     }
 }
 
@@ -338,9 +329,60 @@ function getContent(title,author){
         	"author":author
         },
         success:function(data1){
+        	//alert(data1);
         	document.getElementById("check_content").innerHTML=data1;
-        	document.getElementById("edit_content").innerHTML=data1;
+        	document.getElementById("edit_articleContent").innerHTML=data1;
         }
 	});
 
+}
+
+function addArticle(){
+	$.ajax({    		
+        url:"control/InsertArticle",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"title":document.getElementById("add_title").value,
+        	"author":document.getElementById("add_author").value,
+        	"columnName":document.getElementById("add_columnName").value,
+        	"whetherTop":document.getElementById("add_whetherTop").value,
+        	"content":document.getElementById("add_articleContent").value,
+        },
+        success:function(data){
+        	$('#addArticleModal').modal('hide');
+        	
+        	if(data==1){alert("插入成功!");$('#articleTable').bootstrapTable('refresh', null);}
+        	else if(data==0){alert("插入失败!");$('#articleTable').bootstrapTable('refresh', null);}
+        },
+        error: function (msg) {//ajax请求失败后触发的方法
+	    	 	alert("请求失败");
+	    	 	console.log(msg)
+	     	}
+	});
+}
+
+function editArticle(){
+	$.ajax({    		
+        url:"control/UpdateArticle",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"title":document.getElementById("edit_title").value,
+        	"author":document.getElementById("edit_author").value,
+        	"columnName":document.getElementById("edit_columnName").value,
+        	"whetherTop":document.getElementById("edit_whetherTop").value,
+        	"content":document.getElementById("edit_articleContent").value,
+        },
+        success:function(data){
+        	$('#editArticleModal').modal('hide');
+        	
+        	if(data==1){alert("修改成功!");$('#articleTable').bootstrapTable('refresh', null);}
+        	else if(data==0){alert("修改失败!");$('#articleTable').bootstrapTable('refresh', null);}
+        },
+        error: function (msg) {//ajax请求失败后触发的方法
+	    	 	alert("请求失败");
+	    	 	console.log(msg)
+	     	}
+	});
 }
