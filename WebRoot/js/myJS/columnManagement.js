@@ -102,3 +102,27 @@ function connectColumns(data,i){
 	//alert(columnOption);
 	return columnOption
 }
+
+function addColumn(){
+	$.ajax({    		
+     //   url:"control/InsertColumn",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	//"id":document.getElementById("addColumnId").value,
+        	"name":document.getElementById("addColumnName").value,
+        	"status":document.getElementById("addColumnLever").value,
+        	"parentColumnName":document.getElementById("selectColumnName").value,
+        },
+        success:function(data){
+        	$('#addColumnModal').modal('hide');
+        	
+        	if(data==1){alert("插入成功!");$('#columnManagementTable').bootstrapTable('refresh', null);}
+        	else if(data==0){alert("插入失败!");$('#columnManagementTable').bootstrapTable('refresh', null);}
+        },
+        error: function (msg) {//ajax请求失败后触发的方法
+	    	 	alert("请求失败");
+	    	 	console.log(msg)
+	     	}
+	});
+}

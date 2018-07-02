@@ -43,16 +43,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                    <h4 class="modal-title">新增模块</h4>
                </div>
-            	<form action="control/InsertColumn" method="post">
+            	<!-- <form action="control/InsertColumn" method="post"> -->
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-xs-12 col-md-12">
+                        <!-- <div class="col-xs-12 col-md-12">
                             <h4>栏&nbsp;&nbsp;目&nbsp;&nbsp;ID：</h4>
                             <input  type="text" id="addColumnId" name="id"class="form-control"aria-describedby="basic-addon1"/>
-                        </div>
+                        </div> -->
                          <div class="col-xs-12 col-md-12">
                             <h4>栏目名称：</h4>
-                            <input  type="text" id="addColumnNamw" name="name" class="form-control" aria-describedby="basic-addon1"/>
+                            <input  type="text" id="addColumnName" name="name" class="form-control" aria-describedby="basic-addon1"/>
                         </div> 	
                         <div class="col-xs-12 col-md-12">
                             <h4>栏目级别：</h4>
@@ -60,16 +60,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </div> 	
                         <div class="col-xs-12 col-md-12">
                             <h4>上级栏目：</h4>
-                            <select class="form-control" id="selectColumnName" name="columnName" style="width:196px">
+                            <select class="form-control" id="selectColumnName" name="parentColumnName" style="width:196px">
 		                    </select>
                         </div> 		                        		                        		                        
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#fff;color:#5E6F8A;">关闭</button>
-                    <button type="submit" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">新增</button>
+                    <button type="button" onclick="addColumn()" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">新增</button>
                 </div>
-                </form> 
+               <!--  </form>  -->
            </div>
        </div>
   </div>
