@@ -410,9 +410,38 @@ public class SpecificDao {
 				+ message.getContent()+"';";
 	}
 	
+	/**
+	 * 
+	 * @Title:        findArticleID  
+	 * @Description:  找到所有的文章 
+	 * @param:        @param title
+	 * @param:        @param authorID
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午3:44:23
+	 */
 	public static String findArticleID(String title, Integer authorID){
 		return "select id from article "
 				+ "where title = '"+title+"' "
 						+ "and employeeID = "+authorID+";";
+	}
+	
+	/**
+	 * 
+	 * @Title:        findAllPASColumns  
+	 * @Description:  找到所有的父模块和子模块  
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午3:44:58
+	 */
+	public static String findAllPASColumns(){
+		return "select module.name as parentName,module.status,sonmodule.name as sonName "
+				+ "from module,sonmodule "
+				+ "where sonModule.parentModuleID = module.id;";
+		
 	}
 }

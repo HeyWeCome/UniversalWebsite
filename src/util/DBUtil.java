@@ -17,7 +17,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -682,6 +682,53 @@ public class DBUtil {
 					+"\",\"replyTime\":\""+replyTime
 					+"\",\"replyEmployee\":\""+replyEmployee
 					+"\",\"status\":\""+status
+					+"\"},";
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
+	}
+	
+	/**
+	 * 
+	 * @Title:        findAllPASColumns  
+	 * @Description:  找到所有父模块和关联的子模块  
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午3:59:53
+	 */
+	public static String findAllPASColumns(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			String parentName = result.getString("parentName");
+			String status = result.getString("status");
+			String sonName = result.getString("sonName");
+
+			if(status.equals("0")){
+				status="废用";
+			}else if(status.equals("1")){
+				status="启用";
+			}
+
+			returnResult += "{\"parentName\":\""+parentName
+					+"\",\"status\":\""+status
+					+"\",\"sonName\":\""+sonName
 					+"\"},";
 		}
 
