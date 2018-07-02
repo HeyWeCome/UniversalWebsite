@@ -16,23 +16,23 @@ body {
     height: 40px;
     position: relative;
 }
-.topText{
+/* .topText{
 	height: 28px;
     width: 149px;
     font-size: 18px;
     margin-left: 30px;
-    /* margin-top: 10px; */
+    margin-top: 10px;
     color: #337ab7;
     bottom: 0px;
     position: absolute;
     background-color: #fff;
     border-radius: 10px 80px 0px 0px;
-}
+} */
 .leftColumns{
 	float: left;
     height: 120%;
     width: 15%;
-    background-color: #fff;
+    background-color:rgb(230,235,244);
 }
 .allColumns{
 	margin-top: 20px;
@@ -63,7 +63,7 @@ body {
 
 }
 .columns ,.sonColumn{
-	 background-color: #fff;
+	 background-color:rgb(230,235,244);
 }
 .parentColumns{
 	margin-top: 2px;
