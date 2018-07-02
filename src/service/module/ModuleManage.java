@@ -46,7 +46,7 @@ public class ModuleManage implements IModuleManage{
 	public String findAllSonModule(String userName) {
 		String result = null;
 		String sql = SpecificDao.selectAccessSonColumns(userName);
-		System.out.println("sql:"+sql);
+		System.out.println("找到所有模块sql:"+sql);
 		try {
 			result = DBUtil.findAllSonModule(sql);
 
