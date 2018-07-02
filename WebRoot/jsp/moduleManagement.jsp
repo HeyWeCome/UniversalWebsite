@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="buttons">
-        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addModuleModal" style="background-color:#5E6F8A;color:#fff;">&nbsp;新增&nbsp;</button>
+        <button type="button" onclick="getModuleName()" class="btn btn-primary"  data-toggle="modal" data-target="#addModuleModal" style="background-color:#5E6F8A;color:#fff;">&nbsp;新增&nbsp;</button>
     	<button onclick="refresh3()" type="button" class="btn btn-primary " style="color:#5E6F8A;background-color:#fff;">&nbsp;刷新&nbsp;</button>
     </div>
     
@@ -48,19 +48,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="row">
                         <div class="col-xs-12 col-md-12">
                             <h4>模&nbsp;&nbsp;块&nbsp;&nbsp;ID：</h4>
-                            <input  type="text" id="add_roleName" name="id"class="form-control"aria-describedby="basic-addon1"/>
+                            <input  type="text" id="addModuleId" name="id"class="form-control"aria-describedby="basic-addon1"/>
                         </div>
                          <div class="col-xs-12 col-md-12">
                             <h4>模块名称：</h4>
-                            <input  type="text" id="add_description" name="name" class="form-control" aria-describedby="basic-addon1"/>
+                            <input  type="text" id="addModuleName" name="name" class="form-control" aria-describedby="basic-addon1"/>
                         </div> 	
                         <div class="col-xs-12 col-md-12">
                             <h4>模块状态：</h4>
-                            <input  type="text" id="add_description" name="status" class="form-control" aria-describedby="basic-addon1"/>
+                            <input  type="text" id="addModuleStutus" name="status" class="form-control" aria-describedby="basic-addon1"/>
                         </div> 	
                         <div class="col-xs-12 col-md-12">
                             <h4>父类模块：</h4>
-                            <input  type="text" id="add_description" name="parentModuleID" class="form-control" aria-describedby="basic-addon1"/>
+                            <select class="form-control" id="selectModuleName" name="columnName" style="width:196px">
+		                        		<!-- <option>男</option>
+		                        		<option>女</option> -->
+		                    </select>
                         </div> 		                        		                        		                        
                     </div>
                 </div>
