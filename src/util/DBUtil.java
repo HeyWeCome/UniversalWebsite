@@ -397,6 +397,7 @@ public class DBUtil {
 	}
 	
 	
+	
 	/**
 	 * 
 	 * @Title:        findAllRoles  
@@ -715,28 +716,14 @@ public class DBUtil {
 		returnResult += "[";
 
 		while(result.next()){
+			String name = result.getString("name");
 			String parentName = result.getString("parentName");
-			String parentStatus = result.getString("parentStatus");
-			String sonName = result.getString("sonName");
-			String sonStatus = result.getString("sonStatus");
-			
-			if(parentStatus.equals("0")){
-				parentStatus="废用";
-			}else if(parentStatus.equals("1")){
-				parentStatus="启用";
-			}
-			
-			if(sonStatus.equals("0")){
-				sonStatus="废用";
-			}else if(sonStatus.equals("1")){
-				sonStatus="启用";
-			}
+			String level = result.getString("level");
 
 			
-			returnResult += "{\"parentName\":\""+parentName
-					+"\",\"parentStatus\":\""+parentStatus					
-					+"\",\"sonName\":\""+sonName
-					+"\",\"sonStatus\":\""+sonStatus
+			returnResult += "{\"name\":\""+name
+					+"\",\"parentName\":\""+parentName					
+					+"\",\"level\":\""+level
 					+"\"},";
 		}
 
@@ -781,6 +768,60 @@ public class DBUtil {
 					+"\",\"name\":\""+name					
 					+"\",\"introduction\":\""+introduction
 					+"\",\"principal\":\""+principal
+					+"\"},";
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
+	}
+
+	/**  
+	 * @Title:        findAllPASModule  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @param:        @param sql
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午11:56:59  
+	 */  
+	public static String findAllPASModule(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			String parentName = result.getString("parentName");
+			String parentStatus = result.getString("parentStatus");
+			String sonName = result.getString("sonName");
+			String sonStatus = result.getString("sonStatus");
+			
+			if(parentStatus.equals("0")){
+				parentStatus="废用";
+			}else if(parentStatus.equals("1")){
+				parentStatus="启用";
+			}
+			
+			if(sonStatus.equals("0")){
+				sonStatus="废用";
+			}else if(sonStatus.equals("1")){
+				sonStatus="启用";
+			}
+
+			
+			returnResult += "{\"parentName\":\""+parentName
+					+"\",\"parentStatus\":\""+parentStatus					
+					+"\",\"sonName\":\""+sonName
+					+"\",\"sonStatus\":\""+sonStatus
 					+"\"},";
 		}
 
