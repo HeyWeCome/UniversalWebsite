@@ -81,9 +81,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                </div>
 		                <div class="modal-footer">
 		                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#fff;color:#5E6F8A;">关闭</button>
-		                    <button type="submit" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">新增</button>
+		                    <button type="button" onclick="addManager()" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">新增</button>
 		                </div>
-		                </form> 
+		                <!-- </form>  -->
 		           </div>
 		       </div>
 		   </div>
@@ -147,7 +147,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <h4 class="modal-title">修改人员</h4>
 		               </div>
 		               
-		               <form action="control/InsertArticle" method="post">
+		               <!-- <form action="control/InsertArticle" method="post"> -->
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
@@ -180,12 +180,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		                    </div>
 		                </div>
-		                </form>
+		                
 		                
 		                <div class="modal-footer">
 		                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#fff;color:#5E6F8A;">关闭</button>
-		                	<button type="submit" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">编辑</button>
+		                	<button type="button" onclick="editManager()" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">编辑</button>
 		                </div>
+		                <!-- </form> -->
 		           </div>
 		       </div>
 		   </div>

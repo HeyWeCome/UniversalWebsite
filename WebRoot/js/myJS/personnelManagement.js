@@ -195,3 +195,56 @@ $(function () {
         /*事件*/
     });
 });
+
+function addManager(){
+	alert("进入增加人员");
+	$.ajax({    		
+        url:"control/InsertEmployee",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"name":document.getElementById("add_managerName").value,
+        	"sex":document.getElementById("add_managerSex").value,
+        	"account":document.getElementById("add_managerAccount").value,
+        	"passWord":document.getElementById("add_managerPassword").value,
+        	"roleName":document.getElementById("add_managerRole").value,
+        },
+        success:function(data){
+        	$('#addManagerModal').modal('hide');
+        	
+        	if(data==1){alert("插入成功!");$('#managerTable').bootstrapTable('refresh', null);}
+        	else if(data==0){alert("插入失败!");$('#managerTable').bootstrapTable('refresh', null);}
+        },
+        error: function (msg) {//ajax请求失败后触发的方法
+	    	 	alert("请求失败");
+	    	 	$('#addManagerModal').modal('hide');
+	    	 	$('#managerTable').bootstrapTable('refresh', null);
+	    	 	console.log(msg);
+     	}
+	});
+}
+
+function editManager(){
+	$.ajax({    		
+        url:"control/UpdateEmployee",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"name":document.getElementById("edit_managerName").value,
+        	"sex":document.getElementById("edit_managerSex").value,
+        	"account":document.getElementById("edit_managerAccount").value,
+        	"passWord":document.getElementById("edit_managerPassword").value,
+        	"roleName":document.getElementById("edit_managerRole").value,
+        },
+        success:function(data){
+        	$('#editManagerModal').modal('hide');
+        	
+        	if(data==1){alert("修改成功!");$('#managerTable').bootstrapTable('refresh', null);}
+        	else if(data==0){alert("修改失败!");$('#managerTable').bootstrapTable('refresh', null);}
+        },
+        error: function (msg) {//ajax请求失败后触发的方法
+    	 	alert("请求失败");
+    	 	console.log(msg)
+     	}
+	});
+}
