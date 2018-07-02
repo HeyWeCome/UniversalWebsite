@@ -32,6 +32,11 @@ public class UpdateModule extends HttpServlet {
 		// 获取子模块名
 		String sonName = request.getParameter("sonName");
 		// 获取父模块状态
+		String parentStatus = request.getParameter("parentStatus");
+		// 获取子模块状态
+		String sonStatus = request.getParameter("sonStatus");
+		
+		
 	}
 
 
