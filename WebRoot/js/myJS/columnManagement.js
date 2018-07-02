@@ -1,6 +1,6 @@
 /*定义表格*/
 $(function () {
-    $('#moduleManagementTable').bootstrapTable({
+    $('#columnManagementTable').bootstrapTable({
         //data:students,
   //  	url:'control/FindAllRole',
     	contentType:'application/json',//发送到服务器的数据编码类型
@@ -37,25 +37,25 @@ $(function () {
             }
         },{
             field:'id',//返回值名称
-            title:'模块ID',//列名
+            title:'栏目ID',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'10'//宽度
         },{
             field:'name',//返回值名称
-            title:'模块名称',//列名
+            title:'栏目名称',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'5'//宽度
         },{
-            field:'status',//返回值名称
-            title:'模块状态',//列名
+            field:'level',//返回值名称
+            title:'栏目级别',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'20'//宽度
         },{
-            field:'parentModuleName',//返回值名称
-            title:'父模块',//列名
+            field:'parentName',//返回值名称
+            title:'上级栏目',//列名
             align:'center',//水平居中显示
             valign:'middle',//垂直居中显示
             //width:'20'//宽度
@@ -72,21 +72,21 @@ $(function () {
     });
 });
 
-function getModuleName(){
+function getColumnName(){
 	$.ajax({    		
-        url:"control/ShowLeftMenu",//servlet文件的名称  
+        url:"control/FindAllSonColumns",//servlet文件的名称  
         type:"POST",  
         dataType:"json",
         //data:{"questionnaireId":"<%=questionnaireId%>"},
         success:function(data1){
         	//alert("成功返回");
-        	var content= '<option>已是父模块</option>'
+        	var content= '<option>已是上级栏目</option>'
         	for(var i=0;i<data1.length;i++){
-        		content+=connectModules(data1[i],i);
+        		content+=connectColumns(data1[i],i);
         	}
         //	alert(content);
         	console.log(content);
-        	document.getElementById("selectModuleName").innerHTML=content
+        	document.getElementById("selectColumnName").innerHTML=content
         //	document.getElementById("edit_columnName").innerHTML=content
         	var a=$.cookie("userName")
         	$('#add_author').val(a);
@@ -95,10 +95,10 @@ function getModuleName(){
     });	
 }
 
-function connectModules(data,i){
-	var moduleOption = '<option>'
+function connectColumns(data,i){
+	var columnOption = '<option>'
 		+data.name
 		+'</option>' 
 	//alert(columnOption);
-	return moduleOption
+	return columnOption
 }
