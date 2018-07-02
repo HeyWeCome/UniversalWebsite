@@ -65,28 +65,6 @@ public class ColumnsManage implements IColumnsManage{
 		return null;
 	}
 
-	/**  
-	 * @Title:        getAllPASColumns  
-	 * @Description:  得到所有的父模块和子模块 
-	 * @author        Vico.Ho 
-	 * @Date          2018年7月2日 下午3:43:46  
-	 */  
-	@Override
-	public String getAllPASColumns() {
-		String sql = SpecificDao.findAllPASColumns();
-		System.out.println("查询到的结果为:"+sql);
-		
-		String result = "";
-
-		System.out.println("sql:"+sql);
-		try {
-			result = DBUtil.findAllPASColumns(sql);
-			return result;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return null;
-	}
+	
 
 }

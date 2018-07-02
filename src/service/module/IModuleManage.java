@@ -19,4 +19,5 @@ public interface IModuleManage {
 	String findAllSonModule(String userName);
 	Integer insertMoudle(Module Module);
 	Integer insertSonMoudle(SonModule sonModule);
+	String getAllPASModule();
 }

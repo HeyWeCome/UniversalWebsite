@@ -15,6 +15,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 
 import service.columns.ColumnsManage;
+import service.module.ModuleManage;
 
 /** 
  * @ClassName:     FindAllPASColumns.java 
@@ -34,13 +35,13 @@ public class FindAllPASModules extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 
-		ColumnsManage columnsManage = new ColumnsManage();
+		ModuleManage moduleManage = new ModuleManage();
 
-		String result = columnsManage.getAllPASColumns();
+		String result = moduleManage.getAllPASModule();
 
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("columns are:"+fromObject.toString());
+			System.out.println("父模块和子模块 are:"+fromObject.toString());
 			response.getWriter().print(fromObject);
 		}else{
 			response.getWriter().print(""); 

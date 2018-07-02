@@ -457,7 +457,7 @@ public class SpecificDao {
 	 * @author        Vico.Ho 
 	 * @Date          2018年7月2日 下午3:44:58
 	 */
-	public static String findAllPASColumns(){
+	public static String findAllPASModule(){
 		return "select module.name as parentName,module.status as parentStatus,sonmodule.status as sonStatus,sonmodule.name as sonName "
 				+ "from module,sonmodule "
 				+ "where sonModule.parentModuleID = module.id;";

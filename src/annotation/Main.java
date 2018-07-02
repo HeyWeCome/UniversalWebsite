@@ -38,42 +38,15 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		// 获取模块名
-		String name = "天秀";	
-		// 获取父模块名
-		String parentModuleName = "已是父模块";
-		if(parentModuleName.equals("已是父模块")){
-			// 新建子模块对象
-			Module Module = new Module();
-			Module.setName(name);
-			Module.setStatus("1");
+		ModuleManage moduleManage = new ModuleManage();
 
-			ModuleManage moduleManage = new ModuleManage();
-			Integer result = moduleManage.insertMoudle(Module);
-			System.out.println(result);
-//			response.getWriter().println(result);
+		String result = moduleManage.getAllPASModule();
 
+		if(!result.isEmpty()){
+			JSONArray fromObject = (JSONArray) JSON.parse(result);
+			System.out.println("父模块和子模块 are:"+fromObject.toString());
+//			response.getWriter().print(fromObject);
 		}else{
-			// 根据用户名查询用户ID
-			String sql1 = SpecificDao.findIDFromTable(parentModuleName, "module");
-			System.out.println(sql1);
-			Integer parentModuleID = 0;
-			try {
-				parentModuleID = DBUtil.findID(sql1);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			// 新建子模块对象
-			SonModule sonModule = new SonModule();
-			sonModule.setName(name);
-			sonModule.setParentModuleID(parentModuleID);
-			sonModule.setStatus("1");
-
-			ModuleManage moduleManage = new ModuleManage();
-			Integer result = moduleManage.insertSonMoudle(sonModule);
-			System.out.println(result);
-//			response.getWriter().println(result);
-		}}}
+//			response.getWriter().print(""); 
+		}
+		}}

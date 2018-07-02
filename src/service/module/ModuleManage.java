@@ -108,5 +108,27 @@ public class ModuleManage implements IModuleManage{
 		}
 		return 0;
 	}
+	
+	/**  
+	 * @Title:        getAllPASColumns  
+	 * @Description:  得到所有的父模块和子模块 
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午3:43:46  
+	 */  
+	@Override
+	public String getAllPASModule() {
+		String sql = SpecificDao.findAllPASModule();
+		String result = "";
+
+		System.out.println("sql:"+sql);
+		try {
+			result = DBUtil.findAllPASColumns(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
 
 }
