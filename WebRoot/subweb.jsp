@@ -2,6 +2,8 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String courseName = request.getParameter("courseName");
+System.out.println(courseName);
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -9,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>前台首页</title>
+    <title>子网页</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -33,7 +35,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="centerContent">
-    	
+    	<div class="subHomePage" id="columns10000" style="display:none">首页</div>
+    	<div class="introduction" id="columns10001" style="display:none">课程介绍</div>
+    	<div class="teachingTeam" id="columns10002" style="display:none">教学团队</div>
+    	<div class="courseConstruction" id="columns10003" style="display:none">课程建设</div>
+    	<div class="courseware " id="columns10004" style="display:none">课程资源</div>
+    	<div class="questionAndAnswer " id="columns10005" style="display:none">问题与答疑</div>
+    	<div class="courseResearch " id="columns10006" style="display:none">课程研究</div>
     </div>
     
     <div class="bottom">
