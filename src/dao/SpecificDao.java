@@ -468,6 +468,25 @@ public class SpecificDao {
 	
 	/**
 	 * 
+	 * @Title:        findAllPASColumns  
+	 * @Description:  找到所有父栏目和子栏目 
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午11:50:34
+	 */
+	public static String findAllPASColumns(){
+		return "select soncolumns.name as name, soncolumns.level as level, "
+				+ "columns.name as parentName "
+				+ "from soncolumns,columns "
+				+ "where soncolumns.parentID = columns.id;";
+		
+	}
+	
+	
+	/**
+	 * 
 	 * @Title:        updateModule  
 	 * @Description:  更新模块表  
 	 * @param:        @param module

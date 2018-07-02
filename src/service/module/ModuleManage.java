@@ -123,7 +123,7 @@ public class ModuleManage implements IModuleManage{
 
 		System.out.println("sql:"+sql);
 		try {
-			result = DBUtil.findAllPASColumns(sql);
+			result = DBUtil.findAllPASModule(sql);
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();

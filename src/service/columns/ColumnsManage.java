@@ -65,6 +65,28 @@ public class ColumnsManage implements IColumnsManage{
 		return null;
 	}
 
+	/**  
+	 * @Title:        getAllPASColumns  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午11:49:26  
+	 */  
+	@Override
+	public String getAllPASColumns() {
+		String sql = SpecificDao.findAllPASColumns();
+		String result = "";
+
+		System.out.println("sql:"+sql);
+		try {
+			result = DBUtil.findAllPASColumns(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
 	
 
 }

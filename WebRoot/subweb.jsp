@@ -44,5 +44,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
   </body>
   <script type="text/javascript" src="js/jquery.cookie.js"></script>
-  <script src="js/myJS/homePage.js"></script>
+  <script src="js/myJS/subweb.js"></script>
 </html>

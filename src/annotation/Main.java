@@ -38,13 +38,13 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		ModuleManage moduleManage = new ModuleManage();
+		ColumnsManage columnsManage = new ColumnsManage();
 
-		String result = moduleManage.getAllPASModule();
+		String result = columnsManage.getAllPASColumns();
 
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("父模块和子模块 are:"+fromObject.toString());
+			System.out.println("父栏目和子栏目are:"+fromObject.toString());
 //			response.getWriter().print(fromObject);
 		}else{
 //			response.getWriter().print(""); 
