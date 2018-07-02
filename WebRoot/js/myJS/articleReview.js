@@ -100,7 +100,7 @@ function operationIcon1(value,row,index) {
 window.operateEvents1 = {
 		
     'click #adopt':function (e,value,row,index) {
-    	alert("进入通过");
+    	//alert("进入通过");
     	$.ajax({    		
             url:"control/UpdateAuditArticle",//servlet文件的名称  
             type:"POST",  
@@ -111,12 +111,19 @@ window.operateEvents1 = {
             	"status":"1",
             },
             success:function(data1){
-            	alert("审核成功")
-            }
+            	if(data1==1){
+            		alert("审核成功!");
+            		$('#articleTable').bootstrapTable('refresh', null);
+            	}
+            },
+            error: function (msg) {//ajax请求失败后触发的方法
+   	    	 	alert("请求失败");
+   	    	 	console.log(msg);
+   	     	}
         });
     },
     'click #notAdopt':function (e,value,row,index) {
-    	alert("进入不通过");
+    	//alert("进入不通过");
     	$.ajax({    		
             url:"control/UpdateAuditArticle",//servlet文件的名称  
             type:"POST",  
@@ -128,7 +135,11 @@ window.operateEvents1 = {
             },
             success:function(data1){
             	alert("审核成功")
-            }
+            },
+            error: function (msg) {//ajax请求失败后触发的方法
+   	    	 	alert("请求失败");
+   	    	 	console.log(msg);
+   	     	}
         });
     }
 }

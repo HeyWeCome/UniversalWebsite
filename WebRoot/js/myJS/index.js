@@ -8,6 +8,7 @@ function loadShow(){
         type:"POST",  
         dataType:"json",
         //data:{"questionnaireId":"<%=questionnaireId%>"},
+        
         success:function(data1){
         	//alert("成功返回");
         	parentModule=data1;
@@ -28,6 +29,7 @@ function loadShow(){
     	        type:"POST",  
     	        dataType:"json",
     	        //data:{"questionnaireId":"<%=questionnaireId%>"},
+    	        data:{"userName":$.cookie("userName")},
     	        success:function(data2){
     	        	//alert("成功返回");
     	        	//alert("子模块："+data2); 
