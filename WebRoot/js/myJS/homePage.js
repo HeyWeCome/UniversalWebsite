@@ -18,7 +18,7 @@ function showCourse(){
 }
 
 function connectCourse(data,i){
-	var url = 'window.location.href="subweb.jsp?courseName='+data.name+'"'
+	var url = 'window.location.href="subweb.jsp?courseName='+data.name+'&introduction='+data.introduction+'&principal='+data.principal+'"'
 	
 	var course = '<button class="courseButton" id="course'+data.id+'" onclick='+url+'>'+data.name+'</button>'
 	
