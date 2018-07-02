@@ -1,6 +1,8 @@
 package service.sourcefile;
 
+import dao.GeneralDao;
 import entity.SourceFile;
+import util.InSertDBUtil;
 
 /** 
  * @ClassName:     SourceFileManage.java 
@@ -18,17 +20,28 @@ public class SourceFileManage implements ISourcefileManage{
 	 * @Date          2018年6月29日 下午2:21:16  
 	 */  
 	@Override
-	public String saveResource(SourceFile newSource) {
+	public Integer saveResource(SourceFile newSource) {
 		// 将文件资源的内容获取出来
-		Integer id = newSource.getId();
 		Integer articleID = newSource.getId();
 		// 保存的路径
 		String path = newSource.getPath();
 		// 获取资源的名称
 		String name = newSource.getName();
 		
+		String sql = null;
+		try {
+			sql = GeneralDao.generalInsertSQL(newSource);
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
 		
-		return null;
+		try {
+			Integer result = InSertDBUtil.insert(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 }

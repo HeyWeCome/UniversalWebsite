@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 	<!--右侧主体内容,点击左侧菜单栏后显示相应内容, 用bootstrap的content类包含在一起-->
-	<div class="content">
+	<div class="content" >
 		<div id="matter1" style="display: none">
 			<!--留言管理---引入外部文件，即需要在右侧加载的内容，-->
 			<jsp:include page="jsp/messageManagement.jsp" />
