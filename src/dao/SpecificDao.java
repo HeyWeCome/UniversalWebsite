@@ -63,6 +63,7 @@ public class SpecificDao {
 				+ "from employee,role,permission,sonmodule "
 				+ "where employee.roleID = role.id "
 				+ "and role.id = permission.roleID "
+				+ "and employee.name = '"+userName+"' "
 				+ "and permission.moduleID = sonmodule.id;";
 	}
 	/**
