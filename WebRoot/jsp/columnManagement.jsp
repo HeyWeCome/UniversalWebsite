@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="showTree">
     <div class="buttons">
         <button type="button" onclick="getColumnName()" class="btn btn-primary"  data-toggle="modal" data-target="#addColumnModal" style="background-color:#5E6F8A;color:#fff;">&nbsp;新增&nbsp;</button>
-    	<button onclick="refresh3()" type="button" class="btn btn-primary " style="color:#5E6F8A;background-color:#fff;">&nbsp;刷新&nbsp;</button>
+    	<button onclick="refreshColumn()" type="button" class="btn btn-primary " style="color:#5E6F8A;background-color:#fff;">&nbsp;刷新&nbsp;</button>
     </div>
     
      <!--表格，样式在js中定义-->
@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <div class="modal-content">
                <div class="modal-header" style="background-color: #999">
                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                   <h4 class="modal-title">新增模块</h4>
+                   <h4 class="modal-title">新增栏目</h4>
                </div>
             	<!-- <form action="control/InsertColumn" method="post"> -->
                 <div class="modal-body">
@@ -54,10 +54,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <h4>栏目名称：</h4>
                             <input  type="text" id="addColumnName" name="name" class="form-control" aria-describedby="basic-addon1"/>
                         </div> 	
-                        <div class="col-xs-12 col-md-12">
+                       <!--  <div class="col-xs-12 col-md-12">
                             <h4>栏目级别：</h4>
-                            <input  type="text" id="addColumnLever" name="status" class="form-control" aria-describedby="basic-addon1"/>
-                        </div> 	
+                            <input  type="text" id="addColumnLevel" name="level" class="form-control" aria-describedby="basic-addon1"/>
+                        </div> 	 -->
                         <div class="col-xs-12 col-md-12">
                             <h4>上级栏目：</h4>
                             <select class="form-control" id="selectColumnName" name="parentColumnName" style="width:196px">
@@ -73,6 +73,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            </div>
        </div>
   </div>
+  
+   <!-- 修改弹框 -->
+   <div id="editColumnModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+       <div class="modal-dialog" role="document">
+           <div class="modal-content">
+               <div class="modal-header" style="background-color: #999">
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                   <h4 class="modal-title">编辑栏目</h4>
+               </div>
+               
+               <!-- <form action="control/UpdateArticle" method="post"> -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                            <h4>栏目名称：</h4>
+                            <input  type="text" id="editColumnName" name="name" class="form-control" aria-describedby="basic-addon1"/>
+                        </div> 	
+                        <div class="col-xs-12 col-md-12">
+                            <h4>栏目级别：</h4>
+                            <select class="form-control" id="editColumnLevel" name="level" style="width:196px">
+                        		<option value="0">0级</option>
+                        		<option value="1">1级</option>
+		                    </select>
+                            <!-- <input  type="text" id="editColumnLevel" name="level" class="form-control" aria-describedby="basic-addon1"/> -->
+                        </div> 	
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#fff;color:#5E6F8A;">关闭</button>
+                    <button id="btEdit" onclick="editColumn()" type="button" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">编辑</button>
+                </div>
+            <!-- </form> -->
+            
+           </div>
+       </div>
+   </div>
+  
   </div>
   </body>
   <script src="./js/myJS/columnManagement.js"></script>
