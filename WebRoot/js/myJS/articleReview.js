@@ -113,7 +113,7 @@ window.operateEvents1 = {
             success:function(data1){
             	if(data1==1){
             		alert("审核成功!");
-            		$('#articleTable').bootstrapTable('refresh', null);
+            		$('#articleReviewTable').bootstrapTable('refresh', null);
             	}
             },
             error: function (msg) {//ajax请求失败后触发的方法
@@ -134,7 +134,10 @@ window.operateEvents1 = {
             	"status":"2",
             },
             success:function(data1){
-            	alert("审核成功")
+            	if(data1==1){
+            		alert("审核成功!");
+            		$('#articleReviewTable').bootstrapTable('refresh', null);
+            	}
             },
             error: function (msg) {//ajax请求失败后触发的方法
    	    	 	alert("请求失败");
