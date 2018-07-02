@@ -749,4 +749,48 @@ public class DBUtil {
 
 		return returnResult;
 	}
+	
+	/**
+	 * 
+	 * @Title:        findAllCourse  
+	 * @Description:  找到所有的课程  
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午7:59:51
+	 */
+	public static String findAllCourse(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			int id = result.getInt("id");
+			String name = result.getString("name");
+			String introduction = result.getString("introduction");
+			String principal = result.getString("principal");
+			
+
+			returnResult += "{\"id\":\""+id
+					+"\",\"name\":\""+name					
+					+"\",\"introduction\":\""+introduction
+					+"\",\"principal\":\""+principal
+					+"\"},";
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
+	}
 }

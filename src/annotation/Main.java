@@ -18,6 +18,7 @@ import entity.Role;
 import service.account.AccountManage;
 import service.article.ArticleManage;
 import service.columns.ColumnsManage;
+import service.course.CourseManage;
 import service.employee.EmployeeManage;
 import service.message.MessageManage;
 import service.module.ModuleManage;
@@ -35,13 +36,15 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		ModuleManage moduleManage = new ModuleManage();
+		// 生成文章管理service类
+		CourseManage courseManage = new CourseManage();
+		String result = courseManage.findAllCourse();
 
-		String result = moduleManage.findAllSonModule("何玮康");
-
-		JSONArray fromObject = (JSONArray) JSON.parse(result);
-
-		System.out.println("sonmodules are:"+fromObject.toString());
-
-//		response.getWriter().print(fromObject);
+		if(!result.isEmpty()){
+			JSONArray fromObject = (JSONArray) JSON.parse(result);
+			System.out.println("所有的课程为:"+fromObject.toString());
+//			response.getWriter().print(fromObject);
+		}else{
+//			response.getWriter().print(""); 
+		}
 	}}

@@ -3,10 +3,10 @@ package entity;
 /**
  * 
  * @ClassName:     Message.java 
- * @Description:   ÁôÑÔÀà
+ * @Description:  	ç•™è¨€ç±»  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ27ÈÕ ÏÂÎç9:56:23
+ * @Date           2018å¹´7æœˆ2æ—¥ ä¸‹åˆ7:57:26
  */
 public class Message {
 	private Integer id;
@@ -17,16 +17,13 @@ public class Message {
 	private String replyTime;
 	private String status;
 	private Integer moduleID;
-	
-	/**
-	 * Ä¬ÈÏ¹¹Ôì·½·¨
-	 */
+	private Integer courseID;
+
 	public Message() {
 		super();
 	}
 
 	/**
-	 * º¬²Î¹¹Ôì·½·¨
 	 * @param id
 	 * @param content
 	 * @param createTime
@@ -67,6 +64,14 @@ public class Message {
 
 	public String getCreateTime() {
 		return createTime;
+	}
+
+	public Integer getCourseID() {
+		return courseID;
+	}
+
+	public void setCourseID(Integer courseID) {
+		this.courseID = courseID;
 	}
 
 	public void setCreateTime(String createTime) {
