@@ -34,8 +34,19 @@ window.operateEvents2 = {
                 },
                 //data:{"questionnaireId":"<%=questionnaireId%>"},
                 success:function(data1){
-                	alert("删除成功！")
-                }
+                	if(data1==1){
+                		alert("删除成功!");
+                		$('#roleTable').bootstrapTable('refresh', null);
+                	}
+                	else if(data1==0){
+                		alert("删除失败!");
+                		$('#roleTable').bootstrapTable('refresh', null);
+                	}
+                },
+                error: function (msg) {//ajax请求失败后触发的方法
+       	    	 	alert("请求失败");
+       	    	 	console.log(msg)
+       	     	}
             });
         }
     }
@@ -52,6 +63,7 @@ function deletesRole() {
         alert("请至少选中一条数据");
         return;
     }
+    
     var ids = "";
     var determine = confirm("确认删除？")
     if(determine==true){
@@ -65,12 +77,15 @@ function deletesRole() {
                 	"roleName":data[i].name
                 },
                 success:function(data1){
-                	
-                }
+                },
+                error: function (msg) {//ajax请求失败后触发的方法
+       	    	 	alert("请求失败");
+       	    	 	console.log(msg);
+       	     	}
     		});
     	}
-    	alert("删除成功！")
-    	
+		alert("删除成功!");
+		$('#roleTable').bootstrapTable('refresh', null);
     }
 }
 
@@ -147,3 +162,47 @@ $(function () {
         /*事件*/
     });
 });
+
+function addRole(){
+	$.ajax({    		
+        url:"control/InsertRole",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"name":document.getElementById("add_roleName").value,
+        	"description":document.getElementById("add_description").value,
+        },
+        success:function(data){
+        	$('#addRoleModal').modal('hide');
+        	
+        	if(data==1){alert("插入成功!");$('#roleTable').bootstrapTable('refresh', null);}
+        	else if(data==0){alert("插入失败!");$('#roleTable').bootstrapTable('refresh', null);}
+        },
+        error: function (msg) {//ajax请求失败后触发的方法
+	    	 	alert("请求失败");
+	    	 	console.log(msg)
+	     	}
+	});
+}
+
+function editRole(){
+	$.ajax({    		
+        url:"control/UpdateRole",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"name":document.getElementById("edit_roleName").value,
+        	"description":document.getElementById("edit_description").value,
+        },
+        success:function(data){
+        	$('#editRoleModal').modal('hide');
+        	
+        	if(data==1){alert("修改成功!");$('#roleTable').bootstrapTable('refresh', null);}
+        	else if(data==0){alert("修改失败!");$('#roleTable').bootstrapTable('refresh', null);}
+        },
+        error: function (msg) {//ajax请求失败后触发的方法
+	    	 	alert("请求失败");
+	    	 	console.log(msg)
+	     	}
+	});
+}
