@@ -72,10 +72,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                            <h4>文章标题：</h4>
 		                            <input readonly="true" type="text" id="upload_title" name="title" class="form-control"aria-describedby="basic-addon1"/>
 		                        </div>
-		                         <div class="col-xs-12 col-md-12">
-		                            <h4>作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：</h4>
-		                            <input readonly="true" type="text" id="upload_author" name="author" class="form-control" aria-describedby="basic-addon1"/>
-		                        </div> 
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4>资源地址：</h4>
 		                            <input type="file" name="file" id="upload_file" class="form-control" aria-describedby="basic-addon1">
