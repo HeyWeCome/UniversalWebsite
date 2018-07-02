@@ -6,6 +6,7 @@ import entity.Message;
 import entity.Module;
 import entity.Permission;
 import entity.Role;
+import entity.SonModule;
 
 /**
  * 
@@ -480,5 +481,12 @@ public class SpecificDao {
 		return "update module "
 				+ "set name = '"+module.getName()+"', "
 				+ " status = '"+module.getStatus()+"';";
+	}
+	
+	public static String updateSonModule(SonModule sonmodule){
+		return "update Sonmodule "
+				+ "set name = '"+sonmodule.getName()+"', "
+				+ " status = '"+sonmodule.getStatus()+"'"
+						+ " parentModuleID = "+sonmodule.getParentModuleID()+";";
 	}
 }

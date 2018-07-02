@@ -17,8 +17,10 @@ import entity.SonModule;
 public interface IModuleManage {
 	String findAllModule();
 	String findAllSonModule(String userName);
-	Integer insertMoudle(Module Module);
-	Integer insertSonMoudle(SonModule sonModule);
+	Integer insertModule(Module Module);
+	Integer insertSonModule(SonModule sonModule);
 	String getAllPASModule();
 	Integer updateModule(Module module);
+
+
 }

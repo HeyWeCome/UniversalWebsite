@@ -47,7 +47,7 @@ public class UpdateModule extends HttpServlet {
 			Module.setStatus(status);
 
 			ModuleManage moduleManage = new ModuleManage();
-			Integer result = moduleManage.insertMoudle(Module);
+			Integer result = moduleManage.updateModule(Module);
 			response.getWriter().println(result);
 
 		}else{
@@ -70,7 +70,7 @@ public class UpdateModule extends HttpServlet {
 			sonModule.setStatus(status);
 
 			ModuleManage moduleManage = new ModuleManage();
-			Integer result = moduleManage.insertSonMoudle(sonModule);
+			Integer result = moduleManage.updateSonMoudle(sonModule);
 			response.getWriter().println(result);
 		}
 

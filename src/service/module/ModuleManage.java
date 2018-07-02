@@ -68,7 +68,7 @@ public class ModuleManage implements IModuleManage{
 	 * @Date          2018年7月2日 下午11:03:24  
 	 */  
 	@Override
-	public Integer insertSonMoudle(SonModule sonModule) {
+	public Integer insertSonModule(SonModule sonModule) {
 		String sql = null;
 		try {
 			sql = GeneralDao.generalInsertSQL(sonModule);
@@ -92,7 +92,7 @@ public class ModuleManage implements IModuleManage{
 	 * @Date          2018年7月2日 下午11:07:15  
 	 */  
 	@Override
-	public Integer insertMoudle(Module Module) {
+	public Integer insertModule(Module Module) {
 		String sql = null;
 		try {
 			sql = GeneralDao.generalInsertSQL(Module);
@@ -140,7 +140,28 @@ public class ModuleManage implements IModuleManage{
 	@Override
 	public Integer updateModule(Module module) {
 		String sql = SpecificDao.updateModule(module);
-		
+		System.out.println("更新的sql为:"+sql);
+		try {
+			Integer result = UpdateDBUtil.update(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	/**  
+	 * @Title:        updateSonMoudle  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @param:        @param sonModule
+	 * @param:        @return     
+	 * @return:       Integer     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午11:44:53  
+	 */  
+	public Integer updateSonMoudle(SonModule sonModule) {
+		String sql = SpecificDao.updateSonModule(sonModule);
+		System.out.println("更新的sql为:"+sql);
 		try {
 			Integer result = UpdateDBUtil.update(sql);
 			return result;
