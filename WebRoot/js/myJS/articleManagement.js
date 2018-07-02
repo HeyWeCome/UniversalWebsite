@@ -147,10 +147,8 @@ window.operateEvents = {
                 },
                 //data:{"questionnaireId":"<%=questionnaireId%>"},
                 success:function(data1){
-                	if(data1==1){
-                		alert("删除成功!");
-                		$('#articleTable').bootstrapTable('refresh', null);
-                	}
+                	if(data==1){alert("删除成功!");$('#articleTable').bootstrapTable('refresh', null);}
+                	else if(data1==0){alert("删除失败!");}
                 },
                 error: function (msg) {//ajax请求失败后触发的方法
        	    	 	alert("请求失败");
@@ -182,6 +180,7 @@ function deletes() {
     var ids = "";
     var determine = confirm("确认删除？")
     if(determine==true){
+    	var a=1;
     	for(var i=0; i<data.length; i++){
     		//alert(data[i].title+" "+data[i].author)    	
     		$.ajax({    		
@@ -195,6 +194,7 @@ function deletes() {
                 //data:{"questionnaireId":"<%=questionnaireId%>"},
                 success:function(data1){
                 	//alert("删除成功！");
+                	a=data1;
                 	$('#articleTable').bootstrapTable('refresh', null);
                 },
                 error: function (msg) {//ajax请求失败后触发的方法
@@ -203,7 +203,9 @@ function deletes() {
        	     	}
     		});
     	}
-    	alert("删除成功！");
+    	alert("删除成功!");
+    	if(a==1){alert("删除成功!");$('#articleTable').bootstrapTable('refresh', null);}
+    	else if(a==0){alert("删除失败!");}
     }
 }
 
@@ -381,8 +383,8 @@ function editArticle(){
         	else if(data==0){alert("修改失败!");$('#articleTable').bootstrapTable('refresh', null);}
         },
         error: function (msg) {//ajax请求失败后触发的方法
-	    	 	alert("请求失败");
-	    	 	console.log(msg)
-	     	}
+    	 	alert("请求失败");
+    	 	console.log(msg)
+     	}
 	});
 }

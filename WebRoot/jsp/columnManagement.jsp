@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="top">
     	<div class="topText"> &nbsp;栏目管理</div>
     </div>
-    
+    <div class="showTree">
     <div class="buttons">
         <button type="button" onclick="getColumnName()" class="btn btn-primary"  data-toggle="modal" data-target="#addColumnModal" style="background-color:#5E6F8A;color:#fff;">&nbsp;新增&nbsp;</button>
     	<button onclick="refresh3()" type="button" class="btn btn-primary " style="color:#5E6F8A;background-color:#fff;">&nbsp;刷新&nbsp;</button>
@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <table id="columnManagementTable" style="font-size: 12px; background-color:#b0c4de2e;"></table>
     
    <!-- 新增弹框 -->
-   <div id="addColumnModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+   	<div id="addColumnModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
        <div class="modal-dialog" role="document">
            <div class="modal-content">
                <div class="modal-header" style="background-color: #999">
@@ -72,6 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </form> 
            </div>
        </div>
+  </div>
   </div>
   </body>
   <script src="./js/myJS/columnManagement.js"></script>

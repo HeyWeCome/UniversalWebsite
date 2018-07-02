@@ -170,10 +170,9 @@ public class DBUtil {
 		while(result.next()){
 			String id = result.getString("id");
 			String name = result.getString("name");
-			String status = result.getString("status");
 			String parentModuleID = result.getString("parentModuleID");
 			
-			returnResult += "{\"id\":\""+id+"\",\"name\":\""+name+"\",\"status\":\""+status+"\",\"parentModuleID\":\""+parentModuleID+"\"},";
+			returnResult += "{\"id\":\""+id+"\",\"name\":\""+name+"\",\"parentModuleID\":\""+parentModuleID+"\"},";
 		}
 
 		returnResult = returnResult.substring(0,returnResult.length()-1);
@@ -717,18 +716,27 @@ public class DBUtil {
 
 		while(result.next()){
 			String parentName = result.getString("parentName");
-			String status = result.getString("status");
+			String parentStatus = result.getString("parentStatus");
 			String sonName = result.getString("sonName");
-
-			if(status.equals("0")){
-				status="废用";
-			}else if(status.equals("1")){
-				status="启用";
+			String sonStatus = result.getString("sonStatus");
+			
+			if(parentStatus.equals("0")){
+				parentStatus="废用";
+			}else if(parentStatus.equals("1")){
+				parentStatus="启用";
+			}
+			
+			if(sonStatus.equals("0")){
+				sonStatus="废用";
+			}else if(sonStatus.equals("1")){
+				sonStatus="启用";
 			}
 
+			
 			returnResult += "{\"parentName\":\""+parentName
-					+"\",\"status\":\""+status
+					+"\",\"parentStatus\":\""+parentStatus					
 					+"\",\"sonName\":\""+sonName
+					+"\",\"sonStatus\":\""+sonStatus
 					+"\"},";
 		}
 

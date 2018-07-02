@@ -30,20 +30,22 @@ public class ShowSonModules extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
 		// 解决乱码问题
-
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
+		// 获取用户名
+		String userName = request.getParameter("userName");
+//		System.out.println("用户名为:"+userName);
+		
 		ModuleManage moduleManage = new ModuleManage();
 
-		String result = moduleManage.findAllSonModule();
+		String result = moduleManage.findAllSonModule(userName);
 
 		JSONArray fromObject = (JSONArray) JSON.parse(result);
 
-		System.out.println("modules are:"+fromObject.toString());
+		System.out.println("sonmodules are:"+fromObject.toString());
 
 		response.getWriter().print(fromObject);
 	}

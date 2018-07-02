@@ -121,6 +121,11 @@
     <servlet-name>FindAllPASColumns</servlet-name>
     <servlet-class>control.FindAllPASColumns</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UpdateModule</servlet-name>
+    <servlet-class>control.UpdateModule</servlet-class>
+  </servlet>
+
 
 
 
@@ -268,6 +273,10 @@
   <servlet-mapping>
     <servlet-name>FindAllPASColumns</servlet-name>
     <url-pattern>/control/FindAllPASColumns</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateModule</servlet-name>
+    <url-pattern>/control/UpdateModule</url-pattern>
   </servlet-mapping>
 
 </web-app>

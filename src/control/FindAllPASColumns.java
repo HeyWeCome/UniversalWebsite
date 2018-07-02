@@ -36,7 +36,7 @@ public class FindAllPASColumns extends HttpServlet {
 
 		ColumnsManage columnsManage = new ColumnsManage();
 
-		String result = columnsManage.getAllColumns();
+		String result = columnsManage.getAllPASColumns();
 
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);

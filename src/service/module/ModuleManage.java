@@ -15,40 +15,41 @@ import util.DBUtil;
  */
 public class ModuleManage implements IModuleManage{
 
-	/**  
+	/**
+	 * 
 	 * @Title:        findAllModule  
-	 * @Description:  �������еĸ���ģ��
+	 * @Description:  找到所有父模块
 	 * @author        Vico.Ho 
-	 * @Date          2018��6��28�� ����2:39:17  
-	 */  
+	 * @Date          2018年7月2日 下午4:25:59
+	 */
 	public String findAllModule() {
 		String result = null;
 		String sql = SpecificDao.selectAllFromTable("module");
-		System.out.println("Ҫִ�е�SQLΪ:"+sql);
+		System.out.println("sql为:"+sql);
 		try {
 			result = DBUtil.findAllModule(sql);
-			
+
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-
-	/**  
+	/**
+	 * 
 	 * @Title:        findAllSonModule  
-	 * @Description:  ������ģ�� 
+	 * @Description:  找到所有子模块 
 	 * @author        Vico.Ho 
-	 * @Date          2018��6��28�� ����3:06:30  
-	 */  
+	 * @Date          2018年7月2日 下午4:25:39
+	 */
 	@Override
-	public String findAllSonModule() {
+	public String findAllSonModule(String userName) {
 		String result = null;
-		String sql = SpecificDao.selectAllFromTable("sonmodule");
+		String sql = SpecificDao.selectAccessSonColumns(userName);
 		System.out.println("sql:"+sql);
 		try {
 			result = DBUtil.findAllSonModule(sql);
-			
+
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();

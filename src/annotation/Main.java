@@ -35,15 +35,13 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		ColumnsManage columnsManage = new ColumnsManage();
+		ModuleManage moduleManage = new ModuleManage();
 
-		String result = columnsManage.getAllPASColumns();
+		String result = moduleManage.findAllSonModule("何玮康");
 
-		if(!result.isEmpty()){
-			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("columns are:"+fromObject.toString());
-//			response.getWriter().print(fromObject);
-		}else{
-//			response.getWriter().print(""); 
-		}
+		JSONArray fromObject = (JSONArray) JSON.parse(result);
+
+		System.out.println("sonmodules are:"+fromObject.toString());
+
+//		response.getWriter().print(fromObject);
 	}}
