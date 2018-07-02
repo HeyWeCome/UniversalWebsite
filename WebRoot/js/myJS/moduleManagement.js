@@ -102,3 +102,27 @@ function connectModules(data,i){
 	//alert(columnOption);
 	return moduleOption
 }
+
+function addModule(){
+	$.ajax({    		
+     //   url:"control/InsertModule",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	//"id":document.getElementById("addModuleId").value,
+        	"name":document.getElementById("addModuleName").value,
+        	"status":document.getElementById("addModuleStutus").value,
+        	"parentModuleName":document.getElementById("selectModuleName").value,
+        },
+        success:function(data){
+        	$('#addModuleModal').modal('hide');
+        	
+        	if(data==1){alert("插入成功!");$('#moduleManagementTable').bootstrapTable('refresh', null);}
+        	else if(data==0){alert("插入失败!");$('#moduleManagementTable').bootstrapTable('refresh', null);}
+        },
+        error: function (msg) {//ajax请求失败后触发的方法
+	    	 	alert("请求失败");
+	    	 	console.log(msg)
+	     	}
+	});
+}
