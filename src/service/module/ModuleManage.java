@@ -3,8 +3,12 @@
  */
 package service.module;
 
+import dao.GeneralDao;
 import dao.SpecificDao;
+import entity.Module;
+import entity.SonModule;
 import util.DBUtil;
+import util.InSertDBUtil;
 
 /** 
  * @ClassName:     ModuleManage.java 
@@ -55,6 +59,54 @@ public class ModuleManage implements IModuleManage{
 			e.printStackTrace();
 		}
 		return null;
+	}
+	/**  
+	 * @Title:        insertSonMoudle  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午11:03:24  
+	 */  
+	@Override
+	public Integer insertSonMoudle(SonModule sonModule) {
+		String sql = null;
+		try {
+			sql = GeneralDao.generalInsertSQL(sonModule);
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		
+		// 成功返回1   失败返回0
+		try {
+			Integer result = InSertDBUtil.insert(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	/**  
+	 * @Title:        insertSonMoudle  
+	 * @Description:  插入父模块  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午11:07:15  
+	 */  
+	@Override
+	public Integer insertMoudle(Module Module) {
+		String sql = null;
+		try {
+			sql = GeneralDao.generalInsertSQL(Module);
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		
+		// 成功返回1   失败返回0
+		try {
+			Integer result = InSertDBUtil.insert(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 }

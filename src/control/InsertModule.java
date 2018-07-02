@@ -1,47 +1,42 @@
 /**
  * 
  */
-package annotation;
+package control;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import dao.SpecificDao;
-import entity.Article;
-import entity.Employee;
-import entity.Message;
 import entity.Module;
-import entity.Permission;
-import entity.Role;
 import entity.SonModule;
-import service.account.AccountManage;
-import service.article.ArticleManage;
-import service.columns.ColumnsManage;
-import service.course.CourseManage;
-import service.employee.EmployeeManage;
-import service.message.MessageManage;
 import service.module.ModuleManage;
-import service.permission.PermissionManage;
-import service.role.RoleManage;
 import util.DBUtil;
 
-/**
- * 
- * @ClassName:     Main.java 
- * @Description:   测试类记得删除
+/** 
+ * @ClassName:     InsertModule.java 
+ * @Description:   TODO(用一句话描述该文件做什么)  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018年6月29日 下午2:56:50
+ * @Date           2018年7月2日 下午10:50:49  
  */
-public class Main {
-	public static void main(String[] args){
+public class InsertModule extends HttpServlet {
+
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 控制格式,解决乱码问题
+		response.setContentType("text/json");
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+
 		// 获取模块名
-		String name = "天秀";	
+		String name = request.getParameter("name");	
 		// 获取父模块名
-		String parentModuleName = "已是父模块";
+		String parentModuleName = request.getParameter("parentModuleName");
 		if(parentModuleName.equals("已是父模块")){
 			// 新建子模块对象
 			Module Module = new Module();
@@ -50,8 +45,7 @@ public class Main {
 
 			ModuleManage moduleManage = new ModuleManage();
 			Integer result = moduleManage.insertMoudle(Module);
-			System.out.println(result);
-//			response.getWriter().println(result);
+			response.getWriter().println(result);
 
 		}else{
 			// 根据用户名查询用户ID
@@ -74,6 +68,13 @@ public class Main {
 
 			ModuleManage moduleManage = new ModuleManage();
 			Integer result = moduleManage.insertSonMoudle(sonModule);
-			System.out.println(result);
-//			response.getWriter().println(result);
-		}}}
+			response.getWriter().println(result);
+		}
+	}
+
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request,response);
+	}
+
+}

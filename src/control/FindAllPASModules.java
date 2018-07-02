@@ -23,7 +23,7 @@ import service.columns.ColumnsManage;
  * @version        V1.0   
  * @Date           2018年7月2日 下午3:39:36  
  */
-public class FindAllPASColumns extends HttpServlet {
+public class FindAllPASModules extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

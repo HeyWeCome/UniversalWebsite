@@ -129,6 +129,11 @@
     <servlet-name>FindAllCourse</servlet-name>
     <servlet-class>control.FindAllCourse</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>InsertModule</servlet-name>
+    <servlet-class>control.InsertModule</servlet-class>
+  </servlet>
+
 
 
 
@@ -286,6 +291,10 @@
   <servlet-mapping>
     <servlet-name>FindAllCourse</servlet-name>
     <url-pattern>/control/FindAllCourse</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InsertModule</servlet-name>
+    <url-pattern>/control/InsertModule</url-pattern>
   </servlet-mapping>
 
 </web-app>
