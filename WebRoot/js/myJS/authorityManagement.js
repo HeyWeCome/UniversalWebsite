@@ -146,10 +146,6 @@ $(function(){
 		        },
 				success : function(modulesId) {
 					console.log("modulesId:"+modulesId);
-					/*var str = "A,B,C";
-					$(str.split(",")).each(function (i,e){
-					    $("input[name='module'][value='"+e+"']").prop("checked",true);
-					});*/
 					
 					for(var i=0;i<modulesId.length;i++){//
 				       //获取所有复选框对象的value属性，然后，用checkArray[i]和他们匹配，如果有，则说明他应被选中
@@ -166,19 +162,3 @@ $(function(){
 		  
 	  });
 });
-/*
-$(function(){
-	    var checkBoxAll =$("input[name='module']");//获取名字为module的所有多选框对象
-	    var checkArray=${list};//获取多选框需要回显得对应的值集合
-	    console.info("checkArray=",checkArray);
-	    for(var i=0;i<checkArray.length;i++){//
-	       //获取所有复选框对象的value属性，然后，用checkArray[i]和他们匹配，如果有，则说明他应被选中
-	        $.each(checkBoxAll,function(j,checkbox){
-	            //获取复选框的value属性
-	           var checkValue=$(checkbox).val();
-	            if(checkArray[i]==checkValue){
-	                $(checkbox).attr("checked",true);
-	          }
-	       })
-	   }
-	});*/
