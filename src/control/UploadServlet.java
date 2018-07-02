@@ -107,6 +107,32 @@ public class UploadServlet extends HttpServlet {
 					System.out.println("title:"+title);
 					System.out.println("author:"+author);
 					
+					// 根据用户名查询用户ID
+					String sql1 = SpecificDao.findIDFromTable(author, "employee");
+					System.out.println(sql1);
+					Integer authorID = 0;
+					try {
+						authorID = DBUtil.findID(sql1);
+					} catch (NumberFormatException e) {
+						e.printStackTrace();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					
+					// 查询文章的ID
+					String sql2 = SpecificDao.findArticleID(title, authorID);
+					System.out.println(sql1);
+					Integer articleID = 0;
+					try {
+						articleID = DBUtil.findID(sql2);
+					} catch (NumberFormatException e) {
+						e.printStackTrace();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					System.out.println("文章ID为:"+articleID);
+					
+					
 					//上传文件的文件名称
 					String fileName=item.getName();
 					System.out.println(fileName);
@@ -131,10 +157,15 @@ public class UploadServlet extends HttpServlet {
 
 					// 新建一个资源文件类
 					SourceFile sourceFile = new SourceFile();
+					sourceFile.setArticleID(articleID);
 					sourceFile.setName(fileName);
-					sourceFile.setPath(path+File.separator+trueName);
+					sourceFile.setPath(path+File.separator+File.separator+trueName);
 					System.out.println("文件的路径"+sourceFile.getPath());
-					//					SourceFileManage newSourceFileManage = new SourceFileManage();
+					SourceFileManage newSourceFileManage = new SourceFileManage();
+					
+					Integer result = newSourceFileManage.saveResource(sourceFile);
+					System.out.println("操作结果为:"+result);
+					System.out.println();
 					os.flush();
 					os.close();
 					is.close();
@@ -153,7 +184,6 @@ public class UploadServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doPost(req, resp);
 	}
 

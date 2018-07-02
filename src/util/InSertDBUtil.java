@@ -161,4 +161,33 @@ public class InSertDBUtil {
 			return 0;
 		}
 	}
+	
+	/**
+	 * 
+	 * @Title:        insert  
+	 * @Description:  执行插入操作
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       int     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午3:03:13
+	 */
+	public static int insert(String sql) throws Exception{
+		Connection connection = getConnection();
+		Statement statement = connection.createStatement();
+
+		if(statement.executeUpdate(sql) == 1){
+			// 关闭相应的链接
+			statement.close();
+			connection.close();
+			return 1;
+		}else{
+			// 关闭相应的链接
+			statement.close();
+			connection.close();
+			return 0;
+		}
+	}
 }

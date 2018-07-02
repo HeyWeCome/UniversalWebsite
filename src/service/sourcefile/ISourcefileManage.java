@@ -13,5 +13,5 @@ import entity.SourceFile;
  * @Date           2018年6月29日 下午2:19:00  
  */
 public interface ISourcefileManage {
-	String saveResource(SourceFile newSource);
+	Integer saveResource(SourceFile newSource);
 }
