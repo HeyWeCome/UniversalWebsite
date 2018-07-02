@@ -180,7 +180,7 @@ function deletes() {
     var ids = "";
     var determine = confirm("确认删除？")
     if(determine==true){
-    	var a;
+    	var a=1;
     	for(var i=0; i<data.length; i++){
     		//alert(data[i].title+" "+data[i].author)    	
     		$.ajax({    		
@@ -203,6 +203,7 @@ function deletes() {
        	     	}
     		});
     	}
+    	alert("删除成功!");
     	if(a==1){alert("删除成功!");$('#articleTable').bootstrapTable('refresh', null);}
     	else if(a==0){alert("删除失败!");}
     }

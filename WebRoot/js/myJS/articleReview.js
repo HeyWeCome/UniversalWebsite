@@ -115,6 +115,10 @@ window.operateEvents1 = {
             		alert("审核成功!");
             		$('#articleReviewTable').bootstrapTable('refresh', null);
             	}
+            	else if(data1==2){
+            		alert("审核失败!");
+            		$('#articleReviewTable').bootstrapTable('refresh', null);
+            	}
             },
             error: function (msg) {//ajax请求失败后触发的方法
    	    	 	alert("请求失败");

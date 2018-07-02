@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                   <h4 class="modal-title">回复留言</h4>
 		               </div>
-		            	<form action="control/UpdateMessage" method="post">
+		            	<!-- <form action="control/UpdateMessage" method="post"> -->
 		                <div class="modal-body">
 		                    <div class="row">
 		                        <div class="col-xs-12 col-md-12">
@@ -66,16 +66,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                        </div>
 		                        <div class="col-xs-12 col-md-12">
 		                            <h4 style="margin-left:5%">回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;复：</h4>
-		                            <textarea class="textArea" name="replyContent" rows="8" cols="60"></textarea>
+		                            <textarea class="textArea" id="message_replyContent" name="replyContent" rows="8" cols="60"></textarea>
 		                        </div>
 		                    
 		                    </div>
 		                </div>
 		                <div class="modal-footer">
 		                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#fff;color:#5E6F8A;">关闭</button>
-		                    <button type="submit" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">新增</button>
+		                    <button type="button" onclick="replyMessage()" class="btn btn-primary" style="background-color:#5E6F8A;color:#fff;">提交</button>
 		                </div>
-		                </form> 
+		                <!-- </form> --> 
 		           </div>
 		       </div>
 		   </div>

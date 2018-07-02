@@ -34,7 +34,8 @@ window.operateEvents5 = {
                 },
                 //data:{"questionnaireId":"<%=questionnaireId%>"},
                 success:function(data1){
-                	alert("删除成功！")
+                	if(data==1){alert("删除成功!");$('#messageTable').bootstrapTable('refresh', null);}
+                	else if(data==0){alert("删除失败!");$('#messageTable').bootstrapTable('refresh', null);}
                 }
             });
         }
@@ -51,6 +52,7 @@ function deletesMessage(){
 	    var ids = "";
 	    var determine = confirm("确认删除？")
 	    if(determine==true){
+	    	var a=1;
 	    	for(var i=0; i<data.length; i++){
 	    		//alert(data[i].title+" "+data[i].author)    	
 	    		$.ajax({    		
@@ -61,12 +63,19 @@ function deletesMessage(){
 	                	"content":data[i].content
 	                },
 	                success:function(data1){
-	                	
-	                }
+	                	//alert("删除成功！");
+	                	a=data1;
+	                	$('#articleTable').bootstrapTable('refresh', null);
+	                },
+	                error: function (msg) {//ajax请求失败后触发的方法
+	       	    	 	alert("请求失败");
+	       	    	 	console.log(msg);
+	       	     	}
 	    		});
 	    	}
-	    	alert("删除成功！")
-	    	
+	    	alert("删除成功!");
+	    	if(a==1){alert("删除成功!");$('#articleTable').bootstrapTable('refresh', null);}
+	    	else if(a==0){alert("删除失败!");}
 	    }
 }
 
@@ -156,3 +165,27 @@ $(function () {
         /*事件*/
     });
 });
+
+function replyMessage(){
+	$.ajax({    		
+        url:"control/UpdateMessage",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"content":document.getElementById("messageContent").value,
+        	"createTime":document.getElementById("message_createTime").value,
+        	"replyEmployee":document.getElementById("message_replyEmployee").value,
+        	"replyContent":document.getElementById("message_replyContent").value,
+        },
+        success:function(data){
+        	$('#replyMessageModal').modal('hide');
+        	
+        	if(data==1){alert("回复成功!");$('#messageTable').bootstrapTable('refresh', null);}
+        	else if(data==0){alert("回复失败!");$('#messageTable').bootstrapTable('refresh', null);}
+        },
+        error: function (msg) {//ajax请求失败后触发的方法
+    	 	alert("请求失败");
+    	 	console.log(msg)
+     	}
+	});
+}
