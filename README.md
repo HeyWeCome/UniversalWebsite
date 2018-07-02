@@ -93,6 +93,7 @@
 - employeeID		回复人员ID
 - replyTime			回复时间			
 - status			回复状态(0:未回复 1:已回复)
+- courseID			所属课程的ID
 
 
 10. 教育资源(sourceFile)
@@ -101,6 +102,17 @@
 - path   			存放的路径
 - name				教育资源的名称
 ---
+
+11. 课程(course)
+- id				课程ID
+- introduction		课程的简略描述
+- principal			课程负责人
+
+12. 课程栏目(courseContent)
+- id				课程栏目ID
+- courseID			课程ID
+- columnsID			栏目ID
+
 
 #### Server层
 - 与服务器端建立连接
@@ -115,13 +127,3 @@
 - 主要是为了降低耦合度,Dao层仅用于处理数据库，Service用来处理逻辑业务。便于后期维护。
 
 --------
-
-##### 登陆功能实现思路
-1. 首先在前端页面输入用户的账号密码
-2. 之后由js传递到客户端的control层,在control层触发客户端连接服务端的方法
-3. 由上一步会触发server层与服务器连接的方法建立socket通信发送到服务端
-4. 在服务端首先进入的是server层，server调用utils层的方法启动线程
-5. 线程启动之后会进入service层，处理业务逻辑，首先新建一个AccountManage方法
-6. 之后在service层调用Dao层方法，新建sql语句，执行sql语句并返回结果
-7. 结果由服务端发送到客户端，客户端由server层接受数据传回control层
-8. control层返回结果到前台，进行页面处理判断
