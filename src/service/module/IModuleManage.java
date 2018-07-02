@@ -3,14 +3,15 @@
  */
 package service.module;
 
-/** 
+/**
+ * 
  * @ClassName:     IModuleManage.java 
- * @Description:   Ä£¿é¹ÜÀíµÄ½Ó¿Ú
+ * @Description:   æ¨¡å—ç®¡ç†æ¥å£ç±»  
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018Äê6ÔÂ28ÈÕ ÉÏÎç11:01:56  
+ * @Date           2018å¹´7æœˆ2æ—¥ ä¸‹åˆ4:43:37
  */
 public interface IModuleManage {
 	String findAllModule();
-	String findAllSonModule();
+	String findAllSonModule(String userName);
 }

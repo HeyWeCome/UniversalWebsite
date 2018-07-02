@@ -43,9 +43,9 @@ public class ModuleManage implements IModuleManage{
 	 * @Date          2018年7月2日 下午4:25:39
 	 */
 	@Override
-	public String findAllSonModule() {
+	public String findAllSonModule(String userName) {
 		String result = null;
-		String sql = SpecificDao.selectAllFromTable("sonmodule");
+		String sql = SpecificDao.selectAccessSonColumns(userName);
 		System.out.println("sql:"+sql);
 		try {
 			result = DBUtil.findAllSonModule(sql);

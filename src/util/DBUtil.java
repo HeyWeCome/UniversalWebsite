@@ -170,10 +170,9 @@ public class DBUtil {
 		while(result.next()){
 			String id = result.getString("id");
 			String name = result.getString("name");
-			String status = result.getString("status");
 			String parentModuleID = result.getString("parentModuleID");
 			
-			returnResult += "{\"id\":\""+id+"\",\"name\":\""+name+"\",\"status\":\""+status+"\",\"parentModuleID\":\""+parentModuleID+"\"},";
+			returnResult += "{\"id\":\""+id+"\",\"name\":\""+name+"\",\"parentModuleID\":\""+parentModuleID+"\"},";
 		}
 
 		returnResult = returnResult.substring(0,returnResult.length()-1);

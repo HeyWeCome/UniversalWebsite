@@ -49,6 +49,24 @@ public class SpecificDao {
 
 	/**
 	 * 
+	 * @Title:        selectAccessSonColumns  
+	 * @Description: 根据用户名找到相对应模块的信息
+	 * @param:        @param userName
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月2日 下午4:45:23
+	 */
+	public static String selectAccessSonColumns(String userName){
+		return "select sonmodule.id,sonmodule.name,sonmodule.parentModuleID "
+				+ "from employee,role,permission,sonmodule "
+				+ "where employee.roleID = role.id "
+				+ "and role.id = permission.roleID "
+				+ "and permission.moduleID = sonmodule.id;";
+	}
+	/**
+	 * 
 	 * @Title:        selectAllArticle  
 	 * @Description:  选择所有的文章,按照前台指定格式返回
 	 * @param:        @return     
