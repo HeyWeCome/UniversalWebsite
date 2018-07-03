@@ -149,6 +149,26 @@
     <servlet-name>HomePageFindAllSonColumns</servlet-name>
     <servlet-class>control.HomePageFindAllSonColumns</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>FindAllResource</servlet-name>
+    <servlet-class>control.FindAllResource</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>HomePageFindAllResource</servlet-name>
+    <servlet-class>control.HomePageFindAllResource</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SourceFileDownload</servlet-name>
+    <servlet-class>control.SourceFileDownload</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>HomePageFindAllSonColumnsArticle</servlet-name>
+    <servlet-class>control.HomePageFindAllSonColumnsArticle</servlet-class>
+  </servlet>
+
+
+
+
 
 
 
@@ -331,6 +351,22 @@
   <servlet-mapping>
     <servlet-name>HomePageFindAllSonColumns</servlet-name>
     <url-pattern>/control/HomePageFindAllSonColumns</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindAllResource</servlet-name>
+    <url-pattern>/control/FindAllResource</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HomePageFindAllResource</servlet-name>
+    <url-pattern>/control/HomePageFindAllResource</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SourceFileDownload</servlet-name>
+    <url-pattern>/control/SourceFileDownload</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HomePageFindAllSonColumnsArticle</servlet-name>
+    <url-pattern>/control/HomePageFindAllSonColumnsArticle</url-pattern>
   </servlet-mapping>
 
 </web-app>

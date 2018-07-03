@@ -24,14 +24,14 @@ public class CourseColumnsManage implements ICourseColumnsManage{
 		// 获取到给定属性
 		Integer courseID = courseColumns.getCourseID();
 		Integer columnsID = courseColumns.getColumnsID();
-		
+
 		String sql = "select soncolumns.id,soncolumns.name "
 				+ " from courseColumns,columns,soncolumns "
 				+ "where courseColumns.columnsID = columns.id and "
 				+ "soncolumns.parentID = columns.id and "
 				+ "courseID = "+courseID+" and "
 				+ "columnsID = "+columnsID+";";
-		
+
 		System.out.println("需要执行的sql为:"+sql);
 		try {
 			String result = DBUtil.homePagefindAllSonColumns(sql);
@@ -40,6 +40,32 @@ public class CourseColumnsManage implements ICourseColumnsManage{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	/**  
+	 * @Title:        findAllResources  
+	 * @Description:  课程栏目管理
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 下午3:19:16  
+	 */  
+	@Override
+	public String findAllResources(CourseColumns courseColumns) {
+		// 获取到给定属性
+		Integer courseID = courseColumns.getCourseID();
+		
+		String sql = "select article.title, sourcefile.name "
+				+ " from article,sourcefile "
+				+ "where sourcefile.articleID = article.id";
+		System.out.println("要执行的sql为:"+sql);
+		try {
+			String result = DBUtil.homePagefindAllResource(sql);
+			return result;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return sql;
 	}
 
 

@@ -17,7 +17,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -96,6 +96,32 @@ public class DBUtil {
 
 
 			returnResult += "{\"name\":\""+name+"\"},";
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
+
+	}
+	
+	public static String findFilePath(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			String path = result.getString("path");
+
+
+			return path;
 		}
 
 		returnResult = returnResult.substring(0,returnResult.length()-1);
@@ -861,6 +887,70 @@ public class DBUtil {
 			
 			returnResult += "{\"id\":\""+id
 					+"\",\"name\":\""+name					
+					+"\"},";
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
+	}
+	
+	public static String homePagefindAllResource(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			String title = result.getString("title");
+			String name = result.getString("name");
+			
+			returnResult += "{\"title\":\""+title
+					+"\",\"name\":\""+name					
+					+"\"},";
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
+	}
+	
+	/**
+	 * 
+	 * @Title:        findAllArticle 
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 下午4:57:01
+	 */
+	public static String findhomePageAllArticle(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			String title = result.getString("title");
+			
+			returnResult += "{\"title\":\""+title			
 					+"\"},";
 		}
 

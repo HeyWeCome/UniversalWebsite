@@ -24,4 +24,5 @@ public interface IColumnsManage {
 	Integer insertSonColumns(SonColumns sonColumns);
 	Integer deleteColumns(Columns columns);
 	Integer deleteSonColumns(SonColumns soncolumns);
+	String findAllArticle(SonColumns soncolumns);
 }

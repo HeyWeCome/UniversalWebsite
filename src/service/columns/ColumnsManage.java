@@ -224,6 +224,28 @@ public class ColumnsManage implements IColumnsManage{
 		return 0;
 	}
 
+	/**  
+	 * @Title:        findAllArticle  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 下午4:54:49  
+	 */  
+	@Override
+	public String findAllArticle(SonColumns soncolumns) {
+		String sql = "select article.title "
+				+ " from article,soncolumns "
+				+ "where soncolumns.id = article.columnID;";
+		
+		System.out.println("sql:"+sql);
+		try {
+			String result = DBUtil.findhomePageAllArticle(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 
 
 }
