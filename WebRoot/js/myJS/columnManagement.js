@@ -74,7 +74,7 @@ $(function () {
 
 function operationIconColumn(value,row,index) {
     return[
-           '<img alt="img-responsive" id="editColumn" class="img-responsive" style="float: left; padding-left:10px" data-toggle="modal" data-target="#editColumnModal" src="images/edit.png" />',
+           '<img alt="img-responsive" id="deleteColumn" class="img-responsive" style="float: left; padding-left:10px" src="images/delete.png" />',
         ].join('');
 }
 
@@ -85,26 +85,43 @@ function refreshColumn(){
 
 /*每行表格尾部的小图标点击*/
 window.operateEventColumn = {
-    'click #editColumn':function (e,value,row,index) {
-        //将该行数据填入模态框中
-        //$('#edit_ID').val(row.id);
-        $('#editColumnName').val(row.name);
-        $('#editColumnLever').val(row.lever);
-        /*getContent(row.title,row.author);
-        getColumnsName();*/
+    'click #deleteColumn':function (e,value,row,index) {
+        var determine = confirm("确认删除？");
+        if(determine==true){
+        	$.ajax({    		
+                url:"control/DeleteColumns",//servlet文件的名称  
+                type:"POST",  
+                dataType:"json",
+                data:{
+                	"name":row.name,
+                	"parentColumnName":row.parentName
+                },
+                //data:{"questionnaireId":"<%=questionnaireId%>"},
+                success:function(data){
+                	var data1 = data;
+                	if(data==1){alert("删除成功!");$('#columnManagementTable').bootstrapTable('refresh', null);}
+                	else if(data1==0){alert("删除失败!");}
+                },
+                error: function (msg) {//ajax请求失败后触发的方法
+       	    	 	alert("请求失败");
+       	    	 	console.log(msg)
+       	     	}
+
+            });
+        }
     }
 };
 
 //获取所有上级栏目
 function getColumnName(){
 	$.ajax({    		
-        url:"control/FindAllSonColumns",//servlet文件的名称  
+        url:"control/FindAllColumns",//servlet文件的名称  
         type:"POST",  
         dataType:"json",
         //data:{"questionnaireId":"<%=questionnaireId%>"},
         success:function(data1){
         	//alert("成功返回");
-        	var content= '<option>已是上级栏目</option>'
+        	var content= '<option value="已是上级栏目">已是上级栏目</option>'
         	for(var i=0;i<data1.length;i++){
         		content+=connectColumns(data1[i],i);
         	}
@@ -120,17 +137,18 @@ function getColumnName(){
 }
 
 function connectColumns(data,i){
-	var columnOption = '<option>'
+	var columnOption = '<option value="'+data.name+'">'
 		+data.name
 		+'</option>' 
 	//alert(columnOption);
+		console.log("value="+data.name)
 	return columnOption
 }
 
 //新增栏目
 function addColumn(){
 	$.ajax({    		
-     //   url:"control/InsertColumn",//servlet文件的名称  
+        url:"control/InsertColumns",//servlet文件的名称  
         type:"POST",  
         dataType:"json",
         data:{
@@ -152,15 +170,15 @@ function addColumn(){
 	});
 }
 
-//修改栏目
-function editColumn(){
+/*//修改栏目
+function deleteColumn(){
 	$.ajax({    		
-    //    url:"control/UpdateColumn",//servlet文件的名称  
+        url:"control/DeleteColumns",//servlet文件的名称  
         type:"POST",  
         dataType:"json",
         data:{
-        	"name":document.getElementById("editColumnName").value,
-        	"level":document.getElementById("editColumnLevel").value,
+        	"name":document.getElementById("deleteColumnName").value,
+        	"level":document.getElementById("deleteColumnLevel").value,
         },
         success:function(data){
         	$('#editColumnModal').modal('hide');
@@ -173,4 +191,4 @@ function editColumn(){
     	 	console.log(msg)
      	}
 	});
-}
+}*/

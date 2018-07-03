@@ -512,7 +512,7 @@ public class SpecificDao {
 	
 	public static String updateSonModule(SonModule sonmodule){
 		return "update Sonmodule "
-				+ "set status = '"+sonmodule.getStatus()+"'"
+				+ "set status = '"+sonmodule.getStatus()+"',"
 //						+ " name = '"+sonmodule.getName()+"'"
 						+ " parentModuleID = "+sonmodule.getParentModuleID()+" "
 								+ " where sonmodule.name = '"+sonmodule.getName()+"';";
@@ -540,5 +540,26 @@ public class SpecificDao {
 				+ "set name = '"+soncolumns.getName()+"', "
 				+ " level = '"+soncolumns.getLevel()+"',"
 						+ " parentID = "+ soncolumns.getParentID()+";";
+	}
+	
+	/**
+	 * 
+	 * @Title:        deleteColumns  
+	 * @Description:  删除栏目 
+	 * @param:        @param columns
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 上午10:39:11
+	 */
+	public static String deleteColumns(Columns columns){
+		return "delete from columns "
+				+ "where name = '"+columns.getName()+"';";
+	}
+	
+	public static String deleteSonColumns(SonColumns soncolumns){
+		return "delete from soncolumns "
+				+ "where name = '"+soncolumns.getName()+"';";
 	}
 }

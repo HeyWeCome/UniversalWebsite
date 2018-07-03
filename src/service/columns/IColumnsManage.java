@@ -22,4 +22,6 @@ public interface IColumnsManage {
 	Integer updateSonColumns(SonColumns sonColumns);
 	Integer insertColumn(Columns columns);
 	Integer insertSonColumns(SonColumns sonColumns);
+	Integer deleteColumns(Columns columns);
+	Integer deleteSonColumns(SonColumns soncolumns);
 }

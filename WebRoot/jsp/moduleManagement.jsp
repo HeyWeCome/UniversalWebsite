@@ -93,8 +93,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <div class="col-xs-12 col-md-12">
                             <h4>模块状态：</h4>
                             <select class="form-control" id="editModuleStatus" name="status" style="width:196px">
-                        		<option >启用</option>
-                        		<option >禁用</option>
+                        		<option value="1" selected>启用</option>
+                        		<option value="0">禁用</option>
 		                    </select>
                             <!-- <input  type="text" id="editColumnLever" name="lever" class="form-control" aria-describedby="basic-addon1"/> -->
                         </div> 	
