@@ -137,21 +137,21 @@ function getArticleTitle(courseName,id,courseSonColumnsName){
         success:function(data){
         	var content='';
         	for(var i=0;i<data.length;i++){
-        		content+=connectArticleTitle(data[i]);
+        		content+=connectArticleTitle(data[i],courseSonColumnsName);
         	}
         	document.getElementById("putTitleAndContent").innerHTML=content
     	}
     });
 }
 
-function connectArticleTitle(data){
+function connectArticleTitle(data,courseSonColumnsName){
 	var articleTitle = '<div class="articleTitle" id="'
 		+data.title
-		+'" onclick="getArticleContent(&quot;'+data.title+'&quot;)"><p>'+data.title+'</p></div>'
+		+'" onclick="getArticleContent(&quot;'+data.title+'&quot;,&quot;'+courseSonColumnsName+'&quot;)"><p>'+data.title+'</p></div>'
 		
 		return articleTitle;
 }
-function getArticleContent(title){
+function getArticleContent(title,courseSonColumnsName){
 	$('#putTitleAndContent').html("");
 	$.ajax({    		
         url:"control/HomePageFindAllSonColumnsArticleContent",//servlet文件的名称  
@@ -161,9 +161,13 @@ function getArticleContent(title){
         	"articleTitle":title
         	},
         success:function(data){
-        	alert("返回成功")
-        	var content = '<div>'+data.content+'</div>'
+        	//alert("返回成功")
+        	//alert(data[0].title+" "+data[0].content);
+        	var content = '<div class="putContent">'+data[0].content+'</div>'
         	document.getElementById("putTitleAndContent").innerHTML=content;
+        	
+        	var position = '<p>您当前的位置：课程介绍>'+courseSonColumnsName+'>'+data[0].title+'</p>'
+        	document.getElementById("showPosition").innerHTML=position
     	}
     });
 }

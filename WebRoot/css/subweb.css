@@ -203,3 +203,15 @@ body {
     margin-left: 2.5%;
     background-color: #337ab7;
 }
+.articleTitle{
+	width: 60%;
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+.putContent{
+	width: 93%;
+    /* height: 30px; */
+    margin-left: 20px;
+    margin-top: 5px;
+}
