@@ -110,9 +110,9 @@ function getCourseSonColumns(courseName,parentColumnsName){
 }
 
 function connectSonColumns(data,i,courseName){
-	var sonColumn = '<button class="sonColumns" oclick="getArticleTitle(&quot;'
-		+courseName+'&quot;,'+ data.id
-		+')" id="sonColumns'
+	var sonColumn = '<button class="sonColumns" onclick="getArticleTitle(&quot;'
+		+courseName+'&quot;,'+ data.id+',&quot;'+data.name
+		+'&quot;)" id="sonColumns'
 		+data.id
 		+'" >'
 		+data.name
@@ -120,29 +120,49 @@ function connectSonColumns(data,i,courseName){
 	return sonColumn
 }
 
-function getArticleTitle(courseName,id){
-	$.ajax({    		
+function getArticleTitle(courseName,id,courseSonColumnsName){
+	//alert("进入方法");
+	var rightTitleText = '<p>'+courseSonColumnsName+'</p>'
+	document.getElementById("rightTitleText").innerHTML=rightTitleText
+	var position = '<p>您当前的位置：课程介绍>'+courseSonColumnsName+'</p>'
+	document.getElementById("showPosition").innerHTML=position
+	$('#putTitleAndContent').html("");
+	//document.getElementById("putTitleAndContent").innerHTML="";
+	/*$.ajax({    		
         url:"control/???",//servlet文件的名称  
         type:"POST",  
         dataType:"json",
         data:{
         	"courseSonColumnsId":id
         	},
-        //data:{"questionnaireId":"<%=questionnaireId%>"},
         success:function(data){
         	var content='';
         	for(var i=0;i<data.length;i++){
-        		content+=connectArticleTitle(data);
+        		content+=connectArticleTitle(data[i]);
         	}
-        	
+        	document.getElementById("putTitleAndContent").innerHTML=content
     	}
-    });
+    });*/
 }
 
 function connectArticleTitle(data){
-	
+	var articleTitle = '<div class="articleTitle" id="'
+		+data.title
+		+'" onclick="getArticleContent(&quot;'+data.title+'&quot;)"><p></p></div>'
+		return articleTitle;
 }
-/*function clean(){
-	document.getElementById("columns10001").innerHTML="";
-	$('#columns10001').html("");
-}*/
+function getArticleContent(title){
+	$('#putTitleAndContent').html("");
+	$.ajax({    		
+        url:"control/???",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"articleTitle":title
+        	},
+        success:function(data){
+        	var content = '<div>'+data.content+'</div>'
+        	document.getElementById("putTitleAndContent").innerHTML=content;
+    	}
+    });
+}
