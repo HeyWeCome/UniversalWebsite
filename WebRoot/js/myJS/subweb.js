@@ -1,4 +1,6 @@
-function loadShow(){
+/*courseName='';*/
+
+function loadShow(ca){
 	parentColumnsSize=0;
 	parentColumns=0;
 	//alert("进入");
@@ -15,19 +17,25 @@ function loadShow(){
         	parentColumnsSize = data1.length; 
         	
         	for(var i=0;i<data1.length;i++){     		  	
-     		  	content += connectParentColumns(data1[i],i); 		   	       		   
+     		  	content += connectParentColumns(data1[i],i,ca); 		   	       		   
      	    }
         	//alert(content)
         	document.getElementById("topMenu").innerHTML=content
         }
-    });
-	
+    });	
+	 //getCourseSonColumns(ca);
+	 //courseName=ca;
+	 /*var columnsbuttom = document.getElementById("10000");
+		columnsbuttom.style.background="#fff";
+		columnsbuttom.style.color="#337ab7";*/
 }
 
-function connectParentColumns(data,i){
+function connectParentColumns(data,i,courseName){
+	var a = courseName;
+	var b = data.name;
 	var parentColumns = '<button class="parentColumns" onclick="showColumn('
 		+data.id
-		+')" id="'
+		+'); getCourseSonColumns(&quot;'+a+'&quot;,&quot;'+b+'&quot;);" id="'
 		+data.id
 		+'">'
 		+data.name
@@ -61,6 +69,50 @@ function showColumn(id){
 	//使当前点击的按钮变色
 	var columnsbuttom = document.getElementById(id);
 	columnsbuttom.style.background="#fff";
-	columnsbuttom.style.color="#337ab7";
-	
+	columnsbuttom.style.color="#337ab7";	
+}
+
+/*$("#introductionTtileText").click(function(){
+});*/
+
+function getCourseSonColumns(courseName,parentColumnsName){
+	//alert("courseName:"+courseName);
+	//alert("parentColumnsName:"+parentColumnsName);
+	$.ajax({    		
+        url:"control/FindAllSonColumns",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"courseName":courseName,
+        	"parentColumnsName":parentColumnsName
+        	},
+        //data:{"questionnaireId":"<%=questionnaireId%>"},
+        success:function(data){
+        	//alert(data1);
+        	//alert("成功返回");
+        	var content='';
+        	for(var i=0;i<data.length;i++){
+        		content+=connectSonColumns(data[i],i,courseName);
+        	}
+        	//alert(content)
+        	document.getElementById("putSonColumns").innerHTML=content
+        }
+    });	
+	//alert(courseName);
+}
+
+function connectSonColumns(data,i){
+	var sonColumn = '<button class="sonColumns" oclick="getArticleTitle('
+		+courseName+','+
+		+')" id="sonColumns'
+		+data.id
+		+'" >'
+		+data.name
+		+'</button>'
+	return sonColumn
+}
+
+function clean(){
+	/*document.getElementById("columns10001").innerHTML="";*/
+	$('#columns10001').html("");
 }

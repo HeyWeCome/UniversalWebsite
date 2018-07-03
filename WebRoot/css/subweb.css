@@ -54,13 +54,13 @@ body {
 }
 .sonColumns{
 	float: left;
-    width: 100px;
-    height: 28px;
-    margin-left: 5px;
-    margin-top: 2px;
+    width: 150px;
+    height: 33px;
+    margin-left: 18px;
+    margin-bottom: -2px;
     font-size: 15px;
-    background-color: #337ab7;
-    color: #fff;
+    background-color: #b0c4de78;
+    color: #333;
     border: 0;
 }
 .centerContent{
@@ -134,4 +134,32 @@ body {
 	margin-left: 70px;
 	margin-top:10px;
 	border-radius: 20px;
+}
+.introductionLeftMenu{
+	float: left;
+    width: 25%;
+    height: 400px;
+    margin-top: 20px;
+    margin-left: 40px;
+    /* background-color: #b0c4de78; */
+}
+.introductionRight{
+	float: left;
+    width: 65%;
+    height: 400px;
+    margin-top: 20px;
+    margin-left: 15px;
+    background-color: #b0c4de78;
+}
+.introductionTtileText{
+	width: 75%;
+    height: 35px;
+    background-color: #337ab7c7;
+    border-radius: 6px;
+}
+.introductionTtileText p{
+	color: #fff;
+    margin-left: 54px;
+    font-size: 19px;
+    padding-top: 4px;
 }
