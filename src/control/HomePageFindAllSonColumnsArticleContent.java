@@ -28,7 +28,7 @@ public class HomePageFindAllSonColumnsArticleContent extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		System.out.println("进入查找文章内容");
 		// 解决前后乱码问题
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
@@ -46,6 +46,7 @@ public class HomePageFindAllSonColumnsArticleContent extends HttpServlet {
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
 			System.out.println("文章内容 are:"+fromObject.toString());
 			response.getWriter().print(fromObject);
+			
 		}else{
 			response.getWriter().print(""); 
 		}
@@ -54,7 +55,7 @@ public class HomePageFindAllSonColumnsArticleContent extends HttpServlet {
 
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		doGet(request,response);
 
 	}
 
