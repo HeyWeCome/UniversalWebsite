@@ -127,8 +127,7 @@ function getArticleTitle(courseName,id,courseSonColumnsName){
 	var position = '<p>您当前的位置：课程介绍>'+courseSonColumnsName+'</p>'
 	document.getElementById("showPosition").innerHTML=position
 	$('#putTitleAndContent').html("");
-	//document.getElementById("putTitleAndContent").innerHTML="";
-	/*$.ajax({    		
+	$.ajax({    		
         url:"control/???",//servlet文件的名称  
         type:"POST",  
         dataType:"json",
@@ -142,7 +141,7 @@ function getArticleTitle(courseName,id,courseSonColumnsName){
         	}
         	document.getElementById("putTitleAndContent").innerHTML=content
     	}
-    });*/
+    });
 }
 
 function connectArticleTitle(data){
