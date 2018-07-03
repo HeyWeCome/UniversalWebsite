@@ -36,6 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="top">
     	<div class="topText"> &nbsp;文章管理</div>
     </div>
+    <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
     
     <div class="leftColumns" id="leftColumns">
     	<button class="allColumns" id="allColumns" onclick="showColumnsOrNot()">所有栏目</button>
@@ -65,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                   <h4 class="modal-title">上传资源</h4>
 		               </div>
-		              <form action="control/UploadServlet" method="post" enctype="multipart/form-data">
+		              <form action="control/UploadServlet" method="post" enctype="multipart/form-data" target="nm_iframe">
 		                <div class="modal-body">
 		                    <div class="row">
 		                    	 <div class="col-xs-12 col-md-12">
@@ -80,12 +81,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                            <h4>资源地址：</h4>
 		                            <input type="file" name="file" id="upload_file" class="form-control" aria-describedby="basic-addon1">
 		                        </div>
+		                           
 		                    </div>
 		                </div>
 		                <!-- <div class="uploadImformation" name="uploadImformation" id="uploadImformation" type="hidden"></div> -->
 		                <div class="modal-footer">
 		                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-		                    <button type="submit" class="btn btn-primary" >上传</button>
+		                    <button type="submit" class="btn btn-primary" id="alertSuccess">上传</button>
 		                </div>
 		               </form>
 		           </div>

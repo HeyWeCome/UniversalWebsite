@@ -54,6 +54,12 @@ function showColumnsOrNot(){
 	}
 }
 
+$("#alertSuccess").click(function(){
+	 	alert("上传成功");
+});
+
+
+
 /*显示父栏目*/
 function connectParentColumns(data,i){
 	var parentColumns = '<button class="parentColumns" onclick="show1('

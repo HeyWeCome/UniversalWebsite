@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+
+.mainContent{
+	width:100%;
+	/* height:600px; */
+}
+
+.leftContent{
+	width:35%;
+	height:500px;
+	float:left;
+	background-color:#d2dcdc;
+}
+
+.centerContent{
+	width:5%;
+	height:500px;
+	float:left;
+	background-color:#d2dcdc;
+}
+
+.rightContent{
+	width:60%;
+	height:500px;
+	float:left;
+	background-color:#d2dcdc;
+}
+
+.selectWord{
+	font-family:"STXingkai";
+	font-size:50px;
+	text-align: center;
+	color:#870101;	
+}
+
+.selectCourse{
+	width:60%;
+	height:400px;
+	margin:0 auto;
+	/* background-color:#fff; */
+}
+
+.rightWord{
+	font-family:"微软雅黑";
+	font-size:16px;
+	margin:20px;
+}
+
+.courseButton{
+	margin:0 45px;
+	margin-top:20px;
+	width:200px;
+	height:40px;
+	background-color:#ca5151;
+	color:#fff;
+	border-radius:4px;
+}
