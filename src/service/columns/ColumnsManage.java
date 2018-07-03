@@ -3,10 +3,12 @@
  */
 package service.columns;
 
+import dao.GeneralDao;
 import dao.SpecificDao;
 import entity.Columns;
 import entity.SonColumns;
 import util.DBUtil;
+import util.InSertDBUtil;
 import util.UpdateDBUtil;
 
 /**
@@ -123,6 +125,54 @@ public class ColumnsManage implements IColumnsManage{
 			Integer result = UpdateDBUtil.update(sql);
 			return result;
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	/**  
+	 * @Title:        insertColumn  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 上午10:19:45  
+	 */  
+	@Override
+	public Integer insertColumn(Columns columns) {
+		String sql;
+		try {
+			sql = GeneralDao.generalInsertSQL(columns);
+			try {
+				Integer result = InSertDBUtil.insert(sql);
+				return result;
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	/**  
+	 * @Title:        insertSonColumns  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 上午10:19:45  
+	 */  
+	@Override
+	public Integer insertSonColumns(SonColumns sonColumns) {
+		String sql;
+		try {
+			sql = GeneralDao.generalInsertSQL(sonColumns);
+			try {
+				Integer result = InSertDBUtil.insert(sql);
+				return result;
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
+		} catch (IllegalArgumentException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
 		return 0;

@@ -16,6 +16,7 @@ import entity.Columns;
 import entity.Module;
 import entity.SonColumns;
 import entity.SonModule;
+import service.columns.ColumnsManage;
 import service.module.ModuleManage;
 import util.DBUtil;
 
@@ -34,18 +35,20 @@ public class InsertColumns extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		// 获取模块名
+		// 获取栏目名
 		String name = request.getParameter("name");	
-		// 获取父模块名
+		// 获取父栏目名
 		String parentColumnName = request.getParameter("parentColumnName");
+		
 		if(parentColumnName.equals("已是上级栏目")){
 			// 新建子模块对象
 			Columns columns = new Columns();
 			columns.setName(name);
-			columns.setLevel("1");
+			columns.setLevel("0");
 
-
-//			response.getWriter().println(result);
+			ColumnsManage columnsManage = new ColumnsManage();
+			Integer result = columnsManage.insertColumn(columns);
+			response.getWriter().println(result);
 
 		}else{
 			// 根据用户名查询用户ID
@@ -64,10 +67,12 @@ public class InsertColumns extends HttpServlet {
 			SonColumns sonColumns = new SonColumns();
 			sonColumns.setName(name);
 			sonColumns.setParentID(parentColumnsID);
-			sonColumns.setLevel("2");
+			sonColumns.setLevel("1");
+			
+			ColumnsManage columnsManage = new ColumnsManage();
+			Integer result = columnsManage.insertSonColumns(sonColumns);
 
-
-//			response.getWriter().println(result);
+			response.getWriter().println(result);
 		}
 	}
 

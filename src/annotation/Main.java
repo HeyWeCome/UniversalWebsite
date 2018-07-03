@@ -11,11 +11,13 @@ import com.alibaba.fastjson.JSONArray;
 
 import dao.SpecificDao;
 import entity.Article;
+import entity.Columns;
 import entity.Employee;
 import entity.Message;
 import entity.Module;
 import entity.Permission;
 import entity.Role;
+import entity.SonColumns;
 import entity.SonModule;
 import service.account.AccountManage;
 import service.article.ArticleManage;
@@ -39,45 +41,43 @@ import util.DBUtil;
 public class Main {
 	public static void main(String[] args){
 		// 获取模块名
-				String name = "系统设置";	
-				// 获取状态
-				String status = "0";
+		String name = "数据结构首页";	
+		// 获取父模块名
+		String parentColumnName = "已是上级栏目";
 
-				// 获取父模块名
-				String parentModuleName = "已是父模块";
-				if(parentModuleName.equals("已是父模块")){
-					// 新建父模块对象
-					Module Module = new Module();
-					Module.setName(name);
-					Module.setStatus(status);
+		if(parentColumnName.equals("已是上级栏目")){
+			// 新建子模块对象
+			Columns columns = new Columns();
+			columns.setName(name);
+			columns.setLevel("0");
 
-					ModuleManage moduleManage = new ModuleManage();
-					Integer result = moduleManage.updateModule(Module);
-//					response.getWriter().println(result);
+			ColumnsManage columnsManage = new ColumnsManage();
+			Integer result = columnsManage.insertColumn(columns);
+//			response.getWriter().println(result);
 
-				}else{
-					// 根据用户名查询用户ID
-					String sql1 = SpecificDao.findIDFromTable(parentModuleName, "module");
-					System.out.println(sql1);
-					Integer parentModuleID = 0;
-					try {
-						parentModuleID = DBUtil.findID(sql1);
-					} catch (NumberFormatException e) {
-						e.printStackTrace();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+		}else{
+			// 根据用户名查询用户ID
+			String sql1 = SpecificDao.findIDFromTable(parentColumnName, "columns");
+			System.out.println(sql1);
+			Integer parentColumnsID = 0;
+			try {
+				parentColumnsID = DBUtil.findID(sql1);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
-					// 新建子模块对象
-					SonModule sonModule = new SonModule();
-					sonModule.setName(name);
-					sonModule.setParentModuleID(parentModuleID);
-					sonModule.setStatus(status);
+			// 新建子栏目对象
+			SonColumns sonColumns = new SonColumns();
+			sonColumns.setName(name);
+			sonColumns.setParentID(parentColumnsID);
+			sonColumns.setLevel("1");
 
-					ModuleManage moduleManage = new ModuleManage();
-					Integer result = moduleManage.updateSonMoudle(sonModule);
-					
-//					response.getWriter().println(result);
-				}
+			ColumnsManage columnsManage = new ColumnsManage();
+			Integer result = columnsManage.insertSonColumns(sonColumns);
+
+//			response.getWriter().println(result);
+		}
 	}
 }

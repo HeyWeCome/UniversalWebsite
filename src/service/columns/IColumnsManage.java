@@ -20,4 +20,6 @@ public interface IColumnsManage {
 	String getAllPASColumns();
 	Integer updateColumns(Columns columns);
 	Integer updateSonColumns(SonColumns sonColumns);
+	Integer insertColumn(Columns columns);
+	Integer insertSonColumns(SonColumns sonColumns);
 }
