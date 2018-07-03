@@ -13,14 +13,14 @@
 }
 
 .centerContent{
-	width:5%;
+	width:2%;
 	height:500px;
 	float:left;
 	background-color:#d2dcdc;
 }
 
 .rightContent{
-	width:60%;
+	width:63%;
 	height:500px;
 	float:left;
 	background-color:#d2dcdc;
@@ -43,7 +43,7 @@
 .rightWord{
 	font-family:"微软雅黑";
 	font-size:16px;
-	margin:20px;
+	margin:20px 35px;
 }
 
 .courseButton{

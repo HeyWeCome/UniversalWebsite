@@ -24,6 +24,7 @@ function loadShow(ca){
         }
     });	
 	showMessageAndReply(ca);
+	showResources(ca);
 	 //getCourseSonColumns(ca);
 	 //courseName=ca;
 	 /*var columnsbuttom = document.getElementById("10000");
@@ -244,7 +245,76 @@ function submitMessage(courseName){
     });
 }
 
-/*function clean(){
-	document.getElementById("columns10001").innerHTML="";
-	$('#columns10001').html("");
-}*/
+function showResources(courseName){
+	console.log("showResources");
+	console.log("courseName:"+courseName);
+	$.ajax({    		
+        url:"control/HomePageFindAllResource",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"courseName":courseName
+        },
+        success:function(value){
+        	var data = value;
+        	var resources='';
+        	for(var i=0;i<data.length;i++){
+    			resources+=getResource(data[i].title,data[i].name);
+        	}
+        	document.getElementById("toShowResources").innerHTML=resources
+    	}
+    });
+}
+
+function getResource(title,name){
+	console.log("title:"+title);
+	console.log("name:"+name);
+	var image = '';
+	image = confirmEnding(name);
+	
+	var resource = '<div class="showResource"><img src="'+image+'" alt="txt下载" />'+
+		'<p>文章名称：'+title+'</p><p>资源名称：'+name+'</p>'+
+		'<a href="" download="'+name+'">点击下载</a></div>';
+	return resource;
+}
+
+function confirmEnding(name) {
+	console.log("name:"+name);
+
+	var txtSuffix = ".txt";
+	var docSuffix = ".doc";
+	var docxSuffix = ".docx";
+	var pptSuffix = ".ppt";
+	var pptxSuffix = ".pptx";
+	
+	var txtStart = name.length - txtSuffix.length;
+	var docStart = name.length - docSuffix.length;
+	var docxStart = name.length - docxSuffix.length;
+	var pptStart = name.length - pptSuffix.length;
+	var pptxStart = name.length - pptxSuffix.length;
+	
+	var txtImg = name.substr(txtStart,txtSuffix.length);
+	var docImg = name.substr(docStart,docSuffix.length);
+	var docxImg = name.substr(docxStart,docxSuffix.length);
+	var pptImg = name.substr(pptStart,pptSuffix.length);
+	var pptxImg = name.substr(pptxStart,pptxSuffix.length);
+	
+	if(txtImg == txtSuffix){
+		return "images/TXT.png";
+	}
+	else if(docImg == docSuffix){
+		return "images/DOC.png";
+	}
+	else if(docxImg == docxSuffix){
+		return "images/DOC.png";
+	}
+	else if(pptImg == pptSuffix){
+		return "images/PPT.png";
+	}
+	else if(pptxImg == pptxSuffix){
+		return "images/PPT.png";
+	}
+	else{
+		return "images/AVI.png";
+	}
+}

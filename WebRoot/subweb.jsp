@@ -4,7 +4,15 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 String courseName = request.getParameter("courseName");
 String introduction = request.getParameter("introduction");
-String principal = request.getParameter("principal");
+String principal= request.getParameter("principal");
+
+/*这个注释里面你们不用管，我转码用的 ,不影响你们运行
+String CourseName = request.getParameter("courseName");
+String Introduction = request.getParameter("introduction");
+String Principal = request.getParameter("principal");
+String courseName=new String(CourseName.getBytes("ISO-8859-1"),"UTF-8");
+String introduction=new String(Introduction.getBytes("ISO-8859-1"),"UTF-8");
+String principal=new String(Principal.getBytes("ISO-8859-1"),"UTF-8"); */
 System.out.println("课程名："+courseName);
 System.out.println("课程简介："+introduction);
 System.out.println("课程负责人："+principal);
@@ -126,8 +134,13 @@ System.out.println("课程负责人："+principal);
     	
     	<div class="teachingTeam" id="columns10002" style="display:none">教学团队无内容</div>
     	<div class="courseConstruction" id="columns10003" style="display:none">课程建设无内容</div>
-    	<div class="courseware " id="columns10004" style="display:none">课程资源</div>
+    	<!-- <div class="courseware " id="columns10004" style="display:none">课程资源</div> -->
     	
+    	
+    	<div class="courseware " id="columns10004" style="display:none">
+			<div class="curriculumResources" id="toShowResources">
+			</div>
+		</div>
     	
     	<div class="questionAndAnswer " id="columns10005" style="display:none">
     		<div class="showMessageAndReply" id="showMessageAndReply"> </div>
