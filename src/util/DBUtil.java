@@ -109,6 +109,32 @@ public class DBUtil {
 
 	}
 	
+	public static String findFilePath(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			String path = result.getString("path");
+
+
+			return path;
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
+
+	}
+	
 	
 	/**
 	 * 

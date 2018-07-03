@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -159,7 +160,8 @@ public class UploadServlet extends HttpServlet {
 					SourceFile sourceFile = new SourceFile();
 					sourceFile.setArticleID(articleID);
 					sourceFile.setName(fileName);
-					sourceFile.setPath(path+File.separator+File.separator+trueName);
+					
+					sourceFile.setPath((path+File.separator+File.separator+trueName).replaceAll("\\\\", "/").replaceAll("//", "/"));
 					System.out.println("文件的路径"+sourceFile.getPath());
 					SourceFileManage newSourceFileManage = new SourceFileManage();
 					
@@ -187,5 +189,18 @@ public class UploadServlet extends HttpServlet {
 		doPost(req, resp);
 	}
 
+	 /**
+     * 从http头部解析文件名字
+     */
+    private String extractFileName(Part part) {
+        String contentDisp = part.getHeader("content-disposition");
+        String[] items = contentDisp.split(";");
+        for (String s : items) {
+            if (s.trim().startsWith("filename")) {
+                return s.substring(s.indexOf("=") + 2, s.length()-1);
+            }
+        }
+        return "";
+    }
 
 }

@@ -491,6 +491,9 @@ public class SpecificDao {
 		
 	}
 	
+	public static String findFilePath(String name){
+		return "select path from sourcefile where name = '"+name+"';";
+	}
 	
 	/**
 	 * 
