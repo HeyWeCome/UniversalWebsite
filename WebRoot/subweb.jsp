@@ -29,15 +29,7 @@ System.out.println("课程负责人："+principal);
 	<script src="js/jquery-2.1.1.min.js"></script>
   </head>
   
-  <body onload="loadShow1()">
-	<script type="text/javascript">
-		function loadShow1(){
-			var courseNmae = "<%=courseName%>";
-			loadShow(courseNmae);
-		}	   
-	</script> 
-	
-	
+  <body onload="loadShow()">
     <div class="top">
     	<div class="logo">
     		<img class="cqutLogo" src="images/cqutLogo.png" width="90" height="90"/>
@@ -50,7 +42,7 @@ System.out.println("课程负责人："+principal);
     <div class="centerContent">
     
     
-    	<div class="subHomePage" id="columns10000" style="display:none">
+    	<div class="subHomePage" id="columns10000" >
     		<div class="briefIntroduction">
     			<div class="introductionTitle" style="margin-top: 5px;margin-left: 20px;">
     				<div class="titleText" style="font-size: 21px;">课程简介</div>
@@ -65,15 +57,6 @@ System.out.println("课程负责人："+principal);
     				<div class="line2"></div>
     				<div class="principalContent" style="width: 95%;"><%=principal%></div>
     			</div>
-    		</div>    	
-    	</div>
-    	
-    	
-    	   	
-    	<div class="introduction" id="columns10001" >
-    		<div class="introductionLeftMenu">
-    			<div class="introductionTtileText" id="introductionTtileText"><p>课程介绍</p></div>
-    			<div class="putSonColumns" id="putSonColumns"></div>
     		</div>
     	
     		<div class="introductionRight" id="introductionRight">   		
@@ -93,6 +76,9 @@ System.out.println("课程负责人："+principal);
     	
     	
     	
+    	
+    	
+    	<div class="introduction" id="columns10001" style="display:none">课程介绍</div>
     	<div class="teachingTeam" id="columns10002" style="display:none">教学团队无内容</div>
     	<div class="courseConstruction" id="columns10003" style="display:none">课程建设无内容</div>
     	<div class="courseware " id="columns10004" style="display:none">课程资源</div>
