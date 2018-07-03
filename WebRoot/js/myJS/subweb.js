@@ -23,6 +23,7 @@ function loadShow(ca){
         	document.getElementById("topMenu").innerHTML=content
         }
     });	
+	showMessageAndReply(ca);
 	 //getCourseSonColumns(ca);
 	 //courseName=ca;
 	 /*var columnsbuttom = document.getElementById("10000");
@@ -171,6 +172,78 @@ function getArticleContent(title,courseSonColumnsName){
     	}
     });
 }
+
+function showMessageAndReply(courseName){
+	//alert("进入");
+	
+	$('#showMessageAndReply').html("");
+	$.ajax({    		
+        url:"control/HomePageFindAllMessage",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"courseName":courseName
+        	},
+        success:function(data){
+        	//alert(data.length);
+        	var content='';
+        	for(var i=0;i<data.length;i++){
+        		if(data[i].status=="1"){
+        			content+=connectReplyedMessage(data[i]);
+        		}
+        		else if(data[i].status=="0"){
+        			content+=connectUnReplyedMessage(data[i]);
+        		}
+        	}
+        	document.getElementById("showMessageAndReply").innerHTML=content
+    	}
+    });
+}
+
+function connectReplyedMessage(data){
+	var message = '<div class="messageWithReply">'
+					+'<div class="message">'
+						+'<div class="messageText">留言：'+data.content+'</div>'
+						+'<div class="package"><div class="messageTime">'+data.createTime+'</div>'
+						+'<div class="hadReply">已回复</div></div>'
+					+'</div>'
+					+'<div class="line4"></div>'
+					+'<div class="reply">'
+						+'<div class="replyText">回复：'+data.reply+'</div>'
+						+'<div class="package"><div class="replyTime">'+data.replyTime+'</div>'						
+						+'<div class="replyEmployee">回复人：'+data.replyEmployee+'</div></div>'
+					+'</div>'
+				+'</div>'
+	return message;
+}
+function connectUnReplyedMessage(data){
+	var message = '<div class="messageWithoutReply">'
+					+'<div class="message">'
+						+'<div class="messageText">留言:'+data.content+'</div>'
+						+'<div class="package"><div class="messageTime">'+data.createTime+'</div>'
+						+'<div class="hadReply">未回复</div></div>'
+					+'</div>'
+				+'</div>'
+	return message;
+}
+
+function submitMessage(courseName){
+	//alert(courseName);
+	$.ajax({    		
+        url:"control/HomePageInsertMessage",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"courseName":courseName,
+        	"content":document.getElementById("writeMessage").value,
+        },
+        success:function(data){
+        	if(data==1){alert("留言成功!");showMessageAndReply(courseName);}
+        	else if(data==0){alert("留言失败!");}
+    	}
+    });
+}
+
 /*function clean(){
 	document.getElementById("columns10001").innerHTML="";
 	$('#columns10001').html("");

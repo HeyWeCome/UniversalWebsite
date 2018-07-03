@@ -60,7 +60,7 @@ public class HomePageInsertMessage extends HttpServlet {
 		Integer employeeID = 10001;
 		// 默认回复内容
 		String reply = "待回复";
-		String replyTime = "待回复";
+		String replyTime = date;
 
 		Message message = new Message();
 		message.setContent(content);

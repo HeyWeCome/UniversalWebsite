@@ -34,7 +34,11 @@ System.out.println("课程负责人："+principal);
 		function loadShow1(){
 			var courseNmae = "<%=courseName%>";
 			loadShow(courseNmae);
-		}	   
+		}
+		function submitMessage1(){
+			var courseNmae = "<%=courseName%>";
+			submitMessage(courseNmae);
+		}
 	</script> 
 	
 	
@@ -50,12 +54,12 @@ System.out.println("课程负责人："+principal);
     <div class="centerContent">
     
     
-    	<div class="subHomePage" id="columns10000" style="display:none">
+    	<div class="subHomePage" id="columns10000" >
     		<div class="briefIntroduction">
     			<div class="introductionTitle" style="margin-top: 5px;margin-left: 20px;">
     				<div class="titleText" style="font-size: 21px;">课程简介</div>
     				<div class="line1"></div>
-    				<div class="introductionContent" style="width: 95%;"><%=introduction%></div>
+    				<div class="introductionContent" style="width: 95%;">&nbsp;&nbsp;<%=introduction%></div>
     			</div>
     		</div>
     		
@@ -63,14 +67,41 @@ System.out.println("课程负责人："+principal);
     			<div class="principalTitle" style="margin-top: 5px;margin-left: 21px;">
     				<div class="titleText" style="font-size: 20px;">课程负责人</div>
     				<div class="line2"></div>
-    				<div class="principalContent" style="width: 95%;"><%=principal%></div>
+    				<div class="principalContent" style="width: 95%;">&nbsp;&nbsp;<%=principal%></div>
     			</div>
-    		</div>    	
+    		</div> 
+    		
+    		<div class="briefIntroduction" style="margin-top:20px; width:35%" onclick="showColumn(10001)">
+   				<div class="introductionTitle" style="margin-top: 5px;margin-left: 20px;">
+    				<div class="titleText" style="font-size: 21px;">课程介绍</div>
+    				<div class="line1"></div>
+    				<div class="introductionContent1" style="width: 95%;">
+    					<p>课程简介</p>
+    					<p>教学方法</p>
+    					<p>课程安排</p>
+    					<p>课程大纲</p>
+    					<p>课程理念与目标</p>
+    					<p>课程动态</p>
+    				</div>
+    			</div>
+			</div>  
+			
+			<div class="briefIntroduction" style="margin-top: 20px;width: 40%;margin-left: 22%;" onclick="showColumn(10004)">
+   				<div class="introductionTitle" style="margin-top: 5px;margin-left: 20px;">
+    				<div class="titleText" style="font-size: 21px;">课程资源</div>
+    				<div class="line1"></div>
+    				<div class="introductionContent1" style="width: 95%;">
+    					<div style="float: left;"><img class="pptLogo" src="images/PPT.png" width="100"height="100" /><p style="margin-left: 18px;">教学课件</p></div>
+    					<div style="float: left;"><img class="pptLogo" src="images/DOC.png" width="100"height="100" /><p style="margin-left: 18px;">教学文档</p></div>
+    					<div style="float: left;"><img class="pptLogo" src="images/TXT.png" width="100"height="100" /><p style="margin-left: 18px;">教学文本</p></div>
+    				</div>
+    			</div>
+			</div>   	
     	</div>
     	
     	
     	   	
-    	<div class="introduction" id="columns10001" >
+    	<div class="introduction" id="columns10001" style="display:none">
     		<div class="introductionLeftMenu">
     			<div class="introductionTtileText" id="introductionTtileText"><p>课程介绍</p></div>
     			<div class="putSonColumns" id="putSonColumns"></div>
@@ -96,7 +127,18 @@ System.out.println("课程负责人："+principal);
     	<div class="teachingTeam" id="columns10002" style="display:none">教学团队无内容</div>
     	<div class="courseConstruction" id="columns10003" style="display:none">课程建设无内容</div>
     	<div class="courseware " id="columns10004" style="display:none">课程资源</div>
-    	<div class="questionAndAnswer " id="columns10005" style="display:none">问题与答疑</div>
+    	
+    	
+    	<div class="questionAndAnswer " id="columns10005" style="display:none">
+    		<div class="showMessageAndReply" id="showMessageAndReply"> </div>
+    		
+    		<div class="collectMessages" id="collectMessages">
+    			<div class="collectMessagesText">请输入你的问题或者建议，管理员会进行回复：</div>
+    			<textarea name="writeMessage" class="writeMessage" id="writeMessage" rows="6" cols="40"></textarea>
+    			<button class="submitButton" onclick="submitMessage1()">提交留言</button>
+    		</div>
+    	</div>
+    	
     	<div class="courseResearch " id="columns10006" style="display:none">课程研究无内容</div>
     </div>
     

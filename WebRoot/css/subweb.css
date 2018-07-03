@@ -215,3 +215,117 @@ body {
     margin-left: 20px;
     margin-top: 5px;
 }
+.showMessageAndReply{
+	width: 50%;
+    height: 200px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 20px;
+    /* background-color: #337ab7; */
+}
+.collectMessages{
+	width: 35%;
+    height: 200px;
+    float: right;
+    margin-right: 50px;
+    margin-top: 20px;
+    background-color: #fff;
+}
+.messageWithReply{
+	margin-bottom: 10px;
+    width: 100%;
+    /* height: 100px; */
+    background-color: #fff;
+    border-radius: 10px;
+}
+.message{
+	
+	width: 100%;
+    /* height: 45px; */
+    background-color: #fff;
+    border-radius: 10px;
+}
+.messageWithoutReply{
+	margin-bottom:10px;
+	width: 100%;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.messageText {
+	width:95%;
+	margin-left: 12px;
+    padding-top: 10px;
+    font-size: 15px;
+	
+}
+.messageTime{
+	float: right;
+    /* margin-top: 25px; */
+    margin-right: 10px;
+    font-size: 12px;
+}
+.hadReply{
+	float: right;
+    /* margin-top: 25px; */
+    margin-right: 10px;
+    font-size: 12px;
+}
+.line4{
+	width: 96%;
+    height: 2px;
+    margin-left: 2%;
+    background-color: #b0c4de2e;
+}
+.replyText{
+	/* float:left;    */ 
+	width:95%;
+    margin-top: 14px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+.replyEmployee{
+    float: right; 
+    /* margin-top: 25px; */
+    margin-right: 10px;
+    font-size: 12px;
+}
+.replyTime{
+	 float: right; 
+    /* margin-top: 25px; */
+    margin-right: 10px;
+    font-size: 12px;
+}
+.package{
+	width:100%;
+	height:20px;
+}
+.reply{
+	width:100%;
+}
+.collectMessagesText{
+	color: #337ab7;
+    width: 93%;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 15px;
+}
+.writeMessage{
+	border-radius: 10px;
+    margin-left: 8%;
+}
+.submitButton{
+	color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    height: 35px;
+    width: 100px;
+    margin-top: 15px;
+    margin-left: 210px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.introductionContent1 p{
+	margin-top: 4px;
+	margin-left: 10px;
+}
