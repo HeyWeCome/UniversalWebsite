@@ -42,8 +42,29 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-			String path = "C:\\upload\\8d6b995f-08c8-4933-a6d5-5a185d0e5306test.txt";
-			 path = path.replaceAll("\\", "/");
-		System.out.println(path);
+		// 获取到前台传过来的课程
+		String courseName ="数据结构";
+
+		// 根据课程名查询课程ID
+		String sql1 = SpecificDao.findIDFromTable(courseName, "course");
+
+		Integer courseID = 0;
+		try {
+			courseID = DBUtil.findID(sql1);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// 新建课程栏目对象
+		CourseColumns courseColumns = new CourseColumns();
+
+		courseColumns.setCourseID(courseID);
+
+		CourseColumnsManage manage = new CourseColumnsManage();
+		String result = manage.findAllResources(courseColumns);
+
+		System.out.println("result为:"+result);
 	}
 }

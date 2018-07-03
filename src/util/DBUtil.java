@@ -17,7 +17,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -886,6 +886,33 @@ public class DBUtil {
 			String name = result.getString("name");
 			
 			returnResult += "{\"id\":\""+id
+					+"\",\"name\":\""+name					
+					+"\"},";
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
+	}
+	
+	public static String homePagefindAllResource(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			String title = result.getString("title");
+			String name = result.getString("name");
+			
+			returnResult += "{\"title\":\""+title
 					+"\",\"name\":\""+name					
 					+"\"},";
 		}

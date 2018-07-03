@@ -53,8 +53,19 @@ public class CourseColumnsManage implements ICourseColumnsManage{
 		// 获取到给定属性
 		Integer courseID = courseColumns.getCourseID();
 		
-		String sql = "select article.title, sourcefile.name";
-		return null;
+		String sql = "select article.title, sourcefile.name "
+				+ " from article,sourcefile "
+				+ "where sourcefile.articleID = article.id";
+		System.out.println("要执行的sql为:"+sql);
+		try {
+			String result = DBUtil.homePagefindAllResource(sql);
+			return result;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return sql;
 	}
 
 

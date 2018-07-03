@@ -54,7 +54,9 @@ public class HomePageFindAllResource extends HttpServlet {
 		courseColumns.setCourseID(courseID);
 		
 		CourseColumnsManage manage = new CourseColumnsManage();
+		String result = manage.findAllResources(courseColumns);
 		
+		System.out.println("result为:"+result);
 	}
 
 
