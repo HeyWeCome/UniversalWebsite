@@ -19,19 +19,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/curriculumResources.css" />
   </head>
   	
   <body>
   <!-- 	<div class="courseware " id="columns10004" style="display:none">课程资源 -->
-    		<div class="curriculumResources">
-  					<div class="showResources" id="showaaa">
-  						<!-- <img src="images/TXT.png"  alt="txt下载" />
+    		<div class="curriculumResources" id="showResources">
+  					<!-- <div class="showResources" >
+  						<img src="images/TXT.png"  alt="txt下载" />
   						<p>文章名称：数据结构</p>
   						<p>资源名称：数据结构</p>
-  						<a href="images/TXT.png" download="TXT">点击下载</a> -->
-  					</div>
+  						<a href="images/TXT.png" download="TXT">点击下载</a>
+  					</div> -->
   					<!-- <div class="showResources">
   						<img src="images/DOC.png"  alt="txt下载" />
   						<p>文章名称：数据结构</p>
@@ -50,7 +50,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   						<p>资源名称：数据结构</p>
   						<a href="images/TXT.png" download="TXT">点击下载</a>
   					</div> -->
-  				
   			</div>
   	
   	<!-- </div> -->
