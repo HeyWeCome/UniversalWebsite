@@ -173,6 +173,11 @@
     <servlet-name>HomePageFindAllMessage</servlet-name>
     <servlet-class>control.HomePageFindAllMessage</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>HomePageInsertMessage</servlet-name>
+    <servlet-class>control.HomePageInsertMessage</servlet-class>
+  </servlet>
+
 
 
 
@@ -385,6 +390,10 @@
   <servlet-mapping>
     <servlet-name>HomePageFindAllMessage</servlet-name>
     <url-pattern>/control/HomePageFindAllMessage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HomePageInsertMessage</servlet-name>
+    <url-pattern>/control/HomePageInsertMessage</url-pattern>
   </servlet-mapping>
 
 </web-app>

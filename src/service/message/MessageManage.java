@@ -3,10 +3,12 @@
  */
 package service.message;
 
+import dao.GeneralDao;
 import dao.SpecificDao;
 import entity.Message;
 import util.DBUtil;
 import util.DeleteDBUtil;
+import util.InSertDBUtil;
 import util.UpdateDBUtil;
 
 /**
@@ -105,6 +107,30 @@ public class MessageManage implements IMessageManage{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	/**  
+	 * @Title:        insertMessage  
+	 * @Description:  插入留言
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 下午7:52:45  
+	 */  
+	@Override
+	public Integer insertMessage(Message message) {
+		try {
+			String sql = GeneralDao.generalInsertSQL(message);
+			System.out.println("sql为:"+sql);
+			
+			try {
+				Integer result = InSertDBUtil.insert(sql);
+				return result;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 }
