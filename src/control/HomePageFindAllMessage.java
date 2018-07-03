@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+
 import dao.SpecificDao;
 import entity.Message;
+import service.message.MessageManage;
 import util.DBUtil;
 
 /** 
@@ -49,7 +53,16 @@ public class HomePageFindAllMessage extends HttpServlet {
 		Message message = new Message();
 		message.setCourseID(courseID);
 		
+		MessageManage manage = new MessageManage();
+		String result = manage.findAllHomePageMessage(message);
 		
+		if(!result.isEmpty()){
+			JSONArray fromObject = (JSONArray) JSON.parse(result);
+			System.out.println("留言为 :"+fromObject.toString());
+			response.getWriter().print(fromObject);
+		}else{
+			response.getWriter().print(""); 
+		}
 	}
 
 

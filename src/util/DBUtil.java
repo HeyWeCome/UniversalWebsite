@@ -754,6 +754,18 @@ public class DBUtil {
 	}
 	
 	
+	/**
+	 * 
+	 * @Title:        findAllHomePageMessage  
+	 * @Description:  显示门户网站的留言 
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 下午7:23:29
+	 */
 	public static String findAllHomePageMessage(String sql) throws Exception{
 		Connection connection = getConnection();
 		String returnResult = "";
@@ -761,7 +773,7 @@ public class DBUtil {
 
 		ResultSet result = statement.executeQuery(sql);
 		returnResult += "[";
-
+		
 		while(result.next()){
 			int id = result.getInt("id");
 			String content = result.getString("content");
@@ -770,21 +782,16 @@ public class DBUtil {
 			String replyTime = result.getString("replyTime");
 			String replyEmployee = result.getString("replyEmployee");
 			String status = result.getString("status");
-
-			if(status.equals("0")){
-				status = "未回复";
-				replyEmployee = "待回复";
-				replyTime = "待回复";
-			}else if(status.equals("1")){
-				status = "已回复";
-			}
+			int courseID = result.getInt("courseID");
 
 			returnResult += "{\"content\":\""+content
+					+"\",\"id\":\""+id
 					+"\",\"createTime\":\""+createTime
 					+"\",\"reply\":\""+reply
 					+"\",\"replyTime\":\""+replyTime
 					+"\",\"replyEmployee\":\""+replyEmployee
 					+"\",\"status\":\""+status
+					+"\",\"courseID\":\""+courseID
 					+"\"},";
 		}
 
