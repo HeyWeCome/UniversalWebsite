@@ -515,7 +515,7 @@ public class SpecificDao {
 				+ "set status = '"+sonmodule.getStatus()+"'"
 //						+ " name = '"+sonmodule.getName()+"'"
 						+ " parentModuleID = "+sonmodule.getParentModuleID()+" "
-								+ " where sonmodule.name = '"+sonmodule.getName()+";";
+								+ " where sonmodule.name = '"+sonmodule.getName()+"';";
 	}
 	
 	/**
