@@ -154,15 +154,20 @@ function connectArticleTitle(data){
 function getArticleContent(title){
 	$('#putTitleAndContent').html("");
 	$.ajax({    		
-        url:"control/???",//servlet文件的名称  
+        url:"control/HomePageFindAllSonColumnsArticleContent",//servlet文件的名称  
         type:"POST",  
         dataType:"json",
         data:{
         	"articleTitle":title
         	},
         success:function(data){
+        	alert("返回成功")
         	var content = '<div>'+data.content+'</div>'
         	document.getElementById("putTitleAndContent").innerHTML=content;
-    	}
+    	},
+        error: function (msg) {//ajax请求失败后触发的方法
+	    	 	alert("请求失败");
+	    	 	console.log(msg)
+	     	}
     });
 }
