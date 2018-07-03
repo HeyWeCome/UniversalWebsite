@@ -541,4 +541,25 @@ public class SpecificDao {
 				+ " level = '"+soncolumns.getLevel()+"',"
 						+ " parentID = "+ soncolumns.getParentID()+";";
 	}
+	
+	/**
+	 * 
+	 * @Title:        deleteColumns  
+	 * @Description:  删除栏目 
+	 * @param:        @param columns
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 上午10:39:11
+	 */
+	public static String deleteColumns(Columns columns){
+		return "delete from columns "
+				+ "where name = '"+columns.getName()+"';";
+	}
+	
+	public static String deleteSonColumns(SonColumns soncolumns){
+		return "delete from soncolumns "
+				+ "where name = '"+soncolumns.getName()+"';";
+	}
 }

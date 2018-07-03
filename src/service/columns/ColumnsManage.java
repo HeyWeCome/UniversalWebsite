@@ -8,6 +8,7 @@ import dao.SpecificDao;
 import entity.Columns;
 import entity.SonColumns;
 import util.DBUtil;
+import util.DeleteDBUtil;
 import util.InSertDBUtil;
 import util.UpdateDBUtil;
 
@@ -173,6 +174,51 @@ public class ColumnsManage implements IColumnsManage{
 				e.printStackTrace();
 			}
 		} catch (IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	/**  
+	 * @Title:        deleteColumns  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 上午10:37:44  
+	 */  
+	@Override
+	public Integer deleteColumns(Columns columns) {
+		String sql = SpecificDao.deleteColumns(columns);
+		System.out.println("要执行的sql："+sql);
+		try {
+			Integer result = DeleteDBUtil.delete(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	
+
+	/**
+	 * 
+	 * @Title:        deleteSonColumns  
+	 * @Description:  删除子栏目
+	 * @param:        @param soncolumns
+	 * @param:        @return     
+	 * @return:       Integer     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 上午10:41:16
+	 */
+	@Override
+	public Integer deleteSonColumns(SonColumns soncolumns) {
+		String sql = SpecificDao.deleteSonColumns(soncolumns);
+		System.out.println("要执行的sql："+sql);
+		try {
+			Integer result = DeleteDBUtil.delete(sql);
+			return result;
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return 0;

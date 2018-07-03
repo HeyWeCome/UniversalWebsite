@@ -40,43 +40,25 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		// 获取模块名
-		String name = "数据结构首页";	
-		// 获取父模块名
-		String parentColumnName = "已是上级栏目";
+		// 获取栏目名
+		String name = "咔咔咔";	
+		// 获取父栏目名
+		String parentColumnName = "ddd";
 
 		if(parentColumnName.equals("已是上级栏目")){
 			// 新建子模块对象
 			Columns columns = new Columns();
 			columns.setName(name);
-			columns.setLevel("0");
-
+			// 新建管理对象
 			ColumnsManage columnsManage = new ColumnsManage();
-			Integer result = columnsManage.insertColumn(columns);
+			Integer result = columnsManage.deleteColumns(columns);
 //			response.getWriter().println(result);
-
 		}else{
-			// 根据用户名查询用户ID
-			String sql1 = SpecificDao.findIDFromTable(parentColumnName, "columns");
-			System.out.println(sql1);
-			Integer parentColumnsID = 0;
-			try {
-				parentColumnsID = DBUtil.findID(sql1);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
 			// 新建子栏目对象
 			SonColumns sonColumns = new SonColumns();
 			sonColumns.setName(name);
-			sonColumns.setParentID(parentColumnsID);
-			sonColumns.setLevel("1");
-
 			ColumnsManage columnsManage = new ColumnsManage();
-			Integer result = columnsManage.insertSonColumns(sonColumns);
-
+			Integer result = columnsManage.deleteSonColumns(sonColumns);
 //			response.getWriter().println(result);
 		}
 	}
