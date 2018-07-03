@@ -16,7 +16,6 @@ public class Message {
 	private Integer employeeID;
 	private String replyTime;
 	private String status;
-	private Integer moduleID;
 	private Integer courseID;
 
 	public Message() {
@@ -43,7 +42,6 @@ public class Message {
 		this.employeeID = employeeID;
 		this.replyTime = replyTime;
 		this.status = status;
-		this.moduleID = moduleID;
 	}
 
 	public Integer getId() {
@@ -110,13 +108,6 @@ public class Message {
 		this.status = status;
 	}
 
-	public Integer getModuleID() {
-		return moduleID;
-	}
-
-	public void setModuleID(Integer moduleID) {
-		this.moduleID = moduleID;
-	}
 	
 	
 }
