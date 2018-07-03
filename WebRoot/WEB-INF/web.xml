@@ -165,6 +165,11 @@
     <servlet-name>HomePageFindAllSonColumnsArticle</servlet-name>
     <servlet-class>control.HomePageFindAllSonColumnsArticle</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>HomePageFindAllSonColumnsArticleContent</servlet-name>
+    <servlet-class>control.HomePageFindAllSonColumnsArticleContent</servlet-class>
+  </servlet>
+
 
 
 
@@ -367,6 +372,10 @@
   <servlet-mapping>
     <servlet-name>HomePageFindAllSonColumnsArticle</servlet-name>
     <url-pattern>/control/HomePageFindAllSonColumnsArticle</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HomePageFindAllSonColumnsArticleContent</servlet-name>
+    <url-pattern>/control/HomePageFindAllSonColumnsArticleContent</url-pattern>
   </servlet-mapping>
 
 </web-app>
