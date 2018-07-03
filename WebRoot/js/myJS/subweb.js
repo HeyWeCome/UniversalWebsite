@@ -128,7 +128,7 @@ function getArticleTitle(courseName,id,courseSonColumnsName){
 	document.getElementById("showPosition").innerHTML=position
 	$('#putTitleAndContent').html("");
 	$.ajax({    		
-        url:"control/???",//servlet文件的名称  
+        url:"control/HomePageFindAllSonColumnsArticle",//servlet文件的名称  
         type:"POST",  
         dataType:"json",
         data:{
@@ -147,7 +147,8 @@ function getArticleTitle(courseName,id,courseSonColumnsName){
 function connectArticleTitle(data){
 	var articleTitle = '<div class="articleTitle" id="'
 		+data.title
-		+'" onclick="getArticleContent(&quot;'+data.title+'&quot;)"><p></p></div>'
+		+'" onclick="getArticleContent(&quot;'+data.title+'&quot;)"><p>'+data.title+'</p></div>'
+		
 		return articleTitle;
 }
 function getArticleContent(title){
