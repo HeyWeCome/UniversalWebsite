@@ -12,6 +12,7 @@ import com.alibaba.fastjson.JSONArray;
 import dao.SpecificDao;
 import entity.Article;
 import entity.Columns;
+import entity.CourseColumns;
 import entity.Employee;
 import entity.Message;
 import entity.Module;
@@ -19,6 +20,7 @@ import entity.Permission;
 import entity.Role;
 import entity.SonColumns;
 import entity.SonModule;
+import service.CourseColumns.CourseColumnsManage;
 import service.account.AccountManage;
 import service.article.ArticleManage;
 import service.columns.ColumnsManage;
@@ -40,26 +42,44 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		// 获取栏目名
-		String name = "咔咔咔";	
-		// 获取父栏目名
-		String parentColumnName = "ddd";
+		// 获取到前台传过来的课程
+		String courseName = "数据结构";
+		// 获取到前台传过来的父栏目的名称
+		String parentColumnsName = "课程介绍";
 
-		if(parentColumnName.equals("已是上级栏目")){
-			// 新建子模块对象
-			Columns columns = new Columns();
-			columns.setName(name);
-			// 新建管理对象
-			ColumnsManage columnsManage = new ColumnsManage();
-			Integer result = columnsManage.deleteColumns(columns);
-//			response.getWriter().println(result);
-		}else{
-			// 新建子栏目对象
-			SonColumns sonColumns = new SonColumns();
-			sonColumns.setName(name);
-			ColumnsManage columnsManage = new ColumnsManage();
-			Integer result = columnsManage.deleteSonColumns(sonColumns);
-//			response.getWriter().println(result);
+		if(parentColumnsName.equals("课程介绍")){
+			// 根据课程名查询课程ID
+			String sql1 = SpecificDao.findIDFromTable(courseName, "course");
+
+			Integer courseID = 0;
+			try {
+				courseID = DBUtil.findID(sql1);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			// 根据父栏目名查询父栏目ID
+			String sql2 = SpecificDao.findIDFromTable(parentColumnsName, "columns");
+
+			Integer columnsID = 0;
+			try {
+				columnsID = DBUtil.findID(sql2);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			CourseColumns courseColumns = new CourseColumns();
+
+			courseColumns.setColumnsID(columnsID);
+			courseColumns.setCourseID(courseID);
+
+			CourseColumnsManage manage = new CourseColumnsManage();
+			String result = manage.findSoncolumns(courseColumns);
+			System.out.println(result.toString());
 		}
 	}
 }
