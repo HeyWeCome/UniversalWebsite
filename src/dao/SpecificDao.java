@@ -1,11 +1,13 @@
 package dao;
 
 import entity.Article;
+import entity.Columns;
 import entity.Employee;
 import entity.Message;
 import entity.Module;
 import entity.Permission;
 import entity.Role;
+import entity.SonColumns;
 import entity.SonModule;
 
 /**
@@ -507,5 +509,29 @@ public class SpecificDao {
 				+ "set name = '"+sonmodule.getName()+"', "
 				+ " status = '"+sonmodule.getStatus()+"'"
 						+ " parentModuleID = "+sonmodule.getParentModuleID()+";";
+	}
+	
+	/**
+	 * 
+	 * @Title:        updateColumns  
+	 * @Description:  更新栏目表
+	 * @param:        @param columns
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 上午12:24:52
+	 */
+	public static String updateColumns(Columns columns){
+		return "update columns "
+				+ "set name = '"+columns.getName()+"', "
+				+ " level = '"+columns.getLevel()+"';";
+	}
+	
+	public static String updateSonColumns(SonColumns soncolumns){
+		return "update soncolumns "
+				+ "set name = '"+soncolumns.getName()+"', "
+				+ " level = '"+soncolumns.getLevel()+"',"
+						+ " parentID = "+ soncolumns.getParentID()+";";
 	}
 }

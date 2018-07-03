@@ -137,6 +137,11 @@
     <servlet-name>FindAllPASColumns</servlet-name>
     <servlet-class>control.FindAllPASColumns</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>InsertColumns</servlet-name>
+    <servlet-class>control.InsertColumns</servlet-class>
+  </servlet>
+
 
 
 
@@ -304,6 +309,10 @@
   <servlet-mapping>
     <servlet-name>FindAllPASColumns</servlet-name>
     <url-pattern>/control/FindAllPASColumns</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InsertColumns</servlet-name>
+    <url-pattern>/control/InsertColumns</url-pattern>
   </servlet-mapping>
 
 </web-app>

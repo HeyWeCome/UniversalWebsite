@@ -4,7 +4,10 @@
 package service.columns;
 
 import dao.SpecificDao;
+import entity.Columns;
+import entity.SonColumns;
 import util.DBUtil;
+import util.UpdateDBUtil;
 
 /**
  * 
@@ -30,7 +33,7 @@ public class ColumnsManage implements IColumnsManage{
 		String result = "";
 
 		System.out.println("要执行的sql为:"+sql);
-		
+
 		try {
 			result = DBUtil.findAllColumns(sql);
 			return result;
@@ -50,7 +53,7 @@ public class ColumnsManage implements IColumnsManage{
 	 */
 	@Override
 	public String getAllSonColumns() {
-		
+
 		String sql = SpecificDao.selectAllFromTable("soncolumns");
 		String result = "";
 
@@ -87,6 +90,44 @@ public class ColumnsManage implements IColumnsManage{
 		return null;
 	}
 
-	
+	/**  
+	 * @Title:        updateColumns  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 上午12:22:07  
+	 */  
+	@Override
+	public Integer updateColumns(Columns columns) {
+		String sql = SpecificDao.updateColumns(columns);
+
+		try {
+			Integer result = UpdateDBUtil.update(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	/**  
+	 * @Title:        updateSonColumns  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 上午12:22:07  
+	 */  
+	@Override
+	public Integer updateSonColumns(SonColumns sonColumns) {
+		String sql = SpecificDao.updateSonColumns(sonColumns);
+
+		try {
+			Integer result = UpdateDBUtil.update(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+
 
 }

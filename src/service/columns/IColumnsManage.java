@@ -3,6 +3,9 @@
  */
 package service.columns;
 
+import entity.Columns;
+import entity.SonColumns;
+
 /**
  * 
  * @ClassName:     IColumnsManage.java 
@@ -15,5 +18,6 @@ public interface IColumnsManage {
 	String getAllColumns();
 	String getAllSonColumns();
 	String getAllPASColumns();
-	
+	Integer updateColumns(Columns columns);
+	Integer updateSonColumns(SonColumns sonColumns);
 }
