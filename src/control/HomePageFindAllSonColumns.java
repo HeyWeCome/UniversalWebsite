@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+
 import dao.SpecificDao;
 import entity.CourseColumns;
 import service.CourseColumns.CourseColumnsManage;
@@ -69,6 +72,14 @@ public class HomePageFindAllSonColumns extends HttpServlet {
 			
 			CourseColumnsManage manage = new CourseColumnsManage();
 			String result = manage.findSoncolumns(courseColumns);
+			
+			if(!result.isEmpty()){
+				JSONArray fromObject = (JSONArray) JSON.parse(result);
+				System.out.println("couserSonColumns are:"+fromObject.toString());
+				response.getWriter().print(fromObject);
+			}else{
+				response.getWriter().print(""); 
+			}
 			
 		}else{
 			

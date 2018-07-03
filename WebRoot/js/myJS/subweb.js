@@ -78,8 +78,9 @@ function showColumn(id){
 function getCourseSonColumns(courseName,parentColumnsName){
 	//alert("courseName:"+courseName);
 	//alert("parentColumnsName:"+parentColumnsName);
+	alert("进入")
 	$.ajax({    		
-        url:"control/FindAllSonColumns",//servlet文件的名称  
+        url:"control/HomePageFindAllSonColumns",//servlet文件的名称  
         type:"POST",  
         dataType:"json",
         data:{
@@ -89,21 +90,25 @@ function getCourseSonColumns(courseName,parentColumnsName){
         //data:{"questionnaireId":"<%=questionnaireId%>"},
         success:function(data){
         	//alert(data1);
-        	//alert("成功返回");
+        	alert("成功返回");
         	var content='';
         	for(var i=0;i<data.length;i++){
         		content+=connectSonColumns(data[i],i,courseName);
         	}
         	//alert(content)
         	document.getElementById("putSonColumns").innerHTML=content
-        }
+        },
+        error: function (msg) {//ajax请求失败后触发的方法
+	    	 	alert("请求失败");
+	    	 	console.log(msg)
+	     	}
     });	
 	//alert(courseName);
 }
 
-function connectSonColumns(data,i){
-	var sonColumn = '<button class="sonColumns" oclick="getArticleTitle('
-		+courseName+','+
+function connectSonColumns(data,i,courseName){
+	var sonColumn = '<button class="sonColumns" oclick="getArticleTitle(&quot;'
+		+courseName+'&quot;,'+ data.id
 		+')" id="sonColumns'
 		+data.id
 		+'" >'
@@ -112,7 +117,10 @@ function connectSonColumns(data,i){
 	return sonColumn
 }
 
-function clean(){
-	/*document.getElementById("columns10001").innerHTML="";*/
-	$('#columns10001').html("");
+function getArticleTitle(courseName,id){
+	
 }
+/*function clean(){
+	document.getElementById("columns10001").innerHTML="";
+	$('#columns10001').html("");
+}*/
