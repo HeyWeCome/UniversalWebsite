@@ -500,15 +500,17 @@ public class SpecificDao {
 	 */
 	public static String updateModule(Module module){
 		return "update module "
-				+ "set name = '"+module.getName()+"', "
-				+ " status = '"+module.getStatus()+"';";
+				+ "set status = '"+module.getStatus()+"'"
+//						+ " name = '"+module.getName()+"'"
+						+ "where module.name = '"+module.getName()+"';";
 	}
 	
 	public static String updateSonModule(SonModule sonmodule){
 		return "update Sonmodule "
-				+ "set name = '"+sonmodule.getName()+"', "
-				+ " status = '"+sonmodule.getStatus()+"'"
-						+ " parentModuleID = "+sonmodule.getParentModuleID()+";";
+				+ "set status = '"+sonmodule.getStatus()+"'"
+//						+ " name = '"+sonmodule.getName()+"'"
+						+ " parentModuleID = "+sonmodule.getParentModuleID()+" "
+								+ " where sonmodule.name = '"+sonmodule.getName()+";";
 	}
 	
 	/**

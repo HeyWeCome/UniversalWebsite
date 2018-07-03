@@ -41,7 +41,7 @@ public class UpdateModule extends HttpServlet {
 		// 获取父模块名
 		String parentModuleName = request.getParameter("parentModuleName");
 		if(parentModuleName.equals("已是父模块")){
-			// 新建子模块对象
+			// 新建父模块对象
 			Module Module = new Module();
 			Module.setName(name);
 			Module.setStatus(status);
