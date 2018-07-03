@@ -21,4 +21,5 @@ public interface IArticleManage {
 	Integer PassArticle(Article article);
 	String findArticleContent(Article article);
 	Integer updateArticle(Article article);
+	String findhomePageArticleContent(Article article);
 }

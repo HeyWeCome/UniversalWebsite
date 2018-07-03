@@ -201,6 +201,32 @@ public class ArticleManage implements IArticleManage{
 		return result;
 	}
 
-
+	/**
+	 * 
+	 * @Title:        findhomePageArticleContent  
+	 * @Description:  找到主页所有文章的内容 
+	 * @param:        @param article
+	 * @param:        @return     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 下午5:12:19
+	 */
+	public String findhomePageArticleContent(Article article){
+		String sql = "select title,content "
+				+ " from article "
+				+ "where article.title = '"+article.getTitle()+"';";
+		
+		System.out.println("需要执行的sql为:"+sql);
+		
+		try {
+			String result = DBUtil.findAllHomePageArticleContent(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
 
 }

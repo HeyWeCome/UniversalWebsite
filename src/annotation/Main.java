@@ -42,21 +42,19 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		// 获取到课程传递过来的子栏目的ID
-				Integer courseSonColumnsId = 10001;
-				
-				SonColumns soncolumns = new SonColumns();
-				soncolumns.setId(courseSonColumnsId);
-				
-				ColumnsManage manage = new ColumnsManage();
-				String result = manage.findAllArticle(soncolumns);
-				
-				if(!result.isEmpty()){
-					JSONArray fromObject = (JSONArray) JSON.parse(result);
-					System.out.println("couserSonColumns are:"+fromObject.toString());
-//					response.getWriter().print(fromObject);
-				}else{
-//					response.getWriter().print(""); 
-				}
+		String articleTitle = "进化论";
+		Article article = new Article();
+		article.setTitle(articleTitle);
+
+		ArticleManage articleManage = new ArticleManage();
+		String result = articleManage.findhomePageArticleContent(article);
+
+		if(!result.isEmpty()){
+			JSONArray fromObject = (JSONArray) JSON.parse(result);
+			System.out.println("文章内容 are:"+fromObject.toString());
+//			response.getWriter().print(fromObject);
+		}else{
+//			response.getWriter().print(""); 
+		}
 	}
 }

@@ -267,6 +267,38 @@ public class DBUtil {
 		return null;
 	}
 	
+	public static String findAllHomePageArticleContent(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		try {
+			// 相对应的读出文章每一行的所有元素内容
+			while(result.next()){
+				String title = result.getString("title");
+				String content = result.getString("content");
+				
+				returnResult += "{\"title\":\""+title
+						+"\",\"content\":\""+content
+						+"\"},";
+			}
+
+			returnResult = returnResult.substring(0,returnResult.length()-1);
+			returnResult += "]";
+			// 关闭相应的链接
+			result.close();
+			statement.close();
+			connection.close();
+
+			return returnResult;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	/**
 	 * 
 	 * @Title:        findAllAuditArticle  

@@ -14,46 +14,47 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 
-import entity.SonColumns;
-import service.columns.ColumnsManage;
+import entity.Article;
+import service.article.ArticleManage;
 
 /** 
- * @ClassName:     HomePageFindAllSonColumnsArticle.java 
- * @Description:   TODO(用一句话描述该文件做什么)  
+ * @ClassName:     HomePageFindAllSonColumnsArticleContent.java 
+ * @Description:   查找文章内容 
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018年7月3日 下午4:50:46  
+ * @Date           2018年7月3日 下午5:06:25  
  */
-public class HomePageFindAllSonColumnsArticle extends HttpServlet {
+public class HomePageFindAllSonColumnsArticleContent extends HttpServlet {
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		// 解决前后乱码问题
 		response.setContentType("text/json");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		// 获取到课程传递过来的子栏目的ID
-		Integer courseSonColumnsId = Integer.parseInt(request.getParameter("courseSonColumnsId"));
+		String articleTitle = request.getParameter("articleTitle");
+		Article article = new Article();
+		article.setTitle(articleTitle);
 		
-		SonColumns soncolumns = new SonColumns();
-		soncolumns.setId(courseSonColumnsId);
-		
-		ColumnsManage manage = new ColumnsManage();
-		String result = manage.findAllArticle(soncolumns);
+		ArticleManage articleManage = new ArticleManage();
+		String result = articleManage.findhomePageArticleContent(article);
 		
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("文章名 are:"+fromObject.toString());
+			System.out.println("文章内容 are:"+fromObject.toString());
 			response.getWriter().print(fromObject);
 		}else{
 			response.getWriter().print(""); 
 		}
+		
 	}
 
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request,response);
+
+
 	}
 
 }
