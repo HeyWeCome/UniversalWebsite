@@ -512,7 +512,7 @@ public class SpecificDao {
 	
 	public static String updateSonModule(SonModule sonmodule){
 		return "update Sonmodule "
-				+ "set status = '"+sonmodule.getStatus()+"'"
+				+ "set status = '"+sonmodule.getStatus()+"',"
 //						+ " name = '"+sonmodule.getName()+"'"
 						+ " parentModuleID = "+sonmodule.getParentModuleID()+" "
 								+ " where sonmodule.name = '"+sonmodule.getName()+"';";
