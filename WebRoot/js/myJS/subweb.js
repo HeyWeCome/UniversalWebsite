@@ -164,10 +164,6 @@ function getArticleContent(title){
         	alert("返回成功")
         	var content = '<div>'+data.content+'</div>'
         	document.getElementById("putTitleAndContent").innerHTML=content;
-    	},
-        error: function (msg) {//ajax请求失败后触发的方法
-	    	 	alert("请求失败");
-	    	 	console.log(msg)
-	     	}
+    	}
     });
 }
