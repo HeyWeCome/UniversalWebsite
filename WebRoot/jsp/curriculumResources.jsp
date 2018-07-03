@@ -19,45 +19,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+<script src="js/jquery-2.1.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/curriculumResources.css" />
   </head>
   	
   <body>
   <!-- 	<div class="courseware " id="columns10004" style="display:none">课程资源 -->
-    		<div style="width:60%;height:500px;background-color:#999">
-  				<div class="box" style="flex-wrap: wrap ;">
-  					<div style="width:200px;height:280px;float:left;background-color:#666">
-  						<img src="images/TXT.png"  alt="txt下载" />
+    		<div class="curriculumResources">
+  					<div class="showResources" id="showaaa">
+  						<!-- <img src="images/TXT.png"  alt="txt下载" />
   						<p>文章名称：数据结构</p>
-  						<p>课程名称：数据结构</p>
+  						<p>资源名称：数据结构</p>
+  						<a href="images/TXT.png" download="TXT">点击下载</a> -->
+  					</div>
+  					<!-- <div class="showResources">
+  						<img src="images/DOC.png"  alt="txt下载" />
+  						<p>文章名称：数据结构</p>
+  						<p>资源名称：数据结构</p>
   						<a href="images/TXT.png" download="TXT">点击下载</a>
   					</div>
-  					<div style="width:200px;height:280px;float:left">
-  						<img src="images/DOC.png"  alt="txt下载" />
-  						<p>文章名称：数据结构</p>
-  						<p>课程名称：数据结构</p>
-  						<a>点击下载</a>
-  					</div>
-  					<div style="width:200px;height:280px;float:left">
+  					<div class="showResources">
   						<img src="images/AVI.png"  alt="txt下载" />
   						<p>文章名称：数据结构</p>
-  						<p>课程名称：数据结构</p>
-  						<a>点击下载</a>
+  						<p>资源名称：数据结构</p>
+  						<a href="images/TXT.png" download="TXT">点击下载</a>
   					</div>
-  					<div style="width:200px;height:280px;float:left">
+  					<div class="showResources">
   						<img src="images/PPT.png"  alt="txt下载" />
   						<p>文章名称：数据结构</p>
-  						<p>课程名称：数据结构</p>
-  						<a>点击下载</a>
-  					</div>
-  						<!-- <img src="images/TXT.png"  alt="txt下载" />
-  						<img src="images/DOC.png"  alt="txt下载" />
-  						<img src="images/AVI.png"  alt="txt下载" />
-  						<img src="images/PPT.png"  alt="txt下载" /> -->
-  				</div>
+  						<p>资源名称：数据结构</p>
+  						<a href="images/TXT.png" download="TXT">点击下载</a>
+  					</div> -->
   				
   			</div>
   	
   	<!-- </div> -->
   </body>
+  <script src="js/myJS/curriculumResources.js"></script>
 </html>

@@ -90,9 +90,11 @@ public class MessageManage implements IMessageManage{
 	 */  
 	@Override
 	public String findAllHomePageMessage(Message message) {
-		String sql = "select id,content,createTime,reply,employeeID,replyTime,status,courseID "
-				   + " from message "
-				   + " where message.courseID = "+message.getCourseID()+";";
+		String sql = "select message.id,content,createTime,reply,employee.name as replyEmployee,replyTime,status,courseID "
+				   + " from message,employee "
+				   + " where message.courseID = "+message.getCourseID()+""
+				   		+ " and message.employeeID = employee.id"
+				   		+ ";";
 		
 		System.out.println("要执行的sql为:"+sql);
 		

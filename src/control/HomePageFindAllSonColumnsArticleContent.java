@@ -35,6 +35,7 @@ public class HomePageFindAllSonColumnsArticleContent extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		String articleTitle = request.getParameter("articleTitle");
+		System.out.println(articleTitle);
 		Article article = new Article();
 		article.setTitle(articleTitle);
 		

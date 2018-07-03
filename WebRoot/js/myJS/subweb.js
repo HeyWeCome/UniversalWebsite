@@ -167,3 +167,7 @@ function getArticleContent(title){
     	}
     });
 }
+/*function clean(){
+	document.getElementById("columns10001").innerHTML="";
+	$('#columns10001').html("");
+}*/

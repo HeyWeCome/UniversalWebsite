@@ -42,16 +42,30 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		String articleTitle = "进化论";
-		Article article = new Article();
-		article.setTitle(articleTitle);
+		// 获取到前台传过来的课程
+		String courseName = "数据结构";
 
-		ArticleManage articleManage = new ArticleManage();
-		String result = articleManage.findhomePageArticleContent(article);
+		// 根据课程名查询课程ID
+		String sql1 = SpecificDao.findIDFromTable(courseName, "course");
+
+		Integer courseID = 0;
+		try {
+			courseID = DBUtil.findID(sql1);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Message message = new Message();
+		message.setCourseID(courseID);
+
+		MessageManage manage = new MessageManage();
+		String result = manage.findAllHomePageMessage(message);
 
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
-			System.out.println("文章内容 are:"+fromObject.toString());
+			System.out.println("留言为 :"+fromObject.toString());
 //			response.getWriter().print(fromObject);
 		}else{
 //			response.getWriter().print(""); 
