@@ -82,7 +82,7 @@ public class HomePageFindAllSonColumns extends HttpServlet {
 			}
 			
 		}else{
-			
+			response.getWriter().print("");
 		}
 	}
 

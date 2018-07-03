@@ -72,7 +72,7 @@ System.out.println("课程负责人："+principal);
     	   	
     	<div class="introduction" id="columns10001" >
     		<div class="introductionLeftMenu">
-    			<div class="introductionTtileText" id="introductionTtileText" onclick="aa()"><p>课程介绍</p></div>
+    			<div class="introductionTtileText" id="introductionTtileText"><p>课程介绍</p></div>
     			<div class="putSonColumns" id="putSonColumns"></div>
     		</div>
     	

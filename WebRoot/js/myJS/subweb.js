@@ -78,7 +78,7 @@ function showColumn(id){
 function getCourseSonColumns(courseName,parentColumnsName){
 	//alert("courseName:"+courseName);
 	//alert("parentColumnsName:"+parentColumnsName);
-	alert("进入")
+	//alert("进入")
 	$.ajax({    		
         url:"control/HomePageFindAllSonColumns",//servlet文件的名称  
         type:"POST",  
@@ -90,18 +90,21 @@ function getCourseSonColumns(courseName,parentColumnsName){
         //data:{"questionnaireId":"<%=questionnaireId%>"},
         success:function(data){
         	//alert(data1);
-        	alert("成功返回");
-        	var content='';
-        	for(var i=0;i<data.length;i++){
-        		content+=connectSonColumns(data[i],i,courseName);
-        	}
-        	//alert(content)
-        	document.getElementById("putSonColumns").innerHTML=content
+        	//alert("成功返回");
+        	//if(data!=0){
+        		var content='';
+            	for(var i=0;i<data.length;i++){
+            		content+=connectSonColumns(data[i],i,courseName);
+            	}
+            	//alert(content)
+            	document.getElementById("putSonColumns").innerHTML=content
+        	//}
+        	
         },
-        error: function (msg) {//ajax请求失败后触发的方法
+        /*error: function (msg) {//ajax请求失败后触发的方法
 	    	 	alert("请求失败");
 	    	 	console.log(msg)
-	     	}
+	     	}*/
     });	
 	//alert(courseName);
 }
@@ -118,6 +121,25 @@ function connectSonColumns(data,i,courseName){
 }
 
 function getArticleTitle(courseName,id){
+	$.ajax({    		
+        url:"control/???",//servlet文件的名称  
+        type:"POST",  
+        dataType:"json",
+        data:{
+        	"courseSonColumnsId":id
+        	},
+        //data:{"questionnaireId":"<%=questionnaireId%>"},
+        success:function(data){
+        	var content='';
+        	for(var i=0;i<data.length;i++){
+        		content+=connectArticleTitle(data);
+        	}
+        	
+    	}
+    });
+}
+
+function connectArticleTitle(data){
 	
 }
 /*function clean(){
