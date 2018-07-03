@@ -145,6 +145,11 @@
     <servlet-name>DeleteColumns</servlet-name>
     <servlet-class>control.DeleteColumns</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>HomePageFindAllSonColumns</servlet-name>
+    <servlet-class>control.HomePageFindAllSonColumns</servlet-class>
+  </servlet>
+
 
 
 
@@ -322,6 +327,10 @@
   <servlet-mapping>
     <servlet-name>DeleteColumns</servlet-name>
     <url-pattern>/control/DeleteColumns</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HomePageFindAllSonColumns</servlet-name>
+    <url-pattern>/control/HomePageFindAllSonColumns</url-pattern>
   </servlet-mapping>
 
 </web-app>

@@ -1,51 +1,41 @@
 /**
  * 
  */
-package annotation;
+package control;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import dao.SpecificDao;
-import entity.Article;
-import entity.Columns;
 import entity.CourseColumns;
-import entity.Employee;
-import entity.Message;
-import entity.Module;
-import entity.Permission;
-import entity.Role;
-import entity.SonColumns;
-import entity.SonModule;
 import service.CourseColumns.CourseColumnsManage;
-import service.account.AccountManage;
-import service.article.ArticleManage;
-import service.columns.ColumnsManage;
-import service.course.CourseManage;
-import service.employee.EmployeeManage;
-import service.message.MessageManage;
-import service.module.ModuleManage;
-import service.permission.PermissionManage;
-import service.role.RoleManage;
 import util.DBUtil;
 
-/**
- * 
- * @ClassName:     Main.java 
- * @Description:   测试类记得删除
+/** 
+ * @ClassName:     HomePageFindAllSonColumns.java 
+ * @Description:   找到给定课程对呀的所有子栏目
  * @author         Vico.Ho 
  * @version        V1.0   
- * @Date           2018年6月29日 下午2:56:50
+ * @Date           2018年7月3日 下午2:34:29  
  */
-public class Main {
-	public static void main(String[] args){
+public class HomePageFindAllSonColumns extends HttpServlet {
+
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 解决前后乱码问题
+		response.setContentType("text/json");
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+
 		// 获取到前台传过来的课程
-		String courseName = "数据结构";
+		String courseName = request.getParameter("courseName");
 		// 获取到前台传过来的父栏目的名称
-		String parentColumnsName = "课程介绍";
+		String parentColumnsName = request.getParameter("parentColumnsName");
 
 		if(parentColumnsName.equals("课程介绍")){
 			// 根据课程名查询课程ID
@@ -71,15 +61,23 @@ public class Main {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
+			
 			CourseColumns courseColumns = new CourseColumns();
-
+			
 			courseColumns.setColumnsID(columnsID);
 			courseColumns.setCourseID(courseID);
-
+			
 			CourseColumnsManage manage = new CourseColumnsManage();
 			String result = manage.findSoncolumns(courseColumns);
-			System.out.println(result.toString());
+			
+		}else{
+			
 		}
 	}
+
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request,response);
+	}
+
 }

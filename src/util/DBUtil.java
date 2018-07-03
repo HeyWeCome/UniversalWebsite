@@ -17,7 +17,7 @@ public class DBUtil {
 
 		// 换成你们各自对应的账号密码
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "123456";
 
 		Class.forName(driverName);
 
@@ -822,6 +822,45 @@ public class DBUtil {
 					+"\",\"parentStatus\":\""+parentStatus					
 					+"\",\"sonName\":\""+sonName
 					+"\",\"sonStatus\":\""+sonStatus
+					+"\"},";
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
+	}
+	
+	/**
+	 * 
+	 * @Title:        homePagefindAllSonColumns  
+	 * @Description:  
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 下午3:03:39
+	 */
+	public static String homePagefindAllSonColumns(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			String id = result.getString("id");
+			String name = result.getString("name");
+			
+			returnResult += "{\"id\":\""+id
+					+"\",\"name\":\""+name					
 					+"\"},";
 		}
 
