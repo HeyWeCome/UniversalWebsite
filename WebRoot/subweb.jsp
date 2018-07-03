@@ -59,6 +59,19 @@ System.out.println("课程负责人："+principal);
     			</div>
     		</div>
     	
+    		<div class="introductionRight" id="introductionRight">   		
+    			<div class="introductionrightTitle">
+		   			<div class="titTop">
+		   				<div class="rightTitleText" id="rightTitleText"></div>
+		   				<div class="showPosition" id="showPosition"></div>
+		   			</div>	
+		   			<div class="line3"></div>
+    			</div>
+    			
+    			<div class="putTitleAndContent" id="putTitleAndContent">
+    			</div>
+    			
+    		</div>
     	</div>
     	
     	

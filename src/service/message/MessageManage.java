@@ -82,4 +82,27 @@ public class MessageManage implements IMessageManage{
 		return 0;
 	}
 
+	/**  
+	 * @Title:        findAllHomePageMessage  
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 下午5:24:50  
+	 */  
+	@Override
+	public String findAllHomePageMessage(Message message) {
+		String sql = "select id,content,createTime,reply,employeeID,replyTime,status,courseID "
+				   + " from message "
+				   + " where message.courseID = "+message.getCourseID()+";";
+		
+		System.out.println("要执行的sql为:"+sql);
+		
+		try {
+			String result = DBUtil.findAllHomePageMessage(sql);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

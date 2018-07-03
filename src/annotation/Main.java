@@ -42,44 +42,19 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		// 获取到前台传过来的课程
-		String courseName = "数据结构";
-		// 获取到前台传过来的父栏目的名称
-		String parentColumnsName = "课程介绍";
+		String articleTitle = "进化论";
+		Article article = new Article();
+		article.setTitle(articleTitle);
 
-		if(parentColumnsName.equals("课程介绍")){
-			// 根据课程名查询课程ID
-			String sql1 = SpecificDao.findIDFromTable(courseName, "course");
+		ArticleManage articleManage = new ArticleManage();
+		String result = articleManage.findhomePageArticleContent(article);
 
-			Integer courseID = 0;
-			try {
-				courseID = DBUtil.findID(sql1);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			// 根据父栏目名查询父栏目ID
-			String sql2 = SpecificDao.findIDFromTable(parentColumnsName, "columns");
-
-			Integer columnsID = 0;
-			try {
-				columnsID = DBUtil.findID(sql2);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			CourseColumns courseColumns = new CourseColumns();
-
-			courseColumns.setColumnsID(columnsID);
-			courseColumns.setCourseID(courseID);
-
-			CourseColumnsManage manage = new CourseColumnsManage();
-			String result = manage.findSoncolumns(courseColumns);
-			System.out.println(result.toString());
+		if(!result.isEmpty()){
+			JSONArray fromObject = (JSONArray) JSON.parse(result);
+			System.out.println("文章内容 are:"+fromObject.toString());
+//			response.getWriter().print(fromObject);
+		}else{
+//			response.getWriter().print(""); 
 		}
 	}
 }

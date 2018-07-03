@@ -14,4 +14,5 @@ import entity.CourseColumns;
  */
 public interface ICourseColumnsManage {
 	String findSoncolumns(CourseColumns courseColumns);
+	String findAllResources(CourseColumns courseColumns);
 }

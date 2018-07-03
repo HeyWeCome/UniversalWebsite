@@ -17,4 +17,5 @@ public interface IMessageManage {
 	String findAllMessage();
 	Integer updateMessage(Message message);
 	Integer deleteMessage(Message message);
+	String findAllHomePageMessage(Message message);
 }
