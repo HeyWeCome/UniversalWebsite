@@ -1,7 +1,8 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -9,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'MyJsp.jsp' starting page</title>
+    <title>通用课程主首页</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -19,10 +20,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<script src="js/jquery-2.1.1.min.js"></script>
 
   </head>
   
-  <body>
-    This is my JSP page. <br>
+  <body onload="showCourse()">
+    <div class="allCourse" id="allCourse"></div>
+    <!-- <button onclick="window.location.href='subweb.jsp'">aa</button> -->
   </body>
+  
+  <script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script src="js/myJS/homePage.js"></script>
 </html>

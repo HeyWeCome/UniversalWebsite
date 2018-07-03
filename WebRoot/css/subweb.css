@@ -17,7 +17,7 @@ body {
 	/* position:relative; */
 }
 .logo{
-	width: 30%;
+	width: 70%;
     height: 100px;
     padding-left: 15%;
     padding-top: 1%;
@@ -32,6 +32,13 @@ body {
     font-size: 45px;
     margin-top: 20px;
     margin-left: 5px;
+}
+.courseText{
+	float: left;
+    font-size: 30px;
+    margin-top: 40px;
+    margin-left: 100px;
+    font-family: "NSimSun";
 }
 .topMenu{
 	width:70%;
@@ -91,10 +98,40 @@ body {
 }
 .parentColumns{
 	width: 100px;
-    height: 30px;
-    margin-left: 4px;
-    margin-top: 3px;
+    height: 33px;
+    margin-left: 12px;
+    /* margin-top: 3px; */
     background-color: #337ab7;
     border: 0;
     color: #fff;
+}
+.briefIntroduction{
+	width: 60%;
+    height: 200px;
+    background-color: #b0c4de78;
+    float: left;
+    margin-left: 20px;
+    margin-top:10px;
+    border-radius: 20px;
+}
+.line1{
+	width: 95%;
+	height:2px;
+	background-color:#b0c4de;
+	margin-top: 3px;
+}
+.line2{
+	width: 93%;
+	height:2px;
+	background-color:#b0c4de;
+	margin-top: 3px;
+}
+.coursePrincipal{
+	width:30%;
+	height:200px;
+	background-color: #b0c4de78;
+	float:left;
+	margin-left: 70px;
+	margin-top:10px;
+	border-radius: 20px;
 }
