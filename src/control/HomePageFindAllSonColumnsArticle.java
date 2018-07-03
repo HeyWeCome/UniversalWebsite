@@ -41,7 +41,6 @@ public class HomePageFindAllSonColumnsArticle extends HttpServlet {
 		
 		ColumnsManage manage = new ColumnsManage();
 		String result = manage.findAllArticle(soncolumns);
-		System.out.println("result");
 		
 		if(!result.isEmpty()){
 			JSONArray fromObject = (JSONArray) JSON.parse(result);
