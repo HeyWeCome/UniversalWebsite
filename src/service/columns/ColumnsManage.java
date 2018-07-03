@@ -234,7 +234,8 @@ public class ColumnsManage implements IColumnsManage{
 	public String findAllArticle(SonColumns soncolumns) {
 		String sql = "select article.title "
 				+ " from article,soncolumns "
-				+ "where soncolumns.id = article.columnID;";
+				+ "where soncolumns.id = article.columnID "
+				+ "and soncolumns.id = "+soncolumns.getId()+";";
 		
 		System.out.println("sql:"+sql);
 		try {

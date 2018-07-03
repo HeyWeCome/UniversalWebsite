@@ -35,7 +35,7 @@ public class HomePageFindAllSonColumnsArticle extends HttpServlet {
 		
 		// 获取到课程传递过来的子栏目的ID
 		Integer courseSonColumnsId = Integer.parseInt(request.getParameter("courseSonColumnsId"));
-		
+		System.out.println("子栏目ID"+courseSonColumnsId);
 		SonColumns soncolumns = new SonColumns();
 		soncolumns.setId(courseSonColumnsId);
 		
