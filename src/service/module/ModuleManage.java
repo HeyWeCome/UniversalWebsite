@@ -29,7 +29,7 @@ public class ModuleManage implements IModuleManage{
 	 */
 	public String findAllModule() {
 		String result = null;
-		String sql = SpecificDao.selectAllFromTable("module");
+		String sql = SpecificDao.selectAllModule();
 		System.out.println("sql为:"+sql);
 		try {
 			result = DBUtil.findAllModule(sql);

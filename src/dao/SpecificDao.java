@@ -51,6 +51,10 @@ public class SpecificDao {
 		return "select * from "+tableName+";";
 	}
 
+	public static String selectAllModule(){
+		return "select * from module where status = '1';";
+	}
+	
 	/**
 	 * 
 	 * @Title:        selectAccessSonColumns  
@@ -67,6 +71,7 @@ public class SpecificDao {
 				+ "from employee,role,permission,sonmodule "
 				+ "where employee.roleID = role.id "
 				+ "and role.id = permission.roleID "
+				+ "and status ='1' "
 				+ "and employee.name = '"+userName+"' "
 				+ "and permission.moduleID = sonmodule.id;";
 	}
