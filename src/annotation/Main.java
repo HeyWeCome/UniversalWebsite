@@ -42,29 +42,21 @@ import util.DBUtil;
  */
 public class Main {
 	public static void main(String[] args){
-		// 获取到前台传过来的课程
-		String courseName ="数据结构";
-
-		// 根据课程名查询课程ID
-		String sql1 = SpecificDao.findIDFromTable(courseName, "course");
-
-		Integer courseID = 0;
-		try {
-			courseID = DBUtil.findID(sql1);
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// 新建课程栏目对象
-		CourseColumns courseColumns = new CourseColumns();
-
-		courseColumns.setCourseID(courseID);
-
-		CourseColumnsManage manage = new CourseColumnsManage();
-		String result = manage.findAllResources(courseColumns);
-
-		System.out.println("result为:"+result);
+		// 获取到课程传递过来的子栏目的ID
+				Integer courseSonColumnsId = 10001;
+				
+				SonColumns soncolumns = new SonColumns();
+				soncolumns.setId(courseSonColumnsId);
+				
+				ColumnsManage manage = new ColumnsManage();
+				String result = manage.findAllArticle(soncolumns);
+				
+				if(!result.isEmpty()){
+					JSONArray fromObject = (JSONArray) JSON.parse(result);
+					System.out.println("couserSonColumns are:"+fromObject.toString());
+//					response.getWriter().print(fromObject);
+				}else{
+//					response.getWriter().print(""); 
+				}
 	}
 }

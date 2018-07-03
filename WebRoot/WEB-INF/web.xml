@@ -161,6 +161,11 @@
     <servlet-name>SourceFileDownload</servlet-name>
     <servlet-class>control.SourceFileDownload</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>HomePageFindAllSonColumnsArticle</servlet-name>
+    <servlet-class>control.HomePageFindAllSonColumnsArticle</servlet-class>
+  </servlet>
+
 
 
 
@@ -358,6 +363,10 @@
   <servlet-mapping>
     <servlet-name>SourceFileDownload</servlet-name>
     <url-pattern>/control/SourceFileDownload</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HomePageFindAllSonColumnsArticle</servlet-name>
+    <url-pattern>/control/HomePageFindAllSonColumnsArticle</url-pattern>
   </servlet-mapping>
 
 </web-app>

@@ -926,4 +926,41 @@ public class DBUtil {
 
 		return returnResult;
 	}
+	
+	/**
+	 * 
+	 * @Title:        findAllArticle 
+	 * @Description:  TODO(这里用一句话描述这个方法的作用)  
+	 * @param:        @param sql
+	 * @param:        @return
+	 * @param:        @throws Exception     
+	 * @return:       String     
+	 * @throws  
+	 * @author        Vico.Ho 
+	 * @Date          2018年7月3日 下午4:57:01
+	 */
+	public static String findhomePageAllArticle(String sql) throws Exception{
+		Connection connection = getConnection();
+		String returnResult = "";
+		Statement statement = connection.createStatement();
+
+		ResultSet result = statement.executeQuery(sql);
+		returnResult += "[";
+
+		while(result.next()){
+			String title = result.getString("title");
+			
+			returnResult += "{\"title\":\""+title			
+					+"\"},";
+		}
+
+		returnResult = returnResult.substring(0,returnResult.length()-1);
+		returnResult += "]";
+		// 关闭相应的链接
+		result.close();
+		statement.close();
+		connection.close();
+
+		return returnResult;
+	}
 }
