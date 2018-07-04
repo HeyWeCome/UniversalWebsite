@@ -59,9 +59,9 @@ public class DeleteArticle extends HttpServlet {
 		
 		// 删除成功返回1 删除失败返回0
 		Integer result = articleManage.DeleteArticle(article);
-		
-		response.getWriter().println(result);
 		System.out.println("删除的结果为:"+result);
+		response.getWriter().println(result);
+		
 	}
 
 

@@ -34,10 +34,17 @@ window.operateEvents5 = {
                 },
                 //data:{"questionnaireId":"<%=questionnaireId%>"},
                 success:function(data1){
-                	if(data==1){alert("删除成功!");$('#messageTable').bootstrapTable('refresh', null);}
-                	else if(data==0){alert("删除失败!");$('#messageTable').bootstrapTable('refresh', null);}
-                }
+                	alert(data1);
+                	$('#messageTable').bootstrapTable('refresh', null);
+                	if(data1==1){alert("删除成功!");$('#messageTable').bootstrapTable('refresh', null);}
+                	else if(data1==0){alert("删除失败!");$('#messageTable').bootstrapTable('refresh', null);}
+                },
+                error: function (msg) {//ajax请求失败后触发的方法
+       	    	 	alert("请求失败");
+       	    	 	console.log(msg);
+       	     	}
             });
+        	$('#messageTable').bootstrapTable('refresh', null);
         }
     }
 }
@@ -65,7 +72,7 @@ function deletesMessage(){
 	                success:function(data1){
 	                	//alert("删除成功！");
 	                	a=data1;
-	                	$('#articleTable').bootstrapTable('refresh', null);
+	                	$('#messageTable').bootstrapTable('refresh', null);
 	                },
 	                error: function (msg) {//ajax请求失败后触发的方法
 	       	    	 	alert("请求失败");
@@ -74,7 +81,7 @@ function deletesMessage(){
 	    		});
 	    	}
 	    	alert("删除成功!");
-	    	if(a==1){alert("删除成功!");$('#articleTable').bootstrapTable('refresh', null);}
+	    	if(a==1){alert("删除成功!");$('#messageTable').bootstrapTable('refresh', null);}
 	    	else if(a==0){alert("删除失败!");}
 	    }
 }
