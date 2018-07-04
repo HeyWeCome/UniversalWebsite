@@ -336,3 +336,18 @@ body {
 	float:left;
 	/* background-color:#666 */
 }
+.teachingTeam p{
+	width: 90%;
+    margin-left: 5%;
+    padding-top: 20px;
+}
+.courseConstruction p{
+	width: 90%;
+    margin-left: 5%;
+    padding-top: 20px;
+}
+.courseResearch p{
+	width: 90%;
+    margin-left: 5%;
+    padding-top: 20px;
+}
