@@ -274,12 +274,21 @@ function getResource(title,name){
 
 	var resource = '<div class="showResource"><img src="'+image+'" alt="txt下载" />'+
 	'<p>文章名称：'+title+'</p><p>资源名称：'+name+'</p>'+
-	'<a onclick="downloadResource(&quot;'+name+'&quot;)";>点击下载</a></div>';
+	'<p  style="color:red;cursor:pointer" onclick="downloadResource(&quot;'+name+'&quot;)";>点击下载</p></div>';
 	return resource;
 }
 
 function downloadResource(name){
-	$.ajax({    		
+	var resource = document.createElement("form");
+	
+	resource.action = "control/SourceFileDownload?name="+name;
+	resource.method = "post";
+	
+	console.log("action:"+resource.action);
+	document.body.appendChild(resource);
+	resource.submit();
+	
+	/*$.ajax({    		
 		url:"control/SourceFileDownload",//servlet文件的名称  
 		type:"POST",  
 		dataType:"json",
@@ -294,7 +303,7 @@ function downloadResource(name){
 			alert("请求失败");
 			console.log(msg);
 		}
-	});
+	});*/
 }
 
 function confirmEnding(name) {
