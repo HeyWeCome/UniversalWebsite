@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+
 import dao.SpecificDao;
 import entity.CourseColumns;
 import service.CourseColumns.CourseColumnsManage;
@@ -56,7 +59,13 @@ public class HomePageFindAllResource extends HttpServlet {
 		CourseColumnsManage manage = new CourseColumnsManage();
 		String result = manage.findAllResources(courseColumns);
 		
-		System.out.println("result为:"+result);
+		if(!result.isEmpty()){
+			JSONArray fromObject = (JSONArray) JSON.parse(result);
+			System.out.println("result为:"+fromObject.toString());
+			response.getWriter().print(fromObject);
+		}else{
+			response.getWriter().print(""); 
+		}
 	}
 
 

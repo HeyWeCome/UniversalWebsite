@@ -329,3 +329,10 @@ body {
 	margin-top: 4px;
 	margin-left: 10px;
 }
+
+.showResource{
+	width:230px;
+	height:230px;
+	float:left;
+	/* background-color:#666 */
+}
