@@ -235,7 +235,8 @@ public class ColumnsManage implements IColumnsManage{
 		String sql = "select article.title "
 				+ " from article,soncolumns "
 				+ "where soncolumns.id = article.columnID "
-				+ "and soncolumns.id = "+soncolumns.getId()+";";
+				+ "and soncolumns.id = "+soncolumns.getId()+""
+						+ " and article.status = '1';";
 		
 		System.out.println("sql:"+sql);
 		try {
