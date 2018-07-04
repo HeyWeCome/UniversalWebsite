@@ -36,7 +36,8 @@ public class SourceFileDownload extends HttpServlet {
 
 		// 获取到文件名
 		String name = request.getParameter("name");
-
+		System.out.println("name为"+name);
+		
 		// 根据课程名查询课程ID
 		String sql1 = SpecificDao.findFilePath(name);
 		System.out.println("要执行的sql为:"+sql1);
@@ -95,7 +96,8 @@ public class SourceFileDownload extends HttpServlet {
 
 		inStream.close();
 		outStream.close();
-
+		
+//		response.getWriter().println(1);
 
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
